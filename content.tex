@@ -35,27 +35,112 @@ Poniżej zostały przedstawione wskaźniki jakości typu NR.
 
 %\let\labelitemi\labelitemii
 \begin{itemize}[label=$\bullet$]
-\item Blokowosć({\em ang. Blockiness}) -- powstaje podczas procesu kwantyzacji bloków pikseli i objawia się poprzez zauważalną granice między tymi blokami\cite{blockiness}. W niniejszej pracy została przyjęta skala 0-3570. Im większa wartoć, tym mniej widoczne zakłócenie. Dla obrazu bez zakłóceń około 0.9-1.01\cite{agh_vqm}
+\item Blokowosć({\em ang. Blockiness}) -- powstaje podczas procesu kwantyzacji bloków pikseli i objawia się poprzez zauważalną granice między tymi blokami\cite{blockiness}. Skala przyjęta w pracy: 0-3570. Im większa wartoć, tym mniej widoczne zakłócenie. Dla obrazu bez zakłóceń około 0.9-1.01\cite{agh_vqm}
 \begin{figure}[h]
-\centerline{\includegraphics[scale=0.5]{blockiness}}
+\centerline{\includegraphics[ height=5cm, width=9cm]{blockiness}}
 \caption{Przykładowy obraz z zakłóceniami spowodowanymi blokowoscią\cite{agh_vqm}}
 \label{fig:xccs}
 \end{figure}
 
-\item spatialact
-\item letterbox 
+\item Aktywność Przestrzenna ({\em ang. Spatial Activity}) - opisuje położenie obiektu na ramce oraz jego relacje z innymi obiektami. Pozwala rozróżnić czy aktywnosć na danym wideo jest czynnascią statyczną(osoba wykonująca czynnoć pozostaje w jednym miejscu) czy mobilną (osoba wykonująca czynnsć porusza się wzdłuz pola widzenia)\cite{spactial_act}.  Skala przyjęta w pracy: 0-270. Im większa wartosć tym większa aktywnosc przestrzenna\cite{agh_vqm}
+\begin{figure}[h]
+\centerline{\includegraphics[ height=5cm, width=9cm]{spatialAC}}
+\caption{Przykład detekcji obiektów w ramce, niezbędne do otrzymania informacji o aktywnosci przestrzennej\cite{agh_vqm}}
+\label{fig:xccs}
+\end{figure}
+\item letterbox - jest techniką pozwalającą na wywietlanie obrazów o wyższym współczynniku proporcji  na odbiornikach o mniejszym współczynniku proporcji. Polega ona na dołożeniu dwóch czarnych pasów na górze i dole ramki.\cite{letterboxing}
+
+\begin{figure}[h]
+\centerline{\includegraphics[ height=5cm, width=9cm]{letterboxingC}}
+\caption{opis\cite{agh_vqm}}
+\label{fig:xccs}
+\end{figure} 
+
 \item pillarbox 
-\item blockloss 
-\item blur(rozmaranie) 
+\begin{figure}[h]
+\centerline{\includegraphics[ height=5cm, width=9cm]{pillarboxing}}
+\caption{opis\cite{agh_vqm}}
+\label{fig:xccs}
+\end{figure}
+
+\item blockloss
+\begin{figure}[h]
+\centerline{\includegraphics[ height=5cm, width=9cm]{block_lossC}}
+\caption{opis\cite{agh_vqm}}
+\label{fig:xccs}
+\end{figure} 
+
+\item blur(blur)
+\begin{figure}[h]
+\centerline{\includegraphics[ height=5cm, width=9cm]{spatialAC}}
+\caption{opis\cite{agh_vqm}}
+\label{fig:xccs}
+\end{figure} 
+
 \item temporalac
-\item blockout 
+\begin{figure}[h]
+\centerline{\includegraphics[ height=5cm, width=9cm]{temporalAC}}
+\caption{opis\cite{agh_vqm}}
+\label{fig:xccs}
+\end{figure}
+
+
+\item blockout
+\begin{figure}[h]
+\centerline{\includegraphics[ height=5cm, width=9cm]{blackout}}
+\caption{opis\cite{agh_vqm}}
+\label{fig:xccs}
+\end{figure} 
+
 \item freezing 
-\item exposure 
-\item contrast 
+\begin{figure}[h]
+\centerline{\includegraphics[ height=5cm, width=9cm]{spatialAC}}
+\caption{opis\cite{agh_vqm}}
+\label{fig:xccs}
+\end{figure}
+
+\item exposure
+\begin{figure}[h]
+\centerline{\includegraphics[ height=5cm, width=9cm]{exp}}
+\caption{opis\cite{agh_vqm}}
+\label{fig:xccs}
+\end{figure}
+ 
+\item contrast
+\begin{figure}[h]
+\centerline{\includegraphics[ height=5cm, width=9cm]{contrastC}}
+\caption{opis\cite{agh_vqm}}
+\label{fig:xccs}
+\end{figure}
+ 
 \item brightness
-\item interlace 
-\item noise 
-\item slice 
+\begin{figure}[h]
+\centerline{\includegraphics[ height=5cm, width=9cm]{brightness}}
+\caption{opis\cite{agh_vqm}}
+\label{fig:xccs}
+\end{figure}
+
+\item interlace
+\begin{figure}[h]
+\centerline{\includegraphics[ height=5cm, width=9cm]{interlace2C}}
+\caption{opis\cite{agh_vqm}}
+\label{fig:xccs}
+\end{figure}
+ 
+\item noise
+\begin{figure}[h]
+\centerline{\includegraphics[ height=5cm, width=9cm]{noiseC}}
+\caption{opis\cite{agh_vqm}}
+\label{fig:xccs}
+\end{figure}
+ 
+\item slice
+\begin{figure}[h]
+\centerline{\includegraphics[ height=5cm, width=9cm]{slicingC}}
+\caption{opis\cite{agh_vqm}}
+\label{fig:xccs}
+\end{figure}
+ 
 \item flickering
 \end{itemize}
 
