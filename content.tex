@@ -23,7 +23,7 @@ W niniejszym rozdziale przedstawiono najważniejsze zagadnienia dla przeprowadzo
 \section{Wideo}
 
 <definicja ciężko znaleźć :( >
-Wideo jest formą elektronicznego zapisu sygnału wizji (analogowego bądź cyfrowego). W swojej surowej postaci jest to sekwencja pojedynczych ramek. Takie pliki zajmują bardzo dużo przestrzeni dyskowej. Przykładowo obraz o rozdzielczości 1920x1080 z 24 ramkami na sekundę o długości 30 sekund zajmuje ponad \todo{sprawdzić ile dokładnie}20 GB w pamięci komputera. Tak duże rozmiary znacząco ograniczają możliwości przechowywania i transmisji dla zwykłych użytkowników. Dlatego praktycznie każdy plik wideo wykorzystuje kodeki, czyli pewne ustandaryzowane zasady kompresji/dekompresji. Do najpopularniejszych należą H.265 i H.264 powszechnie używany w Internecie do transmitowania multimediów \cite{video_codecs}. Błędy podczas tego procesu mogą powodować powstanie zakłóceń w odtwarzanym obrazie. Aby mierzyć poziom uszkodzeń oraz monitorować stan wideo badacze zdefiniowali wiele metryk.\par.
+Wideo jest formą elektronicznego zapisu sygnału wizji (analogowego bądź cyfrowego). W swojej surowej postaci jest to sekwencja pojedynczych ramek. Takie pliki zajmują bardzo dużo przestrzeni dyskowej. Przykładowo obraz o rozdzielczości 1920x1080 z 24 ramkami na sekundę o długości 30 sekund zajmuje ponad \todo{sprawdzić ile dokładnie}20 GB w pamięci komputera. Tak duże rozmiary znacząco ograniczają możliwości przechowywania i transmisji dla zwykłych użytkowników. Dlatego praktycznie każdy plik wideo wykorzystuje kodeki, czyli pewne ustandaryzowane zasady kompresji/dekompresji. Do najpopularniejszych należą H.265 i H.264 powszechnie używany w Internecie do transmitowania multimediów \cite{video_codecs}. Błędy podczas tego procesu, transmisji czy nagrywania  mogą powodować powstanie zaburzeń w odtwarzanym obrazie. Aby mierzyć poziom uszkodzeń oraz monitorować stan wideo badacze zdefiniowali wiele metryk.\par.
 
 \section{Metryki}
 %https://books.google.se/books?id=JbtPCwAAQBAJ&pg=PA32&dq=video++quality+metrics+full+reference&hl=en&sa=X&ved=0ahUKEwi4wtGc2YfiAhWx-ioKHZJtAtcQ6AEIKjAA#v=onepage&q=video%20%20quality%20metrics%20full%20reference&f=false
@@ -37,69 +37,64 @@ Poniżej zostały przedstawione wskaźniki jakości typu NR.
 \begin{itemize}[label=$\bullet$]
 \item Blokowosć({\em ang. Blockiness}) -- powstaje podczas procesu kwantyzacji bloków pikseli i objawia się poprzez zauważalną granice między tymi blokami\cite{blockiness}. Skala przyjęta w pracy: 0-3570. Im większa wartoć, tym mniej widoczne zakłócenie. Dla obrazu bez zakłóceń około 0.9-1.01\cite{agh_vqm}
 \begin{figure}[h]
-\centerline{\includegraphics[ height=5cm, width=9cm]{blockiness}}
-\caption{Przykładowy obraz z zakłóceniami spowodowanymi blokowoscią\cite{agh_vqm}}
-\label{fig:xccs}
+	\centerline{\includegraphics[ height=5cm, width=9cm]{blockiness}}
+	\caption{Przykładowy obraz z zakłóceniami spowodowanymi blokowoscią\cite{agh_vqm}}
+	\label{fig:xccs}
 \end{figure}
 
 \item Aktywność Przestrzenna ({\em ang. Spatial Activity}) - opisuje położenie obiektu na ramce oraz jego relacje z innymi obiektami. Pozwala rozróżnić czy aktywnosć na danym wideo jest czynnascią statyczną(osoba wykonująca czynnoć pozostaje w jednym miejscu) czy mobilną (osoba wykonująca czynnsć porusza się wzdłuz pola widzenia)\cite{spactial_act}.  Skala przyjęta w pracy: 0-270. Im większa wartosć tym większa aktywnosc przestrzenna\cite{agh_vqm}
 \begin{figure}[h]
-\centerline{\includegraphics[ height=5cm, width=9cm]{spatialAC}}
-\caption{Przykład detekcji obiektów w ramce, niezbędne do otrzymania informacji o aktywnosci przestrzennej\cite{agh_vqm}}
-\label{fig:xccs}
-\end{figure}
-\item letterbox - jest techniką pozwalającą na wywietlanie obrazów o wyższym współczynniku proporcji  na odbiornikach o mniejszym współczynniku proporcji. Polega ona na dołożeniu dwóch czarnych pasów na górze i dole ramki.\cite{letterboxing}
-
-\begin{figure}[h]
-\centerline{\includegraphics[ height=5cm, width=9cm]{letterboxingC}}
-\caption{opis\cite{agh_vqm}}
-\label{fig:xccs}
-\end{figure} 
-
-\item pillarbox 
-\begin{figure}[h]
-\centerline{\includegraphics[ height=5cm, width=9cm]{pillarboxing}}
-\caption{opis\cite{agh_vqm}}
-\label{fig:xccs}
+	\centerline{\includegraphics[ height=5cm, width=9cm]{spatialAC}}
+	\caption{Przykład detekcji obiektów w ramce, niezbędne do otrzymania informacji o aktywnosci przestrzennej\cite{agh_vqm}}
+	\label{fig:xccs}
 \end{figure}
 
-\item blockloss
+\item letterbox i pillarbox - letterbox jest techniką pozwalającą na wywietlanie obrazów o wyższym współczynniku proporcji  na odbiornikach o mniejszym współczynniku. Polega ona na dołożeniu dwóch czarnych pasów na górze i dole ramki.\cite{letterboxing}. Natomiast  pillarbox używane jest przy wywietlaniu obrazu w mniejszym współczynniku proporcji na okreanie o większym . Do obrazu dodawane są wtedy pasy po obu bokach ekarnu. Skala przyjęta w pracy 0-1.
+\begin{figure}[h]
+	\begin{subfigure}[b]{0.4\textwidth}
+		\centerline{\includegraphics[ height=5cm, width=9cm]{letterboxingC}}
+		\caption{opis\cite{agh_vqm}}
+		\label{fig:xccs}
+	\end{subfigure} 
+	\hfill
+	\begin{subfigure}[b]{0.4\textwidth}
+		\centerline{\includegraphics[ height=5cm, width=9cm]{pillarboxing}}
+		\caption{opis\cite{agh_vqm}}
+		\label{fig:xccs}
+	\end{subfigure}
+\end{figure}
+
+\item Straty bloków ({\em ang. blockloss}) - wskaźnik informujący o ilosci brkaujących bloków(używanych podczas DCT(Dyskretna transformacja kosinusowa)). Skal przyjęta w pracy: 0-200.Im większa wartoć tym większze zniekształcenie obrazu.
 \begin{figure}[h]
 \centerline{\includegraphics[ height=5cm, width=9cm]{block_lossC}}
 \caption{opis\cite{agh_vqm}}
 \label{fig:xccs}
 \end{figure} 
 
-\item blur(blur)
+\item Rozmycie ({\em ang. blur}) - Istenieje wiele rodzajów rozmycia, miedzy innnymi te niepożądane, występujące po przeprowadzeniu kompresj bądź przez poruszenie kamerypodczas nagrywania. Gdy występuje ten efekt  obiekty na obrazie tracą ostroć krawędzi.\cite{blur}. Skala przyjęta w pracy: 0-70.
 \begin{figure}[h]
-\centerline{\includegraphics[ height=5cm, width=9cm]{spatialAC}}
+\centerline{\includegraphics[ height=5cm, width=9cm]{blur}}
 \caption{opis\cite{agh_vqm}}
 \label{fig:xccs}
 \end{figure} 
 
-\item temporalac
+\item Aktywnsć czasowa({\em ang. Temporal activity}) -  opisuje intensuwnosć  ruchu obiektów w czasie.  Często łączone z wskaźnikim Aktywnoć przestrzenna. Skala przyjęta w pracy: 0-255.
 \begin{figure}[h]
 \centerline{\includegraphics[ height=5cm, width=9cm]{temporalAC}}
 \caption{opis\cite{agh_vqm}}
 \label{fig:xccs}
 \end{figure}
 
-
-\item blockout
+\item blackout - opisuje zjawisko kiedy obraz całkowicie zanika\cite{blackout}. Skal przyjęta w pracy : 0-1
 \begin{figure}[h]
 \centerline{\includegraphics[ height=5cm, width=9cm]{blackout}}
 \caption{opis\cite{agh_vqm}}
 \label{fig:xccs}
 \end{figure} 
 
-\item freezing 
-\begin{figure}[h]
-\centerline{\includegraphics[ height=5cm, width=9cm]{spatialAC}}
-\caption{opis\cite{agh_vqm}}
-\label{fig:xccs}
-\end{figure}
+\item Zamrożenie ({\em ang. freezing}) - Informuje o efekcie czasowego zatrzymania zatrzymania obrazu, które powoduje odczucie "przycięcia" wideo\cite{freezing}. Skala przyjęta w pracy:0-1.
 
-\item exposure
+\item Ekspozycja ({\em ang. exposure}) - ten typ zakłoeń jest spowodowany niezbilanowaną jasnoscią ramek. Widz ma odczucie ze wideo jest zbyt ciemna lub zbyt jasne\cite{freezing}. Skala przyjęta w badaniach 0-255.
 \begin{figure}[h]
 \centerline{\includegraphics[ height=5cm, width=9cm]{exp}}
 \caption{opis\cite{agh_vqm}}
