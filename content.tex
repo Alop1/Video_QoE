@@ -2,99 +2,105 @@
 \label{cha:pierwszyDokument}
 
 
-Pierwsze obrazy wideo powstały już na początku XX wieku i opierały się na mechanicznie obracających się dyskach. Technologia ta istniała głownie w sferze badań akademickich i nie zdominowała rynku. Dopiero z wprowadzeniem cathode-ray tube (CRT), wraz z telewizją analogową, wideo zaczęło być wykorzystywane komercyjnie. Z czasem rozwój technologii pozwolił na wprowadzenie telewizji cyfrowej, która zapewniała wyższą jakość obrazu oraz lepsze wykorzystanie zasobów. Wideo razem z audio okazały się również znakomitym środkiem wymiany informacji. Coraz częściej wykorzystywane do komunikacji w czasie rzeczywistym zastępując tradycyjne połączenie telefoniczne w biznesie oraz dla zwykłych użytkowników. Również rozwój na rynku telefonów wspomógł powszechność wideo. W momencie kiedy praktycznie każdy aparat zaczął posiadać kamerę, wideo zaczęło konkurować ze zdjęciami jako metoda na utrwalenia danej chwili. Codziennie tak rejestrowane obrazy są przekazywane do rodziny, znajomych oddalonych o tysiące kilometrów. Kolejnym przykładem kiedy wideo zastępuje tradycyjne formy przekazu są blogi internetowe do tej pory prowadzone na zasadzie artykułów/postów, teraz zaczęły wykorzystywać wideo jako metodę przekazu informacji.
+Pierwsze obrazy wideo powstały już na początku XX wieku i opierały się na mechanicznie obracających się dyskach. Technologia ta istniała głownie w sferze badań akademickich i nie zdominowała rynku. Dopiero z wprowadzeniem cathode-ray tube (CRT) wraz z telewizją analogową, wideo zaczęło być wykorzystywane komercyjnie. Z czasem rozwój technologii pozwolił na wprowadzenie telewizji cyfrowej, która zapewniała wyższą jakość obrazu oraz lepsze wykorzystanie zasobów. Wideo razem z audio okazały się również znakomitym środkiem wymiany informacji.Stały się coraz częściej wykorzystywane do komunikacji w czasie rzeczywistym zastępując tradycyjne połączenie telefoniczne w biznesie oraz dla zwykłych użytkowników. Również rozwój na rynku telefonów wspomógł powszechność wideo. W momencie kiedy praktycznie każdy aparat zaczął posiadać kamerę, wideo zaczęło konkurować ze zdjęciami jako metoda na utrwalenia chwili. Codziennie tak rejestrowane obrazy są przekazywane do rodziny, znajomych oddalonych o tysiące kilometrów. Kolejnym przykładem kiedy wideo zastępuje tradycyjne formy przekazu są blogi internetowe do tej pory prowadzone na zasadzie artykułów/postów, teraz zaczęły wykorzystywać wideo jako metodę przekazu informacji.
 
-Dzięki coraz większym przepustowością i szerokiemu dostępu do Internetu w najnowszych czasach wykreował się jeszcze inny trend sprawiający że obrazy wideo są bardziej popularne. Mowa tu o platformach streamingowych takich jak - YouTube, Netflix czy HBOgo. Pozwalają one użytkownikom na oglądanie od krótkich filmików, przez seriale, po pełnometrażowe filmy nawet w rozdzielczościach 4k. Przewidywane jest, że do 2022, aż 82 procent całego ruchu IP, to będzie wideo \cite{prediction}. \par
+Dzięki coraz większym przepustowością i szerokiemu dostępowi do Internetu w najnowszych czasach wykreował się jeszcze inny trend sprawiający że obrazy wideo są bardziej popularne. Mowa tu o platformach streamingowych takich jak - YouTube, Netflix czy HBOgo. Pozwalają one użytkownikom na oglądanie od krótkich filmików, przez seriale, po pełnometrażowe filmy nawet w rozdzielczościach 4k. Przewidywane jest, że do 2022, aż 82 procent całego ruchu IP, to będzie wideo \cite{prediction}. \par
 
 %.Jako kolejny kierunek rozwoju wideo można potraktować powstałe w ostatnich latach platformy, typu Youtube, netflix czy HBOgo, pozwalające użytkownikom na streamowanie od krótkich %filmików, przez seriale, po pełnometrażowe filmy nawet w rozdzielczościach 4k. \par
 
 Wszystkie wymienione wyżej aspekty sprawiły, że wideo stało się codziennością w życiu większości ludzi.\par
 
-Na obecnym etapie rozwoju technologii, oczekiwania odbiorcy co do jakości otrzymywanego wideo znacznie wzrosły. Na drugiej szali pozostają ograniczenia dotyczące medium i optymalnego wykorzystania zasobów po stronie klienta i serwera. Odnosząc się do powyższego istotną kwestią staje się monitorowanie jakości transmitowanego wideo i dostosowywanie go do potrzeb użytkownika. Jednak problem w ocenie jakości wideo jest tu o tyle trudny, że dotychczas najbardziej wiarygodnym wskaźnikiem jest tu opinia ludzka, nie powiązana(?żadnym agorytmem?) z technicznymi aspektami ?obrazu?\todo{, ciężka do powiązania technicznymi cechami wideo}. W niniejszej Pracy zostanie przedstawiony algorytm pozwalający na bardziej zautomatyzowaną ocenę jakości wideo w oparciu o metryki full-reference (FR) i no-reference (NR) oraz zaprezentowana zostanie wykorzystana metodologia badań.
+Na obecnym etapie rozwoju technologii, oczekiwania odbiorcy co do jakości otrzymywanego wideo znacznie wzrosły. Na drugiej szali pozostają ograniczenia dotyczące medium i optymalnego wykorzystania zasobów po stronie klienta i serwera(?dostawcy?). Odnosząc się do powyższego istotną kwestią staje się monitorowanie jakości transmitowanego wideo i dostosowywanie go do potrzeb użytkownika. Jednak problem w ocenie jakości wideo jest tu o tyle trudny, że dotychczas najbardziej wiarygodnym wskaźnikiem jest tu opinia ludzka, nie powiązana(?żadnym agorytmem?) z technicznymi aspektami ?obrazu?\todo{, ciężka do powiązania technicznymi cechami wideo}. W niniejszej Pracy zostanie przedstawiony algorytm pozwalający na bardziej zautomatyzowaną ocenę jakości wideo w oparciu o metryki full-reference (FR) i no-reference (NR) oraz zaprezentowana zostanie wykorzystana metodologia badań.
 
 
 
-\chapter{Wprowadzenie teorytyczne}
+\chapter{Wprowadzenie teoretyczne}
 \label{cha:pierwszyDokument}
 
-W niniejszym rozdziale przedstawiono najważniejsze zagadnienia dla przeprowadzonych badań. Opisane one zostały w sposób pozwalający czytelnikowi na odpowiednie zrozumienie dalszej częci pacy, pomijając niezwiązane szczegóły. Pierwsza część rozdziału dotyczy tematu wideo. Przedstawiono jego definicję, oraz wybrane cechy statystyczne biorące udział w trakcie badań .W kolejnej części przedstawiono zagadnienia z obszaru uczenia maszynowego. Wyjaśniona została jej ogólna koncepcja, a następnie opisano użyte algorytmy.
+W niniejszym rozdziale przedstawiono najważniejsze zagadnienia dla przeprowadzonych badań. Opisane one zostały w sposób pozwalający czytelnikowi na odpowiednie zrozumienie dalszej częci pracy, pomijając niezwiązane szczegóły. Pierwsza część rozdziału dotyczy tematu wideo. Przedstawiono jego definicję, oraz wybrane cechy statystyczne biorące udział w trakcie badań .W kolejnej części przedstawiono zagadnienia z obszaru uczenia maszynowego. Wyjaśniona została jej ogólna koncepcja, a następnie opisano użyte algorytmy.
 
 
 \section{Wideo}
 
 <definicja ciężko znaleźć :( >
-Wideo jest formą elektronicznego zapisu sygnału wizji (analogowego bądź cyfrowego). W swojej surowej postaci jest to sekwencja pojedynczych ramek. Takie pliki zajmują bardzo dużo przestrzeni dyskowej. Przykładowo obraz o rozdzielczości 1920x1080 z 24 ramkami na sekundę o długości 30 sekund zajmuje ponad \todo{sprawdzić ile dokładnie}20 GB w pamięci komputera. Tak duże rozmiary znacząco ograniczają możliwości przechowywania i transmisji dla zwykłych użytkowników. Dlatego praktycznie każdy plik wideo wykorzystuje kodeki, czyli pewne ustandaryzowane zasady kompresji/dekompresji. Do najpopularniejszych należą H.265 i H.264 powszechnie używany w Internecie do transmitowania multimediów \cite{video_codecs}. Błędy podczas tego procesu, transmisji czy nagrywania  mogą powodować powstanie zaburzeń w odtwarzanym obrazie. Aby mierzyć poziom uszkodzeń oraz monitorować stan wideo badacze zdefiniowali wiele metryk.\par.
+Wideo jest formą elektronicznego zapisu sygnału wizji (analogowego bądź cyfrowego). W swojej surowej postaci jest to sekwencja pojedynczych ramek. Ramki natomiast składają się z pixeli, a one są definiowane poprez: luminance({\em ang. luminace}) i chrominancje ({\em ang. chrominance}). Luminancja odpowiada za intensywnoć obrazu, a chrominacja za kolory. 
+
+Surowe wideo zajmuje bardzo dużo przestrzeni dyskowej. Przykładowo obraz o rozdzielczości 1920x1080 z 24 ramkami na sekundę o długości 30 sekund zajmuje ponad \todo{sprawdzić ile dokładnie}20 GB w pamięci komputera. Tak duże rozmiary znacząco ograniczają możliwości przechowywania i transmisji dla zwykłych użytkowników. Dlatego praktycznie każdy plik wideo wykorzystuje kodeki, czyli pewne ustandaryzowane zasady kompresji/dekompresji. Do najpopularniejszych należą H.265 i H.264 powszechnie używany w Internecie do transmitowania multimediów \cite{video_codecs}. Błędy podczas tego procesu, transmisji czy nagrywania  mogą powodować powstanie zaburzeń w odtwarzanym obrazie. W celu mierzyć poziom uszkodzeń oraz monitorowania stan wideo badacze zdefiniowali wiele metryk.\par.
 
 \section{Metryki}
 %https://books.google.se/books?id=JbtPCwAAQBAJ&pg=PA32&dq=video++quality+metrics+full+reference&hl=en&sa=X&ved=0ahUKEwi4wtGc2YfiAhWx-ioKHZJtAtcQ6AEIKjAA#v=onepage&q=video%20%20quality%20metrics%20full%20reference&f=false
 
-Jakość danego wideo jest najtrafniej oceniona dzięki tak zwanej ocenie subiektywnej. Polega ona na określeniu jakości odbioru przez człowieka na podstawie jego odczuć. Niestety aby takie badanie było miarodajne należy je przeprowadzić w odpowiednich warunkach, przygotować zestaw testów, zrekrutować uczestników oraz cały czas nadzorować jego przebieg. Wszystko to generuje duże koszta i zabiera cenny czas, ale przede wszystkim nie pozwala na ocenę jakości w czasie rzeczywistym na przykład podczas streamowania video. Problem ten rozwiązują metryki jakości wideo. które w przeciwieństwie do oceny subiektywnej, bazują na obiektywnych pomiarach właściwości\cite{vqm}.\par
-Metryki video mogą zostać sklasyfikowane na podstawie tego czy do ich policzenia wymagana jest obecność niezakłóconego pliku video. Metryki, które wymagają takiego pliku określane są mianem {\em ang. full-reference} (FR). Porównują one właściwości zakłóconego i nie zakłóconego video, aby na podstawie tak otrzymanych informacji dokonać estymaty jakości. Innym rodzajem metryk są metryki {\em ang. no-reference} (NR). Dokonują one oceny jakości na podstawię zniekształconego video i nie wymagają do tego żadnych dodatkowych informacji\cite{vqm}.\par
+Jakość danego wideo jest najtrafniej oceniona dzięki tak zwanej ocenie subiektywnej. Polega ona na określeniu jakości odbioru przez człowieka na podstawie jego odczuć. Niestety aby takie badanie było miarodajne należy je przeprowadzić w odpowiednich warunkach, przygotować zestaw testów, zrekrutować uczestników oraz cały czas nadzorować jego przebieg. Wszystko to generuje duże koszty i zabiera cenny czasa także,  przede wszystkim nie pozwala na ocenę jakości w czasie rzeczywistym na przykład podczas streamowania video. Problem ten rozwiązują metryki jakości wideo. które w przeciwieństwie do oceny subiektywnej, bazują na obiektywnych pomiarach właściwości\cite{vqm}.\par
+Metryki jakosci video mogą zostać sklasyfikowane na podstawie tego czy do ich policzenia wymagana jest obecność niezakłóconego pliku video. Metryki, które wymagają takiego pliku określane są mianem {\em ang. full-reference} (FR). Porównują one właściwości zakłóconego i nie zakłóconego video, aby na podstawie tak otrzymanych informacji dokonać estymaty jakości. Innym rodzajem metryk są metryki {\em ang. no-reference} (NR). Dokonują one oceny jakości na podstawię zniekształconego video i nie wymagają do tego żadnych dodatkowych informacji\cite{vqm}.\par
 
-Poniżej zostały przedstawione wskaźniki jakości typu NR.
+W poniższych podrozdziałach w po krótce zostały opisane metryki typu NR i FR.
 
+\subsection{Metryki no-reference}
 %\let\labelitemi\labelitemii
 \begin{itemize}[label=$\bullet$]
-\item Blokowosć ({\em ang. Blockiness}) -- powstaje podczas procesu kwantyzacji bloków pikseli i objawia się poprzez zauważalną granice między tymi blokami\cite{blockiness}. Skala przyjęta w pracy: 0-3570. Im większa wartoć, tym mniej widoczne zakłócenie. Dla obrazu bez zakłóceń około 0.9-1.01\cite{agh_vqm}
+\item Blokowość ({\em ang. Blockiness}) -- powstaje podczas procesu kwantyzacji bloków pikseli i objawia się poprzez zauważalną granice między tymi blokami\cite{blockiness}. Skala przyjęta w pracy: 0-3570. Im większa wartość, tym mniej widoczne zakłócenie. Dla obrazu bez zakłóceń około 0.9-1.01\cite{agh_vqm}
 \begin{figure}[h]
-	\centerline{\includegraphics[ height=5cm, width=9cm]{blockiness}}
-	\caption{Przykładowy obraz z zakłóceniami spowodowanymi blokowoscią\cite{agh_vqm}}
-	\label{fig:xccs}
+\centerline{\includegraphics[ height=5cm, width=9cm]{blockiness}}
+\caption{Przykładowy obraz z zakłóceniami spowodowanymi blokowością\cite{agh_vqm}}
+\label{fig:xccs}
 \end{figure}
 
-\item Aktywność Przestrzenna ({\em ang. Spatial Activity}) -- opisuje położenie obiektu na ramce oraz jego relacje z innymi obiektami. Pozwala rozróżnić czy aktywnosć na danym wideo jest czynnascią statyczną(osoba wykonująca czynnoć pozostaje w jednym miejscu) czy mobilną (osoba wykonująca czynnsć porusza się wzdłuz pola widzenia)\cite{spactial_act}.  Skala przyjęta w pracy: 0-270. Im większa wartosć tym większa aktywnosc przestrzenna\cite{agh_vqm}
-\begin{figure}[h]
-	\centerline{\includegraphics[ height=5cm, width=9cm]{spatialAC}}
-	\caption{Przykład detekcji obiektów w ramce, niezbędne do otrzymania informacji o aktywnosci przestrzennej\cite{agh_vqm}}
-	\label{fig:xccs}
-\end{figure}
+\item Aktywność Przestrzenna ({\em ang. Spatial Activity}) -- opisuje położenie obiektu na ramce oraz jego relacje z innymi obiektami. Pozwala rozróżnić czy aktywność na danym wideo jest czynnością statyczną(osoba wykonująca czynność pozostaje w jednym miejscu) czy mobilną (osoba wykonująca czynność porusza się wzdłuż pola widzenia)\cite{spactial_act}. Skala przyjęta w pracy: 0-270. Im większa wartość tym większa aktywność przestrzenna\cite{agh_vqm}
+\begin{center}
+\centerline{\includegraphics[ height=5cm, width=9cm]{spatialAC}}
+\captionof{figure}{Przykład detekcji obiektów w ramce, niezbędne do otrzymania informacji o aktywnosci przestrzennej\cite{agh_vqm}}
+\label{fig:xccs}
+\end{center}
 
-\item Letterbox i Pillarbox - letterbox jest techniką pozwalającą na wywietlanie obrazów o wyższym współczynniku proporcji  na odbiornikach o mniejszym współczynniku. Polega ona na dołożeniu dwóch czarnych pasów na górze i dole ramki.\cite{letterboxing}. Natomiast  pillarbox używane jest przy wywietlaniu obrazu w mniejszym współczynniku proporcji na okreanie o większym . Do obrazu dodawane są wtedy pasy po obu bokach ekarnu. Skala przyjęta w pracy 0-1.
-\begin{figure}[h]
-	\begin{subfigure}[b]{0.4\textwidth}
-		\centerline{\includegraphics[ height=5cm, width=9cm]{letterboxingC}}
-		\caption{opis\cite{agh_vqm}}
-		\label{fig:xccs}
-	\end{subfigure} 
-	\hfill
-	\begin{subfigure}[b]{0.4\textwidth}
-		\centerline{\includegraphics[ height=5cm, width=9cm]{pillarboxing}}
-		\caption{opis\cite{agh_vqm}}
-		\label{fig:xccs}
-	\end{subfigure}
-\end{figure}
 
-\item Straty bloków ({\em ang. Blockloss}) -- wskaźnik informujący o ilosci brkaujących bloków(używanych podczas DCT(Dyskretna transformacja kosinusowa)). Skal przyjęta w pracy: 0-200.Im większa wartoć tym większze zniekształcenie obrazu.
+\item Letterbox i Pillarbox - letterbox jest techniką pozwalającą na wyświetlanie obrazów o wyższym współczynniku proporcji na odbiornikach o mniejszym współczynniku. Polega ona na dołożeniu dwóch czarnych pasów na górze i dole ramki.\cite{letterboxing}. Natomiast pillarbox używane jest przy wyświetlaniu obrazu w mniejszym współczynniku proporcji na ekranie o większym . Do obrazu dodawane są wtedy pasy po obu bokach ekranu. Skala przyjęta w pracy 0-1.
 \begin{figure}[h]
-\centerline{\includegraphics[ height=5cm, width=9cm]{block_lossC}}
+\begin{subfigure}[b]{0.4\textwidth}
+\centerline{\includegraphics[ height=5cm, width=9cm]{letterboxingC}}
 \caption{opis\cite{agh_vqm}}
 \label{fig:xccs}
-\end{figure} 
+\end{subfigure} 
+\hfill
+\begin{subfigure}[b]{0.4\textwidth}
+\centerline{\includegraphics[ height=5cm, width=9cm]{pillarboxing}}
+\caption{opis\cite{agh_vqm}}
+\label{fig:xccs}
+\end{subfigure}
+\end{figure}
 
-\item Rozmycie ({\em ang. Blur}) -- Istenieje wiele rodzajów rozmycia, miedzy innnymi te niepożądane, występujące po przeprowadzeniu kompresj bądź przez poruszenie kamerypodczas nagrywania. Gdy występuje ten efekt  obiekty na obrazie tracą ostroć krawędzi.\cite{blur}. Skala przyjęta w pracy: 0-70.
+\item Straty bloków ({\em ang. Blockloss}) -- wskaźnik informujący o ilości brakujących bloków(używanych podczas DCT(Dyskretna transformacja kosinusowa)). Skala przyjęta w pracy: 0-200.Im większa wartość tym większe zniekształcenie obrazu.
+
+
+\begin{center}
+\centerline{\includegraphics[ height=5cm, width=9cm]{block_lossC}}
+\captionof{figure}{opis\cite{agh_vqm}}
+\label{fig:xccs}
+\end{center}
+
+\item Rozmycie ({\em ang. Blur}) -- Istnieje wiele rodzajów rozmycia, miedzy innymi te niepożądane, występujące po przeprowadzeniu kompresji bądź przez poruszenie kamerypodczas nagrywania. Gdy występuje ten efekt obiekty na obrazie tracą ostrość krawędzi.\cite{blur}. Skala przyjeta w pracy: 0-70.
 \begin{center}
 \includegraphics[ height=5cm, width=9cm]{blur}
 \captionof{figure}{A non-floating figure \emph{with} a caption!}
 \label{fig:xccs}
 \end{center}
 
-\item Aktywnsć czasowa({\em ang. Temporal Activity}) --  opisuje intensuwnosć  ruchu obiektów w czasie.  Często łączone z wskaźnikim Aktywnoć przestrzenna. Skala przyjęta w pracy: 0-255.
+\item Aktywnsć czasowa ({\em ang. Temporal Activity}) -- opisuje intensywnosć ruchu obiektów w czasie. Często łączone ze wskaźnikiem aktywności przestrzenej. Skala przyjęta w pracy: 0-255.
 \begin{center}
 \includegraphics[ height=5cm, width=9cm]{temporalAC}
 \captionof{figure}{A non-floating figure \emph{with} a caption!}
 \label{fig:xccs}
 \end{center}
 
-\item Wyciemnienia ({\em ang. Blackout}) -- opisuje zjawisko kiedy obraz całkowicie zanika\cite{blackout}. Skal przyjęta w pracy : 0-1
+\item Wyciemnienia ({\em ang. Blackout}) -- opisuje zjawisko kiedy obraz całkowicie zanika\cite{blackout}. Skala przyjęta w pracy : 0-1
 \begin{center}
 \includegraphics[ height=5cm, width=9cm]{blackout}
 \captionof{figure}{A non-floating figure \emph{with} a caption!}
-\label{fig:xccs}
+\label{fig:xccs}elacpo
 \end{center}
 
 \item Zamrożenie ({\em ang. Freezing}) -- Informuje o efekcie czasowego zatrzymania zatrzymania obrazu, które powoduje odczucie "przycięcia" wideo\cite{freezing}. Skala przyjęta w pracy:0-1.
 
-\item Ekspozycja ({\em ang. Exposure}) -- ten typ zakłoeń jest spowodowany niezbilanowaną jasnoscią ramek. Widz ma odczucie ze wideo jest zbyt ciemna lub zbyt jasne\cite{freezing}. Skala przyjęta w badaniach 0-255.
+\item Ekspozycja ({\em ang. Exposure}) -- ten typ zakłóceń jest spowodowany niezbilansowaną jasnością ramek. Widz ma odczucie ze wideo jest zbyt ciemna lub zbyt jasne\cite{freezing}. Skala przyjęta w badaniach 0-255.
 \begin{center}
 \includegraphics[ height=5cm, width=9cm]{exp}
 \captionof{figure}{A non-floating figure \emph{with} a caption!}
@@ -102,66 +108,91 @@ Poniżej zostały przedstawione wskaźniki jakości typu NR.
 \end{center}
 
 
-\item Kontrast ({\em ang. Contrast}) -- Opisuje różnice pomiędzy jasnymi, a ciemnymi obszarami obrazu.  Skal przyjęta w pracy: 0-120.
+\item Kontrast ({\em ang. Contrast}) -- Opisuje różnice pomiędzy jasnymi, a ciemnymi obszarami obrazu. Skala przyjęta w pracy: 0-120.
 \begin{center}
 \includegraphics[ height=5cm, width=9cm]{contrastC}
 \captionof{figure}{A non-floating figure \emph{with} a caption!}
 \label{fig:xccs}
 \end{center}
- 
-\item Jasnosć({\em ang. Brightness}) -- jest powiazana z problemem Ekspozycji. Jej zbyt duż warosć może skutkować odczuciem przewietlenia ramki. Skal przyjęta w pracy: 0-1.
+\item Jasnosć ({\em ang. Brightness}) -- jest powiązana z problemem Ekspozycji. Jej zbyt duża wartość może skutkować odczuciem przeswietlenia ramki. Skala przyjęta w pracy: 0-1.
 \begin{center}
 \includegraphics[ height=5cm, width=9cm]{brightness}
 \captionof{figure}{A non-floating figure \emph{with} a caption!}
 \label{fig:xccs}
 \end{center}
 
-%\item interlace  Skal przyjęta w pracy: 0-1.
+%\item interlace Skala przyjęta w pracy: 0-1.
 %\begin{figure}[h]
 %\centerline{\includegraphics[ height=5cm, width=9cm]{interlace2C}}
 %\caption{opis\cite{agh_vqm}}
 %\label{fig:xccs}
 %\end{figure}
- 
-\item Szum ({\em ang. noise}) -- jest to rodzaj zaburzenia obrazu spowodowany występowaniem niekontolowanych wzorców dla intensywnoci wywietlania pixeli\cite{freezing}. Skal przyjęta w pracy: 0-120.
+\item Szum ({\em ang. noise}) -- jest to rodzaj zaburzenia obrazu spowodowany występowaniem niekontolowanych wzorców dla intensywności wyświetlania pixeli\cite{freezing}. Skala przyjęta w pracy: 0-120.
 \begin{center}
 \includegraphics[ height=5cm, width=9cm]{noiseC}
 \captionof{figure}{A non-floating figure \emph{with} a caption!}
 \label{fig:xccs}
 \end{center}
- 
-\item Pocięcie ({\em ang. Slice}) -- objawiia się efektem niepasujących do całosci poziomych pasów. Związane jest to utratą pakietów danych podczas transmisji wideo. NIE DZIALA POPRAWNIE ! 
+\item Pocięcie ({\em ang. Slice}) -- objawia się efektem niepasujących do całości poziomych pasów. Związane jest to utratą pakietów danych podczas transmisji wideo. NIE DZIALA POPRAWNIE ! 
 \begin{center}
 \includegraphics[ height=5cm, width=9cm]{slicingC}
 \captionof{figure}{A non-floating figure \emph{with} a caption!}
 \label{fig:xccs}
 \end{center}
- 
 \end{itemize}
-
-metryki FR i ich wymienienie w oparciu o https://ieeexplore.ieee.org/document/5506331
+Oprócz wyżej wymienionych w pracy zostały również użyte dane o wideo taki jak: 
 
 \begin{itemize}[label=$\bullet$]
-\item SSIM
-\item VMAF
-\item PSNR
-\item itp
+\item Rozdzielczość ({\em Resolution}) -- miara określająca rozmiar ramki. Jednostką są pixele. Podawana jest zazwyczaj w następujący sposób: szerokość x wysokość. Do badań zostały użyto wideo o rozdzielczościach: 3840x2160, 1920x1080, 704x576, 640x480, 352x288. 
+\item Klatki na sekundę ({\em ang. fps, frames per second}) -- liczba ramek wyświetlonych w czasie sekundy. W telewizji jest to 25 ramek na sekundę. Do badań użyto: 60, 30, 25, 24 fps
+\item Kodowanie kolorów ({\em ang. Color encoding}) -- todo 
 \end{itemize}
 
-pozostałe cehcy wideo: 
+
+\subsection{Metryki full-reference}
 
 \begin{itemize}[label=$\bullet$]
-\item Rozdzielczoć -- miara określająca rozmiar ramki. Jednostką są pixele. Podawana jest zazwyczaj w następujący sposób: szerokość x wysokość. Do badań zostały użyto wideo o rozdzielczościach: 3840x2160, 1920x1080, 704x576, 640x480, 352x288. 
-\item Klatki na sekundę( ang.frames per second, fps ) -- liczba ramek wyświetlonych w czasie sekundy. W telewizji jest to 25 ramek na sekundę. Do badań użyto: 60, 30, 25, 24 fps
+\item PSNR ({\em ang. Peak Signal-to-Noise Ratio}) -- prosta do policzenia i również często stosowane z pomiędzy metryk typu FR. Przykładowa implementacja dla PSNR \ref{eqn:somelabel} (gdzie MSE jest błędem średnio kwadratowym dla ramki). W pierwszej kolejności liczone jest zniekształcenie dla wszystkich ramek w stosunku do ich oryginału. Zazwyczaj do obliczań wykorzystuje się informację o luminacji pixela. Później następuje uśrednienie wyniku\cite{fr_psnr}. 
+\begin{equation}
+\label{eqn:somelabel}
+PSNR = \frac{1}{N} \times 10 \sum_{i=1}^{N}\log\frac{255^2}{MSE_i}
+\end{equation}
+Mimo zalet PSNR nie zawsze spełnia swoje zadanie. Ilustracja \ref{fig:psnr_pict} przedstawia w różny sposób zniekształcone obrazy. Każdy z nich otrzymał tą samą ocenę PSNR, a jednak ocena subiektywna wskazuje na różny poziom jakości.
+\begin{figure}[h!]
+\centerline{\includegraphics[ height=6cm, width=9cm]{psnr_pict}}
+\caption{opis}
+\label{fig:psnr_pict}
+\label{fig:xccs}
+\end{figure}
+
+\item SSIM ({\em ang. Structural Similarity Index}) -- jest jedna z najczęściej stosowanych metryk oceny jakości wideo. Również, jak poprzednia metryka, jest ona prosta w obliczeniach. Uwzględnia w swojej funkcji luminacje, kontrast i strukturę obu \ref{eqn:ssim}, gdzie S jest blokiem pixeli z ramki z oryginalnej sekwencji wideo, a S' jej zniekształconą wersją. $SSIM \in <0,1>$. 1 oznacza brak zniekształceń, a 0 oznacza idealne niedopasowanie \cite{ssim_1}\cite{ssim_2}.
+\begin{equation}
+\label{eqn:ssim}
+SSIM = I(S, S')c(S, S')s(S,S')
+\end{equation}
+\item MS-SSIM ({\em ang. multi-scale SSIM}) -- jest modyfikacją SSIM'a. Polega na próbkowaniu obrazu, w każdej skali, przed zastosowaniem SSIM'. Po przeprowadzeniu obliczeń, każda z skali jest łączona, z odpowiednimi wagami, w jedną całosć. Zabieg ma na celu poprawę trafności oceny jakości\cite{ssim_2}. 
+\item VMAF ({\em ang. Video Multimethod Assessment Fusion}) -- Metryka rozwijana przez Netflix we współpracy z University of Southern California. Jej działanie opiera się na  podłączaniu wyników kilku metryk podstawowych. VMAF nadaje każdej z metryk odpowiednie wagi ,a dzieje się to dzięki zastosowaniu algorytmu uczenia maszynowego, w tym przypadku SVM regressor ({\em ang. Support Vector Machine regressor}). Takie rozwiązanie ma zapewnić wykorzystanie mocnych stron poszczególnych metryk z pominięciem ich słabości \cite{netflix}. 
 \end{itemize}
 
 \section{Algorytmy uczenia maszynowego }
-\label{cha:pierwszyDokument}
 
-\begin{itemize}
-\item Ogólne informacje uczeniu maszynowym/
-\item Przedstawienie wybranych algorytmów 
-\end{itemize}
+Obecne czasy charakteryzują się ogromną ilością danych, które zewsząd otaczają człowieka i jego środowisko. W każdej sekundzie różnego rodzaju dane są zbierane, przesyłane, prezentowane i analizowane. Aby móc, w optymalny sposób, czerpać z nich zyski zostały opracowane pewne algorytmy, bazujące na statystyce.Algorytmy te potrafią  stworzyć modele matematyczne zadanego zdarzenia i na ich podstawie dokonać predykcji, klasyfikacji. Mogą również zinterpretować i zareagować na zadane sytuacje(?uczyc sie na swoich wlasnych obliczeniach?). Dziedzina nauki zajmująca się takimi algorytmami nazywana jest Uczeniem Maszynowym ({\em ang. Machine Learning}).\par
+Wyróżniane są dwa typy algorytmów uczenia maszynowego: nadzorowane ({\em ang. supervised learning}) i nie nadzorowane({\em ang. unsupervised learning}). Różnica występuje podczas procesu tworzenia modelu -- trenowania. W pierwszej grupie, aby poprawnie zbudować model, wymagane jest aby dane treningowe składały się z par: dane wejściowe i oczekiwane dane wyjściowe(etykiety). Druga grupa nie wykorzystuję danych wyjściowych podczas trenowania. W badaniach zostały użyte algorytmy z uczeniem nadzorowanym, kolejne rozdziały będą odnosić się do tej właśnie grupy. Ponadto w pracy rozważany jest problem regresji, a więc dalsze opisy również będą się skupiać na tym aspekcie. \par
+Głównym zadaniem algorytmów uczenia maszynowego jest odnalezienie jak najdokładniejszego przybliżenia funkcji: $f \colon X \to Y$. Jest to funkcja opisująca zależności pomiędzy danymi wejściowymi $X$, a danymi wyjściowymi $Y$\cite{ml_supervised}. Wskaźnik R-kwadrat($R^2$) pokazuje jak bardzo udało się zbliżyć do tej funkcji i definiowany jest wzorem \ref{eqn:r2}. 
+\begin{equation}
+\label{eqn:r2}
+R^2=1- \frac{ \sum_{i=1}^{n}(Y_i-Y'_i)^2}{\sum_{i=1}^{n}(Y_i-\bar{Y}_i)^2 }
+\end{equation}
+$Y$ oznacza wartość szukanej przez model zmiennej, $Y'_i$ predykcję modelu, $\bar{Y}$ średnią wartość dla wszystkich $Y$. Przykładowo 1 oznacza idealne dopasowanie modelu, 0 oznacza ze model jest tak samo dokładny jak wartość średnia.\par
+Poniższe podrozdziały zawierają krótki opis algorytmów użytych do badań w niniejszej pracy.
+
+
+
+\subsection{Regresja Liniowa}
+\subsection{SVM}
+\subsection{Random Forest}
+\subsection{Sieci Neuronowe}
+
 
 \chapter{Metodologia badań}
 \label{cha:pierwszyDokument}
@@ -175,6 +206,9 @@ pozostałe cehcy wideo:
 \item Przedstawienie data flow(pobieranie-> czyszczenie->normalizacja->przygotowanie formatu dla modeli).
 \item Wizualizacja danych
 \end{itemize}
+
+
+
 
 
 \section{Modele }
@@ -197,12 +231,16 @@ pozostałe cehcy wideo:
 
 
 \chapter{Podsumowanie}
+Zle nagranego wideo nie uratuje zadna metryka
+Metryki powinny dostosowywac sie do (rodzaju zakłóceń)zaklocen
 \label{cha:pierwszyDokument}
 
 \begin{itemize}
 \item Czy cel pracy został osiągniety.
 \item Możliwoci rozbudowy
 \end{itemize}
+
+
 
 
 
