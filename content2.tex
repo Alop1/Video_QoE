@@ -1,0 +1,71 @@
+
+\chapter{Metodologia badań}
+Niniejszy rozdział będzie opisywał kolejne etapy badań. W pierwszej kolejnosci wymienione zostaną narzędzia. Następnie, przedstawione będą elamenty procesu eksploracji danych nie dotyczące pracy z algorytmami uczenia maszynowego, takie jak: wyszukiwanie, zbieranie, ekstrakcja cech, czyszczenie i normalizacja danych.  Nawiązując do ankiety przeprowadzonej przez CrowdFlower:  podczas badań związanych z {\em Big Data}, znaczącą większosć czasu pochłaniana jest przez  zbieranie i  przygotowanie danych[link]. Zasada ta miała swoje odzwierciedlenie również w nienejszej pracy, szczególnie, że przedmiotem badań było wideo, które wymagało wykorzystania dużych zasobów  podczas tych procesów(w odróżnienu o danych tekstowych). Na końcu opisany zostanie proces trenowania, wyniki predykcji z modeli powstałych w opaciu o algorytmy wymienione z poprzedniej sekcji.
+%https://visit.figure-eight.com/rs/416-ZBE-142/images/CrowdFlower_DataScienceReport.pdf -> slajd 5
+\label{cha:pierwszyDokument}
+
+\section{Narzędzia}
+Specyfika badań wymagała narzędzi będących w stanie sprawnie przetwarzać duże ilosci informacji oraz zautomatyzować procesy związane z pobieraniem i przygotowaniem danych. Do tych zadań, jako optymalne rozwiązanie, został wybrany język programowania Python, według badań[link] jeden z najpopularniejszych języków programowania w {\em Data science}. Python pozwala użytkownikowi na korzystanie z zalet programowania strukturalnego, w przypadku prostych skryptów wykonujących krótkie zadanie(przykładowo: automatyczne kopiowanie i zmienianie nazw w paczkach plików), jak i obiektowego, gdzie konieczne jest ustanienie i ustrukturyzowanie pewnych zależnosći pomiedzy danymi. Dodatkową jego zaletą jest szereg bibliotek stworzonych z mylsą o eksploracji danych. Do badań zostały wykorzystane następujące moduły: sklearn, pandas, selenium(framework), numpy, matplotlib.\par
+Poniżej wymienione narzędzia posłużyły do ekstrakcji danych z plików wideo:
+\begin{itemize}[label=$\bullet$]
+\item ffmpg -- jest aplikacją na licencji {\em opensource} dzięki niej otrzymane zostały informacje takie jak: rodzielczoć, dane o próbkowaniu chrominacji, liczba klatek na sekunde. Dodatkowo dzięki ffmpeg skompresowane pliki wideo rostaly rozłożone na surowy format YUV.
+\item {\em AGH Video Quality Indicators} --  jest ogólno dostepnym oprogramowaniem rozwijanym przez Katedre Telekomunikacji AGH, dzięki niemu możliwa było otrzymanie informacji o metrykach typu {\em no-reference}[link]
+\item VMAF Development Kit (VDK) -- podobnie jak powyższe vmaf  jest ogólnodostępnym oprogramowaniem rozwijanym przez Netflix. Zimplementowane tu zostały algorytmy liczące metryki {\em full-reference}[link].
+\end{itemize}
+Zbieranie danych i wydobywanie cech wideo dobywało się w dwóch srodowiskach: na lokalnie działającej maszynie wirtualnej z systemem Xubuntu oraz na super komputerze Prometeusz[link do podziękowań] z systemem Suse. 
+
+\label{cha:drugiDokument}
+
+
+
+\section{Dane}
+\label{cha:drugiDokument}
+
+\begin{itemize}
+
+\item Opis zebranych danych
+\item Przedstawienie data flow(pobieranie-> czyszczenie->normalizacja->przygotowanie formatu dla modeli).
+\item Wizualizacja danych
+\end{itemize}
+
+
+
+
+
+\section{Modele }
+\label{cha:drugiDokument}
+
+\begin{itemize}
+\item Opis zastosowanych parametrów/technik podczas trenowania.
+\item Przedstawienie wyników 
+\end{itemize}
+
+
+\chapter{Analiza i wnioski }
+\label{cha:drugiDokument}
+
+\begin{itemize}
+\item Interpretacja wyników
+\item Opis innych czynników mogących zaburzyć ich prawdziwoć
+\item Co nie zostało uwzględnione 
+\end{itemize}
+
+
+\chapter{Podsumowanie}
+Lepsze to niz nic
+Zle nagranego wideo nie uratuje zadna metryka
+Metryki powinny dostosowywac sie do (rodzaju zakłóceń)zaklocen
+\label{cha:pierwszyDokument}
+
+\begin{itemize}
+\item Czy cel pracy został osiągniety.
+\item Możliwoci rozbudowy
+\end{itemize}
+
+
+
+
+
+
+
+
