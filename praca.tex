@@ -19,6 +19,10 @@
 \usepackage{xargs}                      % Use more than one optional parameter in a new commands
 \usepackage[pdftex,dvipsnames]{xcolor}  % Coloured text etc.
 \usepackage[colorinlistoftodos,prependcaption,textsize=tiny]{todonotes}
+\usepackage[export]{adjustbox}
+\usepackage{rotating}
+\usepackage{float}
+\usepackage{booktabs}
 \newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
 \newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
 \newcommandx{\info}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
@@ -108,6 +112,10 @@ backend=bibtex
 \usepackage{booktabs}
 \usepackage{makecell}
 \usepackage[flushleft]{threeparttable}
+\usepackage{enumitem}
+
+
+
 
 % defines the X column to use m (\parbox[c]) instead of p (`parbox[t]`)
 \newcolumntype{C}[1]{>{\hsize=#1\hsize\centering\arraybackslash}X}

@@ -29,25 +29,25 @@ Surowe wideo zajmuje bardzo dużo przestrzeni dyskowej. Przykładowo obraz o roz
 \section{Metryki}
 %https://books.google.se/books?id=JbtPCwAAQBAJ&pg=PA32&dq=video++quality+metrics+full+reference&hl=en&sa=X&ved=0ahUKEwi4wtGc2YfiAhWx-ioKHZJtAtcQ6AEIKjAA#v=onepage&q=video%20%20quality%20metrics%20full%20reference&f=false
 
-Jakość danego wideo jest najtrafniej oceniona dzięki tak zwanej ocenie subiektywnej. Polega ona na określeniu jakości odbioru przez człowieka na podstawie jego odczuć. Niestety, aby takie badanie było miarodajne należy je przeprowadzić w odpowiednich warunkach, przygotować zestaw testów, zrekrutować uczestników oraz cały czas nadzorować jego przebieg. Wszystko to generuje duże koszty i zabiera cenny czas także, przede wszystkim nie pozwala na ocenę jakości w czasie rzeczywistym na przykład podczas streamowania wideo. Problem ten rozwiązują metryki jakości wideo. które w przeciwieństwie do oceny subiektywnej, bazują na obiektywnych pomiarach właściwości\cite{vqm}.\par
+Jakość danego wideo jest najtrafniej oceniona dzięki tak zwanej ocenie subiektywnej. Polega ona na określeniu jakości odbioru przez człowieka na podstawie jego odczuć. Niestety, aby takie badanie było miarodajne należy je przeprowadzić w odpowiednich warunkach, przygotować zestaw testów, zrekrutować uczestników oraz cały czas nadzorować jego przebieg. Wszystko to generuje duże koszty i zabiera cenny czas także, przede wszystkim nie pozwala na ocenę jakości w czasie rzeczywistym na przykład podczas stremowania wideo. Problem ten rozwiązują metryki jakości wideo. które w przeciwieństwie do oceny subiektywnej, bazują na obiektywnych pomiarach właściwości\cite{vqm}.\par
 Metryki jakości wideo mogą zostać sklasyfikowane na podstawie tego czy do ich wyznaczenia wymagana jest obecność niezakłóconego pliku wideo. Metryki, które wymagają takiego pliku określane są mianem {\em ang. full-reference} (FR). Porównują one właściwości zakłóconego i nie zakłóconego wideo, aby na podstawie tak otrzymanych informacji dokonać estymaty jakości. Innym rodzajem metryk są metryki {\em ang. no-reference} (NR). Dokonują one oceny jakości na podstawię zniekształconego wideo i nie wymagają do tego żadnych dodatkowych informacji\cite{vqm}.\par
 
-W poniższych podrozdziałach w po krótce zostały opisane metryki typu NR i FR.
+W poniższych podrozdziałach w w skrócie zostały opisane metryki typu NR i FR.
 
 \subsection{Metryki no-reference}
 %\let\labelitemi\labelitemii
 \begin{itemize}[label=$\bullet$]
-\item Blokowość ({\em ang. Blockiness}) -- powstaje podczas DCT i dotyczy związanych z nią bloków pixeli. Objawia się poprzez zauważalną między nimi  granicę\cite{blockiness}. Skala przyjęta w pracy: 0-3570. Im większa wartość, tym mniej widoczne zakłócenie. Dla obrazu bez zakłóceń około 0.9-1.01\cite{agh_vqm}
+\item Blokowość ({\em ang. Blockiness}) -- powstaje podczas DCT i dotyczy związanych z nią bloków pixeli. Objawia się poprzez zauważalną między nimi  granicę\cite{blockiness}. Skala przyjęta w pracy: 0-3570. Im większa wartość, tym mniej widoczne zakłócenie. Dla obrazu bez zakłóceń około 0.9-1.01\cite{agh_vqm}.
 \begin{figure}[h]
 \centerline{\includegraphics[ height=5cm, width=9cm]{blockiness}}
-\caption{Przykładowy obraz z zakłóceniami spowodowanymi blokowością\cite{agh_vqm}}
+\caption{Przykładowy obraz z zakłóceniami spowodowanymi blokowością\cite{agh_vqm}.}
 \label{fig:xccs}
 \end{figure}
 
 \item Aktywność Przestrzenna ({\em ang. Spatial Activity}) -- opisuje położenie obiektu na ramce oraz jego relacje z innymi obiektami. Pozwala rozróżnić czy aktywność na danym wideo jest czynnością statyczną (osoba wykonująca czynność pozostaje w jednym miejscu) czy mobilną (osoba wykonująca czynność porusza się wzdłuż pola widzenia)\cite{spactial_act}. Skala przyjęta w pracy: 0-270. Im większa wartość tym większa aktywność przestrzenna\cite{agh_vqm}
 \begin{center}
 \centerline{\includegraphics[ height=5cm, width=9cm]{spatialAC}}
-\captionof{figure}{Przykład detekcji krawędzi obiektów w ramce, niezbędne do otrzymania informacji o aktywnosci przestrzennej\cite{agh_vqm}}
+\captionof{figure}{Przykład detekcji krawędzi obiektów w ramce, niezbędne do otrzymania informacji o aktywnosci przestrzennej\cite{agh_vqm}.}
 \label{fig:xccs}
 \end{center}
 
@@ -56,13 +56,13 @@ W poniższych podrozdziałach w po krótce zostały opisane metryki typu NR i FR
 \begin{figure}[h]
 \begin{subfigure}[b]{0.4\textwidth}
 \centerline{\includegraphics[ height=5cm, width=9cm]{letterboxingC}}
-\caption{opis\cite{agh_vqm}}
+\caption{przykład wykorzystania techniki letterbox\cite{agh_vqm}.}
 \label{fig:xccs}
 \end{subfigure} 
 \hfill
 \begin{subfigure}[b]{0.4\textwidth}
 \centerline{\includegraphics[ height=5cm, width=9cm]{pillarboxing}}
-\caption{opis\cite{agh_vqm}}
+\caption{przykład wykorzystania techniki Pillarbox\cite{agh_vqm}.}
 \label{fig:xccs}
 \end{subfigure}
 \end{figure}
@@ -72,14 +72,14 @@ W poniższych podrozdziałach w po krótce zostały opisane metryki typu NR i FR
 
 \begin{center}
 \centerline{\includegraphics[ height=5cm, width=9cm]{block_lossC}}
-\captionof{figure}{opis\cite{agh_vqm}}
+\captionof{figure}{Przykład zniekształcenia obrazu spowodowany stratą bloków\cite{agh_vqm}.}
 \label{fig:xccs}
 \end{center}
 
 \item Rozmycie ({\em ang. Blur}) -- Istnieje wiele rodzajów rozmycia, między innymi te niepożądane, występujące na przykład  po przeprowadzeniu kompresji z błędami, bądź przez poruszenie kamery podczas nagrywania. Gdy występuje ten efekt obiekty na obrazie tracą ostrość krawędzi.\cite{blur}. Skala przyjeta w pracy: 0-70.
 \begin{center}
 \includegraphics[ height=5cm, width=9cm]{blur}
-\captionof{figure}{A non-floating figure \emph{with} a caption!}
+\captionof{figure}{Przykład zniekształcenia obrazu spowodowany rozmyciem \cite{agh_vqm}.}
 \label{fig:xccs}
 \end{center}
 
@@ -90,10 +90,10 @@ W poniższych podrozdziałach w po krótce zostały opisane metryki typu NR i FR
 \label{fig:xccs}
 \end{center}
 
-\item Wyciemnienia ({\em ang. Blackout}) -- opisuje zjawisko, kiedy obraz całkowicie zanika\cite{blackout}. Skala przyjęta w pracy : 0-1
+\item Wyciemnienia ({\em ang. Blackout}) -- opisuje zjawisko, kiedy obraz całkowicie zanika\cite{blackout}. Skala przyjęta w pracy : 0-1.
 \begin{center}
 \includegraphics[ height=5cm, width=9cm]{blackout}
-\captionof{figure}{opis}
+\captionof{figure}{Wyciemniona ramka\cite{agh_vqm}.}
 \label{fig:xccs}
 \end{center}
 
@@ -102,7 +102,7 @@ W poniższych podrozdziałach w po krótce zostały opisane metryki typu NR i FR
 \item Ekspozycja ({\em ang. Exposure}) -- ten typ zakłóceń jest spowodowany niezbilansowaną jasnością ramek. Widz ma odczucie ze wideo jest zbyt ciemna lub zbyt jasne\cite{freezing}. Skala przyjęta w badaniach 0-255.
 \begin{center}
 \includegraphics[ height=5cm, width=9cm]{exp}
-\captionof{figure}{A non-floating figure \emph{with} a caption!}
+\captionof{figure}{Przykład zniekształcenia obrazu spowodowany nieodpowiednią ekspozycją\cite{agh_vqm}}
 \label{fig:xccs}
 \end{center}
 
@@ -110,13 +110,13 @@ W poniższych podrozdziałach w po krótce zostały opisane metryki typu NR i FR
 \item Kontrast ({\em ang. Contrast}) -- Opisuje różnice pomiędzy jasnymi, a ciemnymi obszarami obrazu. Skala przyjęta w pracy: 0-120.
 \begin{center}
 \includegraphics[ height=5cm, width=9cm]{contrastC}
-\captionof{figure}{A non-floating figure \emph{with} a caption!}
+\captionof{figure}{Przykład zniekształcenia obrazu spowodowany nieodpowiednim kontrastem\cite{agh_vqm}.}
 \label{fig:xccs}
 \end{center}
 \item Jasnosć ({\em ang. Brightness}) -- jest powiązana z problemem Ekspozycji. Jej zbyt duża wartość może skutkować odczuciem przeswietlenia ramki. Skala przyjęta w pracy: 0-1.
 \begin{center}
 \includegraphics[ height=5cm, width=9cm]{brightness}
-\captionof{figure}{A non-floating figure \emph{with} a caption!}
+\captionof{figure}{Przykład zniekształcenia obrazu spowodowany zbyt dużą jasnością\cite{agh_vqm}.}
 \label{fig:xccs}
 \end{center}
 
@@ -129,7 +129,7 @@ W poniższych podrozdziałach w po krótce zostały opisane metryki typu NR i FR
 \item Szum ({\em ang. noise}) -- jest to rodzaj zaburzenia obrazu spowodowany występowaniem niekontrolowanych wzorców dla intensywności wyświetlania pixeli\cite{freezing}. Skala przyjęta w pracy: 0-120.
 \begin{center}
 \includegraphics[ height=5cm, width=9cm]{noiseC}
-\captionof{figure}{A non-floating figure \emph{with} a caption!}
+\captionof{figure}{Przykład zniekształcenia obrazu spowodowany szumem\cite{agh_vqm}.}
 \label{fig:xccs}
 \end{center}
 
@@ -147,7 +147,7 @@ Oprócz wyżej wymienionych w pracy zostały również użyte dane o wideo takie
 \begin{itemize}[label=$\bullet$]
 \item Rozdzielczość ({\em ang.  Resolution}) -- miara określająca rozmiar ramki. Jednostką są pixele. Podawana jest zazwyczaj w następujący sposób: szerokość x wysokość. Do badań zostały użyte wideo o rozdzielczościach: 3840x2160, 1920x1080, 704x576, 640x480, 352x288. 
 \item Klatki na sekundę ({\em ang. fps, frames per second}) -- liczba ramek wyświetlonych w czasie sekundy. W telewizji jest to 25 ramek na sekundę. Do badań użyto następujące czestotliwości: 60, 30, 25, 24 fps.
-\item Próbkowanie chrominacji  ({\em ang.Chroma subsampling}) -- Jest to cecha  wideo wynikająca z sposobu kodowania  informacji w pixelu. Samo działąnie ma na celu  ograniczenie wykorzystania zasobów  W takim przypadku wykorzystuje się  niedoskonałoć ludzkiego oka, które jest bardziej wrażliwe na jasnoć, niż na kolor. Jak wczeniej zostało wspomiane pixel jest opisywany dwoma zeminnymi: luminacją i chrominacją.  Pixel, w modelu kolorów YUV (innym modelem kolorów jest RGB),  jest  kodowany w następujący sposób: YCbYc, gdzie Y oznacza luninację, Cb intensywnoć koloru niebieskiego(chrominacja), a Cr intensywnsc koloru czerwonego(chrominacja). Chcąc zmniejszyć iloć danych, potrzebnej do zbudowania obrazu, ogranicza się informację dotyczące częsci odpowiedzialnej za kolor. Przykłądowo 4:2:2 oznacza, że na daną czwórkę pixeli kolor będzie podpróbkowany na tylko co drugim z nich, a sąsiedzi przejmą od nich tą informację  \cite{chroma_sampling}. W danych zebranych do pracy użyto następujących wartości:.
+\item Próbkowanie chrominacji  ({\em ang.Chroma subsampling}) -- Jest to cecha  wideo wynikająca z sposobu kodowania  informacji w pixelu. Samo działanie ma na celu  ograniczenie wykorzystania zasobów  W takim przypadku wykorzystuje się  niedoskonałość ludzkiego oka, które jest bardziej wrażliwe na jasność, niż na kolor. Jak wcześniej zostało wspominane pixel jest opisywany dwoma zmiennymi: luminacją i chrominacją.  Pixel, w modelu kolorów YUV (innym modelem kolorów jest RGB),  jest  kodowany w następujący sposób: YCbYc, gdzie Y oznacza luminację, Cb intensywność koloru niebieskiego(chrominacja), a Cr intensywność koloru czerwonego (chrominacja). Chcąc zmniejszyć ilość danych, potrzebnej do zbudowania obrazu, ogranicza się informację dotyczące części odpowiedzialnej za kolor. Przykładowo 4:2:2 oznacza, że na daną czwórkę pixeli kolor będzie pod próbkowany na tylko co drugim z nich, a sąsiedzi przejmą od nich tą informację  \cite{chroma_sampling}. W danych zebranych do pracy użyto następujących wartości:.
 \end{itemize}
 
 
@@ -160,12 +160,12 @@ Oprócz wyżej wymienionych w pracy zostały również użyte dane o wideo takie
 PSNR = \frac{1}{N} \times 10 \sum_{i=1}^{N}\log\frac{L}{MSE_i}
 \end{equation}
 Mimo zalet PSNR nie zawsze spełnia swoje zadanie. Ilustracja \ref{fig:psnr_pict} przedstawia w różny sposób zniekształcone obrazy. Każdy z nich otrzymał tą samą ocenę PSNR, a jednak ocena subiektywna wskazuje na różny poziom jakości.
-\begin{figure}[tbp]
-\centerline{\includegraphics[ height=6cm, width=9cm]{psnr_pict}}
-\caption{opis}
+\begin{center}
+\includegraphics[ height=6cm, width=9cm]{psnr_pict}
+\captionof{figure}{Wszystkie obrazy posiadają tą samą wartoć MSE \cite{psnr_qoe}.}
 \label{fig:psnr_pict}
 \label{fig:xccs}
-\end{figure}
+\end{center}
 % ms-ssim Multiscale_structural_similarity_for_image_quality_assessment
 \item SSIM ({\em ang. Structural Similarity Index}) -- jest jedna z najczęściej stosowanych metryk oceny jakości wideo. Również, jak poprzednia metryka, jest ona prosta w obliczeniach. Uwzględnia w swojej funkcji luminacje, kontrast i strukturę obu \ref{eqn:ssim}, gdzie S jest blokiem pixeli z ramki z oryginalnej sekwencji wideo, a S' jej zniekształconą wersją. $SSIM \in <0,1>$. 1 oznacza brak zniekształceń, a 0 oznacza idealne niedopasowanie \cite{ssim_1}\cite{ssim_2}.
 \begin{equation}
@@ -178,9 +178,9 @@ SSIM = I(S, S')c(S, S')s(S,S')
 
 \section{Algorytmy uczenia maszynowego }
 
-Obecne czasy charakteryzują się ogromną ilością danych, które zewsząd otaczają człowieka i jego środowisko. W każdej sekundzie różnego rodzaju dane są zbierane, przesyłane, prezentowane i analizowane. Aby móc, w optymalny sposób, czerpać z nich zyski zostały opracowane pewne algorytmy, bazujące na statystyce. Algorytmy te potrafią zamodelować zadane zdarzenie i na jego    podstawie dokonać predykcji . Mogą również w czasie rzeczywitym (czasem nawet korzystając ze swoich już dokonanych obliczeń), poprawiać i udoskonalać swoją strukturę zwiększając dokładność. Dziedzina nauki zajmująca się takimi algorytmami nazywana jest Uczeniem Maszynowym ({\em ang. Machine Learning}).\par
+Obecne czasy charakteryzują się ogromną ilością danych, które zewsząd otaczają człowieka i jego środowisko. W każdej sekundzie różnego rodzaju dane są zbierane, przesyłane, prezentowane i analizowane. Aby móc, w optymalny sposób, czerpać z nich zyski zostały opracowane pewne algorytmy, bazujące na statystyce. Algorytmy te potrafią zamodelować zadane zdarzenie i na jego    podstawie dokonać predykcji . Mogą również w czasie rzeczywistym (czasem nawet korzystając ze swoich już dokonanych obliczeń), poprawiać i udoskonalać swoją strukturę zwiększając dokładność. Dziedzina nauki zajmująca się takimi algorytmami nazywana jest Uczeniem Maszynowym ({\em ang. Machine Learning}).\par
 
-Wyróżniane są dwa typy algorytmów uczenia maszynowego: nadzorowane ({\em ang. supervised learning}) i nie nadzorowane ({\em ang. unsupervised learning}). Różnica występuje podczas procesu tworzenia modelu -- trenowania. W pierwszej grupie, aby poprawnie zbudować model, wymagane jest aby dane treningowe składały się z par: dane wejściowe i oczekiwane dane wyjściowe (etykiety). Druga grupa nie wykorzystuję danych wyjściowych podczas trenowania. W badaniach zostały użyte algorytmy z uczeniem nadzorowanym, kolejne rozdziały będą odnosić się do tej właśnie grupy. Ponadto najczęsciej rozważane problemy, z dziedziny uczenia maszynowego, to problem regresji i klasyfikacji. W ninejszej  pracy rozpatrywany  jest problem regresji, a więc dalsze opisy również będą się skupiać na tym aspekcie. \par
+Wyróżniane są dwa typy algorytmów uczenia maszynowego: nadzorowane ({\em ang. supervised learning}) i nie nadzorowane ({\em ang. unsupervised learning}). Różnica występuje podczas procesu tworzenia modelu -- trenowania. W pierwszej grupie, aby poprawnie zbudować model, wymagane jest aby dane treningowe składały się z par: dane wejściowe i oczekiwane dane wyjściowe (etykiety). Druga grupa nie wykorzystuję danych wyjściowych podczas trenowania. W badaniach zostały użyte algorytmy z uczeniem nadzorowanym, kolejne rozdziały będą odnosić się do tej właśnie grupy. Ponadto najczęściej rozważane problemy, z dziedziny uczenia maszynowego, to problem regresji i klasyfikacji. W niniejszej  pracy rozpatrywany  jest problem regresji, a więc dalsze opisy również będą się skupiać na tym aspekcie. \par
 Głównym zadaniem algorytmów uczenia maszynowego jest odnalezienie jak najdokładniejszego przybliżenia funkcji: $f \colon X \to Y$. Jest to funkcja opisująca zależności pomiędzy danymi wejściowymi $X$, a danymi wyjściowymi $Y$\cite{ml_supervised}. Wskaźnik R-kwadrat ($R^2$) pokazuje jak bardzo udało się zbliżyć do tej funkcji i definiowany jest wzorem \ref{eqn:r2}. 
 \begin{equation}
 \label{eqn:r2}
@@ -190,59 +190,63 @@ $Y_i$ oznacza wartość szukanej przez model zmiennej, $Y'_i$ predykcję modelu,
 Poniższe podrozdziały zawierają krótki opis algorytmów użytych do badań w niniejszej pracy.
 
 
-
+%(?czy wpisywac cos o metodzie uczenia zaimplementowanej w skLearn, czyli :Ordinary Least Squares ?)
 \subsection{Regresja Liniowa}
-W Regresji Liniowej w jej podstawowej postaci zmienna niezależna $x_i$ ({\em ang. independent variable}) opisuje zamienną zależną $y_i$ ({\em ang. dependent variable}) zgodnie ze następującym wzorem $y_i = \beta_0 + \beta_1 x_i + \epsilon$. Gdzie $\beta_0$ i $\beta_1$ są współczynnikami określającym relację danych zmiennych $x$ i $y$. Do badań w pracy zostało wykorzystane pewne rozszerzenie klasycznej regresji liniowej, Wielokrotna Regresja Liniowa {\em ang. Multiple Linear Regression}, gdzie $y_i$ jest opisana następującą zależnością $y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + ... + \beta_p x+x_{pi} + \epsilon $ \cite{mlr}. Oznaczenia poszczególnych elementów tego równania są analogiczne do podstawowej wersji regresji. Trenowanie takiego modelu polega na szukaniu współczynników $\beta$.(?czy wpisywac cos o metodzie uczenia zaimplementowanej w skLearn, czyli :Ordinary Least Squares ?).\par
+W Regresji Liniowej w jej podstawowej postaci zmienna niezależna $x_i$ ({\em ang. independent variable}) opisuje zamienną zależną $y_i$ ({\em ang. dependent variable}) zgodnie ze następującym wzorem $y_i = \beta_0 + \beta_1 x_i + \epsilon$. Gdzie $\beta_0$ i $\beta_1$ są współczynnikami określającym relację danych zmiennych $x$ i $y$. Do badań w pracy zostało wykorzystane pewne rozszerzenie klasycznej regresji liniowej, Wielokrotna Regresja Liniowa {\em ang. Multiple Linear Regression}, gdzie $y_i$ jest opisana następującą zależnością $y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + ... + \beta_p x+x_{pi} + \epsilon $ \cite{mlr}. Oznaczenia poszczególnych elementów tego równania są analogiczne do podstawowej wersji regresji. Trenowanie takiego modelu polega na szukaniu współczynników $\beta$.\par
 
 Regresja liniowa jest jednym z prostszych algorytmów. Jej cechą jest przejrzystość w interpretacji  dzięki możliwości zaobserwowania współczynników $\beta$. Regresja liniowa jest w stanie odnajdować zależności liniowe, natomiast dla zależności nieliniowych może dawać fałszywe wyniki.
 
 \subsection{SVM}
-{\em Software Vector Machine} (SVM) -- algorytm używany jako klasyfikator, który dokonuje podziału danych dzięki wcześniej wyznaczonej hiperpłaszczyźnie ({\em ang. hyperplane}). W celu zdefiniowania optymalnej hiperpłaszczyzny należy wyznaczyć maksymalną szerokość marginesów ({\em ang. margin} ) $\omega$, taką aby pojedyncze dane w różnych klas, znajdujące się najbliżej siebie, leżały na granicy marginesów. Takie dane definiowane są jako {\em ang. Support vectors}. Wielu przypadkach, aby podział danych był możliwy, należy użyć jednej z funkcji kernela, przenoszącej problem do więcej wymiarowej przestrzeni. Rysunek \ref{fig:svm} przedstawia przykładową hiperpłaszczyznę.\par
-\begin{figure}[tbp]
-\centerline{\includegraphics[ height=6cm, width=9cm]{svm}}
-\caption{Hiperpłaszczyzna rozdzielająca dane, o dwóch właściwościach $x_1$ i $x_2$, na dwie klasy kół i kwadratów (obrazek mozna zmienic)}
+{\em Software Vector Machine} (SVM) -- algorytm używany jako klasyfikator, który dokonuje podziału danych dzięki wcześniej wyznaczonej hiperpłaszczyźnie ({\em ang. hyperplane}). W celu zdefiniowania optymalnej hiperpłaszczyzny należy wyznaczyć maksymalną szerokość marginesów ({\em ang. margin} ) $\omega$, taką aby pojedyncze dane w różnych klas, znajdujące się najbliżej siebie, leżały na granicy marginesów. Takie dane definiowane są jako {\em ang. Support vectors}. Wielu przypadkach, aby podział danych był możliwy,używa się  jednej z funkcji kernela, przenoszącej problem do więcej wymiarowej przestrzeni. Rysunek \ref{fig:svm} przedstawia przykładową hiperpłaszczyznę.\par
+
+%NOWY OBRAZEK https://en.proft.me/2014/04/22/how-simulate-support-vector-machine-svm-r/
+\begin{center}
+\includegraphics[ height=10cm, width=13cm]{svm_2}
+\captionof{figure}{Hiperpłaszczyzna rozdzielająca dane, o dwóch właściwościach $x_1$ i $x_2$, na dwie klasy: czerwoną i żółtą}
 \label{fig:svm}
 \label{fig:xccs}
-\end{figure}
-W niniejszej pracy zostało użyte pewne rozwinięcie SVM, dla problemów dotyczących regresji, czyli SVR({\em ang. Support Vector Regression}). W takim rozwiązaniu hiperpłaszczyznę wyznacza się tak, aby jak najwięcej danych treningowych znalazło się w wybranej odległości $\epsilon$ od niej, w celu dopasowania funkcji $f \colon X \to Y$\cite{svr}. Zaletą SVM i SVR jest to, że są w stanie odnajdywać zależności nieliniowe, jednak by tego dokonać należy wybrać odpowiedną funkcję kernala, co często nie jest trywialne.
+\end{center}
+
+W niniejszej pracy zostało użyte pewne rozwinięcie SVM, dla problemów dotyczących regresji, czyli SVR ({\em ang. Support Vector Regression}). W takim rozwiązaniu hiperpłaszczyznę wyznacza się tak, aby jak najwięcej danych treningowych znalazło się w wybranej odległości $\epsilon$ od niej, w celu dopasowania funkcji $f \colon X \to Y$\cite{svr}. Zaletą SVM i SVR jest to, że są w stanie odnajdywać zależności nieliniowe, jednak by tego dokonać należy wybrać odpowiedną funkcję kernala, co często nie jest trywialne.
 
 %SVR -> https://link.springer.com/chapter/10.1007/978-1-4302-5990-9_4
 \subsection{Random Forest}
-Random Forest działa w oparciu o "głosowanie"' wielu pojedynczy drzew. Każde z drzew powstaje dzięki implementacji algorytmu CART ({\em ang. Classification and Regression Trees}). W tym przypadku dla problemów regresji. Drzewa składają się z Węzła Głównego ({\em ang. Root Node}), Liści ({\em ang. Leaves}), Węzłów Decyzyjnych({\em ang. Decision Nodes}). Trenowanie drzewa bazuje na minimalizacji funkcji $S$ wyrażającej się wzorem \ref{eqn:rf}, gdzie $m_c=\frac{1}{n}\sum_{i \in c}y_i$ i jest predykcja z danego liścia\cite{rf}. Wizualizacja dopasowania funkcji na podstawie Drzewa Regresyjnego \ref{fig:r_tree}.\par
+Random Forest działa w oparciu o "głosowanie"' wielu pojedynczy drzew. Każde z drzew powstaje dzięki implementacji algorytmu CART ({\em ang. Classification and Regression Trees}). W tym przypadku dla problemów regresji. Drzewa składają się z Węzła Głównego ({\em ang. Root Node}), Liści ({\em ang. Leaves}), Węzłów Decyzyjnych ({\em ang. Decision Nodes}). Trenowanie drzewa bazuje na minimalizacji funkcji $S$ wyrażającej się wzorem \ref{eqn:rf}, gdzie $m_c=\frac{1}{n}\sum_{i \in c}y_i$ i jest predykcja z danego liścia\cite{rf}. Rysunek \ref{fig:r_tree} wizualizuje dopasowanie funkcji przy użyciu algorytmu  Drzewa Regresyjnego.\par
 \begin{equation}
 \label{eqn:rf}
 S=\frac{1}{n}\sum_{c \in leaves(T)}\sum_{i \in c}(y_i - m_c)^2
 \end{equation}
-W Random Forest każde z drzew budowane jest w oparciu o inny podzestaw danych treningowych, co w swoim zamyśle ma na celu podwyższenie dokładności modelu oraz zmniejszenie zagrożenia nadmiernego dopasowania (ang. {\em overfitting})\cite{rf2}. Istotną kwestią jest dobór optymalnych parametrów dla modelu, takich jak liczba drzew oraz ich głębokość. 
-\begin{figure}[tbp]
-\centerline{\includegraphics[ height=6cm, width=9cm]{r_tree}}
-\caption{opis}
+W Random Forest każde z drzew budowane jest w oparciu o inny pod zestaw danych treningowych, co w swoim zamyśle ma na celu podwyższenie dokładności modelu oraz zmniejszenie zagrożenia nadmiernego dopasowania (ang. {\em overfitting})\cite{rf2}. Istotną kwestią jest dobór optymalnych parametrów dla modelu, takich jak liczba drzew oraz ich głębokość. 
+\begin{center}
+\includegraphics[ height=6cm, width=9cm]{r_tree}
+\captionof{figure}{Wizualizacja dopasowania modelu z użyciem algorytmu drzewa regresyjnego}
 \label{fig:r_tree}
 \label{fig:xccs}
-\end{figure}
+\end{center}
 
 \subsection{Sieci Neuronowe}
 Struktura Sieci Neuronowych ({\em ang. Neural Networks}) jest inspirowana budową mózgu. Jej podstawowym elementem są neurony, które formują warstwy, te z kolei dzielą się na warstwę wejściową, warstwę wyjściowa i warstwy ukryte. Rysunek \ref{fig:nn} przedstawia schemat przykładowej sieci neuronowej. Neurony jako dane wejściowe otrzymują dane wyjściowe, z odpowiednią wagą, z poprzednich neuronów. Neurony z warstwy wejściowej otrzymują przygotowane dane treningowe.\cite{rf2} Proces uczenia który ustawia wagi, a tym samym mówi jak powinny wyglądać połączenia pomiędzy neuronami w różnych warstwach, nosi nazwę {\em Back Propagation}\cite{bp}.\par
 
-Jedna z największych zalet Sieci Neuronowych jest to, że w porównaniu z innymi algorytmami uczenia maszynowego, w lepszym stopniu wykorzystuje duże ilości danych wejściowych\cite{nndata}. Zależność ta została zobrazowana na wykresie \ref{fig:nn_data}. Co więcej algorytm ten dobrze radzi sobie z zależnościami nieliniowymi. Minusem natomiast jest brak możliwości obserwacji jak algorytm doszedł do danego wyniku.
-00097934
-haykin.neural-networks.3ed.2009
-%https://www.researchgate.net/publication/324728060_Lung_Cancer_Detection_using_Deep_Learning#pf18
-\begin{figure}[tbp]
-\centerline{\includegraphics[ height=6cm, width=12cm]{nn}}
-\caption{opis}
+\begin{center}
+\includegraphics[ height=6cm, width=12cm]{nn}
+\captionof{figure}{Przykładowy schemat budowy sieci neuronowej. Żkoła symbolizują neurony z warstwy wejciowej, niebieskie i zielone neurony z warstw ukrytuch, a czerwony neuron warstwy wyjściowej\cite{nnpicture}. }
 \label{fig:nn}
 \label{fig:xccs}
-\end{figure}
+\end{center}
 
-\begin{figure}[tbp]
-\centerline{\includegraphics[ height=6cm, width=9cm]{nn_data_2}}
-\caption{Wydajnosć Sieci neuronowych w porównaniu do tradycyjnych algorytmów uczenia maszynowego\cite{nn_wykres}.}
+Jedna z największych zalet Sieci Neuronowych jest to, że w porównaniu z innymi algorytmami uczenia maszynowego, w lepszym stopniu wykorzystuje duże ilości danych wejściowych\cite{nndata}. Zależność ta została zobrazowana na wykresie \ref{fig:nn_data}. Co więcej algorytm ten dobrze radzi sobie z zależnościami nieliniowymi. Minusem natomiast jest brak możliwości obserwacji jak algorytm doszedł do danego wyniku.
+%00097934
+%haykin.neural-networks.3ed.2009
+%https://www.researchgate.net/publication/324728060_Lung_Cancer_Detection_using_Deep_Learning#pf18
+
+
+
+\begin{center}
+\includegraphics[ height=6cm, width=14cm]{nn_data_2}
+\captionof{figure}{Wydajnosć Sieci neuronowych w porównaniu do tradycyjnych algorytmów uczenia maszynowego\cite{nn_wykres}.}
 \label{fig:nn_data}
 \label{fig:xccs}
-\end{figure}
-
-
+\end{center}
 
 
 
