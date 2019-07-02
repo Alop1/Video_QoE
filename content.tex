@@ -10,7 +10,7 @@ Dzięki coraz większym przepustowością i szerokiemu dostępowi do Internetu w
 
 Wszystkie wymienione wyżej aspekty sprawiły, że wideo stało się codziennością w życiu większości ludzi.\par
 
-Na obecnym etapie rozwoju technologii, oczekiwania odbiorcy co do jakości otrzymywanego wideo znacznie wzrosły. Na drugiej szali pozostają ograniczenia dotyczące medium i optymalnego wykorzystania zasobów po stronie klienta i serwera(?dostawcy?). Odnosząc się do powyższego istotną kwestią staje się monitorowanie jakości transmitowanego wideo i dostosowywanie go do potrzeb użytkownika. Jednak problem w ocenie jakości wideo jest tu o tyle trudny, że dotychczas najbardziej wiarygodnym wskaźnikiem jest tu opinia ludzka,  trudna do powiązania z mierzalnymi technicznymi, parametrami wideo. W niniejszej Pracy zostanie przedstawiony algorytm pozwalający na bardziej zautomatyzowaną ocenę jakości wideo w oparciu o metryki full-reference (FR) i no-reference (NR) oraz zaprezentowana zostanie wykorzystana metodologia badań.
+Na obecnym etapie rozwoju technologii, oczekiwania odbiorcy co do jakości otrzymywanego wideo znacznie wzrosły. Na drugiej szali pozostają ograniczenia dotyczące medium i optymalnego wykorzystania zasobów po stronie klienta i serwera(?dostawcy?). Odnosząc się do powyższego istotną kwestią staje się monitorowanie jakości transmitowanego wideo i dostosowywanie go do potrzeb użytkownika. Jednak problem w ocenie jakości wideo jest tu o tyle trudny, że dotychczas najbardziej wiarygodnym wskaźnikiem jest tu opinia ludzka,  trudna do powiązania z mierzalnymi technicznymi, parametrami wideo. W niniejszej Pracy zostanie przedstawiony algorytm pozwalający na bardziej zautomatyzowaną ocenę jakości wideo w oparciu o metryki \emph{full-reference} (FR) i \emph{no-reference} (NR) oraz zaprezentowana zostanie wykorzystana metodologia badań.
 
 
 
@@ -22,9 +22,10 @@ W niniejszym rozdziale przedstawiono najważniejsze teoretyczne zagadnienia dla 
 
 \section{Wideo}
 
-Wideo jest formą zapisu sygnału wizji (analogowego bądź cyfrowego). W swojej surowej postaci jest to sekwencja pojedynczych ramek. Ramki natomiast składają się z pixeli, a one są definiowane poprzez: luminancję ({\em ang. luminace}) i chrominancje ({\em ang. chrominance}). Luminancja odpowiada za intensywność obrazu, a chrominancja za kolory. 
+Wideo jest formą zapisu sygnału wizji (analogowego bądź cyfrowego). W swojej surowej postaci jest to sekwencja pojedynczych ramek. Ramki natomiast składają się z pikseli, a one są definiowane poprzez: luminancję ({\em ang. luminace}) i chrominancje ({\em ang. chrominance}). Luminancja odpowiada za intensywność obrazu, a chrominancja za kolory. 
 
-Surowe wideo zajmuje bardzo dużo przestrzeni dyskowej. Przykładowo obraz o rozdzielczości 1920x1080 z 24 ramkami na sekundę o długości 30 sekund zajmuje ponad \todo{sprawdzić ile dokładnie}20 GB w pamięci komputera. Tak duże rozmiary znacząco ograniczają możliwości przechowywania i transmisji dla zwykłych użytkowników. Dlatego praktycznie każdy plik wideo wykorzystuje kodeki, czyli pewne ustandaryzowane zasady kompresji/dekompresji. Do najpopularniejszych należą H.265 i H.264 powszechnie używany w Internecie do transmitowania multimediów \cite{video_codecs}. Błędy podczas tego procesu, transmisji czy nagrywania mogą powodować powstanie zaburzeń w odtwarzanym obrazie. W celu mierzenia poziomu uszkodzeń oraz monitorowania stanu wideo badacze zdefiniowali wiele metryk.\par.
+Surowe wideo zajmuje bardzo dużo przestrzeni dyskowej. Przykładowo obraz o rozdzielczości 1920x1080 z 24 ramkami na sekundę o długości 30 sekund zajmuje ponad \todo{sprawdzić ile dokładnie}30 GB w pamięci komputera. Tak duże rozmiary znacząco ograniczają możliwości przechowywania i transmisji dla zwykłych użytkowników. Dlatego praktycznie każdy plik wideo wykorzystuje kodeki, czyli pewne ustandaryzowane zasady kompresji/dekompresji. Do najpopularniejszych należą H.265 i H.264 powszechnie używany w Internecie do transmitowania multimediów \cite{video_codecs}. Błędy podczas tego procesu, transmisji czy nagrywania mogą powodować powstanie zaburzeń w odtwarzanym obrazie. W celu mierzenia poziomu uszkodzeń oraz monitorowania stanu wideo badacze zdefiniowali wiele metryk.\par.
+
 
 \section{Metryki}
 %https://books.google.se/books?id=JbtPCwAAQBAJ&pg=PA32&dq=video++quality+metrics+full+reference&hl=en&sa=X&ved=0ahUKEwi4wtGc2YfiAhWx-ioKHZJtAtcQ6AEIKjAA#v=onepage&q=video%20%20quality%20metrics%20full%20reference&f=false
@@ -32,21 +33,29 @@ Surowe wideo zajmuje bardzo dużo przestrzeni dyskowej. Przykładowo obraz o roz
 Jakość danego wideo jest najtrafniej oceniona dzięki tak zwanej ocenie subiektywnej. Polega ona na określeniu jakości odbioru przez człowieka na podstawie jego odczuć. Niestety, aby takie badanie było miarodajne należy je przeprowadzić w odpowiednich warunkach, przygotować zestaw testów, zrekrutować uczestników oraz cały czas nadzorować jego przebieg. Wszystko to generuje duże koszty i zabiera cenny czas także, przede wszystkim nie pozwala na ocenę jakości w czasie rzeczywistym na przykład podczas stremowania wideo. Problem ten rozwiązują metryki jakości wideo. które w przeciwieństwie do oceny subiektywnej, bazują na obiektywnych pomiarach właściwości\cite{vqm}.\par
 Metryki jakości wideo mogą zostać sklasyfikowane na podstawie tego czy do ich wyznaczenia wymagana jest obecność niezakłóconego pliku wideo. Metryki, które wymagają takiego pliku określane są mianem {\em ang. full-reference} (FR). Porównują one właściwości zakłóconego i nie zakłóconego wideo, aby na podstawie tak otrzymanych informacji dokonać estymaty jakości. Innym rodzajem metryk są metryki {\em ang. no-reference} (NR). Dokonują one oceny jakości na podstawię zniekształconego wideo i nie wymagają do tego żadnych dodatkowych informacji\cite{vqm}.\par
 
+Podczas badań nad jakością  wideo używane są pewne sformułowania ułatwiające definiowanie późniejszych pojęć. Przedstawiają się one następująco:
+\begin{itemize}[label=$\bullet$]
+	\item SVQ (\emph{ang. Subjective video quality }) -- jakość wideo doświadczana przez człowieka
+	\item SRC (\emph{ang. Source}) -- oryginalna sekwencja wideo
+	\item PVS (\emph{ang. Processed Video Sequences}) -- pliki wideo powstałe w skutek zniekształcenia SRC
+\end{itemize}
+
+
 W poniższych podrozdziałach w w skrócie zostały opisane metryki typu NR i FR.
 
 \subsection{Metryki no-reference}
 %\let\labelitemi\labelitemii
 \begin{itemize}[label=$\bullet$]
-\item Blokowość ({\em ang. Blockiness}) -- powstaje podczas DCT i dotyczy związanych z nią bloków pixeli. Objawia się poprzez zauważalną między nimi  granicę\cite{blockiness}. Skala przyjęta w pracy: 0-3570. Im większa wartość, tym mniej widoczne zakłócenie. Dla obrazu bez zakłóceń około 0.9-1.01\cite{agh_vqm}.
+\item Blokowość ({\em ang. Blockiness}) -- powstaje podczas DCT i dotyczy związanych z nią bloków pikseli. Objawia się poprzez zauważalną między nimi  granicę\cite{blockiness}. Skala przyjęta w pracy: 0-3570. Im większa wartość, tym mniej widoczne zakłócenie. Dla obrazu bez zakłóceń około 0.9-1.01\cite{agh_vqm}.
 \begin{figure}[h]
-\centerline{\includegraphics[ height=5cm, width=9cm]{blockiness}}
+\centerline{\includegraphics[ height=4cm, width=7cm]{blockiness}}
 \caption{Przykładowy obraz z zakłóceniami spowodowanymi blokowością\cite{agh_vqm}.}
 \label{fig:xccs}
 \end{figure}
 
-\item Aktywność Przestrzenna ({\em ang. Spatial Activity}) -- opisuje położenie obiektu na ramce oraz jego relacje z innymi obiektami. Pozwala rozróżnić czy aktywność na danym wideo jest czynnością statyczną (osoba wykonująca czynność pozostaje w jednym miejscu) czy mobilną (osoba wykonująca czynność porusza się wzdłuż pola widzenia)\cite{spactial_act}. Skala przyjęta w pracy: 0-270. Im większa wartość tym większa aktywność przestrzenna\cite{agh_vqm}
+\item Aktywność Przestrzenna ({\em ang. Spatial Activity}) -- opisuje położenie obiektu na ramce oraz jego relacje z innymi obiektami. Pozwala rozróżnić czy aktywność na danym wideo jest czynnością statyczną (osoba wykonująca czynność pozostaje w jednym miejscu) czy mobilną (osoba wykonująca czynność porusza się wzdłuż pola widzenia)\cite{spactial_act}. Skala przyjęta w pracy: 0-270. Im większa wartość, tym większa aktywność przestrzenna\cite{agh_vqm}
 \begin{center}
-\centerline{\includegraphics[ height=5cm, width=9cm]{spatialAC}}
+\centerline{\includegraphics[ height=4cm, width=7cm]{spatialAC}}
 \captionof{figure}{Przykład detekcji krawędzi obiektów w ramce, niezbędne do otrzymania informacji o aktywnosci przestrzennej\cite{agh_vqm}.}
 \label{fig:xccs}
 \end{center}
@@ -55,45 +64,45 @@ W poniższych podrozdziałach w w skrócie zostały opisane metryki typu NR i FR
 \item Letterbox i Pillarbox -- letterbox jest techniką pozwalającą na wyświetlanie obrazów o wyższym współczynniku proporcji na odbiornikach o mniejszym współczynniku. Polega ona na dołożeniu dwóch czarnych pasów na górze i dole ramki.\cite{letterboxing}. Natomiast pillarbox używane jest przy wyświetlaniu obrazu o mniejszym współczynniku proporcji na ekranie o większym . Do obrazu dodawane są wtedy pasy po obu bokach ekranu. Skala przyjęta w pracy 0-1.
 \begin{figure}[h]
 \begin{subfigure}[b]{0.4\textwidth}
-\centerline{\includegraphics[ height=5cm, width=9cm]{letterboxingC}}
+\centerline{\includegraphics[ height=4cm, width=7cm]{letterboxingC}}
 \caption{przykład wykorzystania techniki letterbox\cite{agh_vqm}.}
 \label{fig:xccs}
 \end{subfigure} 
 \hfill
 \begin{subfigure}[b]{0.4\textwidth}
-\centerline{\includegraphics[ height=5cm, width=9cm]{pillarboxing}}
+\centerline{\includegraphics[ height=4cm, width=7cm]{pillarboxing}}
 \caption{przykład wykorzystania techniki Pillarbox\cite{agh_vqm}.}
 \label{fig:xccs}
 \end{subfigure}
 \end{figure}
 
-\item Straty bloków ({\em ang. Blockloss}) -- wskaźnik informujący o ilości brakujących bloków (używanych podczas DCT -- Dyskretnej transformacji kosinusowej). Skala przyjęta w pracy: 0-200.Im większa wartość tym większe zniekształcenie obrazu.
+\item Straty bloków ({\em ang. Blockloss}) -- wskaźnik informujący o ilości brakujących bloków (używanych podczas DCT -- Dyskretnej transformacji kosinusowej). Skala przyjęta w pracy: 0-200. Im większa wartość tym większe zniekształcenie obrazu.
 
 
 \begin{center}
-\centerline{\includegraphics[ height=5cm, width=9cm]{block_lossC}}
+\centerline{\includegraphics[ height=4cm, width=7cm]{block_lossC}}
 \captionof{figure}{Przykład zniekształcenia obrazu spowodowany stratą bloków\cite{agh_vqm}.}
 \label{fig:xccs}
 \end{center}
 
-\item Rozmycie ({\em ang. Blur}) -- Istnieje wiele rodzajów rozmycia, między innymi te niepożądane, występujące na przykład  po przeprowadzeniu kompresji z błędami, bądź przez poruszenie kamery podczas nagrywania. Gdy występuje ten efekt obiekty na obrazie tracą ostrość krawędzi.\cite{blur}. Skala przyjeta w pracy: 0-70.
+\item Rozmycie ({\em ang. Blur}) -- Istnieje wiele rodzajów rozmycia, między innymi te niepożądane, występujące na przykład  po przeprowadzeniu kompresji z błędami, bądź przez poruszenie kamery podczas nagrywania. Gdy występuje ten efekt obiekty na obrazie tracą ostrość krawędzi.\cite{blur}. Skala przyjęta w pracy: 0-70.
 \begin{center}
-\includegraphics[ height=5cm, width=9cm]{blur}
+\includegraphics[ height=4cm, width=7cm]{blur}
 \captionof{figure}{Przykład zniekształcenia obrazu spowodowany rozmyciem \cite{agh_vqm}.}
 \label{fig:xccs}
 \end{center}
 
 \item Aktywność czasowa ({\em ang. Temporal Activity}) -- opisuje intensywność ruchu obiektów w czasie. Często wymieniana razem ze wskaźnikiem aktywności przestrzennej. Skala przyjęta w pracy: 0-255.
 \begin{center}
-\includegraphics[ height=5cm, width=9cm]{temporalAC}
+\includegraphics[ height=4cm, width=7cm]{temporalAC}
 \captionof{figure}{opis}
 \label{fig:xccs}
 \end{center}
 
-\item Wyciemnienia ({\em ang. Blackout}) -- opisuje zjawisko, kiedy obraz całkowicie zanika\cite{blackout}. Skala przyjęta w pracy : 0-1.
+\item Wyciemnienia ({\em ang. Blackout}) -- opisuje zjawisko, kiedy obraz całkowicie zanika.\cite{blackout}. Skala przyjęta w pracy : 0-1.
 \begin{center}
-\includegraphics[ height=5cm, width=9cm]{blackout}
-\captionof{figure}{Wyciemniona ramka\cite{agh_vqm}.}
+\includegraphics[ height=4cm, width=7cm]{blackout}
+\captionof{figure}{Wyciemniona ramka \cite{agh_vqm}.}
 \label{fig:xccs}
 \end{center}
 
@@ -101,21 +110,21 @@ W poniższych podrozdziałach w w skrócie zostały opisane metryki typu NR i FR
 
 \item Ekspozycja ({\em ang. Exposure}) -- ten typ zakłóceń jest spowodowany niezbilansowaną jasnością ramek. Widz ma odczucie ze wideo jest zbyt ciemna lub zbyt jasne\cite{freezing}. Skala przyjęta w badaniach 0-255.
 \begin{center}
-\includegraphics[ height=5cm, width=9cm]{exp}
-\captionof{figure}{Przykład zniekształcenia obrazu spowodowany nieodpowiednią ekspozycją\cite{agh_vqm}}
+\includegraphics[ height=4cm, width=7cm]{exp}
+\captionof{figure}{Przykład zniekształcenia obrazu spowodowany nieodpowiednią ekspozycją \cite{agh_vqm}.}
 \label{fig:xccs}
 \end{center}
 
 
 \item Kontrast ({\em ang. Contrast}) -- Opisuje różnice pomiędzy jasnymi, a ciemnymi obszarami obrazu. Skala przyjęta w pracy: 0-120.
 \begin{center}
-\includegraphics[ height=5cm, width=9cm]{contrastC}
+\includegraphics[ height=4cm, width=7cm]{contrastC}
 \captionof{figure}{Przykład zniekształcenia obrazu spowodowany nieodpowiednim kontrastem\cite{agh_vqm}.}
 \label{fig:xccs}
 \end{center}
 \item Jasnosć ({\em ang. Brightness}) -- jest powiązana z problemem Ekspozycji. Jej zbyt duża wartość może skutkować odczuciem przeswietlenia ramki. Skala przyjęta w pracy: 0-1.
 \begin{center}
-\includegraphics[ height=5cm, width=9cm]{brightness}
+\includegraphics[height=4cm, width=7cm]{brightness}
 \captionof{figure}{Przykład zniekształcenia obrazu spowodowany zbyt dużą jasnością\cite{agh_vqm}.}
 \label{fig:xccs}
 \end{center}
@@ -126,9 +135,9 @@ W poniższych podrozdziałach w w skrócie zostały opisane metryki typu NR i FR
 %\caption{opis\cite{agh_vqm}}
 %\label{fig:xccs}
 %\end{figure}
-\item Szum ({\em ang. noise}) -- jest to rodzaj zaburzenia obrazu spowodowany występowaniem niekontrolowanych wzorców dla intensywności wyświetlania pixeli\cite{freezing}. Skala przyjęta w pracy: 0-120.
+\item Szum ({\em ang. noise}) -- jest to rodzaj zaburzenia obrazu spowodowany występowaniem niekontrolowanych wzorców dla intensywności wyświetlania pikseli\cite{freezing}. Skala przyjęta w pracy: 0-120.
 \begin{center}
-\includegraphics[ height=5cm, width=9cm]{noiseC}
+\includegraphics[ height=4cm, width=7cm]{noiseC}
 \captionof{figure}{Przykład zniekształcenia obrazu spowodowany szumem\cite{agh_vqm}.}
 \label{fig:xccs}
 \end{center}
@@ -145,16 +154,16 @@ W poniższych podrozdziałach w w skrócie zostały opisane metryki typu NR i FR
 Oprócz wyżej wymienionych w pracy zostały również użyte dane o wideo takie jak: 
 
 \begin{itemize}[label=$\bullet$]
-\item Rozdzielczość ({\em ang.  Resolution}) -- miara określająca rozmiar ramki. Jednostką są pixele. Podawana jest zazwyczaj w następujący sposób: szerokość x wysokość. Do badań zostały użyte wideo o rozdzielczościach: 3840x2160, 1920x1080, 704x576, 640x480, 352x288. 
-\item Klatki na sekundę ({\em ang. fps, frames per second}) -- liczba ramek wyświetlonych w czasie sekundy. W telewizji jest to 25 ramek na sekundę. Do badań użyto następujące czestotliwości: 60, 30, 25, 24 fps.
-\item Próbkowanie chrominacji  ({\em ang.Chroma subsampling}) -- Jest to cecha  wideo wynikająca z sposobu kodowania  informacji w pixelu. Samo działanie ma na celu  ograniczenie wykorzystania zasobów  W takim przypadku wykorzystuje się  niedoskonałość ludzkiego oka, które jest bardziej wrażliwe na jasność, niż na kolor. Jak wcześniej zostało wspominane pixel jest opisywany dwoma zmiennymi: luminacją i chrominacją.  Pixel, w modelu kolorów YUV (innym modelem kolorów jest RGB),  jest  kodowany w następujący sposób: YCbYc, gdzie Y oznacza luminację, Cb intensywność koloru niebieskiego(chrominacja), a Cr intensywność koloru czerwonego (chrominacja). Chcąc zmniejszyć ilość danych, potrzebnej do zbudowania obrazu, ogranicza się informację dotyczące części odpowiedzialnej za kolor. Przykładowo 4:2:2 oznacza, że na daną czwórkę pixeli kolor będzie pod próbkowany na tylko co drugim z nich, a sąsiedzi przejmą od nich tą informację  \cite{chroma_sampling}. W danych zebranych do pracy użyto następujących wartości:.
+\item Rozdzielczość ({\em ang.  Resolution}) -- miara określająca rozmiar ramki. Jednostką są piksele. Podawana jest zazwyczaj w następujący sposób: szerokość x wysokość. Do badań zostały użyte wideo o rozdzielczościach: 3840x2160, 1920x1080, 704x576, 640x480, 352x288. 
+\item Klatki na sekundę ({\em ang. fps, frames per second}) -- liczba ramek wyświetlonych w czasie sekundy. W telewizji jest to 25 ramek na sekundę. Do badań użyto następujące częstotliwości: 60, 30, 25, 24 fps.
+\item Próbkowanie chrominacji  ({\em ang.Chroma subsampling}) -- Jest to cecha  wideo wynikająca z sposobu kodowania  informacji w pikselu. Samo działanie ma na celu  ograniczenie wykorzystania zasobów  W takim przypadku wykorzystuje się  niedoskonałość ludzkiego oka, które jest bardziej wrażliwe na jasność, niż na kolor. Jak wcześniej zostało wspominane piksel jest opisywany dwoma zmiennymi: luminacją i chrominacją. Piksel, w modelu kolorów YUV (innym modelem kolorów jest RGB),  jest  kodowany w następujący sposób: YCbYc, gdzie Y oznacza luminację, Cb intensywność koloru niebieskiego(chrominacja), a Cr intensywność koloru czerwonego (chrominacja). Chcąc zmniejszyć ilość danych, potrzebnej do zbudowania obrazu, ogranicza się informację dotyczące części odpowiedzialnej za kolor. Przykładowo 4:2:2 oznacza, że na daną czwórkę pikseli kolor będzie pod próbkowany na tylko co drugim z nich, a sąsiedzi przejmą od nich tą informację  \cite{chroma_sampling}. W danych zebranych do pracy użyto następujących wartości:.
 \end{itemize}
 
 
 \subsection{Metryki full-reference}
 
 \begin{itemize}[label=$\bullet$]
-\item PSNR ({\em ang. Peak Signal-to-Noise Ratio}) -- prosta do policzenia i również często stosowane z pomiędzy metryk typu FR. Przykładowa implementacja dla PSNR \ref{eqn:somelabel} (gdzie MSE jest błędem średnio kwadratowym dla ramki, a $L$ maksymalną wartość sygnału). W pierwszej kolejności liczone jest zniekształcenie dla wszystkich ramek w stosunku do ich oryginału. Zazwyczaj do obliczań wykorzystuje się informację o luminacji pixela. Później następuje uśrednienie wyniku\cite{fr_psnr}. 
+\item PSNR ({\em ang. Peak Signal-to-Noise Ratio}) -- prosta do policzenia i również często stosowane z pomiędzy metryk typu FR. Przykładowa implementacja dla PSNR \ref{eqn:somelabel} (gdzie MSE jest błędem średnio kwadratowym dla ramki, a $L$ maksymalną wartość sygnału). W pierwszej kolejności liczone jest zniekształcenie dla wszystkich ramek w stosunku do ich oryginału. Zazwyczaj do obliczań wykorzystuje się informację o luminacji piksela. Później następuje uśrednienie wyniku\cite{fr_psnr}. 
 \begin{equation}
 \label{eqn:somelabel}
 PSNR = \frac{1}{N} \times 10 \sum_{i=1}^{N}\log\frac{L}{MSE_i}
@@ -167,13 +176,13 @@ Mimo zalet PSNR nie zawsze spełnia swoje zadanie. Ilustracja \ref{fig:psnr_pict
 \label{fig:xccs}
 \end{center}
 % ms-ssim Multiscale_structural_similarity_for_image_quality_assessment
-\item SSIM ({\em ang. Structural Similarity Index}) -- jest jedna z najczęściej stosowanych metryk oceny jakości wideo. Również, jak poprzednia metryka, jest ona prosta w obliczeniach. Uwzględnia w swojej funkcji luminacje, kontrast i strukturę obu \ref{eqn:ssim}, gdzie S jest blokiem pixeli z ramki z oryginalnej sekwencji wideo, a S' jej zniekształconą wersją. $SSIM \in <0,1>$. 1 oznacza brak zniekształceń, a 0 oznacza idealne niedopasowanie \cite{ssim_1}\cite{ssim_2}.
+\item SSIM ({\em ang. Structural Similarity Index}) -- jest jedna z najczęściej stosowanych metryk oceny jakości wideo. Również, jak poprzednia metryka, jest ona prosta w obliczeniach. Uwzględnia w swojej funkcji luminacje, kontrast i strukturę obu \ref{eqn:ssim}, gdzie S jest blokiem pikseli z ramki z oryginalnej sekwencji wideo, a S' jej zniekształconą wersją. $SSIM \in <0,1>$. 1 oznacza brak zniekształceń, a 0 idealne niedopasowanie \cite{ssim_1}\cite{ssim_2}.
 \begin{equation}
 \label{eqn:ssim}
 SSIM = I(S, S')c(S, S')s(S,S')
 \end{equation}
 \item MS-SSIM ({\em ang. multi-scale SSIM}) -- jest modyfikacją SSIM'a. Polega na próbkowaniu obrazu, w każdej skali, przed zastosowaniem SSIM'. Po przeprowadzeniu obliczeń, każda z skali jest łączona, z odpowiednimi wagami, w jedną całosć. Zabieg ma na celu poprawę trafności oceny jakości\cite{ssim_2}. 
-\item VMAF ({\em ang. Video Multimethod Assessment Fusion}) -- Metryka rozwijana przez Netflix we współpracy z University of Southern California. Jej działanie opiera się na podłączaniu wyników kilku metryk podstawowych. VMAF nadaje każdej z metryk odpowiednie wagi, a dzieje się to dzięki zastosowaniu algorytmu uczenia maszynowego, w tym przypadku SVM regressor ({\em ang. Support Vector Machine regressor}). Takie rozwiązanie ma zapewnić wykorzystanie mocnych stron poszczególnych metryk z pominięciem ich słabości \cite{netflix}. 
+\item VMAF ({\em ang. Video Multimethod Assessment Fusion}) -- Metryka rozwijana przez Netflix we współpracy z University of Southern California. Jej działanie opiera się na podłączaniu wyników kilku metryk podstawowych. VMAF nadaje każdej z nich odpowiednie wagi, a dzieje się to dzięki zastosowaniu algorytmu uczenia maszynowego, w tym przypadku SVM regressor ({\em ang. Support Vector Machine regressor}). Takie rozwiązanie ma zapewnić wykorzystanie mocnych stron poszczególnych metryk z pominięciem ich słabości \cite{netflix}. 
 \end{itemize}
 
 \section{Algorytmy uczenia maszynowego }
@@ -207,19 +216,19 @@ Regresja liniowa jest jednym z prostszych algorytmów. Jej cechą jest przejrzys
 \label{fig:xccs}
 \end{center}
 
-W niniejszej pracy zostało użyte pewne rozwinięcie SVM, dla problemów dotyczących regresji, czyli SVR ({\em ang. Support Vector Regression}). W takim rozwiązaniu hiperpłaszczyznę wyznacza się tak, aby jak najwięcej danych treningowych znalazło się w wybranej odległości $\epsilon$ od niej, w celu dopasowania funkcji $f \colon X \to Y$\cite{svr}. Zaletą SVM i SVR jest to, że są w stanie odnajdywać zależności nieliniowe, jednak by tego dokonać należy wybrać odpowiedną funkcję kernala, co często nie jest trywialne.
+W niniejszej pracy zostało użyte pewne rozwinięcie SVM, dla problemów dotyczących regresji, czyli SVR ({\em ang. Support Vector Regression}). W takim rozwiązaniu hiperpłaszczyznę wyznacza się tak, aby jak najwięcej danych treningowych znalazło się w wybranej odległości $\epsilon$ od niej, w celu dopasowania funkcji $f \colon X \to Y$\cite{svr}. Zaletą SVM i SVR jest to, że są w stanie odnajdywać zależności nieliniowe, jednak by tego dokonać należy wybrać odpowiednią funkcję kernala, co często nie jest trywialne.
 
 %SVR -> https://link.springer.com/chapter/10.1007/978-1-4302-5990-9_4
-\subsection{Random Forest}
-Random Forest działa w oparciu o "głosowanie"' wielu pojedynczy drzew. Każde z drzew powstaje dzięki implementacji algorytmu CART ({\em ang. Classification and Regression Trees}). W tym przypadku dla problemów regresji. Drzewa składają się z Węzła Głównego ({\em ang. Root Node}), Liści ({\em ang. Leaves}), Węzłów Decyzyjnych ({\em ang. Decision Nodes}). Trenowanie drzewa bazuje na minimalizacji funkcji $S$ wyrażającej się wzorem \ref{eqn:rf}, gdzie $m_c=\frac{1}{n}\sum_{i \in c}y_i$ i jest predykcja z danego liścia\cite{rf}. Rysunek \ref{fig:r_tree} wizualizuje dopasowanie funkcji przy użyciu algorytmu  Drzewa Regresyjnego.\par
+\subsection{Las Losowy}
+Las Losowy (\emph{ang. Random Forest, RF }) działa w oparciu o "głosowanie"' wielu pojedynczy drzew. Każde z drzew powstaje dzięki implementacji algorytmu CART ({\em ang. Classification and Regression Trees}). W tym przypadku dla problemów regresji. Drzewa składają się z Węzła Głównego ({\em ang. Root Node}), Liści ({\em ang. Leaves}), Węzłów Decyzyjnych ({\em ang. Decision Nodes}). Trenowanie drzewa bazuje na minimalizacji funkcji $S$ wyrażającej się wzorem \ref{eqn:rf}, gdzie $m_c=\frac{1}{n}\sum_{i \in c}y_i$ i jest predykcja z danego liścia\cite{rf}. Rysunek \ref{fig:r_tree} wizualizuje dopasowanie funkcji przy użyciu algorytmu  Drzewa Regresyjnego.\par
 \begin{equation}
 \label{eqn:rf}
 S=\frac{1}{n}\sum_{c \in leaves(T)}\sum_{i \in c}(y_i - m_c)^2
 \end{equation}
-W Random Forest każde z drzew budowane jest w oparciu o inny pod zestaw danych treningowych, co w swoim zamyśle ma na celu podwyższenie dokładności modelu oraz zmniejszenie zagrożenia nadmiernego dopasowania (ang. {\em overfitting})\cite{rf2}. Istotną kwestią jest dobór optymalnych parametrów dla modelu, takich jak liczba drzew oraz ich głębokość. 
+W RF każde z drzew budowane jest w oparciu o inny pod zestaw danych treningowych, co w swoim zamyśle ma na celu podwyższenie dokładności modelu oraz zmniejszenie zagrożenia nadmiernego dopasowania ({\em ang. overfitting})\cite{rf2}. Istotną kwestią jest dobór optymalnych parametrów dla modelu, takich jak liczba drzew oraz ich głębokość. 
 \begin{center}
 \includegraphics[ height=6cm, width=9cm]{r_tree}
-\captionof{figure}{Wizualizacja dopasowania modelu z użyciem algorytmu drzewa regresyjnego}
+\captionof{figure}{Wizualizacja dopasowania modelu z użyciem algorytmu drzewa regresyjnego.}
 \label{fig:r_tree}
 \label{fig:xccs}
 \end{center}
