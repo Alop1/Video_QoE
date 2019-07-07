@@ -21,7 +21,7 @@
 \contentsline {subsection}{\numberline {3.2.5}Podsumowanie danych}{25}% 
 \contentsline {section}{\numberline {3.3}Modele }{25}% 
 \contentsline {chapter}{\numberline {4}Wyniki i analiza }{29}% 
-\contentsline {chapter}{\numberline {5}Podsumowanie}{33}% 
+\contentsline {chapter}{\numberline {5}Podsumowanie}{35}% 
 \babel@toc {english}{}
 \babel@toc {polish}{}
 \babel@toc {english}{}
