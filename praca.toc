@@ -1,27 +1,27 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \babel@toc {polish}{}
-\contentsline {chapter}{\numberline {1}Wst\IeC {\k e}p}{7}
-\contentsline {chapter}{\numberline {2}Wprowadzenie teoretyczne}{9}
-\contentsline {section}{\numberline {2.1}Wideo}{9}
-\contentsline {section}{\numberline {2.2}Metryki}{9}
-\contentsline {subsection}{\numberline {2.2.1}Metryki no-reference}{10}
-\contentsline {subsection}{\numberline {2.2.2}Metryki full-reference}{14}
-\contentsline {section}{\numberline {2.3}Algorytmy uczenia maszynowego }{16}
-\contentsline {subsection}{\numberline {2.3.1}Regresja Liniowa}{16}
-\contentsline {subsection}{\numberline {2.3.2}SVM}{17}
-\contentsline {subsection}{\numberline {2.3.3}Las Losowy}{18}
-\contentsline {subsection}{\numberline {2.3.4}Sieci Neuronowe}{18}
-\contentsline {chapter}{\numberline {3}Metodologia bada\IeC {\'n}}{21}
-\contentsline {section}{\numberline {3.1}Narz\IeC {\k e}dzia}{21}
-\contentsline {section}{\numberline {3.2}Dane}{22}
-\contentsline {subsection}{\numberline {3.2.1}Zbieranie danych}{22}
-\contentsline {subsection}{\numberline {3.2.2}Ekstrakcja cech}{23}
-\contentsline {subsection}{\numberline {3.2.3}Normalizacja i czyszczenie danych}{24}
-\contentsline {subsection}{\numberline {3.2.4}Przygotowanie formatu danych pod modelowanie}{24}
-\contentsline {subsection}{\numberline {3.2.5}Podsumowanie danych}{25}
-\contentsline {section}{\numberline {3.3}Modele }{25}
-\contentsline {chapter}{\numberline {4}Wyniki i analiza }{29}
-\contentsline {chapter}{\numberline {5}Podsumowanie}{35}
+\contentsline {chapter}{\numberline {1}Wst\IeC {\k e}p}{7}% 
+\contentsline {chapter}{\numberline {2}Wprowadzenie teoretyczne}{9}% 
+\contentsline {section}{\numberline {2.1}Wideo}{9}% 
+\contentsline {section}{\numberline {2.2}Metryki}{9}% 
+\contentsline {subsection}{\numberline {2.2.1}Metryki no-reference}{10}% 
+\contentsline {subsection}{\numberline {2.2.2}Metryki full-reference}{14}% 
+\contentsline {section}{\numberline {2.3}Algorytmy uczenia maszynowego }{16}% 
+\contentsline {subsection}{\numberline {2.3.1}Regresja Liniowa}{16}% 
+\contentsline {subsection}{\numberline {2.3.2}SVM}{17}% 
+\contentsline {subsection}{\numberline {2.3.3}Las Losowy}{18}% 
+\contentsline {subsection}{\numberline {2.3.4}Sieci Neuronowe}{18}% 
+\contentsline {chapter}{\numberline {3}Metodologia bada\IeC {\'n}}{21}% 
+\contentsline {section}{\numberline {3.1}Narz\IeC {\k e}dzia}{21}% 
+\contentsline {section}{\numberline {3.2}Dane}{22}% 
+\contentsline {subsection}{\numberline {3.2.1}Zbieranie danych}{22}% 
+\contentsline {subsection}{\numberline {3.2.2}Ekstrakcja cech}{23}% 
+\contentsline {subsection}{\numberline {3.2.3}Normalizacja i czyszczenie danych}{24}% 
+\contentsline {subsection}{\numberline {3.2.4}Przygotowanie formatu danych pod modelowanie}{24}% 
+\contentsline {subsection}{\numberline {3.2.5}Podsumowanie danych}{25}% 
+\contentsline {section}{\numberline {3.3}Modele }{25}% 
+\contentsline {chapter}{\numberline {4}Wyniki i analiza }{29}% 
+\contentsline {chapter}{\numberline {5}Podsumowanie}{35}% 
 \babel@toc {english}{}
 \babel@toc {polish}{}
 \babel@toc {english}{}

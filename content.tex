@@ -6,13 +6,15 @@ Pierwsze obrazy wideo powstały już na początku XX wieku i opierały się na m
 
 Dzięki coraz większym przepustowościom i szerokiemu dostępowi do Internetu w najnowszych czasach wykreował się jeszcze inny trend sprawiający, że obrazy wideo są bardziej popularne. Mowa tu o platformach streamingowych takich jak - YouTube, Netflix czy HBOgo. Pozwalają one użytkownikom na oglądanie od krótkich filmików, przez seriale, po pełnometrażowe filmy nawet w rozdzielczościach 4k. Przewidywane jest, że do 2022, aż 82 procent całego ruchu IP, to będzie wideo \cite{prediction}. \par
 
-%.Jako kolejny kierunek rozwoju wideo można potraktować powstałe w ostatnich latach platformy, typu Youtube, netflix czy HBOgo, pozwalające użytkownikom na streamowanie od krótkich %filmików, przez seriale, po pełnometrażowe filmy nawet w rozdzielczościach 4k. \par
 
-Wszystkie wymienione wyżej aspekty sprawiły, że wideo stało się codziennością w życiu większości ludzi.\par \todo[inline]{To bym usunął, nic nie wnosi i jeszcze dziwnie wygląda jednolinijkowy akapit.}
+%Wszystkie wymienione wyżej aspekty sprawiły, że wideo stało się codziennością w życiu większości ludzi.\par \todo[inline]{To bym usunął, nic nie wnosi i jeszcze dziwnie wygląda jednolinijkowy akapit.}
 
 Na obecnym etapie rozwoju technologii, oczekiwania odbiorcy co do jakości otrzymywanego wideo znacznie wzrosły. Na drugiej szali pozostają ograniczenia dotyczące medium i optymalnego wykorzystania zasobów po stronie klienta i dostawcy. Odnosząc się do powyższego istotną kwestią staje się monitorowanie jakości transmitowanego wideo i dostosowywanie go do potrzeb użytkownika. Jednak problem w ocenie jakości wideo jest o tyle trudny, że dotychczas najbardziej wiarygodnym wskaźnikiem jest tu opinia ludzka,  trudna do powiązania z mierzalnymi technicznymi, parametrami wideo.\par
 
-W niniejszej Pracy zostanie przedstawiony algorytm pozwalający na bardziej zautomatyzowaną ocenę jakości wideo w oparciu o metryki \emph{full-reference} (FR) i \emph{no-reference} (NR) oraz zaprezentowana zostanie wykorzystana metodologia badań.
+Jedną z koncepcji poprawy trafności oceny wideo odnosi się do wykorzystania jednej z gałęzi statystyki -- Uczenia maszynowego. Pomaga on odnajdywać zależności, nawet te na pozór nie intuicyjna, pomiędzy informacjami z danego wideo. Tą metodę zastosowano do tej pory podczas tworzenia metryk:x, y, z. 
+
+
+W niniejszej Pracy zostanie przedstawiony algorytm pozwalający na bardziej zautomatyzowaną ocenę jakości wideo w oparciu o metryki \emph{full-reference} (FR) i \emph{no-reference} (NR) z użyciem wybranych metod z zakresu uczenia maszynowego oraz zaprezentowana zostanie wykorzystana metodologia badań.
 
 \todo[inline]{Nic o ML nie piszemy we wstępie? To ważny aspekt pracy, że przepadano wiele różnych metod analizy danych}
 
@@ -20,7 +22,7 @@ W niniejszej Pracy zostanie przedstawiony algorytm pozwalający na bardziej zaut
 \chapter{Wprowadzenie teoretyczne}
 \label{cha:pierwszyDokument}
 
-W niniejszym rozdziale przedstawiono najważniejsze teoretyczne zagadnienia dla przeprowadzonych badań. Opisane one zostały w sposób pozwalający czytelnikowi na odpowiednie zrozumienie dalszej części pracy, pomijając niezwiązane szczegóły. Pierwsza część rozdziału dotyczy tematu wideo. Przedstawiono jego definicję, oraz wybrane cechy statystyczne biorące udział w trakcie badań .W kolejnej części zaprezentowano zagadnienia z obszaru uczenia maszynowego. Wyjaśniona została jej ogólna koncepcja, a następnie opisano użyte algorytmy.
+W niniejszym rozdziale przedstawiono najważniejsze teoretyczne zagadnienia dla przeprowadzonych badań. Opisane one zostały w sposób pozwalający czytelnikowi na odpowiednie zrozumienie dalszej części pracy, pomijając niezwiązane szczegóły. Pierwsza część rozdziału dotyczy tematu wideo. Przedstawiono jego definicję, oraz wybrane cechy statystyczne biorące udział w trakcie badań. W kolejnej części zaprezentowano zagadnienia z obszaru uczenia maszynowego. Wyjaśniona została jej ogólna koncepcja, a następnie opisano użyte algorytmy.
 
 
 \section{Wideo}
@@ -29,17 +31,21 @@ Wideo jest formą zapisu sygnału wizji (analogowego bądź cyfrowego). W swojej
 
 Surowe wideo zajmuje bardzo dużo przestrzeni dyskowej. Przykładowo obraz o rozdzielczości 1920x1080 z 24 ramkami na sekundę o długości 30 sekund zajmuje ponad \todo{sprawdzić ile dokładnie}30 GB w pamięci komputera. Tak duże rozmiary znacząco ograniczają możliwości przechowywania i transmisji dla zwykłych użytkowników. Dlatego praktycznie każdy plik wideo wykorzystuje kodeki, czyli pewne ustandaryzowane zasady kompresji/dekompresji. Do najpopularniejszych należą H.265 i powszechnie używany w Internecie do transmitowania multimediów --  H.264 \cite{video_codecs}. Błędy podczas tego procesu, transmisji czy nagrywania mogą powodować powstanie zaburzeń w odtwarzanym obrazie. W celu mierzenia poziomu uszkodzeń oraz monitorowania stanu wideo badacze zdefiniowali wiele metryk.\par.
 
+
+standardy kompresji, zmiany kompresji. netflix materialy. 
 \todo[inline]{Tu został pominięty super ważny aspekt zniekształceń wynikających z samej kompresji. Jste napisane, że błędy ... To nie tak, kompresja, nawet bez błędów, wprowadza zniekształcenia. To istotne jakie, bo tylko takie warto wykrywać, jeżeli strumieniujemy po TCP, dopiero strumienie UDP wymagają innych algorytmów szacowania jakości. }
 
 \section{Metryki}
 %https://books.google.se/books?id=JbtPCwAAQBAJ&pg=PA32&dq=video++quality+metrics+full+reference&hl=en&sa=X&ved=0ahUKEwi4wtGc2YfiAhWx-ioKHZJtAtcQ6AEIKjAA#v=onepage&q=video%20%20quality%20metrics%20full%20reference&f=false
 
-Jakość danego wideo jest najtrafniej oceniona dzięki tak zwanej ocenie subiektywnej. Polega ona na określeniu jakości odbioru przez człowieka na podstawie jego odczuć. Niestety, aby takie badanie było miarodajne należy je przeprowadzić w odpowiednich warunkach, przygotować zestaw testów, zrekrutować uczestników oraz cały czas nadzorować jego przebieg. Wszystko to generuje duże koszty i zabiera cenny czas ,ale przede wszystkim nie pozwala na ocenę jakości w czasie rzeczywistym na przykład podczas stremowania wideo. Problem ten rozwiązują metryki jakości wideo. które w przeciwieństwie do oceny subiektywnej, bazują na obiektywnych pomiarach właściwości \todo[inline]{czego?}\cite{vqm}.\par
-Metryki jakości wideo mogą zostać sklasyfikowane na podstawie tego czy do ich wyznaczenia wymagana jest obecność \textbf{oryginalnego} \textit{niezakłóconego} pliku wideo. Metryki, które wymagają takiego pliku określane są mianem {\em ang. full-reference} (FR). Porównują one właściwości zakłóconego i nie zakłóconego wideo, \todo[inline]{To straszna kalka językowa, w polskim to oryginalny i zniekształcony. Zakłócenia to raczej radiowe są :)}aby na podstawie tak otrzymanych informacji dokonać estymaty jakości. Innym rodzajem metryk są metryki {\em ang. no-reference} (NR). Dokonują one oceny jakości na podstawię zniekształconego wideo i nie wymagają do tego żadnych dodatkowych informacji\cite{vqm}.\par
+Jakość danego wideo jest najtrafniej oceniona dzięki tak zwanej ocenie subiektywnej. Polega ona na określeniu jakości odbioru przez człowieka na podstawie jego odczuć. Niestety, aby takie badanie było miarodajne należy je przeprowadzić w odpowiednich warunkach, przygotować zestaw testów, zrekrutować uczestników oraz cały czas nadzorować jego przebieg. Wszystko to generuje duże koszty i zabiera cenny czas ,ale przede wszystkim nie pozwala na ocenę jakości w czasie rzeczywistym na przykład podczas stremowania wideo. Problem ten rozwiązują metryki jakości wideo. które w przeciwieństwie do oceny subiektywnej, bazują na obiektywnych pomiarach właściwości /obrazu/. \todo[inline]{czego?}\cite{vqm}.\par
+Metryki jakości wideo mogą zostać sklasyfikowane na podstawie tego czy do ich wyznaczenia wymagana jest obecność \textbf{oryginalnego} \textit{niezakłóconego} pliku wideo. Metryki, które wymagają takiego pliku określane są mianem {\em ang. full-reference} (FR). Porównują one właściwości zakłóconego/zniekształconego i bazowego wideo, \todo[inline]{To straszna kalka językowa, w polskim to oryginalny i zniekształcony. Zakłócenia to raczej radiowe są :)}aby na podstawie tak otrzymanych informacji dokonać estymaty jakości. Innym rodzajem metryk są metryki {\em ang. no-reference} (NR). Dokonują one oceny jakości na podstawię zniekształconego wideo i nie wymagają do tego żadnych dodatkowych informacji\cite{vqm}.\par
+
+
 
 Podczas badań nad jakością  wideo używane są pewne sformułowania ułatwiające definiowanie późniejszych pojęć. Przedstawiają się one następująco:
 \begin{itemize}[label=$\bullet$]
-	\item SVQ (\emph{ang. Subjective video quality }) -- jakość wideo doświadczana przez człowieka \todo[inline]{Jak ciężko człowiek doświadcza tą biedną jakość? To się kryminał robi z tej pracy ;) }
+	\item SVQ (\emph{ang. Subjective video quality }) -- jakość wideo doświadczana/odbierana przez człowieka \todo[inline]{Jak ciężko człowiek doświadcza tą biedną jakość? To się kryminał robi z tej pracy ;) }
 	\item SRC (\emph{ang. Source}) -- oryginalna sekwencja wideo
 	\item PVS (\emph{ang. Processed Video Sequences}) -- pliki wideo powstałe w skutek zniekształcenia SRC
 \end{itemize}
@@ -50,7 +56,7 @@ W poniższych podrozdziałach w w skrócie zostały opisane metryki typu NR i FR
 \subsection{Metryki no-reference}
 %\let\labelitemi\labelitemii
 \begin{itemize}[label=$\bullet$]
-\item Blokowość ({\em ang. Blockiness}) -- powstaje podczas DCT (\emph{ang. Discret Cosinus Transformation} -- Dyskretnej transformacie kosunusowej) i dotyczy związanych z nią bloków pikseli. Objawia się poprzez zauważalną między nimi  granicę\cite{blockiness}. Skala przyjęta w pracy: 0-3570. Im większa wartość, tym mniej widoczne zakłócenie. Dla obrazu bez zakłóceń około 0.9-1.01\cite{agh_vqm}.
+\item Blokowość ({\em ang. Blockiness}) -- powstaje podczas DCT (\emph{ang. Discret Cosinus Transformation} -- Dyskretnej transformacie kosunusowej) i dotyczy związanych z nią bloków pikseli i kompresji jaka jest na nich dokonywana. Objawia się poprzez zauważalną między nimi  granicę\cite{blockiness}. Skala przyjęta w pracy: 0-3570. Im większa wartość, tym mniej widoczne zakłócenie. Dla obrazu bez zakłóceń około 0.9-1.01\cite{agh_vqm}.
 \begin{figure}[h]
 \centerline{\includegraphics[ height=4cm, width=7cm]{blockiness}}
 \caption{Przykładowy obraz z zakłóceniami spowodowanymi blokowością\cite{agh_vqm}.}
@@ -80,7 +86,7 @@ W poniższych podrozdziałach w w skrócie zostały opisane metryki typu NR i FR
 \end{subfigure}
 \end{figure}
 
-\item Straty bloków ({\em ang. Blockloss}) -- wskaźnik informujący o ilości brakujących bloków (używanych podczas DCT ). Skala przyjęta w pracy: 0-200. Im większa wartość tym większe zniekształcenie obrazu.
+\item Straty bloków ({\em ang. Blockloss}) -- wskaźnik informujący o ilości brakujących bloków (używanych podczas DCT/IDCT ), przykładowo zagubionych podczas transmisji skompresowanych danych. Skala przyjęta w pracy: 0-200. Im większa wartość tym większe zniekształcenie obrazu.
 
 
 \begin{center}
@@ -170,7 +176,7 @@ Oprócz wyżej wymienionych wskaźników, w obecnym opracowaniu w pracy zostały
 \item PSNR ({\em ang. Peak Signal-to-Noise Ratio}) -- prosta do policzenia i również często stosowana z pomiędzy metryk typu FR. Przykładowa implementacja dla PSNR \ref{eqn:somelabel} (gdzie MSE jest błędem średnio kwadratowym dla ramki, a $L$ maksymalną wartością sygnału). W pierwszej kolejności liczone jest zniekształcenie dla wszystkich ramek w stosunku do ich oryginału. Zazwyczaj do obliczań wykorzystuje się wyłącznie informację o luminacji piksela. Później następuje uśrednienie wyniku\cite{fr_psnr}. 
 \begin{equation}
 \label{eqn:somelabel}
-PSNR = \frac{1}{N} \times 10 \sum_{i=1}^{N}\log\frac{L}{MSE_i}
+PSNR = \frac{1}{N} \cdot 10 \sum_{i=1}^{N}\log\frac{L}{MSE_i}
 \end{equation}
 Mimo zalet PSNR nie zawsze spełnia swoje zadanie. Ilustracja \ref{fig:psnr_pict} przedstawia w różny sposób zniekształcone obrazy. Każdy z nich otrzymał tą samą ocenę PSNR, a jednak ocena subiektywna wskazuje na różny poziom jakości.
 \begin{center}
