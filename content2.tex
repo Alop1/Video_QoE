@@ -202,22 +202,19 @@ Najwyższy uśredniony wynik R-kwadrat został osiągnięty przez model zbudowan
 \chapter{Podsumowanie}
 
 
-Założeniem niniejszej pracy było stworzenie algorytmu oceniającego jakość wideo. Po uprzednim przygotowaniu do dyspozycji podczas badań były  informacje opisujące wideo, zarówno metryki FR i NR. Zostały one wykorzystane do przystosowania i zbudowania 4 modeli w oparciu o algorytmy uczenia maszynowego. 
-To wytrenowane modele mogą posłużyć jako algorytm oceniający jakość wideo. W niniejszej pracy jako zbudowano odpowiedni ponad 100 modeli dla każdego z algorytmów, aby zniwelować  różnice wynikające z specyficznego podziału danych. Dlatego wynikiem badań nie jest  jeden konkretny model, a "przepis" jak go otrzymać.\par
-
-Nie można powiedzieć, że rozwiązanie tu przedstawione będzie uniwersalnym wyznacznikiem jakości wideo. Możliwe, że istnieją inne czynniki, które nie zostały uwzględnione. Badanie to korzysta z oceny ludzkiej jako z cechy nadzorującej, z tego faktu mogą wynikać nie brane pod uwagę efekty zmieniające tą ocenę. Przykładowo z biegiem lat oczekiwania co do jakości mogą znacznie się zmienić. Taką tendencję można zaobserwować porównując typowe wideo z lat 90, wtedy uważane za wysokiej klasy i współczesne wideo. Dalej rozważając,  bazując na metrykach FR to mimo że wszystkie one mają wysokie wartości, to jeżeli wideo referencyjne jest już na samym początku zniekształcone to wizualna ocena widza też będzie negatywna. \par
-
-Przedstawione w tej pracy rozwiązanie, jak również zebrane dane mogą posłużyć przy dalszych badaniach nad wideo. W rozwinięciu pracy  można uwzględnić nowe cechy. Na przykład w podobny sposób stworzonej tu "liczba dostępnych rozdzielczości w bazie". Innym bardziej zaawansowanym podejściem było by stworzenie metryki, która była by  w stanie na bieżącą dostosowywać się i oceniać wideo, w zależności od aktualnego rodzaju zniekształcenia obrazu.\par
 
 
 Prezentowana praca stawiała sobie za cel stworzenie algorytmu oceniającego jakość wideo.
 
 Po uprzednim przygotowaniu danych, do dyspozycji badającego były informacje opisujące wideo –zarówno metryki FR jak i NR. Metryki zostały wykorzystane do zbudowania i przystosowania czterech modeli w oparciu o algorytmy uczenia maszynowego. Wykreowane modele mogą posłużyć jako algorytm oceniający jakość wideo.
 
-Zmierzając do zniwelowania różnic wynikających ze specyficznego podziału danych stworzono ponad 100 modeli dla każdego z algorytmów. Wynikiem badań nie jest konkretny model , a „przepis” jak go otrzymać.
+Zmierzając do zniwelowania różnic wynikających ze specyficznego podziału danych stworzono ponad 100 modeli dla każdego z algorytmów. Gdzie, na podstawie uśrednionego wyniku R-kwadrat, został wybrany optymalny algorytm (wraz z parametrami) i zestaw cech - jako dane wejściowe. Odnosząc się do tematu pracy algorytmem oceniający jakość jest jeden z modeli przygotowany w oparciu o wyżej wymienione czynniki [link do zserializowanego modelu].
 
 Przedstawione w obecnym studium rozwiązanie nie jest uniwersalnym wyznacznikiem jakości wideo. Z pewnością mogą istnieć czynniki, które nie zostały w pracy uwzględnione. Z faktu, że badanie korzysta z oceny ludzkiej jako cechy nadzorującej, mogą wynikać, nie brane pod uwagę efekty zmieniające tę ocenę.
-Należy stwierdzić, że z biegiem lat oczekiwania co do jakości wideo znacznie rosną. Chociaż w latach 90 ubiegłego wieku tamtejsze wideo uznawane było jako produkt wysokiej klasy, to współcześni widzowie nie byliby w żaden sposób usatysfakcjonowani odbiorem takiego obrazu.
+
+Należy stwierdzić, że z biegiem lat oczekiwania co do jakości wideo znacznie rosną. Chociaż w latach 90 ubiegłego wieku tamtejsze wideo uznawane było jako produkt wysokiej klasy, to współcześni widzowie nie byliby w żaden sposób usatysfakcjonowani odbiorem takiego obrazu. 
+
+Dodatkowo, biorąc dynamicznie rozwijający się rynek multimediów, warto zwrócić uwagę na nowe technologie jeszcze nie tak mocno spopularyzowane. Dla nich może się okazać, że żadna do tej pory dostępnych metryk, również ta  zaproponowana w niniejszej pracy,  nie spełnia oczekiwań. Przykładowo nie brana, do tej pory, podczas badań technologia wykorzystywana w VR -- wideo 360.  
 
 Można postawić tezę, że chociaż wszystkie metryki FR mają wysokie wartości, to jednak, jeżeli wideo referencyjne zostanie na samym początku zniekształcone poprzez nieprawidłowe nagranie, to wizualna ocena odbiorcy też będzie negatywna.
 

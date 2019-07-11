@@ -3,7 +3,7 @@
 \contentsline {chapter}{\numberline {1}Wst\IeC {\k e}p}{7}% 
 \contentsline {chapter}{\numberline {2}Wprowadzenie teoretyczne}{9}% 
 \contentsline {section}{\numberline {2.1}Wideo}{9}% 
-\contentsline {section}{\numberline {2.2}Metryki}{9}% 
+\contentsline {section}{\numberline {2.2}Metryki}{10}% 
 \contentsline {subsection}{\numberline {2.2.1}Metryki no-reference}{10}% 
 \contentsline {subsection}{\numberline {2.2.2}Metryki full-reference}{14}% 
 \contentsline {section}{\numberline {2.3}Algorytmy uczenia maszynowego }{16}% 
