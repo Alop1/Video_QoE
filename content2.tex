@@ -109,39 +109,79 @@ Ostatnim sprawdzonym algorytmem uczenia maszynowego była sieć neuronowa z nast
 
 Z uwagi na specyfikę przygotowania danych treningowych i testowych każdy z modeli został zbudowany i przetestowany 100 razy. Podział danych 80:20 dotyczy paczek SRC + PSV, natomiast budowa modeli odbywa się już na podstawie pojedynczych plików wideo. Dlatego może zaistnieć sytuacja kiedy większość małych paczek (na przykład po 3 pliki wideo) znajdą się w danych treningowych, a dużych (na przykład po 15 wideo) w danych testujących. Tym samym faktyczny podział może wynosić w skrajnym przypadku 50:50, zamiast 80:20 (taki sam odstęp może wystąpić w drugą stronę). Dlatego  przy  każdym uruchomieniu aplikacji, zajmującej się przygotowaniem danych  i tworzeniem modeli, podział zgromadzonych danych dobywał się na zasadzie losowo wybranych paczek do każdej grup, przy zachowaniu podziału 80:20. Następnie wyniki z przeprowadzonych uruchomień programu zostały uśrednione.\par
 Uruchomienia sekwencji budowania i testowania odbywały się na następujących zestawach cech wideo:
-\begin{enumerate}
-\itemsep-0.5em 
-\item VMAF
-\item VMAF, SSIM
-\item MS-SSIM
-\item PSNR
-\item PSNR, VMAF
-\item PSNR, VMAF, SSIM, MS-SSIM
-\item PSNR, VMAF, SSIM, MS-SSIM, blokowość, aktywność przestrzenna, pillarbox, straty bloków, rozmycie, aktywność czasowa, wyciemnienie, ekspozycja, kontrast, jasność, czas trwania, rozdzielczości
-\item PSNR, VMAF, SSIM, MS-SSIM, blokowość, aktywność przestrzenna, pillarbox, straty bloków, rozmycie, aktywność czasowa, wyciemnienie, ekspozycja, kontrast, jasność, czas trwania, rozdzielczości, liczba dostępnych rozdzielczości
-\item PSNR, VMAF, SSIM, MS-SSIM, rozmycie, straty bloków
-\item PSNR, VMAF, SSIM, MS-SSIM, rozmycie, straty bloków, liczba dostępnych rozdzielczości
-\item PSNR, VMAF, SSIM, MS-SSIM, jasność
-\item PSNR, VMAF, SSIM, MS-SSIM, jasność, blokowość, straty bloków, rozmycie
-\item PSNR, VMAF, SSIM, MS-SSIM, jasność, blokowość, straty bloków, rozmycie, liczba dostępnych rozdzielczości
-\item PSNR, VMAF, SSIM, MS-SSIM, jasność, ekspozycja
-\item PSNR, VMAF, SSIM, MS-SSIM, jasność, ekspozycja, liczba dostępnych rozdzielczości
-\item PSNR, VMAF, SSIM, MS-SSIM, jasność, liczba dostępnych rozdzielczości
-\item PSNR, VMAF, SSIM, MS-SSIM, czas trwania
-\item PSNR, VMAF, SSIM, MS-SSIM, czas trwania, liczba dostępnych rozdzielczości
-\item PSNR, VMAF, SSIM, MS-SSIM, czas trwania, liczba dostępnych rozdzielczości, rozdzielczości
-\item PSNR, SSIM
-\item SSIM
-\item blokowość
-\item blokowość, aktywność przestrzenna, pillarbox, straty bloków, rozmycie, aktywność czasowa, wyciemnienie, ekspozycja, kontrast, jasność, rozdzielczości, liczba dostępnych rozdzielczości
-\item blokowość, aktywność przestrzenna, pillarbox, straty bloków, rozmycie, aktywność czasowa, wyciemnienie, ekspozycja, kontrast, jasność, czas trwania, rozdzielczości
-\item blokowość, aktywność przestrzenna, pillarbox, straty bloków, rozmycie, aktywność czasowa, wyciemnienie, ekspozycja, kontrast, jasność, czas trwania, rozdzielczości, liczba dostępnych rozdzielczości
-\item straty bloków
-\item rozmycie
-\item jasność
-\item kontrast
-\item ekspozycja
-\end{enumerate}
+\todo[inline]{tu bedzie tabela}
+%\begin{enumerate}
+%\itemsep-0.5em 
+%1\item VMAF
+%2\item VMAF, SSIM
+%3\item MS-SSIM
+%4\item PSNR
+%5\item PSNR, VMAF
+%6\item PSNR, VMAF, SSIM, MS-SSIM
+%7\item PSNR, VMAF, SSIM, MS-SSIM, blokowość, aktywność przestrzenna, pillarbox, straty bloków, rozmycie, aktywność czasowa, wyciemnienie, ekspozycja, kontrast, jasność, czas trwania, rozdzielczości
+%8\item PSNR, VMAF, SSIM, MS-SSIM, blokowość, aktywność przestrzenna, pillarbox, straty bloków, rozmycie, aktywność czasowa, wyciemnienie, ekspozycja, kontrast, jasność, czas trwania, rozdzielczości, liczba dostępnych rozdzielczości
+%9\item PSNR, VMAF, SSIM, MS-SSIM, rozmycie, straty bloków
+%10\item PSNR, VMAF, SSIM, MS-SSIM, rozmycie, straty bloków, liczba dostępnych rozdzielczości
+%11\item PSNR, VMAF, SSIM, MS-SSIM, jasność
+%12\item PSNR, VMAF, SSIM, MS-SSIM, jasność, blokowość, straty bloków, rozmycie
+%13\item PSNR, VMAF, SSIM, MS-SSIM, jasność, blokowość, straty bloków, rozmycie, liczba dostępnych rozdzielczości
+%14\item PSNR, VMAF, SSIM, MS-SSIM, jasność, ekspozycja
+%15\item PSNR, VMAF, SSIM, MS-SSIM, jasność, ekspozycja, liczba dostępnych rozdzielczości
+%16\item PSNR, VMAF, SSIM, MS-SSIM, jasność, liczba dostępnych rozdzielczości
+%17\item PSNR, VMAF, SSIM, MS-SSIM, czas trwania
+%18\item PSNR, VMAF, SSIM, MS-SSIM, czas trwania, liczba dostępnych rozdzielczości
+%19\item PSNR, VMAF, SSIM, MS-SSIM, czas trwania, liczba dostępnych rozdzielczości, rozdzielczości
+%20\item PSNR, SSIM
+%21\item SSIM
+%22\item blokowość
+%23\item blokowość, aktywność przestrzenna, pillarbox, straty bloków, rozmycie, aktywność czasowa, wyciemnienie, ekspozycja, kontrast, jasność, rozdzielczości, liczba dostępnych rozdzielczości
+%24\item blokowość, aktywność przestrzenna, pillarbox, straty bloków, rozmycie, aktywność czasowa, wyciemnienie, ekspozycja, kontrast, jasność, czas trwania, rozdzielczości
+%25\item blokowość, aktywność przestrzenna, pillarbox, straty bloków, rozmycie, aktywność czasowa, wyciemnienie, ekspozycja, kontrast, jasność, czas trwania, rozdzielczości, liczba dostępnych rozdzielczości
+%26\item straty bloków
+%27\item rozmycie
+%28\item jasność
+%29\item kontrast
+%30\item ekspozycja
+%\end{enumerate}
+
+\begin{table}[]
+	\centering
+	\begin{tabular}{|l|l|}
+		\hline
+		\textbf{Numer zestawu} & \textbf{Cechy}                                                                                                                                                                                                                                                                 \\ \hline
+		1                      & VMAF                                                                                                                                                                                                                                                                           \\ \hline
+		2                      & VMAF, SSIM                                                                                                                                                                                                                                                                     \\ \hline
+		3                      & MS-SSIM                                                                                                                                                                                                                                                                        \\ \hline
+		4                      & PSNR                                                                                                                                                                                                                                                                           \\ \hline
+		5                      & PSNR, VMAF                                                                                                                                                                                                                                                                     \\ \hline
+		6                      & PSNR, VMAF, SSIM, MS-SSIM                                                                                                                                                                                                                                                      \\ \hline
+		7                      & \begin{tabular}[c]{@{}l@{}}PSNR, VMAF, SSIM, MS-SSIM, blokowość, aktywność przestrzenna, pillarbox, \\ straty bloków, rozmycie, aktywność czasowa, wyciemnienie, ekspozycja, kontrast, \\ jasność, czas trwania, rozdzielczości\end{tabular}                                   \\ \hline
+		8                      & \begin{tabular}[c]{@{}l@{}}PSNR, VMAF, SSIM, MS-SSIM, blokowość, aktywność przestrzenna, pillarbox, straty bloków, \\ rozmycie, aktywność czasowa, wyciemnienie, ekspozycja, kontrast, jasność, czas trwania, rozdzielczości, \\ liczba dostępnych rozdzielczości\end{tabular} \\ \hline
+		9                      & PSNR, VMAF, SSIM, MS-SSIM, rozmycie, straty bloków                                                                                                                                                                                                                             \\ \hline
+		10                     & PSNR, VMAF, SSIM, MS-SSIM, rozmycie, straty bloków, liczba dostępnych rozdzielczości                                                                                                                                                                                           \\ \hline
+		11                     & PSNR, VMAF, SSIM, MS-SSIM, jasność                                                                                                                                                                                                                                             \\ \hline
+		12                     & PSNR, VMAF, SSIM, MS-SSIM, jasność, blokowość, straty bloków, rozmycie                                                                                                                                                                                                         \\ \hline
+		13                     & \begin{tabular}[c]{@{}l@{}}PSNR, VMAF, SSIM, MS-SSIM, jasność, blokowość, straty bloków, rozmycie, \\ liczba dostępnych rozdzielczości\end{tabular}                                                                                                                            \\ \hline
+		14                     & PSNR, VMAF, SSIM, MS-SSIM, jasność, ekspozycja                                                                                                                                                                                                                                 \\ \hline
+		15                     & PSNR, VMAF, SSIM, MS-SSIM, jasność, ekspozycja, liczba dostępnych rozdzielczości                                                                                                                                                                                               \\ \hline
+		16                     & PSNR, VMAF, SSIM, MS-SSIM, jasność, liczba dostępnych rozdzielczości                                                                                                                                                                                                           \\ \hline
+		17                     & PSNR, VMAF, SSIM, MS-SSIM, czas trwania                                                                                                                                                                                                                                        \\ \hline
+		18                     & PSNR, VMAF, SSIM, MS-SSIM, czas trwania, liczba dostępnych rozdzielczości                                                                                                                                                                                                      \\ \hline
+		19                     & \begin{tabular}[c]{@{}l@{}}PSNR, VMAF, SSIM, MS-SSIM, czas trwania, liczba dostępnych rozdzielczości,\\  rozdzielczości\end{tabular}                                                                                                                                           \\ \hline
+		20                     & PSNR, SSIM                                                                                                                                                                                                                                                                     \\ \hline
+		21                     & SSIM                                                                                                                                                                                                                                                                           \\ \hline
+		22                     & blokowość                                                                                                                                                                                                                                                                      \\ \hline
+		23                     & \begin{tabular}[c]{@{}l@{}}blokowość, aktywność przestrzenna, pillarbox, straty bloków, rozmycie, aktywność czasowa,\\  wyciemnienie, ekspozycja, kontrast, jasność, rozdzielczości, liczba dostępnych rozdzielczości\end{tabular}                                             \\ \hline
+		24                     & \begin{tabular}[c]{@{}l@{}}blokowość, aktywność przestrzenna, pillarbox, straty bloków, rozmycie, aktywność czasowa, \\ wyciemnienie, ekspozycja, kontrast, jasność, czas trwania, rozdzielczości\end{tabular}                                                                 \\ \hline
+		25                     & \begin{tabular}[c]{@{}l@{}}blokowość, aktywność przestrzenna, pillarbox, straty bloków, rozmycie, aktywność czasowa,\\ wyciemnienie, ekspozycja,  kontrast, jasność, czas trwania, rozdzielczości, liczba dostępnych rozdzielczości\end{tabular}                               \\ \hline
+		26                     & straty bloków                                                                                                                                                                                                                                                                  \\ \hline
+		27                     & rozmycie                                                                                                                                                                                                                                                                       \\ \hline
+		28                     & jasność                                                                                                                                                                                                                                                                        \\ \hline
+		29                     & kontrast                                                                                                                                                                                                                                                                       \\ \hline
+		30                     & ekspozycja                                                                                                                                                                                                                                                                     \\ \hline
+	\end{tabular}
+\end{table}
+
 
 Dalsze rozdziały będą odnosić się do powyższej numeracji w kontekście zestawów cech.
 
@@ -194,7 +234,7 @@ Kolejny aspekt, który można odnotować czytając wykres, to ujemna wartość R
 \label{fig:xccs}
 \end{center}
 
-Najwyższy uśredniony wynik R-kwadrat został osiągnięty przez model zbudowany na podstawie algorytmu lasu losowego (z zadanymi wcześniej parametrami) z użyciem zestawu 18, czyli  0.824. Składa się on z  zebranych metryk full-reference z uwzględnieniem czasu trwania wideo i dodatkowej cechy dotyczącej ilości dostępnych rozdzielczości. Odnosząc się do tematu pracy, ma on największe szanse na trafne wyznaczenie jakość wideo. Konkretny model nie może być w tym przypadku odpowiedzią ponieważ bazuje się tu na podstawie uśrednionych wyników z ponad 100 wykonań programu. Każdy z modeli z tej grupy daje różne wyniki (odchylenie standardowe wynosi 0.053, jest stosunkowo nieduże w porównaniu z innymi modelami i zestawami) ponieważ budowany jest na różnych próbkach danych.  \par
+Najwyższy uśredniony wynik R-kwadrat został osiągnięty przez model zbudowany na podstawie algorytmu lasu losowego (z zadanymi wcześniej parametrami) z użyciem zestawu 18, czyli  0.824. Składa się on z  zebranych metryk full-reference z uwzględnieniem czasu trwania wideo i dodatkowej cechy dotyczącej ilości dostępnych rozdzielczości. Odnosząc się do tematu pracy, ma on największe szanse na trafne wyznaczenie jakość wideo. Konkretny model nie może być w tym przypadku odpowiedzią ponieważ bazuje się tu na podstawie uśrednionych wyników z ponad 100 wykonań programu. Każdy z modeli z tej grupy daje różne wyniki (odchylenie standardowe wynosi 0.053, jest stosunkowo nieduże w porównaniu z innymi modelami i zestawami) ponieważ budowany jest na różnych próbkach danych.
 
 
 
@@ -208,15 +248,15 @@ Prezentowana praca stawiała sobie za cel stworzenie algorytmu oceniającego jak
 
 Po uprzednim przygotowaniu danych, do dyspozycji badającego były informacje opisujące wideo –zarówno metryki FR jak i NR. Metryki zostały wykorzystane do zbudowania i przystosowania czterech modeli w oparciu o algorytmy uczenia maszynowego. Wykreowane modele mogą posłużyć jako algorytm oceniający jakość wideo.
 
-Zmierzając do zniwelowania różnic wynikających ze specyficznego podziału danych stworzono ponad 100 modeli dla każdego z algorytmów. Gdzie, na podstawie uśrednionego wyniku R-kwadrat, został wybrany optymalny algorytm (wraz z parametrami) i zestaw cech - jako dane wejściowe. Odnosząc się do tematu pracy algorytmem oceniający jakość jest jeden z modeli przygotowany w oparciu o wyżej wymienione czynniki [link do zserializowanego modelu].
+Zmierzając do zniwelowania różnic wynikających ze specyficznego podziału danych stworzono ponad 100 modeli dla każdego z algorytmów. Gdzie, na podstawie uśrednionego wyniku R-kwadrat, został wybrany optymalny algorytm (wraz z parametrami) i zestaw cech - jako dane wejściowe. Odnosząc się do tematu pracy, algorytmem oceniający jakość jest jeden z modeli przygotowany w oparciu o wyżej wymienione czynniki [link do zserializowanego modelu].
 
 Przedstawione w obecnym studium rozwiązanie nie jest uniwersalnym wyznacznikiem jakości wideo. Z pewnością mogą istnieć czynniki, które nie zostały w pracy uwzględnione. Z faktu, że badanie korzysta z oceny ludzkiej jako cechy nadzorującej, mogą wynikać, nie brane pod uwagę efekty zmieniające tę ocenę.
 
 Należy stwierdzić, że z biegiem lat oczekiwania co do jakości wideo znacznie rosną. Chociaż w latach 90 ubiegłego wieku tamtejsze wideo uznawane było jako produkt wysokiej klasy, to współcześni widzowie nie byliby w żaden sposób usatysfakcjonowani odbiorem takiego obrazu. 
 
-Dodatkowo, biorąc dynamicznie rozwijający się rynek multimediów, warto zwrócić uwagę na nowe technologie jeszcze nie tak mocno spopularyzowane. Dla nich może się okazać, że żadna do tej pory dostępnych metryk, również ta  zaproponowana w niniejszej pracy,  nie spełnia oczekiwań. Przykładowo nie brana, do tej pory, podczas badań technologia wykorzystywana w VR -- wideo 360.  
+Dodatkowo, biorąc dynamicznie rozwijający się rynek multimediów, warto zwrócić uwagę na nowe technologie jeszcze nie tak mocno spopularyzowane. Dla nich może się okazać, że żadna do tej pory dostępnych metryk, również ta  zaproponowana w niniejszej pracy,  nie spełnia oczekiwań. Przykładowo nie brany do tej pory, pod uwagę w czasie badań, rodzaj wideo wykorzystywana w VR -- wideo 360.  
 
-Można postawić tezę, że chociaż wszystkie metryki FR mają wysokie wartości, to jednak, jeżeli wideo referencyjne zostanie na samym początku zniekształcone poprzez nieprawidłowe nagranie, to wizualna ocena odbiorcy też będzie negatywna.
+Co więcej, można postawić tezę, że chociaż wszystkie metryki FR, w tym badaniu, mają wysokie wartości R-kwadrat, to jednak możliwa jest sytuacja, kiedy ich ocena znacząco będzie odbiegać od SQV. Wideo referencyjne może już na samym początku zostać zniekształcone poprzez nieprawidłowe nagranie. Policzony PSNR wykaże wysoką jakość obrazu ale ocena odbiorcy będzie negatywna.
 
 Przeprowadzone badania i zebrane dane mogą posłużyć do dalszych bardziej
 zaawansowanych studiów nad jakością wideo. Mogą zostać wykorzystane, do stworzenia metryki, która byłaby w stanie na bieżąco dostosowywać się i oceniać wideo w zależności od aktualnego rodzaju zniekształcenia obrazu.
