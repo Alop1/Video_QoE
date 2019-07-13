@@ -53,6 +53,28 @@
     \field{year}{2018}
   \endentry
 
+  \entry{kodowanie}{online}{}
+    \name{author}{1}{}{%
+      {{hash=YJ}{%
+         family={Yoshida},
+         familyi={Y\bibinitperiod},
+         given={Junko},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{YJ1}
+    \strng{fullhash}{YJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Inside DSP on Video: Squeeze Play--How Video Compression
+  Works}
+    \verb{url}
+    \verb https://www.eetimes.com/document.asp?doc_id=1272615#
+    \endverb
+    \warn{\item Invalid format of field 'date' \item Invalid format of field
+  'date'}
+  \endentry
+
   \entry{vqm}{report}{}
     \name{author}{1}{}{%
       {{hash=KC}{%

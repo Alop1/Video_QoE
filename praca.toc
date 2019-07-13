@@ -4,13 +4,13 @@
 \contentsline {chapter}{\numberline {2}Wprowadzenie teoretyczne}{9}% 
 \contentsline {section}{\numberline {2.1}Wideo}{9}% 
 \contentsline {section}{\numberline {2.2}Metryki}{10}% 
-\contentsline {subsection}{\numberline {2.2.1}Metryki no-reference}{10}% 
-\contentsline {subsection}{\numberline {2.2.2}Metryki full-reference}{14}% 
-\contentsline {section}{\numberline {2.3}Algorytmy uczenia maszynowego }{16}% 
-\contentsline {subsection}{\numberline {2.3.1}Regresja Liniowa}{16}% 
-\contentsline {subsection}{\numberline {2.3.2}SVM}{17}% 
-\contentsline {subsection}{\numberline {2.3.3}Las Losowy}{18}% 
-\contentsline {subsection}{\numberline {2.3.4}Sieci Neuronowe}{18}% 
+\contentsline {subsection}{\numberline {2.2.1}Metryki no-reference}{11}% 
+\contentsline {subsection}{\numberline {2.2.2}Metryki full-reference}{15}% 
+\contentsline {section}{\numberline {2.3}Algorytmy uczenia maszynowego }{17}% 
+\contentsline {subsection}{\numberline {2.3.1}Regresja Liniowa}{17}% 
+\contentsline {subsection}{\numberline {2.3.2}SVM}{18}% 
+\contentsline {subsection}{\numberline {2.3.3}Las Losowy}{19}% 
+\contentsline {subsection}{\numberline {2.3.4}Sieci Neuronowe}{19}% 
 \contentsline {chapter}{\numberline {3}Metodologia bada\IeC {\'n}}{21}% 
 \contentsline {section}{\numberline {3.1}Narz\IeC {\k e}dzia}{21}% 
 \contentsline {section}{\numberline {3.2}Dane}{22}% 

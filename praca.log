@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.16)  12 JUL 2019 11:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.16)  13 JUL 2019 19:19
 entering extended mode
 **./praca.tex
 (praca.tex
@@ -1520,6 +1520,12 @@ LaTeX Warning: Label `fig:xccs' multiply defined.
 LaTeX Warning: Label `fig:xccs' multiply defined.
 
 
+LaTeX Warning: Label `fig:xccs' multiply defined.
+
+
+LaTeX Warning: Label `fig:xccs' multiply defined.
+
+
 LaTeX Warning: Label `sub@fig:xccs' multiply defined.
 
 
@@ -1779,6 +1785,12 @@ Package biblatex Info: ... file 'praca.bbl' found.
  (praca.bbl
 
 Package biblatex Warning: BibTeX reported the following issues
+(biblatex)                with 'kodowanie':
+(biblatex)                - Invalid format of field 'date' 
+(biblatex)                - Invalid format of field 'date'.
+
+
+Package biblatex Warning: BibTeX reported the following issues
 (biblatex)                with 'vqm':
 (biblatex)                - Invalid format of field 'month'.
 
@@ -1850,134 +1862,138 @@ Rozdzia\l  1.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 1.
 
-Underfull \vbox (badness 2181) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [7]
 [8]
 Rozdzia\l  2.
+<kodowanie.jpg, id=62, 648.4225pt x 61.22874pt>
+File: kodowanie.jpg Graphic file (type jpg)
+<use kodowanie.jpg>
+Package pdftex.def Info: kodowanie.jpg  used on input line 37.
+(pdftex.def)             Requested size: 341.43611pt x 42.68044pt.
+LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 38.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 1762) has occurred while \output is active []
 
  [9
 
-]
+ <./kodowanie.jpg>]
+<ramki.jpg, id=66, 653.44125pt x 96.36pt>
+File: ramki.jpg Graphic file (type jpg)
+<use ramki.jpg>
+Package pdftex.def Info: ramki.jpg  used on input line 54.
+(pdftex.def)             Requested size: 369.88297pt x 85.35724pt.
+ [10 <./ramki.jpg>]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 62.
-<blockiness.jpg, id=65, 481.8pt x 271.0125pt>
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 85.
+<blockiness.jpg, id=71, 481.8pt x 271.0125pt>
 File: blockiness.jpg Graphic file (type jpg)
 <use blockiness.jpg>
-Package pdftex.def Info: blockiness.jpg  used on input line 67.
+Package pdftex.def Info: blockiness.jpg  used on input line 90.
 (pdftex.def)             Requested size: 199.16399pt x 113.81206pt.
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 68.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-[10]
-<spatialAC.jpeg, id=70, 642.4pt x 481.8pt>
+ [11 <./blockiness.jpg>]
+<spatialAC.jpeg, id=75, 642.4pt x 481.8pt>
 File: spatialAC.jpeg Graphic file (type jpg)
 <use spatialAC.jpeg>
-Package pdftex.def Info: spatialAC.jpeg  used on input line 74.
+Package pdftex.def Info: spatialAC.jpeg  used on input line 97.
 (pdftex.def)             Requested size: 199.17134pt x 113.81114pt.
-<letterboxingC.jpeg, id=71, 642.4pt x 361.35pt>
+<letterboxingC.jpeg, id=76, 642.4pt x 361.35pt>
 File: letterboxingC.jpeg Graphic file (type jpg)
 <use letterboxingC.jpeg>
-Package pdftex.def Info: letterboxingC.jpeg  used on input line 83.
+Package pdftex.def Info: letterboxingC.jpeg  used on input line 106.
 (pdftex.def)             Requested size: 199.17134pt x 113.80931pt.
-<pillarboxing.jpeg, id=72, 1927.2pt x 1084.05pt>
+<pillarboxing.jpeg, id=77, 1927.2pt x 1084.05pt>
 File: pillarboxing.jpeg Graphic file (type jpg)
 <use pillarboxing.jpeg>
-Package pdftex.def Info: pillarboxing.jpeg  used on input line 89.
+Package pdftex.def Info: pillarboxing.jpeg  used on input line 112.
 (pdftex.def)             Requested size: 199.14194pt x 113.80379pt.
- [11 <./blockiness.jpg> <./spatialAC.jpeg> <./letterboxingC.jpeg> <./pillarboxi
-ng.jpeg>]
-<block_lossC.jpeg, id=76, 642.4pt x 361.35pt>
+<block_lossC.jpeg, id=78, 642.4pt x 361.35pt>
 File: block_lossC.jpeg Graphic file (type jpg)
 <use block_lossC.jpeg>
-Package pdftex.def Info: block_lossC.jpeg  used on input line 99.
+Package pdftex.def Info: block_lossC.jpeg  used on input line 122.
 (pdftex.def)             Requested size: 199.17134pt x 113.80931pt.
-<blur.jpeg, id=77, 1927.2pt x 1084.05pt>
+ [12 <./spatialAC.jpeg> <./letterboxingC.jpeg> <./pillarboxing.jpeg> <./block_l
+ossC.jpeg>]
+<blur.jpeg, id=82, 1927.2pt x 1084.05pt>
 File: blur.jpeg Graphic file (type jpg)
 <use blur.jpeg>
-Package pdftex.def Info: blur.jpeg  used on input line 106.
+Package pdftex.def Info: blur.jpeg  used on input line 129.
 (pdftex.def)             Requested size: 199.14194pt x 113.80379pt.
-<temporalAC.jpeg, id=78, 642.4pt x 481.8pt>
+<temporalAC.jpeg, id=83, 642.4pt x 481.8pt>
 File: temporalAC.jpeg Graphic file (type jpg)
 <use temporalAC.jpeg>
-Package pdftex.def Info: temporalAC.jpeg  used on input line 113.
+Package pdftex.def Info: temporalAC.jpeg  used on input line 136.
 (pdftex.def)             Requested size: 199.17134pt x 113.81114pt.
- [12 <./block_lossC.jpeg> <./blur.jpeg> <./temporalAC.jpeg>]
-<exp.jpeg, id=82, 1927.2pt x 1084.05pt>
+<exp.jpeg, id=84, 1927.2pt x 1084.05pt>
 File: exp.jpeg Graphic file (type jpg)
 <use exp.jpeg>
-Package pdftex.def Info: exp.jpeg  used on input line 129.
+Package pdftex.def Info: exp.jpeg  used on input line 152.
 (pdftex.def)             Requested size: 199.14194pt x 113.80379pt.
-<contrastC.jpeg, id=83, 642.4pt x 361.35pt>
+ [13 <./blur.jpeg> <./temporalAC.jpeg>]
+<contrastC.jpeg, id=89, 642.4pt x 361.35pt>
 File: contrastC.jpeg Graphic file (type jpg)
 <use contrastC.jpeg>
-Package pdftex.def Info: contrastC.jpeg  used on input line 137.
+Package pdftex.def Info: contrastC.jpeg  used on input line 160.
 (pdftex.def)             Requested size: 199.17134pt x 113.80931pt.
-<brightness.jpeg, id=84, 1927.2pt x 1084.05pt>
+<brightness.jpeg, id=90, 1927.2pt x 1084.05pt>
 File: brightness.jpeg Graphic file (type jpg)
 <use brightness.jpeg>
-Package pdftex.def Info: brightness.jpeg  used on input line 143.
+Package pdftex.def Info: brightness.jpeg  used on input line 166.
 (pdftex.def)             Requested size: 199.14194pt x 113.80379pt.
-
-[13 <./exp.jpeg> <./contrastC.jpeg> <./brightness.jpeg>]
-<noiseC.jpg, id=89, 481.8pt x 271.0125pt>
+<noiseC.jpg, id=91, 481.8pt x 271.0125pt>
 File: noiseC.jpg Graphic file (type jpg)
 <use noiseC.jpg>
-Package pdftex.def Info: noiseC.jpg  used on input line 156.
+Package pdftex.def Info: noiseC.jpg  used on input line 179.
 (pdftex.def)             Requested size: 199.16399pt x 113.81206pt.
- [14 <./noiseC.jpg>]
-<psnr_pict.png, id=93, 620.3175pt x 427.5975pt>
+ [14 <./exp.jpeg> <./contrastC.jpeg> <./brightness.jpeg>] [15 <./noiseC.jpg>]
+<psnr_pict.png, id=99, 620.3175pt x 427.5975pt>
 File: psnr_pict.png Graphic file (type png)
 <use psnr_pict.png>
-Package pdftex.def Info: psnr_pict.png  used on input line 189.
+Package pdftex.def Info: psnr_pict.png  used on input line 212.
 (pdftex.def)             Requested size: 256.07343pt x 170.71626pt.
-
-[15 <./psnr_pict.png>] [16]
-<svm_2.png, id=106, 643.40375pt x 482.80376pt>
+ [16 <./psnr_pict.png>] [17]
+<svm_2.png, id=111, 643.40375pt x 482.80376pt>
 File: svm_2.png Graphic file (type png)
 <use svm_2.png>
-Package pdftex.def Info: svm_2.png  used on input line 237.
+Package pdftex.def Info: svm_2.png  used on input line 260.
 (pdftex.def)             Requested size: 369.89537pt x 284.53497pt.
- [17 <./svm_2.png>]
-<r_tree.png, id=113, 462.528pt x 346.896pt>
+ [18 <./svm_2.png>]
+<r_tree.png, id=118, 462.528pt x 346.896pt>
 File: r_tree.png Graphic file (type png)
 <use r_tree.png>
-Package pdftex.def Info: r_tree.png  used on input line 254.
+Package pdftex.def Info: r_tree.png  used on input line 277.
 (pdftex.def)             Requested size: 256.08499pt x 170.71628pt.
- [18 <./r_tree.png>]
-<nn.png, id=118, 992.20688pt x 589.4522pt>
+ [19 <./r_tree.png>]
+<nn.png, id=124, 992.20688pt x 589.4522pt>
 File: nn.png Graphic file (type png)
 <use nn.png>
-Package pdftex.def Info: nn.png  used on input line 264.
+Package pdftex.def Info: nn.png  used on input line 287.
 (pdftex.def)             Requested size: 341.43364pt x 170.7119pt.
-<nn_data_2.png, id=119, 463.7325pt x 209.28188pt>
+<nn_data_2.png, id=125, 463.7325pt x 209.28188pt>
 File: nn_data_2.png Graphic file (type png)
 <use nn_data_2.png>
-Package pdftex.def Info: nn_data_2.png  used on input line 278.
+Package pdftex.def Info: nn_data_2.png  used on input line 301.
 (pdftex.def)             Requested size: 398.3493pt x 170.71489pt.
-) [19 <./nn.png> <./nn_data_2.png>]
+) [20 <./nn.png> <./nn_data_2.png>]
 \openout2 = `content2.aux'.
 
- (content2.tex [20
+ (content2.tex
+Rozdzia\l  3.
+[21
 
 
 
 ]
-Rozdzia\l  3.
-[21]
-<data_preparation_work_flow.png, id=130, 764.8575pt x 634.37pt>
+<data_preparation_work_flow.png, id=132, 764.8575pt x 634.37pt>
 File: data_preparation_work_flow.png Graphic file (type png)
 <use data_preparation_work_flow.png>
 Package pdftex.def Info: data_preparation_work_flow.png  used on input line 29.
 
 (pdftex.def)             Requested size: 426.7884pt x 312.98323pt.
  [22 <./data_preparation_work_flow.png>] [23] [24]
-<podzial_danych.png, id=141, 682.04813pt x 280.04625pt>
+<podzial_danych.png, id=143, 682.04813pt x 280.04625pt>
 File: podzial_danych.png Graphic file (type png)
 <use podzial_danych.png>
 Package pdftex.def Info: podzial_danych.png  used on input line 68.
@@ -2002,7 +2018,7 @@ LaTeX Warning: Float too large for page by 45.67041pt on input line 183.
 
 ]
 Rozdzia\l  4.
-<podsumowanie.png, id=155, 1387.584pt x 710.4141pt>
+<podsumowanie.png, id=157, 1387.584pt x 710.4141pt>
 File: podsumowanie.png Graphic file (type png)
 <use podsumowanie.png>
 Package pdftex.def Info: podsumowanie.png  used on input line 194.
@@ -2012,7 +2028,7 @@ Overfull \hbox (65.4473pt too wide) in paragraph at lines 194--195
 [][] 
  []
 
-<w_kolowy.png, id=156, 395.97937pt x 347.79938pt>
+<w_kolowy.png, id=158, 395.97937pt x 347.79938pt>
 File: w_kolowy.png Graphic file (type png)
 <use w_kolowy.png>
 Package pdftex.def Info: w_kolowy.png  used on input line 207.
@@ -2021,7 +2037,7 @@ Package pdftex.def Info: w_kolowy.png  used on input line 207.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [29]
-<korelacja.png, id=160, 729.927pt x 703.9098pt>
+<korelacja.png, id=162, 729.927pt x 703.9098pt>
 File: korelacja.png Graphic file (type png)
 <use korelacja.png>
 Package pdftex.def Info: korelacja.png  used on input line 219.
@@ -2030,7 +2046,7 @@ Package pdftex.def Info: korelacja.png  used on input line 219.
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [30 <./w_kolowy.png>]
-<kontrast_ujemne_rk.png, id=164, 462.528pt x 346.896pt>
+<kontrast_ujemne_rk.png, id=166, 462.528pt x 346.896pt>
 File: kontrast_ujemne_rk.png Graphic file (type png)
 <use kontrast_ujemne_rk.png>
 Package pdftex.def Info: kontrast_ujemne_rk.png  used on input line 231.
@@ -2064,7 +2080,7 @@ Overfull \hbox (240.25517pt too wide) in paragraph at lines 199--199
 -encoding-codecs-compression-techniques/\T1/ptm/m/n/10.95 .
  []
 
-
+[37]
 Underfull \hbox (badness 10000) in paragraph at lines 199--199
 []\T1/ptm/m/n/10.95 A. Ebrahimi A. T. Nasrabadi M. A. Shir-savar. \T1/ptm/m/it/
 10.95 In-ves-ti-gat-ing the PSNR cal-
@@ -2076,7 +2092,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 199--199
 n-nel dis-tor-tions\T1/ptm/m/n/10.95 .
  []
 
-[37]
+
 Overfull \hbox (227.11519pt too wide) in paragraph at lines 199--199
 \T1/pcr/m/n/10.95 https://medium.com/netflix-techblog/toward-a-practical-percep
 tual-video-quality-metric-653f208b9652\T1/ptm/m/n/10.95 .
@@ -2120,13 +2136,13 @@ Package logreq Info: Writing requests to 'praca.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 39560 strings out of 492945
- 775210 string characters out of 3125364
- 1164978 words of memory out of 3000000
- 42809 multiletter control sequences out of 15000+200000
- 616757 words of font info for 115 fonts, out of 3000000 for 9000
+ 39571 strings out of 492945
+ 775371 string characters out of 3125364
+ 1164954 words of memory out of 3000000
+ 42816 multiletter control sequences out of 15000+200000
+ 621973 words of font info for 117 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,15n,82p,1500b,2923s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,15n,82p,1458b,2923s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/elacpol/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.e
 nc}<C:/Users/elacpol/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfo
 nts/cm/cmex10.pfb><C:/Users/elacpol/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
@@ -2147,9 +2163,9 @@ ers/elacpol/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb>
 a.pfb><C:/Users/elacpol/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times
 /utmr8a.pfb><C:/Users/elacpol/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw
 /times/utmri8a.pfb>
-Output written on praca.pdf (39 pages, 4363471 bytes).
+Output written on praca.pdf (39 pages, 4388307 bytes).
 PDF statistics:
- 251 PDF objects out of 1000 (max. 8388607)
+ 253 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 224 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 234 words of extra memory for PDF output out of 10000 (max. 10000000)
 

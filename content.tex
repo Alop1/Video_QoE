@@ -2,7 +2,7 @@
 \label{cha:pierwszyDokument}
 
 
-Pierwsze obrazy wideo powstały już na początku XX wieku i opierały się na mechanicznie obracających się dyskach. Technologia ta istniała głównie w sferze badań akademickich i nie zdominowała rynku. Dopiero z wprowadzeniem cathode-ray tube (CRT) wraz z telewizją analogową, wideo zaczęło być wykorzystywane komercyjnie. Z czasem rozwój technologii pozwolił na wprowadzenie telewizji cyfrowej, która zapewniała wyższą jakość obrazu oraz lepsze wykorzystanie zasobów. Wideo razem z \todo[inline]{pojedyncze litery nie powinny zostawać na końcu linii. Trzeba zamienić spację na tyldę i się przeniosą.}audio okazały się również znakomitym środkiem wymiany informacji. Stały się coraz częściej wykorzystywane do komunikacji w czasie rzeczywistym zastępując tradycyjne połączenie telefoniczne w biznesie oraz dla zwykłych użytkowników. Rozwój na rynku telefonów również wspomógł powszechność wideo. W momencie kiedy praktycznie każdy aparat zaczął posiadać kamerę, wideo zaczęło konkurować ze zdjęciami jako metodę na utrwalenie chwili. Codziennie tak rejestrowane obrazy są przekazywane do rodziny, znajomych oddalonych o tysiące kilometrów. Kolejnym przykładem kiedy wideo zastępuje tradycyjne formy przekazu są blogi internetowe. Do tej pory prowadzone na zasadzie artykułów/postów, teraz zaczęły wykorzystywać wideo jako metodę przekazu informacji.
+Pierwsze obrazy wideo powstały już na początku XX wieku i opierały się na mechanicznie obracających się dyskach. Technologia ta istniała głównie w sferze badań akademickich i nie zdominowała rynku. Dopiero z wprowadzeniem cathode-ray tube (CRT) wraz z telewizją analogową, wideo zaczęło być wykorzystywane komercyjnie. Z czasem rozwój technologii pozwolił na wprowadzenie telewizji cyfrowej, która zapewniała wyższą jakość obrazu oraz lepsze wykorzystanie zasobów. Wideo razem z~audio okazały się również znakomitym środkiem wymiany informacji. Stały się coraz częściej wykorzystywane do komunikacji w czasie rzeczywistym zastępując tradycyjne połączenie telefoniczne w biznesie oraz dla zwykłych użytkowników. Rozwój na rynku telefonów również wspomógł powszechność wideo. W momencie kiedy praktycznie każdy aparat zaczął posiadać kamerę, wideo zaczęło konkurować ze zdjęciami jako metodę na utrwalenie chwili. Codziennie tak rejestrowane obrazy są przekazywane do rodziny, znajomych oddalonych o tysiące kilometrów. Kolejnym przykładem kiedy wideo zastępuje tradycyjne formy przekazu są blogi internetowe. Do tej pory prowadzone na zasadzie artykułów/postów, teraz zaczęły wykorzystywać wideo jako metodę przekazu informacji.
 
 Dzięki coraz większym przepustowościom i szerokiemu dostępowi do Internetu w najnowszych czasach wykreował się jeszcze inny trend sprawiający, że obrazy wideo są bardziej popularne. Mowa tu o platformach streamingowych takich jak - YouTube, Netflix czy HBOgo. Pozwalają one użytkownikom na oglądanie od krótkich filmików, przez seriale, po pełnometrażowe filmy nawet w rozdzielczościach 4k. Przewidywane jest, że do 2022, aż 82 procent całego ruchu IP, to będzie wideo \cite{prediction}. \par
 
@@ -11,7 +11,7 @@ Dzięki coraz większym przepustowościom i szerokiemu dostępowi do Internetu w
 
 Na obecnym etapie rozwoju technologii, oczekiwania odbiorcy co do jakości otrzymywanego wideo znacznie wzrosły. Na drugiej szali pozostają ograniczenia dotyczące medium i optymalnego wykorzystania zasobów po stronie klienta i dostawcy. Odnosząc się do powyższego istotną kwestią staje się monitorowanie jakości transmitowanego wideo i dostosowywanie go do potrzeb użytkownika. Jednak problem w ocenie jakości wideo jest o tyle trudny, że dotychczas najbardziej wiarygodnym wskaźnikiem jest tu opinia ludzka,  trudna do powiązania z mierzalnymi technicznymi, parametrami wideo.\par
 
-Jedną z koncepcji poprawy trafności oceny wideo odnosi się do wykorzystania jednej z gałęzi statystyki -- Uczenia maszynowego. Pomaga on odnajdywać zależności, nawet te na pozór nie intuicyjna, pomiędzy informacjami z danego wideo. Tą metodę zastosowano do tej pory podczas tworzenia metryk:x, y, z. 
+Jedną z koncepcji poprawy trafności oceny wideo odnosi się do wykorzystania z gałęzi statystyki -- Uczenia maszynowego. Pomaga on odnajdywać zależności, nawet te na pozór nie intuicyjna, pomiędzy informacjami z danego wideo. Tą metodę zastosowano do tej pory podczas tworzenia metryk:x, y, z. 
 
 
 W niniejszej Pracy zostanie przedstawiony algorytm pozwalający na bardziej zautomatyzowaną ocenę jakości wideo w oparciu o metryki \emph{full-reference} (FR) i \emph{no-reference} (NR) z użyciem wybranych metod z zakresu uczenia maszynowego oraz zaprezentowana zostanie wykorzystana metodologia badań.
@@ -29,31 +29,54 @@ W niniejszym rozdziale przedstawiono najważniejsze teoretyczne zagadnienia dla 
 
 Wideo jest formą zapisu sygnału wizji (analogowego bądź cyfrowego). W swojej surowej postaci jest to sekwencja pojedynczych ramek. Ramki natomiast składają się z pikseli, a one są definiowane poprzez: luminancję ({\em ang. luminace}) i chrominancje ({\em ang. chrominance}). Luminancja odpowiada za intensywność obrazu, a chrominancja za kolory. 
 
-Surowe wideo zajmuje bardzo dużo przestrzeni dyskowej. Przykładowo obraz o rozdzielczości 1920x1080 z 24 ramkami na sekundę o długości 30 sekund zajmuje ponad \todo{sprawdzić ile dokładnie}30 GB w pamięci komputera. Tak duże rozmiary znacząco ograniczają możliwości przechowywania i transmisji dla zwykłych użytkowników. Dlatego praktycznie każdy plik wideo wykorzystuje kodeki, czyli pewne ustandaryzowane zasady kompresji/dekompresji. Do tej grupy należą między innymi: H.261, MPEG-1, H.262/MPEG-2, MPEG-4, H.263, H.265 i powszechnie używany w Internecie do transmitowania multimediów --  H.264 \cite{video_codecs}. 
+Surowe wideo zajmuje bardzo dużo przestrzeni dyskowej. Przykładowo obraz o rozdzielczości 1920x1080 z 24 ramkami na sekundę o długości 30 sekund zajmuje ponad \todo{sprawdzić ile dokładnie}30 GB w pamięci komputera. Tak duże rozmiary znacząco ograniczają możliwości przechowywania i transmisji dla zwykłych użytkowników. Dlatego praktycznie każdy plik wideo wykorzystuje kodeki, czyli pewne ustandaryzowane zasady kompresji/dekompresji. Do tej grupy należą między innymi: H.261, MPEG-1, H.262/MPEG-2, H.263, H.265 i powszechnie używany w Internecie do transmitowania multimediów --  H.264 \cite{video_codecs}. 
+
+Można wyróżnić dwa rodzaje kompresji: stratna i bezstratna. W przetwarzaniu obrazów stosowana jest ta druga. Kompresja bezstratna znacząco obniża rozmiar pliku. W przypadku wideo wskaźnik kompresji może wynosić nawet 200:1. Technika ta korzysta wtedy z ograniczeń ludzkiego oka do usunięcia informacji o obrazie, które i tak nie zostałyby wychwycone. Poniżej zaprezentowano schemat przetwarzania obrazu stałego kodekiem JPEG.
+
+\begin{figure}[h]
+		\centerline{\includegraphics[ height=1.5cm, width=12cm]{kodowanie}}
+		\caption{Schemat kodowania dla JPEG.}
+		\label{fig:xccs}
+\end{figure}
+
+Większość kodeków bazuje swoje działania na transformacji DCT (\emph{ang. Discret Cosinus Transformation}). Polega ona na przeniesieniu, wcześniej wydzielonych z oryginalnego obrazu bloków pikseli, z dziedziny przestrzeni do dziedziny częstotliwości. Na tak przygotowanych blokach dokonywana jest kwantyzacja. Wartości z poszczególnych pikseli są zapisywane na ograniczonej liczbie bitów, co już zmniejsza rozmiar danych. Kolejnym krokiem jest zastosowanie algorytmów kompresji \emph{run-lenght coding} i \emph{variable-lenght coding}. Pierwszy z nich grupuje ciągi zer i zapisuje ich liczbę zamiast całej takiej serii. Drugi zmienia postać słów kodowych na bardziej wydajna formę, poprze zapisanie tych często występujących krótszą sekwencją bitów \cite{kodowanie} (na przykład dzięki kodowaniu Huffman'a).
+
+Kodeki wideo dodatkowo dokonują kompresji na podstawie różnic w ramkach. Różnice te są określane jako wektor ruchu (\emph{ang. motion vector}) i liczone na zasadzie porównania makro-bloku z ramki referencyjnej i tego samego bloku z obecnej ramki \ref{fig:ramki}. Dzięki tej technice po kompresji zatrzymane są  pełne dane tylko o części ramek. Dla odkodowania reszty wystarczą wektory ruchu \cite{kodowanie}. 
+
+Ze względu na sposób kodowania można wyróżnić trzy typy ramek.
+\begin{itemize}[label=$\bullet$]
+	\item I (\emph{ang. ang intra frame}) -- kodowana jak obrazy stałe.
+	\item P -- kodowana na podstawie poprzednich wyświetlonych ramek.
+	\item B -- kodowana na podstawie wcześniejszych i późniejszych ramek.
+\end{itemize}
+
+\begin{figure}[h]
+	\centerline{\includegraphics[ height=3cm, width=13cm]{ramki}}
+	\caption{opis.}
+	\label{fig:ramki}
+	\label{fig:xccs}
+\end{figure}
+ 
+
+Sam proces kompresji jak i błędy transmisji czy nagrywania mogą powodować powstanie zaburzeń w odtwarzanym obrazie. W celu mierzenia poziomu uszkodzeń oraz monitorowania stanu wideo badacze zdefiniowali wiele metryk.\par.
 
 
-
-
-Błędy podczas tego procesu, transmisji czy nagrywania mogą powodować powstanie zaburzeń w odtwarzanym obrazie. W celu mierzenia poziomu uszkodzeń oraz monitorowania stanu wideo badacze zdefiniowali wiele metryk.\par.
-
-
-
-standardy kompresji, zmiany kompresji. netflix materialy. 
 \todo[inline]{Tu został pominięty super ważny aspekt zniekształceń wynikających z samej kompresji. Jste napisane, że błędy ... To nie tak, kompresja, nawet bez błędów, wprowadza zniekształcenia. To istotne jakie, bo tylko takie warto wykrywać, jeżeli strumieniujemy po TCP, dopiero strumienie UDP wymagają innych algorytmów szacowania jakości. }
 
 \section{Metryki}
 %https://books.google.se/books?id=JbtPCwAAQBAJ&pg=PA32&dq=video++quality+metrics+full+reference&hl=en&sa=X&ved=0ahUKEwi4wtGc2YfiAhWx-ioKHZJtAtcQ6AEIKjAA#v=onepage&q=video%20%20quality%20metrics%20full%20reference&f=false
 
-Jakość danego wideo jest najtrafniej oceniona dzięki tak zwanej ocenie subiektywnej. Polega ona na określeniu jakości odbioru przez człowieka na podstawie jego odczuć. Niestety, aby takie badanie było miarodajne należy je przeprowadzić w odpowiednich warunkach, przygotować zestaw testów, zrekrutować uczestników oraz cały czas nadzorować jego przebieg. Wszystko to generuje duże koszty i zabiera cenny czas ,ale przede wszystkim nie pozwala na ocenę jakości w czasie rzeczywistym na przykład podczas stremowania wideo. Problem ten rozwiązują metryki jakości wideo. które w przeciwieństwie do oceny subiektywnej, bazują na obiektywnych pomiarach właściwości /obrazu/. \todo[inline]{czego?}\cite{vqm}.\par
+Jakość danego wideo jest najtrafniej oceniona dzięki tak zwanej ocenie subiektywnej. Polega ona na określeniu jakości odbioru przez człowieka na podstawie jego odczuć. Niestety, aby takie badanie było miarodajne należy je przeprowadzić w odpowiednich warunkach, przygotować zestaw testów, zrekrutować uczestników oraz cały czas nadzorować jego przebieg. Wszystko to generuje duże koszty i zabiera cenny czas ,ale przede wszystkim nie pozwala na ocenę jakości w czasie rzeczywistym na przykład podczas stremowania wideo. Problem ten rozwiązują metryki jakości wideo. które w przeciwieństwie do oceny subiektywnej, bazują na obiektywnych pomiarach właściwości obrazu.\cite{vqm}.\par
+
 Metryki jakości wideo mogą zostać sklasyfikowane na podstawie tego czy do ich wyznaczenia wymagana jest obecność \textbf{oryginalnego} \textit{niezakłóconego} pliku wideo. Metryki, które wymagają takiego pliku określane są mianem {\em ang. full-reference} (FR). Porównują one właściwości zakłóconego/zniekształconego i bazowego wideo, \todo[inline]{To straszna kalka językowa, w polskim to oryginalny i zniekształcony. Zakłócenia to raczej radiowe są :)}aby na podstawie tak otrzymanych informacji dokonać estymaty jakości. Innym rodzajem metryk są metryki {\em ang. no-reference} (NR). Dokonują one oceny jakości na podstawię zniekształconego wideo i nie wymagają do tego żadnych dodatkowych informacji\cite{vqm}.\par
 
 
 
 Podczas badań nad jakością  wideo używane są pewne sformułowania ułatwiające definiowanie późniejszych pojęć. Przedstawiają się one następująco:
 \begin{itemize}[label=$\bullet$]
-	\item SVQ (\emph{ang. Subjective video quality }) -- jakość wideo doświadczana/odbierana przez człowieka \todo[inline]{Jak ciężko człowiek doświadcza tą biedną jakość? To się kryminał robi z tej pracy ;) }
-	\item SRC (\emph{ang. Source}) -- oryginalna sekwencja wideo
-	\item PVS (\emph{ang. Processed Video Sequences}) -- pliki wideo powstałe w skutek zniekształcenia SRC
+	\item SVQ (\emph{ang. Subjective video quality }) -- jakość wideo odbierana przez człowieka .
+	\item SRC (\emph{ang. Source}) -- oryginalna sekwencja wideo.
+	\item PVS (\emph{ang. Processed Video Sequences}) -- pliki wideo powstałe w skutek zniekształcenia SRC.
 \end{itemize}
 
 
@@ -62,7 +85,7 @@ W poniższych podrozdziałach w w skrócie zostały opisane metryki typu NR i FR
 \subsection{Metryki no-reference}
 %\let\labelitemi\labelitemii
 \begin{itemize}[label=$\bullet$]
-\item Blokowość ({\em ang. Blockiness}) -- powstaje podczas DCT (\emph{ang. Discret Cosinus Transformation} -- Dyskretnej transformacie kosunusowej) i dotyczy związanych z nią bloków pikseli i kompresji jaka jest na nich dokonywana. Objawia się poprzez zauważalną między nimi  granicę\cite{blockiness}. Skala przyjęta w pracy: 0-3570. Im większa wartość, tym mniej widoczne zakłócenie. Dla obrazu bez zakłóceń około 0.9-1.01\cite{agh_vqm}.
+\item Blokowość ({\em ang. Blockiness}) -- powstaje podczas kodowania. Dotyczy związanych z tym procesem bloków pikseli i kompresji jaka jest na nich dokonywana. Objawia się poprzez zauważalną między nimi  granicę\cite{blockiness}. Skala przyjęta w pracy: 0-3570. Im większa wartość, tym mniej widoczne zakłócenie. Dla obrazu bez zakłóceń około 0.9-1.01\cite{agh_vqm}.
 \begin{figure}[h]
 \centerline{\includegraphics[ height=4cm, width=7cm]{blockiness}}
 \caption{Przykładowy obraz z zakłóceniami spowodowanymi blokowością\cite{agh_vqm}.}
