@@ -28,13 +28,16 @@
     \strng{fullhash}{C1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-  \field{note}{\\\texttt{https://www.cisco.com/c/en/us/solutions/collateral/service-provider/visual-networking-index-vni/white-paper-c11-741490.html}}
     \field{title}{{Forecast and Trends 2017-2022}}
+    \verb{url}
+    \verb https://www.cisco.com/c/en/us/solutions/collateral/service-provider/v
+    \verb isual-networking-index-vni/white-paper-c11-741490.html
+    \endverb
     \field{langid}{english}
     \field{year}{2019}
   \endentry
 
-  \entry{video_codecs}{manual}{}
+  \entry{video_codecs}{online}{}
     \name{author}{1}{}{%
       {{hash=RA}{%
          family={Romero},
@@ -47,10 +50,14 @@
     \strng{fullhash}{RA1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-  \field{note}{\\\texttt{https://video.ibm.com/blog/streaming-video-tips/what-is-video-encoding-codecs-compression-techniques/}}
-    \field{title}{{On Line Alvis Manual}}
-    \field{langid}{english}
-    \field{year}{2018}
+    \field{title}{On Line Alvis Manual}
+    \verb{url}
+    \verb https://video.ibm.com/blog/streaming-video-tips/what-is-video-encodin
+    \verb g-codecs-compression-techniques/
+    \endverb
+    \field{urlday}{14}
+    \field{urlmonth}{09}
+    \field{urlyear}{2019}
   \endentry
 
   \entry{kodowanie}{online}{}
