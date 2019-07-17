@@ -156,8 +156,13 @@ Ostatnim sprawdzonym algorytmem uczenia maszynowego była sieć neuronowa z nast
 
 
 \chapter{Wyniki i analiza }
-Poniższy rozdział prezentuje wyniki z poszczególnych modeli. Zostały one zebrane na wykresach słupkowych, gdzie os x odnosi się do numerów zestawów, a os y do średnich wartości R-kwadrat \ref{fig:podsumowanie}. Wykres ten przedstawia wyniki dla ostatecznie wybranych parametrów algorytmów. Selekcja dokonana została na podstawie najlepszego osiągniętego wyniki dla jednego z zestawów na rodzaj algorytmu. Przykładowo dla  sieci neuronowych testowane były konfiguracje: 2 warstwy wykryte i 8 neuronów, 4 warstwy ukryte 13 neuronów, 3 warstwy ukryte 13 neuronów.\todo[inline]{tak naprawde duzo wiecej ale chyba nie ma sensu tego pisac, bo niektore testy to na zasadzie kolejnego uruchamiania i obserwacji robione} Każda z nich była testowana na każdym wcześniej zdefiniowanym zestawie. Najwyższy R-kwadrat został osiągnięty dla ostatniej z wymienionych konfiguracji i dla zestawu 19. Tak więc prezentowane wyniki z tabeli \ref{fig:podsumowanie} będą odnosić się do tych właśnie parametrów, ale dla każdego z zestawów. Czego wynikiem mogą pewne negatywne oddziaływania związane z przetwarzaniem danych dla ......[dokonczyc ten akapit]   
-W dalszej części rozdziału  odbędzie się ich analiza.
+Poniższy rozdział prezentuje wyniki z poszczególnych modeli. Zostały one zebrane na wykresie słupkowym \ref{fig:podsumowanie}, gdzie oś x odnosi się do numerów zestawów, a oś y do średnich wartości R-kwadrat .
+
+
+ Wykres ten przedstawia wyniki dla ostatecznie wybranych parametrów algorytmów. Selekcja dla każdego z nich została dokonana na podstawie najlepszego osiągniętego dopasowania . Przykładowo dla  sieci neuronowych testowane były konfiguracje: 2 warstwy wykryte i 8 neuronów, 4 warstwy i ukryte 13 neuronów, 3 warstwy i ukryte 13 neuronów.\todo[inline]{tak naprawde duzo wiecej ale chyba nie ma sensu tego pisac, bo niektore testy to na zasadzie kolejnego uruchamiania i obserwacji } W oparciu o każdą z nich budowano modele dla każdego z wcześniej zdefiniowanych zestawów.  Najwyższy R-kwadrat został osiągnięty dla ostatniej z wymienionych konfiguracji i dla zestawu 19. Tak więc prezentowane wyniki na wykresie  \ref{fig:podsumowanie} będą odnosić się do tych właśnie parametrów. Taki wykres pozwala czytelnikowi odczytać najistotniejszą dla tej pracy informację o najtrafniejszym z modeli, oraz dodatkowo prezentuje inne zjawiska związane z eksplorcją danych. W dalszej części rozdziału  odbędzie się analiza tego wykresu.
+ 
+    
+
 
 
 \begin{sidewaysfigure}[ht]
@@ -171,7 +176,7 @@ W pierwszej kolejności wyjaśniane zostaną różnice w obrębie zestawów dany
 
 Obserwując poszczególne wyniki dla zestawów $no$-$reference$ (22 -- 30)  oraz $full$-$reference$ (1 -- 6, 20, 21) można zaobserwować, że te drugie znacznie trafniej dokonują predykcji. Prawdopodobną przyczyną występowania tej sytuacji jest nierównomierność w występowaniu cechy typu NR w dostępnych danych, co może dalej skutkować nadpasowanie modelu. 
 
-Co  więcej algorytm wykazał że wprowadzona dodatkowa cecha (liczba dostępnych rozdzielczości) również ma  wpływ na ocenę jakość, choć w niewielkim stopniu.  W większości przypadków zestaw z tą cecha otrzymywał wyższe R-kwadrat, niż ten sam zestaw ale bez liczby dostępnych zależności. Wykres kołowy x przedstawia w jakiej części przypadków dana obserwacja się powtarza  \ref{tab:tabela rozdzielczosc}. Podobne, sprawdzone tu, oddziaływanie to czas trwania. Dla dłuższych wideo  model daje lepsze wyniki, różnice również są nieznaczne. \par
+Co  więcej algorytm wykazał że wprowadzona dodatkowa cecha (liczba dostępnych rozdzielczości)  ma  wpływ na ocenę jakość, choć w niewielkim stopniu.  W większości przypadków zestaw z tą cecha otrzymywał wyższe R-kwadrat, niż ten sam zestaw ale bez liczby dostępnych zależności. Wykres kołowy przedstawia w jakiej części przypadków dana obserwacja się powtarza  \ref{tab:tabela rozdzielczosc}. Podobne, sprawdzone tu, oddziaływanie to czas trwania. Dla dłuższych wideo  model daje lepsze wyniki, różnice również są nieznaczne. \par
 
 \begin{center}
 \includegraphics[ height=8cm, width=10cm]{w_kolowy}
@@ -181,10 +186,11 @@ Co  więcej algorytm wykazał że wprowadzona dodatkowa cecha (liczba dostępnyc
 \end{center}
  
 %zestawy: 14 i 15, 17 i 18, 7 i 8, 11 i 16, 9 i 10, 24 i 25 są dla siebie bliźniacze z różnicą dodatkowej cechy. Zestawy oznaczone * zawierają dodatkową ceche. Zielony kolor wskazuję na pole z większym R-kwadrat na pare, czerwony na mniejszy(test powtórzony dwa razy). 
-  
+\topskip0pt
+\vspace*{\fill}  
 Na wykresie \ref{fig:podsumowanie} można dostrzec, że różnice pomiędzy modelami zbudowanymi na podstawie zestawów xxx wyróżniają się pod kątem wysokich wartości R-kwadrat. Dla tych zestawów wspólnym mianownikiem są cechy: PSNR, VMAF, SSIM, MS-SSIM. Każda cecha z osobna również osiąga wysokie wyniki (Przykładowo, R-kwadrat kolejno dla modelu Lasu Losowego:0.490, 0.502,  0.475,  0.507). Niższe jednak niż te osiągnięte w zestawie. 
 Wymienione wyżej cechy posiadają wysoki współczynnik korelacji \ref{fig:korelacja}, przez co łączenie ich tylko w pewnym stopniu poprawia trafność modelu. Końcowa wartość nie jest ich sumą. Przykładowo dla zestawu 2 (VMAF + SSIM) R-kwadrat wynosi 0.636 \par
-
+\vspace*{\fill}
 
 
 \begin{center}
@@ -196,9 +202,11 @@ Wymienione wyżej cechy posiadają wysoki współczynnik korelacji \ref{fig:kore
 
 
 
-
-
+\topskip0pt
+\vspace*{\fill} 
 Kolejny aspekt, który można odnotować czytając wykres, to ujemna wartość R-kwadrat dla niektórych zestawów. Biorąc pod uwagę wzór \ref{eqn:r2}, zauważyć należy to, że model podczas testów dokonywał gorszej predykcji, niż średnia dla zbioru danych testowych. Tą sytuację przedstawia wykres \ref{fig:kontrast_ujemne_rk}. Zaprezentowane są tu próbki danych dla cechy kontrast. Funkcja regresji liniowej (linia niebieska)  pokrywa się ze średnią dla danych testowych (linia pomarańczowa), ale podczas liczenia R-kwadrat brana pod uwagę jest średnia ze zbioru danych testowych (linia czerwona). Gdyby ta ostania pokrywała się z linią regresji R-kwadrat wynosił by 0. Ujemny, R-kwadrat oznacza również, że dla danej cechy lub ich zestawu, algorytm nie odnalazł zależności między zmiennymi opisującymi, a zmienną opisywaną.\par
+\vspace*{\fill}
+
 \begin{center}
 \includegraphics[ height=9cm, width=13cm]{kontrast_ujemne_rk}
 \captionof{figure}{Przypadek kiedy wskaźnik r-kwadrat jest ujemny.}
