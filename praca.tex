@@ -23,6 +23,8 @@
 \usepackage{rotating}
 \usepackage{float}
 \usepackage{booktabs}
+\usepackage{everypage}
+
 \newcommandx{\unsure}[2][1=]{\todo[linecolor=red,backgroundcolor=red!25,bordercolor=red,#1]{#2}}
 \newcommandx{\change}[2][1=]{\todo[linecolor=blue,backgroundcolor=blue!25,bordercolor=blue,#1]{#2}}
 \newcommandx{\info}[2][1=]{\todo[linecolor=OliveGreen,backgroundcolor=OliveGreen!25,bordercolor=OliveGreen,#1]{#2}}
@@ -176,6 +178,8 @@ backend=bibtex
 	\renewcommand{\headrulewidth}{0pt}
 	\renewcommand{\footrulewidth}{0pt}
 }
+
+
 
 \setcounter{tocdepth}{2}
 \tableofcontents

@@ -11,7 +11,7 @@ Dzięki coraz większym przepustowościom i szerokiemu dostępowi do Internetu w
 
 Na obecnym etapie rozwoju technologii, oczekiwania odbiorcy co do jakości otrzymywanego wideo znacznie wzrosły. Na drugiej szali pozostają ograniczenia dotyczące medium i optymalnego wykorzystania zasobów po stronie klienta i dostawcy. Odnosząc się do powyższego istotną kwestią staje się monitorowanie jakości transmitowanego wideo i dostosowywanie go do potrzeb użytkownika. Jednak problem w ocenie jakości wideo jest o tyle trudny, że dotychczas najbardziej wiarygodnym wskaźnikiem jest tu opinia ludzka,  trudna do powiązania z mierzalnymi technicznymi, parametrami wideo.\par
 
-Jedną z koncepcji poprawy trafności oceny wideo odnosi się do wykorzystania z gałęzi statystyki -- Uczenia maszynowego. Pomaga on odnajdywać zależności, nawet te na pozór nie intuicyjna, pomiędzy informacjami z danego wideo. Tą metodę zastosowano do tej pory podczas tworzenia metryk:x, y, z. 
+Jedną z koncepcji poprawy trafności dla automatycznej oceny wideo proponuje wykorzystanie jednej z gałęzi statystyki -- Uczenia maszynowego. Pomaga on odnajdywać zależności, nawet te na pozór nie intuicyjne, pomiędzy informacjami z danego wideo. Tą metodę zastosowano do tej pory podczas tworzenia między innymi metryki VMAF oraz metryk zaproponowanych przez Judith Redi\cite{metryka1} i Patrick'a Le Callet\cite{metryka2}.
 
 
 W niniejszej Pracy zostanie przedstawiony algorytm pozwalający na bardziej zautomatyzowaną ocenę jakości wideo w oparciu o metryki \emph{full-reference} (FR) i \emph{no-reference} (NR) z użyciem wybranych metod z zakresu uczenia maszynowego oraz zaprezentowana zostanie wykorzystana metodologia badań.
@@ -61,14 +61,14 @@ Ze względu na sposób kodowania można wyróżnić trzy typy ramek.
 Sam proces kompresji jak i błędy transmisji czy nagrywania mogą powodować powstanie zaburzeń w odtwarzanym obrazie. W celu mierzenia poziomu uszkodzeń oraz monitorowania stanu wideo badacze zdefiniowali wiele metryk.\par
 
 
-\todo[inline]{Tu został pominięty super ważny aspekt zniekształceń wynikających z samej kompresji. Jste napisane, że błędy ... To nie tak, kompresja, nawet bez błędów, wprowadza zniekształcenia. To istotne jakie, bo tylko takie warto wykrywać, jeżeli strumieniujemy po TCP, dopiero strumienie UDP wymagają innych algorytmów szacowania jakości. }
+\todo{Tu został pominięty super ważny aspekt zniekształceń wynikających z samej kompresji. Jste napisane, że błędy ... To nie tak, kompresja, nawet bez błędów, wprowadza zniekształcenia. To istotne jakie, bo tylko takie warto wykrywać, jeżeli strumieniujemy po TCP, dopiero strumienie UDP wymagają innych algorytmów szacowania jakości. }
 
 \section{Metryki}
 %https://books.google.se/books?id=JbtPCwAAQBAJ&pg=PA32&dq=video++quality+metrics+full+reference&hl=en&sa=X&ved=0ahUKEwi4wtGc2YfiAhWx-ioKHZJtAtcQ6AEIKjAA#v=onepage&q=video%20%20quality%20metrics%20full%20reference&f=false
 
-Jakość danego wideo jest najtrafniej oceniona dzięki tak zwanej ocenie subiektywnej. Polega ona na określeniu jakości odbioru przez człowieka na podstawie jego odczuć. Niestety, aby takie badanie było miarodajne należy je przeprowadzić w odpowiednich warunkach, przygotować zestaw testów, zrekrutować uczestników oraz cały czas nadzorować jego przebieg. Wszystko to generuje duże koszty i zabiera cenny czas ,ale przede wszystkim nie pozwala na ocenę jakości w czasie rzeczywistym na przykład podczas stremowania wideo. Problem ten rozwiązują metryki jakości wideo. które w przeciwieństwie do oceny subiektywnej, bazują na obiektywnych pomiarach właściwości obrazu.\cite{vqm}.\par
+Jakość danego wideo jest najtrafniej oceniona dzięki tak zwanej ocenie subiektywnej. Polega ona na określeniu jakości odbioru przez człowieka na podstawie jego odczuć. Niestety, aby takie badanie było miarodajne należy je przeprowadzić w odpowiednich warunkach, przygotować zestaw testów, zrekrutować uczestników oraz cały czas nadzorować jego przebieg. Wszystko to generuje duże koszty i zabiera cenny czas, ale przede wszystkim nie pozwala na ocenę jakości w czasie rzeczywistym na przykład podczas stremowania wideo. Problem ten rozwiązują metryki jakości wideo. które w przeciwieństwie do oceny subiektywnej, bazują na obiektywnych pomiarach właściwości obrazu.\cite{vqm}.\par
 
-Metryki jakości wideo mogą zostać sklasyfikowane na podstawie tego czy do ich wyznaczenia wymagana jest obecność \textbf{oryginalnego} \textit{niezakłóconego} pliku wideo. Metryki, które wymagają takiego pliku określane są mianem {\em ang. full-reference} (FR). Porównują one właściwości zakłóconego/zniekształconego i bazowego wideo, \todo[inline]{To straszna kalka językowa, w polskim to oryginalny i zniekształcony. Zakłócenia to raczej radiowe są :)}aby na podstawie tak otrzymanych informacji dokonać estymaty jakości. Innym rodzajem metryk są metryki {\em ang. no-reference} (NR). Dokonują one oceny jakości na podstawię zniekształconego wideo i nie wymagają do tego żadnych dodatkowych informacji\cite{vqm}.\par
+Metryki jakości wideo mogą zostać sklasyfikowane na podstawie tego czy do ich wyznaczenia wymagana jest obecność oryginalnego pliku wideo. Metryki, które wymagają takiego pliku określane są mianem {\em ang. full-reference} (FR). Porównują one właściwości zniekształconego i bazowego wideo, \todo{To straszna kalka językowa, w polskim to oryginalny i zniekształcony. Zakłócenia to raczej radiowe są :)}aby na podstawie tak otrzymanych informacji dokonać estymaty jakości. Innym rodzajem metryk są metryki {\em ang. no-reference} (NR). Dokonują one oceny jakości na podstawię zniekształconego wideo i nie wymagają do tego żadnych dodatkowych informacji\cite{vqm}.\par
 
 
 
@@ -138,7 +138,7 @@ W poniższych podrozdziałach w w skrócie zostały opisane metryki typu NR i FR
 \label{fig:xccs}
 \end{center}
 
-\item Wyciemnienia ({\em ang. Blackout}) -- opisuje zjawisko, kiedy obraz całkowicie zanika.\cite{blackout}. Skala przyjęta w pracy : 0-1.
+\item Wyciemnienia ({\em ang. Blackout}) -- opisuje zjawisko, kiedy obraz całkowicie zanika.\cite{blackout}. Skala przyjęta w pracy : 0-1. \todo{sprzwdzic strony w i3e}
 %\begin{center}
 %\includegraphics[ height=4cm, width=7cm]{blackout}
 %\captionof{figure}{Wyciemniona ramka \cite{agh_vqm}.}
@@ -202,7 +202,7 @@ Oprócz wyżej wymienionych wskaźników, w obecnym opracowaniu w pracy zostały
 \subsection{Metryki full-reference}
 
 \begin{itemize}[label=$\bullet$]
-\item PSNR ({\em ang. Peak Signal-to-Noise Ratio}) -- prosta do policzenia i również często stosowana z pomiędzy metryk typu FR. Przykładowa implementacja dla PSNR \ref{eqn:somelabel} (gdzie MSE jest błędem średnio kwadratowym dla ramki, a $L$ maksymalną wartością sygnału). W pierwszej kolejności liczone jest zniekształcenie dla wszystkich ramek w stosunku do ich oryginału. Zazwyczaj do obliczań wykorzystuje się wyłącznie informację o luminacji piksela. Później następuje uśrednienie wyniku\cite{fr_psnr}. 
+\item PSNR ({\em ang. Peak Signal-to-Noise Ratio}) -- prosta do policzenia i również często stosowana z pomiędzy metryk typu FR. Przykładowa implementacja dla PSNR \ref{eqn:somelabel} (gdzie MSE jest błędem średnio kwadratowym dla ramki, $N$ ich liczbą, a $L$ maksymalną wartością sygnału). W pierwszej kolejności liczone jest zniekształcenie dla wszystkich ramek w stosunku do ich oryginału. Zazwyczaj do obliczań wykorzystuje się wyłącznie informację o luminacji piksela. Później następuje uśrednienie wyniku na wszystkie ramki\cite{fr_psnr}. 
 \begin{equation}
 \label{eqn:somelabel}
 PSNR = \frac{1}{N} \cdot 10 \sum_{i=1}^{N}\log\frac{L}{MSE_i}
@@ -215,7 +215,7 @@ Mimo zalet PSNR nie zawsze spełnia swoje zadanie. Ilustracja \ref{fig:psnr_pict
 \label{fig:xccs}
 \end{center}
 % ms-ssim Multiscale_structural_similarity_for_image_quality_assessment
-\item SSIM ({\em ang. Structural Similarity Index}) -- jest jedną z najczęściej stosowanych metryk oceny jakości wideo. Również, jak poprzednia metryka, jest ona prosta w obliczeniach. Uwzględnia w swojej funkcji luminacje, kontrast i strukturę obu \ref{eqn:ssim}, gdzie S jest blokiem pikseli z ramki z oryginalnej sekwencji wideo, a S' jej zniekształconą wersją. $SSIM \in <0,1>$. 1 oznacza brak zniekształceń, a 0 idealne niedopasowanie \cite{ssim_1}\cite{ssim_2}.
+\item SSIM ({\em ang. Structural Similarity Index}) -- jest jedną z najczęściej stosowanych metryk oceny jakości wideo. Również, jak w poprzedniej metryce, zaletą jest prostota obliczeń. Uwzględnia w swojej funkcji luminacje, kontrast i strukturę obu \ref{eqn:ssim}, gdzie S jest blokiem pikseli z ramki z oryginalnej sekwencji wideo, a S' jej zniekształconą wersją. $SSIM \in <0,1>$. 1 oznacza brak zniekształceń, a 0 idealne niedopasowanie \cite{ssim_1}\cite{ssim_2}.
 \begin{equation}
 \label{eqn:ssim}
 SSIM = I(S, S')c(S, S')s(S,S')
@@ -237,13 +237,13 @@ Głównym zadaniem algorytmów uczenia maszynowego jest odnalezienie jak najdok�
 \label{eqn:r2}
 R^2=1- \frac{ \sum_{i=1}^{n}(Y_i-Y'_i)^2}{\sum_{i=1}^{n}(Y_i-\bar{Y}_i)^2 }
 \end{equation}
-$Y_i$ oznacza wartość szukanej przez model zmiennej, $Y'_i$ predykcję modelu, $\bar{Y_i}$ średnią wartość dla wszystkich $Y_i$. Przykładowo 1 oznacza idealne dopasowanie modelu, 0 oznacza ze model jest tak samo dokładny jak wartość średnia.\par
+$Y_i$ oznacza wartość szukanej przez model zmiennej, $Y'_i$ predykcję modelu, $\bar{Y_i}$ średnią wartość dla wszystkich $Y_i$. Przykładowo 1 oznacza idealne dopasowanie modelu, 0 oznacza, że model jest tak samo dokładny jak wartość średnia.\par
 Poniższe podrozdziały zawierają krótki opis algorytmów użytych do badań w niniejszej pracy.
 
 
 %(?czy wpisywac cos o metodzie uczenia zaimplementowanej w skLearn, czyli :Ordinary Least Squares ?)
 \subsection{Regresja Liniowa}
-W Regresji Liniowej w jej podstawowej postaci zmienna niezależna $x_i$ ({\em ang. independent variable}) opisuje zmienną zależną $y_i$ ({\em ang. dependent variable}) zgodnie ze następującym wzorem $y_i = \beta_0 + \beta_1 x_i + \epsilon$. Gdzie $\beta_0$ i $\beta_1$ są współczynnikami określającym relację danych zmiennych $x$ i $y$. Do badań w pracy zostało wykorzystane pewne rozszerzenie klasycznej regresji liniowej -- wielokrotna regresja liniowa ({\em ang. Multiple Linear Regression}), gdzie $y_i$ jest opisany następującą zależnością \ref{eqn:regresja}. Oznaczenia poszczególnych elementów tego równania są analogiczne do podstawowej wersji regresji. Trenowanie takiego modelu polega na szukaniu współczynników $\beta$ \cite{mlr} .\par
+W Regresji Liniowej w jej podstawowej postaci zmienna niezależna $x_i$ ({\em ang. independent variable}) opisuje zmienną zależną $y_i$ ({\em ang. dependent variable}) zgodnie z następującym wzorem $y_i = \beta_0 + \beta_1 x_i + \epsilon$. Gdzie $\beta_0$ i $\beta_1$ są współczynnikami określającym relację danych zmiennych $x$ i $y$. Do badań w pracy zostało wykorzystane pewne rozszerzenie klasycznej regresji liniowej -- wielokrotna regresja liniowa ({\em ang. Multiple Linear Regression}), gdzie $y_i$ jest opisany następującą zależnością \ref{eqn:regresja}. Oznaczenia poszczególnych elementów tego równania są analogiczne do podstawowej wersji regresji. Trenowanie takiego modelu polega na szukaniu współczynników $\beta$ \cite{mlr} .\par
 
 \begin{equation}
 \label{eqn:regresja}
@@ -267,7 +267,7 @@ W niniejszej pracy zostało użyte pewne rozwinięcie SVM, dla problemów dotycz
 
 %SVR -> https://link.springer.com/chapter/10.1007/978-1-4302-5990-9_4
 \subsection{Las Losowy}
-Las Losowy (\emph{ang. Random Forest, RF }) działa w oparciu o "głosowanie"' wielu pojedynczy drzew. Każde z drzew powstaje dzięki implementacji algorytmu CART ({\em ang. Classification and Regression Trees}). W tym przypadku dla problemów regresji. Drzewa składają się z węzła głównego ({\em ang. Root Node}), liści ({\em ang. Leaves}), węzłów decyzyjnych ({\em ang. Decision Nodes}). Trenowanie drzewa bazuje na minimalizacji funkcji $S$ wyrażającej się wzorem \ref{eqn:rf}, gdzie $m_c=\frac{1}{n}\sum_{i \in c}y_i$ i jest predykcja z danego liścia\cite{rf}. Rysunek \ref{fig:r_tree} wizualizuje dopasowanie funkcji przy użyciu algorytmu  drzewa regresyjnego.\par
+Las Losowy (\emph{ang. Random Forest -- RF}) działa w oparciu o "głosowanie"' wielu pojedynczy drzew. Każde z drzew powstaje dzięki implementacji algorytmu CART ({\em ang. Classification and Regression Trees}). W tym przypadku dla problemów regresji. Drzewa składają się z węzła głównego ({\em ang. Root Node}), liści ({\em ang. Leaves}), węzłów decyzyjnych ({\em ang. Decision Nodes}). Trenowanie drzewa bazuje na minimalizacji funkcji $S$ wyrażającej się wzorem \ref{eqn:rf}, gdzie $m_c=\frac{1}{n}\sum_{i \in c}y_i'$ i jest predykcja z danego liścia\cite{rf}. Rysunek \ref{fig:r_tree} wizualizuje dopasowanie funkcji przy użyciu algorytmu  drzewa regresyjnego.\par
 \begin{equation}
 \label{eqn:rf}
 S=\frac{1}{n}\sum_{c \in leaves(T)}\sum_{i \in c}(y_i - m_c)^2

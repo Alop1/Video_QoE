@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.16)  14 JUL 2019 13:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.16)  24 JUL 2019 22:02
 entering extended mode
 **./praca.tex
 (praca.tex
@@ -1128,6 +1128,10 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \@lastruleclass=\count323
 \@thisrulewidth=\dimen323
 )
+("C:\Users\elacpol\AppData\Local\Programs\MiKTeX 2.9\tex/latex/everypage\everyp
+age.sty"
+Package: everypage 2007/06/20 1.1 Hooks to run on every page
+)
 ("C:\Users\elacpol\AppData\Local\Programs\MiKTeX 2.9\tex/latex/biblatex\biblate
 x.sty"
 Package: biblatex 2018/11/02 v3.12 programmable bibliographies (PK/MW)
@@ -1496,7 +1500,7 @@ File: english.lbx 2018/11/02 v3.12 biblatex localization (PK/MW)
 
 Package biblatex Warning: Conflicting options.
 (biblatex)                'urldate=iso' requires 'seconds=true'.
-(biblatex)                Setting 'seconds=true' on input line 165.
+(biblatex)                Setting 'seconds=true' on input line 167.
 
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
@@ -1593,24 +1597,27 @@ LaTeX Warning: Label `fig:xccs' multiply defined.
 LaTeX Warning: Label `fig:xccs' multiply defined.
 
 
+LaTeX Warning: Label `fig:xccs' multiply defined.
+
+
 LaTeX Warning: Label `cha:pierwszyDokument' multiply defined.
 
 ))
 \openout1 = `praca.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 165.
-LaTeX Font Info:    ... okay on input line 165.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 165.
-LaTeX Font Info:    ... okay on input line 165.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 165.
-LaTeX Font Info:    ... okay on input line 165.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 165.
-LaTeX Font Info:    ... okay on input line 165.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 165.
-LaTeX Font Info:    ... okay on input line 165.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 165.
-LaTeX Font Info:    ... okay on input line 165.
-LaTeX Font Info:    Try loading font information for T1+ptm on input line 165.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 167.
+LaTeX Font Info:    ... okay on input line 167.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 167.
+LaTeX Font Info:    ... okay on input line 167.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 167.
+LaTeX Font Info:    ... okay on input line 167.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 167.
+LaTeX Font Info:    ... okay on input line 167.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 167.
+LaTeX Font Info:    ... okay on input line 167.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 167.
+LaTeX Font Info:    ... okay on input line 167.
+LaTeX Font Info:    Try loading font information for T1+ptm on input line 167.
 
 ("C:\Users\elacpol\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\t1ptm.fd"
 File: t1ptm.fd 2001/06/04 font definitions for T1/ptm.
@@ -1794,17 +1801,32 @@ Package biblatex Warning: BibTeX reported the following issues
 (biblatex)                with 'vqm':
 (biblatex)                - Invalid format of field 'month'.
 
+
+Package biblatex Warning: BibTeX reported the following issues
+(biblatex)                with 'spactial_act':
+(biblatex)                - Invalid format of field 'month'.
+
+
+Package biblatex Warning: BibTeX reported the following issues
+(biblatex)                with 'freezing':
+(biblatex)                - Invalid format of field 'month'.
+
+
+Package biblatex Warning: BibTeX reported the following issues
+(biblatex)                with 'psnr_qoe':
+(biblatex)                - Invalid format of field 'month'.
+
 )
-Package biblatex Info: Reference section=0 on input line 165.
-Package biblatex Info: Reference segment=0 on input line 165.
+Package biblatex Info: Reference section=0 on input line 167.
+Package biblatex Info: Reference segment=0 on input line 167.
 \c@lstlisting=\count470
-LaTeX Font Info:    Try loading font information for U+msa on input line 165.
+LaTeX Font Info:    Try loading font information for U+msa on input line 167.
 
 ("C:\Users\elacpol\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsa.fd
 "
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 165.
+LaTeX Font Info:    Try loading font information for U+msb on input line 167.
 
 ("C:\Users\elacpol\AppData\Local\Programs\MiKTeX 2.9\tex/latex/amsfonts\umsb.fd
 "
@@ -1813,23 +1835,23 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 <agh.jpg, id=28, 146.4672pt x 284.7438pt>
 File: agh.jpg Graphic file (type jpg)
 <use agh.jpg>
-Package pdftex.def Info: agh.jpg  used on input line 167.
+Package pdftex.def Info: agh.jpg  used on input line 169.
 (pdftex.def)             Requested size: 87.88098pt x 170.8476pt.
-LaTeX Font Info:    Try loading font information for T1+phv on input line 167.
+LaTeX Font Info:    Try loading font information for T1+phv on input line 169.
 
 ("C:\Users\elacpol\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\t1phv.fd"
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <12> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 167.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 169.
 LaTeX Font Info:    Font shape `T1/phv/bx/sc' in size <12> not available
-(Font)              Font shape `T1/phv/b/sc' tried instead on input line 167.
+(Font)              Font shape `T1/phv/b/sc' tried instead on input line 169.
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 167.
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 169.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <14.4> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 167.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 169.
 LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10.95> not available
-(Font)              Font shape `T1/phv/m/sl' tried instead on input line 167.
+(Font)              Font shape `T1/phv/m/sl' tried instead on input line 169.
  [1
 
 {C:/Users/elacpol/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map} <./agh.jpg
@@ -1841,9 +1863,9 @@ LaTeX Font Info:    Font shape `T1/phv/m/it' in size <10.95> not available
 
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 181.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 185.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 181.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 185.
  (praca.toc)
 \tf@toc=\write5
 \openout5 = `praca.toc'.
@@ -1862,7 +1884,7 @@ Rozdzia\l  1.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 1.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 6001) has occurred while \output is active []
 
  [7]
 [8]
@@ -1893,12 +1915,15 @@ File: blockiness.jpg Graphic file (type jpg)
 <use blockiness.jpg>
 Package pdftex.def Info: blockiness.jpg  used on input line 90.
 (pdftex.def)             Requested size: 199.16399pt x 113.81206pt.
- [11 <./blockiness.jpg>]
-<spatialAC.jpeg, id=75, 642.4pt x 481.8pt>
+<spatialAC.jpeg, id=72, 642.4pt x 481.8pt>
 File: spatialAC.jpeg Graphic file (type jpg)
 <use spatialAC.jpeg>
 Package pdftex.def Info: spatialAC.jpeg  used on input line 97.
 (pdftex.def)             Requested size: 199.17134pt x 113.81114pt.
+
+Underfull \vbox (badness 1038) has occurred while \output is active []
+
+ [11 <./blockiness.jpg>]
 <letterboxingC.jpeg, id=76, 642.4pt x 361.35pt>
 File: letterboxingC.jpeg Graphic file (type jpg)
 <use letterboxingC.jpeg>
@@ -1931,6 +1956,9 @@ File: exp.jpeg Graphic file (type jpg)
 <use exp.jpeg>
 Package pdftex.def Info: exp.jpeg  used on input line 152.
 (pdftex.def)             Requested size: 199.14194pt x 113.80379pt.
+
+Underfull \vbox (badness 3049) has occurred while \output is active []
+
  [13 <./blur.jpeg> <./temporalAC.jpeg>]
 <contrastC.jpeg, id=89, 642.4pt x 361.35pt>
 File: contrastC.jpeg Graphic file (type jpg)
@@ -1965,7 +1993,8 @@ File: r_tree.png Graphic file (type png)
 <use r_tree.png>
 Package pdftex.def Info: r_tree.png  used on input line 277.
 (pdftex.def)             Requested size: 256.08499pt x 170.71628pt.
- [19 <./r_tree.png>]
+
+[19 <./r_tree.png>]
 <nn.png, id=124, 992.20688pt x 589.4522pt>
 File: nn.png Graphic file (type png)
 <use nn.png>
@@ -1992,129 +2021,143 @@ File: data_preparation_work_flow.png Graphic file (type png)
 Package pdftex.def Info: data_preparation_work_flow.png  used on input line 29.
 
 (pdftex.def)             Requested size: 426.7884pt x 312.98323pt.
- [22 <./data_preparation_work_flow.png>] [23] [24]
+ [22 <./data_preparation_work_flow.png>] [23]
+Underfull \vbox (badness 3872) has occurred while \output is active []
+
+ [24]
 <podzial_danych.png, id=143, 682.04813pt x 280.04625pt>
 File: podzial_danych.png Graphic file (type png)
 <use podzial_danych.png>
-Package pdftex.def Info: podzial_danych.png  used on input line 68.
+Package pdftex.def Info: podzial_danych.png  used on input line 70.
 (pdftex.def)             Requested size: 284.53293pt x 142.27045pt.
+
+Underfull \vbox (badness 5331) has occurred while \output is active []
+
  [25 <./podzial_danych.png>]
 
+Package caption Warning: \label without proper reference on input line 171.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `tab:tabela2' on page 26 undefined on input line 107.
+
+<execution.png, id=148, 462.528pt x 346.896pt>
+File: execution.png Graphic file (type png)
+<use execution.png>
+Package pdftex.def Info: execution.png  used on input line 110.
+(pdftex.def)             Requested size: 256.08499pt x 170.71628pt.
+
+Package caption Warning: \label without proper reference on input line 171.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `tab:tabela2' on page 26 undefined on input line 116.
+
+[26 <./execution.png>]
+
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 105.
+               Default added (so using `tbp') on input line 135.
 
 
-Overfull \hbox (113.87933pt too wide) in paragraph at lines 107--141
- [][] 
- []
-
-
-LaTeX Warning: Float too large for page by 71.27043pt on input line 143.
-
-[26] [27] [28
-
-]
-Rozdzia\l  4.
-<podsumowanie.png, id=157, 1387.584pt x 710.4141pt>
-File: podsumowanie.png Graphic file (type png)
-<use podsumowanie.png>
-Package pdftex.def Info: podsumowanie.png  used on input line 164.
-(pdftex.def)             Requested size: 739.77762pt x 426.79375pt.
-
-Overfull \hbox (65.4473pt too wide) in paragraph at lines 164--165
+Overfull \hbox (78.30313pt too wide) in paragraph at lines 137--172
 [][] 
  []
 
-<w_kolowy.png, id=158, 395.97937pt x 347.79938pt>
+
+LaTeX Warning: Float too large for page by 64.35043pt on input line 172.
+
+[27] [28]
+Rozdzia\l  4.
+<podsumowanie.png, id=159, 1387.584pt x 710.4141pt>
+File: podsumowanie.png Graphic file (type png)
+<use podsumowanie.png>
+Package pdftex.def Info: podsumowanie.png  used on input line 186.
+(pdftex.def)             Requested size: 739.77762pt x 426.79375pt.
+
+Overfull \hbox (65.4473pt too wide) in paragraph at lines 186--187
+[][] 
+ []
+
+<w_kolowy.png, id=160, 395.97937pt x 347.79938pt>
 File: w_kolowy.png Graphic file (type png)
 <use w_kolowy.png>
-Package pdftex.def Info: w_kolowy.png  used on input line 177.
+Package pdftex.def Info: w_kolowy.png  used on input line 199.
 (pdftex.def)             Requested size: 284.53093pt x 227.62186pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [29]
-<korelacja.png, id=162, 729.927pt x 703.9098pt>
+ [29
+
+]
+<korelacja.png, id=164, 729.927pt x 703.9098pt>
 File: korelacja.png Graphic file (type png)
 <use korelacja.png>
-Package pdftex.def Info: korelacja.png  used on input line 191.
+Package pdftex.def Info: korelacja.png  used on input line 214.
 (pdftex.def)             Requested size: 398.34251pt x 398.33275pt.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [30 <./w_kolowy.png>]
-<kontrast_ujemne_rk.png, id=166, 462.528pt x 346.896pt>
+[30 <./w_kolowy.png>]
+<kontrast_ujemne_rk.png, id=168, 462.528pt x 346.896pt>
 File: kontrast_ujemne_rk.png Graphic file (type png)
 <use kontrast_ujemne_rk.png>
-Package pdftex.def Info: kontrast_ujemne_rk.png  used on input line 203.
-(pdftex.def)             Requested size: 369.90291pt x 256.08499pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [31 <./korelacja.png>] [32 <./kontrast_ujemne_rk.png>] [33 <./podsumowanie.png
->] [34
+Package pdftex.def Info: kontrast_ujemne_rk.png  used on input line 228.
+(pdftex.def)             Requested size: 369.90291pt x 284.54124pt.
+ [31 <./korelacja.png>] [32 <./kontrast_ujemne_rk.png>]
+[33 <./podsumowanie.png>] [34
 
 ]
 Rozdzia\l  5.
 ) [35] [36
-
 
 ]
 
 Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
 (biblatex)                Please use '\mkdaterangeiso'.
 
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 198.
+
+Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
+(biblatex)                Please use '\mkdaterangeiso'.
+
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 202.
 ("C:\Users\elacpol\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\t1pcr.fd"
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
-Underfull \hbox (badness 10000) in paragraph at lines 199--199
-[]\T1/ptm/m/n/10.95 A. Ebrahimi A. T. Nasrabadi M. A. Shir-savar. \T1/ptm/m/it/
-10.95 In-ves-ti-gat-ing the PSNR cal-
- []
+) [37
+
+]
+
+Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
+(biblatex)                Please use '\mkdaterangeiso'.
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 199--199
-\T1/ptm/m/it/10.95 cu-la-tion meth-ods for video se-quences with source and cha
-n-nel dis-tor-tions\T1/ptm/m/n/10.95 .
- []
-
-[37]
-Overfull \hbox (227.11519pt too wide) in paragraph at lines 199--199
-\T1/pcr/m/n/10.95 https://medium.com/netflix-techblog/toward-a-practical-percep
-tual-video-quality-metric-653f208b9652\T1/ptm/m/n/10.95 .
- []
+Package biblatex Warning: No hyphenation patterns for 'polski' on input line 20
+2.
 
 
-Package biblatex Warning: No hyphenation patterns for 'polski' on input line 19
-8.
+Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
+(biblatex)                Please use '\mkdaterangeiso'.
 
 
-Overfull \hbox (424.21495pt too wide) in paragraph at lines 199--199
-\T1/pcr/m/n/10.95 http://hummedia.manchester.ac.uk/institutes/cmist/archive-pub
-lications/working-papers/2008/2008-19-multiple-linear-regression.pdf\T1/ptm/m/n
-/10.95 .
- []
+Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
+(biblatex)                Please use '\mkdaterangeiso'.
 
 
-Overfull \hbox (3.73546pt too wide) in paragraph at lines 199--199
-\T1/pcr/m/n/10.95 https://www.stat.cmu.edu/ cshalizi/350/lectures/22/lecture-22
-.pdf\T1/ptm/m/n/10.95 .
- []
+Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
+(biblatex)                Please use '\mkdaterangeiso'.
+
+[38]
+
+Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
+(biblatex)                Please use '\mkdaterangeiso'.
 
 
-Overfull \hbox (227.11519pt too wide) in paragraph at lines 199--199
-\T1/pcr/m/n/10.95 https://towardsdatascience.com/applied-deep-learning-part-1-a
-rtificial-neural-networks-d7834f67a4f6\T1/ptm/m/n/10.95 .
- []
+Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
+(biblatex)                Please use '\mkdaterangeiso'.
 
+[39] [40
 
-Overfull \hbox (233.68518pt too wide) in paragraph at lines 199--199
-\T1/pcr/m/n/10.95 https://www.coursera.org/lecture/neural-networks-deep-learnin
-g/why-is-deep-learning-taking-off-praGm\T1/ptm/m/n/10.95 .
- []
+] (praca.aux (content.aux) (content2.aux))
 
-[38] [39] (praca.aux (content.aux) (content2.aux))
+LaTeX Warning: There were undefined references.
+
 
 LaTeX Warning: There were multiply-defined labels.
 
@@ -2123,13 +2166,13 @@ Package logreq Info: Writing requests to 'praca.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 39572 strings out of 492945
- 775384 string characters out of 3125364
- 1164954 words of memory out of 3000000
- 42817 multiletter control sequences out of 15000+200000
+ 39631 strings out of 492945
+ 777609 string characters out of 3125364
+ 1166068 words of memory out of 3000000
+ 42871 multiletter control sequences out of 15000+200000
  621973 words of font info for 117 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,15n,82p,1458b,2923s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,15n,82p,1458b,2928s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/elacpol/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.e
 nc}<C:/Users/elacpol/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfo
 nts/cm/cmex10.pfb><C:/Users/elacpol/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
@@ -2150,9 +2193,9 @@ ers/elacpol/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb>
 a.pfb><C:/Users/elacpol/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times
 /utmr8a.pfb><C:/Users/elacpol/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw
 /times/utmri8a.pfb>
-Output written on praca.pdf (39 pages, 4388336 bytes).
+Output written on praca.pdf (40 pages, 4418086 bytes).
 PDF statistics:
- 253 PDF objects out of 1000 (max. 8388607)
+ 258 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 234 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 239 words of extra memory for PDF output out of 10000 (max. 10000000)
 

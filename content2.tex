@@ -58,11 +58,13 @@ Jako dane nadzorujące użyto subiektywną ocenę ludzką.\par
 W zbiorze plików pochodzących od badaczy z Uniwersytetu w Texasie ocena subiektywna została przekazana po znormalizowaniu $z$-$score$, gdzie zakres wartości zawiera się pomiędzy -3 a 3. W celu otrzymania miarodajnych wyników dane z pozostałych baz również zostały w ten sam sposób znormalizowane.\par
 Podczas procesu przygotowywania danych jak i późniejszej ekstrakcji cech mogły nastąpić pewne wyjątki, które uniemożliwiły otrzymanie poprawnego wyniku. W takim przypadku cały wiersz dotyczący danego wideo był pomijany podczas tworzenia modeli.
 
-\subsection{Przygotowanie formatu danych pod modelowanie}
+\subsection{Podział danych}
 
-Przy tworzeniu modeli została wykorzystana implementacja zawarta w module języka Python sklearn. Instancje klas, przedstawiających algorytmy, przyjmują jako dane wejściowe dane w formacie macierzy. Dlatego pliki CSV zostały, podczas działania skryptu, przekształcone do typu DataFarme. Wspierany jest on przez moduł, ułatwiający prace z dużymi danymi -- pandas.\par
+Przy tworzeniu modeli została wykorzystana implementacja algorytmów zawarta w module języka Python -- sklearn. Instancje klas, przedstawiające je, przyjmują jako dane wejściowe dane w formacie macierzy. Dlatego pliki CSV zostały, podczas działania skryptu, przekształcone do typu DataFarme. Wspierany jest on przez moduł, ułatwiający prace z dużymi danymi -- pandas.\par
 
-Przy eksploatowaniu danych często stosowaną techniką jest $ang.$ $cross$ $validation$. Polega ona na podziale dostępnych danych na dane treningowe i testowe. Można tu wykorzystać zasadę podziału 80:20, co oznacza ze 80 części danych jest przeznaczonych na dane treningowe, a 20 na dane testujące. Dobrą praktyką jest, aby w obu z tych grup znalazły się dane z całego przekroju bazy danych. Skutkuje to ograniczeniem problemu generalizacji czy nad dopasowania. W przedstawionej pracy proces podziału danych należało przeprowadzić, tak aby uwzględnić  całe grupy SRC i jego PSV. Dane z jednej takiej grupy powinny w całości znaleźć się w podzbiorze danych testowych bądź treningowych. Schemat podziału jest przedstawiony na rysunku \ref{fig:podzial_danych}.
+Przy eksploatowaniu danych często stosowaną techniką jest $ang.$ $cross$ $validation$. Polega ona na podziale dostępnych danych na dane treningowe i testowe. Można tu wykorzystać zasadę podziału 80:20, co oznacza ze 80 części danych jest przeznaczonych na dane treningowe, a 20 na dane testujące. Dobrą praktyką jest, aby w obu z tych grup znalazły się dane z całego przekroju bazy danych. Skutkuje to ograniczeniem problemu generalizacji czy nad dopasowania. 
+
+W przedstawionej pracy proces podziału danych należało przeprowadzić, tak aby uwzględnić  całe grupy --  SRC i jego PSV. Dane z jednej takiej grupy powinny w całości znaleźć się w podzbiorze danych testowych bądź treningowych. Nie zastosowanie tego zabiegu mogło by poskutkować niemiarodajnym wysokim wynikiem R-kwadrat. Wysoki R-kwadrat powinien wskazywać na dużą trafność modelu. Jednak w tym przypadku oznaczało by to, że odnajduje on zależności związane z grupami wideo, które wzięły udział w tym badaniu. Zaproponowany tu podział pozwala na uniknięcie tego niepożądanego efektu. Schemat podziału jest przedstawiony na rysunku \ref{fig:podzial_danych}.
 
 \begin{center}
 \includegraphics[ height=5cm, width=10cm]{podzial_danych}
@@ -98,8 +100,36 @@ Poniższa tabela \ref{tab:tabela} przedstawia uzyskane dane
 \label{cha:drugiDokument}
 
 
-Z uwagi na specyfikę przygotowania danych treningowych i testowych każdy z modeli został zbudowany i przetestowany 100 razy. Podział danych 80:20 dotyczy paczek SRC + PSV, natomiast budowa modeli odbywa się już na podstawie pojedynczych plików wideo. Dlatego może zaistnieć sytuacja kiedy większość małych paczek (na przykład po 3 pliki wideo) znajdą się w danych treningowych, a dużych (na przykład po 15 wideo) w danych testujących. Tym samym faktyczny podział może wynosić w skrajnym przypadku 50:50, zamiast 80:20 (taki sam odstęp może wystąpić w drugą stronę). Dlatego  przy  każdym uruchomieniu aplikacji, zajmującej się przygotowaniem danych  i tworzeniem modeli, podział zgromadzonych danych dobywał się na zasadzie losowo wybranych paczek do każdej grup, przy zachowaniu podziału 80:20. Następnie wyniki z przeprowadzonych uruchomień programu zostały uśrednione.\par
-Uruchomienia sekwencji budowania i testowania odbywały się na następujących zestawach cech wideo \ref{tab:tabela2}. Dalsze rozdziały będą odnosić się do powyższej numeracji w kontekście zestawów cech.
+Z uwagi na specyfikę przygotowania danych treningowych i testowych każdy z modeli został zbudowany i przetestowany wiele razy.
+
+Podział danych 80:20 dotyczy paczek SRC + PSV, natomiast budowa modeli odbywa się już na podstawie pojedynczych plików wideo. Dlatego może zaistnieć sytuacja kiedy większość małych paczek (na przykład po 3 pliki wideo) znajdą się w danych treningowych, a dużych (na przykład po 15 wideo) w danych testujących. Tym samym faktyczny podział może wynosić w skrajnym przypadku 50:50, zamiast 80:20 (taki sam odstęp może wystąpić w drugą stronę). Dlatego  przy  każdym uruchomieniu aplikacji, zajmującej się przygotowaniem danych  i tworzeniem modeli, podział zgromadzonych danych dobywał się na zasadzie losowo wybranych paczek do każdej grup, przy zachowaniu podziału 80:20. Następnie wyniki z przeprowadzonych uruchomień programu zostały uśrednione.\par
+
+Wykres \ref{fig:execution} odnosi się do przeprowadzonego eksperymentu, który pomógł wybrać optymalną liczbę iteracji dla wyżej omówionej techniki. Linie przedstawia uśrednione R-kwadrat na liczbę modeli(w tym przypadku powstałych na bazie zestawu danych wejściowych numer 18\ref{tab:tabela2}) biorących udział podczas jej obliczania. Czytając ten wykres można stwierdzić, że dla każdego z algorytmów wyniki  stabilizują się przy około 80 modelach. Do dalszych badań użyto 100 modeli.
+
+\begin{center}
+	\includegraphics[ height=6cm, width=9cm]{execution}
+	\captionof{figure}{opis.}
+	\label{fig:execution}
+	\label{fig:xccs}
+\end{center}
+
+Uruchomienia sekwencji budowania i testowania odbywały się na następujących zestawach cech wideo \ref{tab:tabela2}. W badaniach postanowiono sprawdzić  modele trenowane w oparciu o: każdą z osobna metrykę FR, wybrane metryki NR i ich kombinacje. Dalsze rozdziały będą odnosić się do powyższej numeracji w kontekście zestawów cech.
+
+
+
+
+
+W niniejszej pracy zostały przetestowane cztery algorytmy uczenia maszynowego przedstawione w części teoretycznej. Parametry definiujące ich działanie zostały dobrane na zasadzie obserwacji kolejnych prób i wiedzy na temat ich działania. W ten sposób zostały wyselekcjonowane poniższe parametry, które pozwoliły na osiągnięcie najwyższego wskaźnika R-kwadrat dla jednego z zestawów.  \par
+
+Regresja liniowa została sprawdzona w pierwszej kolejności. Jako jeden prostszych z algorytmów, nie wymaga ona podania dodatkowych parametrów, aby zadziałał w prawidłowy sposób. W tym przypadku wektor danych wejściowych podczas trenowania przedstawia się  następująco \ref{eqn:regresja}, gdzie $y_i$ jest subiektywną oceną dla filmu $i$, a $x_{1i}, x_{2i}...$ są jego cechami. \par
+
+Kolejnym testowanym algorytmem był SVR. Użyta funkcja kernela do wyznaczenia hiperpłaszczyzny to $Radial$ $Basis$ $Function$ (RBF). Współczynnikowi $\epsilon$ została przypisana wartość $0,1$. Przy współczynniku $\gamma$, która mówi jak odległe punkty będą miały wpływ na budowaną hiperpłaszczyznę, skorzystano z metody już zaimplementowanej w module sklearn, pozwalającej na wyznaczenie w bardziej dopasowane wartości, bazując na dostępnym zbiorze danych. Parametr $C$, który odpowiada za gładkość funkcji SVR wynosi 0.7.\par
+%https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2839056/
+
+Las losowy działa w oparciu o parametry podane przez badacza, takie jakie jak ilość drzew i ich głębokość. W tym przypadku użyto 100 drzew o głębokości 8. Jako metodę podejmowania decyzji o podziale danych (tworzenia węzłów decyzyjnych), został wybrany \emph{Gini Index} \par
+
+Ostatnim sprawdzonym algorytmem uczenia maszynowego była sieć neuronowa z następującymi parametrami -- 3 warstw ukrytych po 13 neuronów w każdej. Maksymalna ilość iteracji algorytmu $Backward$ $Propagation$ po której model będzie gotowy to 1000. Parametr $learning$ $rate$, określający szybkość uczenia, został ustawiony na wartość 0,001.\par
+
 
 
 \begin{table}[]
@@ -138,28 +168,15 @@ Uruchomienia sekwencji budowania i testowania odbywały się na następujących 
 		29                                                                & kontrast                                                                                                                                                                                                                                                                       \\ \hline
 		30                                                                & ekspozycja                                                                                                                                                                                                                                                                     \\ \hline
 	\end{tabular}
-\label{tab:tabela2}
+	\label{tab:tabela2}
 \end{table}
-
-
-
-W niniejszej pracy zostały przetestowane cztery algorytmy uczenia maszynowego przedstawione w części teoretycznej. Parametry definiujące ich działanie zostały dobrane na zasadzie obserwacji kolejnych prób i wiedzy na temat ich działania. W ten sposób zostały wyselekcjonowane poniższe parametry, które pozwoliły na osiągnięcie najwyższego wskaźnika R-kwadrat dla jednego z zestawów.  \par
-
-Regresja liniowa została sprawdzona w pierwszej kolejności. Jako jeden prostszych z algorytmów, nie wymaga ona podania dodatkowych parametrów, aby zadziałał w prawidłowy sposób. W tym przypadku wektor danych wejściowych podczas trenowania przedstawia się  następująco \ref{eqn:regresja}, gdzie $y_i$ jest subiektywną oceną dla filmu $i$, a $x_{1i}, x_{2i}...$ są jego cechami. \par
-
-Kolejnym testowanym algorytmem był SVR. Użyta funkcja kernela do wyznaczenia hiperpłaszczyzny to $Radial$ $Basis$ $Function$ (RBF). Współczynnikowi $\epsilon$ została przypisana wartość $0,1$. Przy współczynniku $\gamma$, która mówi jak odległe punkty będą miały wpływ na budowaną hiperpłaszczyznę, skorzystano z metody już zaimplementowanej w module sklearn, pozwalającej na wyznaczenie w bardziej dopasowane wartości, bazując na dostępnym zbiorze danych. Parametr $C$, który odpowiada za gładkość funkcji SVR wynosi 0.7.\par
-%https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2839056/
-
-Las losowy działa w oparciu o parametry podane przez badacza, takie jakie jak ilość drzew i ich głębokość. W tym przypadku użyto 100 drzew o głębokości 8. Jako metodę podejmowania decyzji o podziale danych (tworzenia węzłów decyzyjnych), został wybrany \emph{Gini Index} \par
-
-Ostatnim sprawdzonym algorytmem uczenia maszynowego była sieć neuronowa z następującymi parametrami -- 3 warstw ukrytych po 13 neuronów w każdej. Maksymalna ilość iteracji algorytmu $Backward$ $Propagation$ po której model będzie gotowy to 1000. Parametr $learning$ $rate$, określający szybkość uczenia, został ustawiony na wartość 0,001.\par
-
+\AddThispageHook{\thispagestyle{empty}}%
 
 \chapter{Wyniki i analiza }
 Poniższy rozdział prezentuje wyniki z poszczególnych modeli. Zostały one zebrane na wykresie słupkowym \ref{fig:podsumowanie}, gdzie oś x odnosi się do numerów zestawów, a oś y do średnich wartości R-kwadrat .
 
 
- Wykres ten przedstawia wyniki dla ostatecznie wybranych parametrów algorytmów. Selekcja dla każdego z nich została dokonana na podstawie najlepszego osiągniętego dopasowania . Przykładowo dla  sieci neuronowych testowane były konfiguracje: 2 warstwy wykryte i 8 neuronów, 4 warstwy i ukryte 13 neuronów, 3 warstwy i ukryte 13 neuronów.\todo[inline]{tak naprawde duzo wiecej ale chyba nie ma sensu tego pisac, bo niektore testy to na zasadzie kolejnego uruchamiania i obserwacji } W oparciu o każdą z nich budowano modele dla każdego z wcześniej zdefiniowanych zestawów.  Najwyższy R-kwadrat został osiągnięty dla ostatniej z wymienionych konfiguracji i dla zestawu 19. Tak więc prezentowane wyniki na wykresie  \ref{fig:podsumowanie} będą odnosić się do tych właśnie parametrów. Taki wykres pozwala czytelnikowi odczytać najistotniejszą dla tej pracy informację o najtrafniejszym z modeli, oraz dodatkowo prezentuje inne zjawiska związane z eksplorcją danych. W dalszej części rozdziału  odbędzie się analiza tego wykresu.
+ Wykres ten przedstawia wyniki dla ostatecznie wybranych parametrów algorytmów. Selekcja dla każdego z nich została dokonana na podstawie najlepszego osiągniętego dopasowania . Przykładowo dla  sieci neuronowych testowane były konfiguracje: 2 warstwy wykryte i 8 neuronów, 4 warstwy i ukryte 13 neuronów, 3 warstwy i ukryte 13 neuronów (z różnymi współczynnikami uczenia)\todo{było jeszcze kilka innych, ale nie chce zbytnio o tym pisać, bo niektóre testy to na zasadzie kolejnego uruchamiania i obserwacji } W oparciu o każdą z nich budowano modele dla każdego z wcześniej zdefiniowanych zestawów.  Najwyższy R-kwadrat został osiągnięty dla ostatniej z wymienionych konfiguracji i dla zestawu 19. Tak więc prezentowane wyniki na wykresie  \ref{fig:podsumowanie} będą odnosić się do tych właśnie parametrów. Taki wykres pozwala czytelnikowi odczytać najistotniejszą dla tej pracy informację o najtrafniejszym z modeli, oraz dodatkowo prezentuje inne zjawiska związane z eksploracją danych. Co więcej wyniki z innych testowanych konfiguracji algorytmów uczenia maszynowego nie odbiegały znacząco od tych zaprezentowanych na obecnym wykresie. W dalszej części rozdziału  odbędzie się jego analiza.
  
     
 
@@ -208,7 +225,7 @@ Kolejny aspekt, który można odnotować czytając wykres, to ujemna wartość R
 \vspace*{\fill}
 
 \begin{center}
-\includegraphics[ height=9cm, width=13cm]{kontrast_ujemne_rk}
+\includegraphics[ height=10cm, width=13cm]{kontrast_ujemne_rk}
 \captionof{figure}{Przypadek kiedy wskaźnik r-kwadrat jest ujemny.}
 \label{fig:kontrast_ujemne_rk}
 \label{fig:xccs}

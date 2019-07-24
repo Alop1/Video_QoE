@@ -17,45 +17,11 @@
 \contentsline {subsection}{\numberline {3.2.1}Zbieranie danych}{22}% 
 \contentsline {subsection}{\numberline {3.2.2}Ekstrakcja cech}{23}% 
 \contentsline {subsection}{\numberline {3.2.3}Normalizacja i czyszczenie danych}{24}% 
-\contentsline {subsection}{\numberline {3.2.4}Przygotowanie formatu danych pod modelowanie}{24}% 
+\contentsline {subsection}{\numberline {3.2.4}Podzia\IeC {\l } danych}{24}% 
 \contentsline {subsection}{\numberline {3.2.5}Podsumowanie danych}{25}% 
-\contentsline {section}{\numberline {3.3}Modele }{25}% 
+\contentsline {section}{\numberline {3.3}Modele }{26}% 
 \contentsline {chapter}{\numberline {4}Wyniki i analiza }{29}% 
 \contentsline {chapter}{\numberline {5}Podsumowanie}{35}% 
-\babel@toc {english}{}
-\babel@toc {polish}{}
-\babel@toc {english}{}
-\babel@toc {polish}{}
-\babel@toc {english}{}
-\babel@toc {polish}{}
-\babel@toc {english}{}
-\babel@toc {polish}{}
-\babel@toc {english}{}
-\babel@toc {polish}{}
-\babel@toc {english}{}
-\babel@toc {polish}{}
-\babel@toc {english}{}
-\babel@toc {polish}{}
-\babel@toc {english}{}
-\babel@toc {polish}{}
-\babel@toc {english}{}
-\babel@toc {polish}{}
-\babel@toc {english}{}
-\babel@toc {polish}{}
-\babel@toc {english}{}
-\babel@toc {polish}{}
-\babel@toc {english}{}
-\babel@toc {polish}{}
-\babel@toc {english}{}
-\babel@toc {polish}{}
-\babel@toc {english}{}
-\babel@toc {polish}{}
-\babel@toc {english}{}
-\babel@toc {polish}{}
-\babel@toc {english}{}
-\babel@toc {polish}{}
-\babel@toc {english}{}
-\babel@toc {polish}{}
 \babel@toc {english}{}
 \babel@toc {polish}{}
 \babel@toc {english}{}

@@ -37,6 +37,88 @@
     \field{year}{2019}
   \endentry
 
+  \entry{metryka1}{article}{}
+    \name{author}{4}{}{%
+      {{hash=RJ}{%
+         family={Redi},
+         familyi={R\bibinitperiod},
+         given={Judith},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=GP}{%
+         family={Gastaldo},
+         familyi={G\bibinitperiod},
+         given={Paolo},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=HI}{%
+         family={Heynderickx},
+         familyi={H\bibinitperiod},
+         given={Ingrid},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=ZR}{%
+         family={Zunino},
+         familyi={Z\bibinitperiod},
+         given={Rodolfo},
+         giveni={R\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{RJ+1}
+    \strng{fullhash}{RJGPHIZR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1109/TCSVT.2010.2087456
+    \endverb
+    \field{pages}{1757 \bibrangedash  1769}
+    \field{title}{Color Distribution Information for the Reduced-Reference
+  Assessment of Perceived Image Quality}
+    \field{volume}{20}
+    \field{journaltitle}{Circuits and Systems for Video Technology, IEEE
+  Transactions on}
+    \field{month}{01}
+    \field{year}{2011}
+  \endentry
+
+  \entry{metryka2}{article}{}
+    \name{author}{3}{}{%
+      {{hash=LCP}{%
+         family={Le\bibnamedelima Callet},
+         familyi={L\bibinitperiod\bibinitdelim C\bibinitperiod},
+         given={Patrick},
+         giveni={P\bibinitperiod},
+      }}%
+      {{hash=VGC}{%
+         family={Viard-Gaudin},
+         familyi={V\bibinithyphendelim G\bibinitperiod},
+         given={Christian},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=BD}{%
+         family={Barba},
+         familyi={B\bibinitperiod},
+         given={Dominique},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{LCPVGCBD1}
+    \strng{fullhash}{LCPVGCBD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1109/TNN.2006.879766
+    \endverb
+    \field{pages}{1316\bibrangedash 27}
+    \field{title}{A Convolutional Neural Network Approach for Objective Video
+  Quality Assessment}
+    \field{volume}{17}
+    \field{journaltitle}{IEEE transactions on neural networks / a publication
+  of the IEEE Neural Networks Council}
+    \field{month}{10}
+    \field{year}{2006}
+  \endentry
+
   \entry{video_codecs}{online}{}
     \name{author}{1}{}{%
       {{hash=RA}{%
@@ -103,36 +185,51 @@
     \warn{\item Invalid format of field 'month'}
   \endentry
 
-  \entry{blockiness}{manual}{}
-    \name{author}{1}{}{%
-      {{hash=MQMGKT}{%
-         family={M.T.\bibnamedelima Qadri},
-         familyi={M\bibinitperiod\bibinitdelim Q\bibinitperiod},
-         suffix={K.T.\bibnamedelima Tan},
-         suffixi={K\bibinitperiod\bibinitdelim T\bibinitperiod},
-         given={M.\bibnamedelima Ghanbari},
-         giveni={M\bibinitperiod\bibinitdelim G\bibinitperiod},
+  \entry{blockiness}{inproceedings}{}
+    \name{author}{3}{}{%
+      {{hash=QM}{%
+         family={Qadri},
+         familyi={Q\bibinitperiod},
+         given={M.T.},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=TK}{%
+         family={Tan},
+         familyi={T\bibinitperiod},
+         given={Kt},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=GM}{%
+         family={Ghanbari},
+         familyi={G\bibinitperiod},
+         given={Mohammed},
+         giveni={M\bibinitperiod},
       }}%
     }
-    \strng{namehash}{MQKTMG1}
-    \strng{fullhash}{MQKTMG1}
+    \strng{namehash}{QMTKGM1}
+    \strng{fullhash}{QMTKGM1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{note}{\\\texttt{https://ieeexplore.ieee.org/document/5645871}}
-    \field{title}{{Frequency domain blockiness measurement for image quality
-  assessment, Introduction}}
-    \field{langid}{english}
+    \verb{doi}
+    \verb 10.1109/ICCTD.2010.5645871
+    \endverb
+    \field{pages}{282}
+    \field{title}{Frequency domain blockiness measurement for image quality
+  assessment}
+    \field{journaltitle}{ICCTD 2010 - 2010 2nd International Conference on
+  Computer Technology and Development, Proceedings}
+    \field{month}{12}
     \field{year}{2010}
   \endentry
 
-  \entry{agh_vqm}{manual}{}
+  \entry{agh_vqm}{online}{}
     \name{author}{1}{}{%
       {{hash=AKTI}{%
          family={AGH},
          familyi={A\bibinitperiod},
          suffix={IEiT},
          suffixi={I\bibinitperiod},
-         given={Katedra\bibnamedelima Telekomunikacjii},
+         given={Katedra\bibnamedelima Telekomunikacji},
          giveni={K\bibinitperiod\bibinitdelim T\bibinitperiod},
       }}%
     }
@@ -140,73 +237,109 @@
     \strng{fullhash}{AIKT1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{note}{\\\texttt{http://vq.kt.agh.edu.pl/index.html}}
-    \field{title}{{Video Quality Indicators}}
-    \field{langid}{english}
-    \field{year}{9999}
+    \field{title}{Video Quality Indicators}
+    \verb{url}
+    \verb http://vq.kt.agh.edu.pl/index.html
+    \endverb
+    \field{urlday}{14}
+    \field{urlmonth}{09}
+    \field{urlyear}{2019}
   \endentry
 
-  \entry{spactial_act}{report}{}
-    \name{author}{2}{}{%
-      {{hash=SSWBHW}{%
-         family={Shreeya\bibnamedelima Sengupta},
-         familyi={S\bibinitperiod\bibinitdelim S\bibinitperiod},
-         suffix={Hui\bibnamedelima Wang},
-         suffixi={H\bibinitperiod\bibinitdelim W\bibinitperiod},
-         given={William\bibnamedelima Blackburn},
-         giveni={W\bibinitperiod\bibinitdelim B\bibinitperiod},
+  \entry{spactial_act}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=SS}{%
+         family={{Sengupta}},
+         familyi={S\bibinitperiod},
+         given={S.},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=WH}{%
+         family={{Wang}},
+         familyi={W\bibinitperiod},
+         given={H.},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=BW}{%
+         family={{Blackburn}},
+         familyi={B\bibinitperiod},
+         given={W.},
+         giveni={W\bibinitperiod},
       }}%
       {{hash=OP}{%
-         family={Ojha},
+         family={{Ojha}},
          familyi={O\bibinitperiod},
-         given={Piyush},
+         given={P.},
          giveni={P\bibinitperiod},
       }}%
     }
-    \strng{namehash}{SSHWWBOP1}
-    \strng{fullhash}{SSHWWBOP1}
+    \keyw{hidden Markov models;image classification;image motion analysis;image
+  sequences;video signal processing;activity video classification;spatial
+  information;video analysis tasks;video activity recognition;Weizmann
+  videos;KTH videos;hidden Markov model;k-nearest neighbour
+  classifiers;histogram of oriented optical flow feature;regional motion vector
+  feature;Videos;Hidden Markov models;Accuracy;Histograms;Feature
+  extraction;Computer vision;Image motion analysis}
+    \strng{namehash}{SS+1}
+    \strng{fullhash}{SSWHBWOP1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{booktitle}{2015 Federated Conference on Computer Science and
+  Information Systems (FedCSIS)}
+    \verb{doi}
+    \verb 10.15439/2015F382
+    \endverb
+    \field{pages}{145}
     \field{title}{Spatial information in classification of activity videos}
-    \list{institution}{2}{%
-      {School of Computing}%
-      {Mathematics, University Of Ulster}%
-    }
-    \field{type}{techreport}
     \field{year}{2015}
+    \warn{\item Invalid format of field 'month'}
   \endentry
 
   \entry{letterboxing}{manual}{}
+    \name{author}{1}{}{%
+      {{hash=BVCA}{%
+         family={Bao\bibnamedelima Vuong},
+         familyi={B\bibinitperiod\bibinitdelim V\bibinitperiod},
+         given={Candace\bibnamedelima Anderson},
+         giveni={C\bibinitperiod\bibinitdelim A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{BVCA1}
+    \strng{fullhash}{BVCA1}
+    \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
+    \field{note}{\\\texttt{https://patents.google.com/patent/US6115072}}
+    \field{pages}{1}
     \field{title}{16:9 aspect ratio conversion by letterbox method for an MPEG
   image}
+    \field{langid}{english}
     \field{year}{2000}
   \endentry
 
-  \entry{blur}{manual}{}
+  \entry{blur}{inproceedings}{}
     \name{author}{4}{}{%
       {{hash=MP}{%
          family={Marziliano},
          familyi={M\bibinitperiod},
-         given={P.},
+         given={Pina},
          giveni={P\bibinitperiod},
       }}%
       {{hash=DF}{%
          family={Dufaux},
          familyi={D\bibinitperiod},
-         given={F.},
+         given={Frederic},
          giveni={F\bibinitperiod},
       }}%
       {{hash=WS}{%
          family={Winkler},
          familyi={W\bibinitperiod},
-         given={S.},
+         given={Stefan},
          giveni={S\bibinitperiod},
       }}%
       {{hash=ET}{%
-         family={Ebrahimir},
+         family={Ebrahimi},
          familyi={E\bibinitperiod},
-         given={T.},
+         given={Touradj},
          giveni={T\bibinitperiod},
       }}%
     }
@@ -214,39 +347,60 @@
     \strng{fullhash}{MPDFWSET1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{note}{\\\texttt{https://ieeexplore.ieee.org/document/5645871}}
-    \field{title}{{A no-reference perceptual blur metric}}
-    \field{langid}{english}
+    \verb{doi}
+    \verb 10.1109/ICIP.2002.1038902
+    \endverb
+    \field{isbn}{0-7803-7622-6}
+    \field{pages}{III\bibrangedash 57}
+    \field{title}{A No-Reference Perceptual Blur Metric}
+    \field{volume}{53}
+    \field{journaltitle}{International Conference on Image Processing,
+  Rochester, NY}
+    \field{month}{02}
     \field{year}{2002}
   \endentry
 
-  \entry{blackout}{manual}{}
-    \name{author}{1}{}{%
-      {{hash=HRAMSM}{%
-         family={Hala\bibnamedelima Rifaï},
-         familyi={H\bibinitperiod\bibinitdelim R\bibinitperiod},
-         suffix={Samer\bibnamedelima Mohammed},
-         suffixi={S\bibinitperiod\bibinitdelim M\bibinitperiod},
-         given={Abdelhamid\bibnamedelima Mellouki},
-         giveni={A\bibinitperiod\bibinitdelim M\bibinitperiod},
+  \entry{blackout}{article}{}
+    \name{author}{3}{}{%
+      {{hash=RH}{%
+         family={Rifai},
+         familyi={R\bibinitperiod},
+         given={Hala},
+         giveni={H\bibinitperiod},
+      }}%
+      {{hash=MS}{%
+         family={Mohammed},
+         familyi={M\bibinitperiod},
+         given={Samer},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=MA}{%
+         family={Mellouk},
+         familyi={M\bibinitperiod},
+         given={Abdelhamid},
+         giveni={A\bibinitperiod},
       }}%
     }
-    \strng{namehash}{HRSMAM1}
-    \strng{fullhash}{HRSMAM1}
+    \strng{namehash}{RHMSMA1}
+    \strng{fullhash}{RHMSMA1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{note}{\\\texttt{https://ieeexplore.ieee.org/document/5898880}}
-    \field{title}{{A brief synthesis of QoS-QoE methodologies}}
-    \field{langid}{english}
+    \verb{doi}
+    \verb 10.1109/ISPS.2011.5898880
+    \endverb
+    \field{title}{A brief synthesis of QoS-QoE methodologies}
+    \field{journaltitle}{Proceedings of the 10th International Symposium on
+  Programming and Systems, ISPS' 2011}
+    \field{month}{04}
     \field{year}{2011}
   \endentry
 
-  \entry{freezing}{manual}{}
+  \entry{freezing}{article}{}
     \name{author}{5}{}{%
       {{hash=LM}{%
          family={Leszczuk},
          familyi={L\bibinitperiod},
-         given={Mikołaj},
+         given={Miko{\l}aj},
          giveni={M\bibinitperiod},
       }}%
       {{hash=HM}{%
@@ -258,7 +412,7 @@
       {{hash=FMCQ}{%
          family={Farias},
          familyi={F\bibinitperiod},
-         given={Mylène C.\bibnamedelima Q.},
+         given={Myl{\`e}ne C.\bibnamedelima Q.},
          giveni={M\bibinitperiod\bibinitdelim C\bibinitperiod\bibinitdelim
   Q\bibinitperiod},
       }}%
@@ -279,83 +433,164 @@
     \strng{fullhash}{LMHMFMCQWEHG1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{note}{Video artefacts and related key performance indicators for
-  automated quality checking}
-    \field{title}{{Recent developments in visual quality monitoring by key
-  performance indicators}}
-    \field{langid}{english}
-    \field{year}{2014}
+    \field{abstract}{%
+    In addition to traditional Quality of Service (QoS), Quality of Experience
+  (QoE) poses a real challenge for Internet service providers, audio-visual
+  services, broadcasters and new Over-The-Top (OTT) services. Therefore,
+  objective audio-visual metrics are frequently being dedicated in order to
+  monitor, troubleshoot, investigate and set benchmarks of content applications
+  working in real-time or off-line. The concept proposed here, Monitoring of
+  Audio Visual Quality by Key Performance Indicators (MOAVI), is able to
+  isolate and focus investigation, set-up algorithms, increase the monitoring
+  period and guarantee better prediction of perceptual quality. MOAVI artefacts
+  Key Performance Indicators (KPI) are classified into four categories, based
+  on their origin: capturing, processing, transmission, and display. In the
+  paper, we present experiments carried out over several steps with four
+  experimental set-ups for concept verification. The methodology takes into the
+  account annoyance visibility threshold. The experimental methodology is
+  adapted from International Telecommunication Union -- Telecommunication
+  Standardization Sector (ITU-T) Recommendations: P.800, P.910 and P.930. We
+  also present the results of KPI verification tests. Finally, we also describe
+  the first implementation of MOAVI KPI in a commercial product: the NET-MOZAIC
+  probe. Net Research, LLC, currently offers the probe as a part of NET-xTVMS
+  Internet Protocol Television (IPTV) and Cable Television (CATV) monitoring
+  system.%
+    }
+    \verb{doi}
+    \verb 10.1007/s11042-014-2229-2
+    \endverb
+    \field{issn}{1573-7721}
+    \field{number}{17}
+    \field{pages}{10749\bibrangedash 10751}
+    \field{title}{Recent developments in visual quality monitoring by key
+  performance indicators}
+    \verb{url}
+    \verb https://doi.org/10.1007/s11042-014-2229-2
+    \endverb
+    \field{volume}{75}
+    \field{journaltitle}{Multimedia Tools and Applications}
+    \field{year}{2016}
+    \warn{\item Invalid format of field 'month'}
   \endentry
 
-  \entry{chroma_sampling}{manual}{}
-    \name{author}{1}{}{%
-      {{hash=x}{%
-         family={xxx},
-         familyi={x\bibinitperiod},
+  \entry{chroma_sampling}{article}{}
+    \name{author}{3}{}{%
+      {{hash=UM}{%
+         family={Uhrina},
+         familyi={U\bibinitperiod},
+         given={Miroslav},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=BJ}{%
+         family={Bienik},
+         familyi={B\bibinitperiod},
+         given={Juraj},
+         giveni={J\bibinitperiod},
+      }}%
+      {{hash=MT}{%
+         family={Mizdos},
+         familyi={M\bibinitperiod},
+         given={Tomas},
+         giveni={T\bibinitperiod},
       }}%
     }
-    \strng{namehash}{x1}
-    \strng{fullhash}{x1}
+    \strng{namehash}{UMBJMT1}
+    \strng{fullhash}{UMBJMT1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{note}{rozdział: Introduction st.r 603}
-    \field{title}{{Chroma Subsampling Influence on the Perceived Video Quality
-  for Compressed Sequences in High Resolutions}}
-    \field{langid}{english}
+    \verb{doi}
+    \verb 10.15598/aeee.v15i4.2414
+    \endverb
+    \field{pages}{603}
+    \field{title}{Chroma Subsampling Influence on the Perceived Video Quality
+  for Compressed Sequences in High Resolutions}
+    \field{volume}{15}
+    \field{journaltitle}{Advances in Electrical and Electronic Engineering}
+    \field{month}{11}
     \field{year}{2017}
   \endentry
 
-  \entry{fr_psnr}{manual}{}
-    \name{author}{1}{}{%
-      {{hash=ATNAEMAS}{%
-         family={A.\bibnamedelima T.\bibnamedelima Nasrabadi},
-         familyi={A\bibinitperiod\bibinitdelim T\bibinitperiod\bibinitdelim
-  N\bibinitperiod},
-         suffix={M.\bibnamedelima A.\bibnamedelima Shirsavar},
-         suffixi={M\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim
-  S\bibinitperiod},
-         given={A.\bibnamedelima Ebrahimi},
-         giveni={A\bibinitperiod\bibinitdelim E\bibinitperiod},
+  \entry{fr_psnr}{inproceedings}{}
+    \name{author}{4}{}{%
+      {{hash=TA}{%
+         family={Taghavi},
+         familyi={T\bibinitperiod},
+         given={Afshin},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=ASM}{%
+         family={Azizpour\bibnamedelima Shirsavar},
+         familyi={A\bibinitperiod\bibinitdelim S\bibinitperiod},
+         given={Milad},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=EA}{%
+         family={Ebrahimi},
+         familyi={E\bibinitperiod},
+         given={Azarnush},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=GM}{%
+         family={Ghanbari},
+         familyi={G\bibinitperiod},
+         given={Mohammed},
+         giveni={M\bibinitperiod},
       }}%
     }
-    \strng{namehash}{ATNMASAE1}
-    \strng{fullhash}{ATNMASAE1}
+    \strng{namehash}{TA+1}
+    \strng{fullhash}{TAASMEAGM1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{note}{https://ieeexplore.ieee.org/document/6873482}
-    \field{title}{{Investigating the PSNR calculation methods for video
-  sequences with source and channel distortions}}
-    \field{langid}{english}
+    \verb{doi}
+    \verb 10.1109/BMSB.2014.6873482
+    \endverb
+    \field{title}{Investigating the PSNR calculation methods for video
+  sequences with source and channel distortions:Introduction}
+    \field{journaltitle}{IEEE International Symposium on Broadband Multimedia
+  Systems and Broadcasting, BMSB}
+    \field{month}{06}
     \field{year}{2014}
   \endentry
 
-  \entry{psnr_qoe}{inproceedings}{}
+  \entry{psnr_qoe}{article}{}
     \name{author}{2}{}{%
       {{hash=WZ}{%
-         family={Wang},
+         family={{Wang}},
          familyi={W\bibinitperiod},
          given={Z.},
          giveni={Z\bibinitperiod},
       }}%
-      {{hash=BA}{%
-         family={Bovik},
+      {{hash=BAC}{%
+         family={{Bovik}},
          familyi={B\bibinitperiod},
-         given={A.},
-         giveni={A\bibinitperiod},
+         given={A.\bibnamedelima C.},
+         giveni={A\bibinitperiod\bibinitdelim C\bibinitperiod},
       }}%
     }
-    \strng{namehash}{WZBA1}
-    \strng{fullhash}{WZBA1}
+    \keyw{mean square error methods;signal processing;mean squared error;signal
+  fidelity measure;signal processing optimisation;MSE;Signal
+  processing;Pollution measurement;PSNR;Signal processing algorithms;Image
+  processing;Distortion measurement;Pixel;Dynamic range;Signal design;Algorithm
+  design and analysis}
+    \strng{namehash}{WZBAC1}
+    \strng{fullhash}{WZBAC1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{booktitle}{Signal Processing Magazine}
-    \field{pages}{98–117}
-    \field{title}{Mean squared error: Love it or leave it? a new look at signal
-  fidelity measures}
+    \verb{doi}
+    \verb 10.1109/MSP.2008.930649
+    \endverb
+    \field{issn}{1053-5888}
+    \field{number}{1}
+    \field{pages}{99\bibrangedash 100}
+    \field{title}{Mean squared error: Love it or leave it? A new look at Signal
+  Fidelity Measures}
+    \field{volume}{26}
+    \field{journaltitle}{IEEE Signal Processing Magazine}
     \field{year}{2009}
+    \warn{\item Invalid format of field 'month'}
   \endentry
 
-  \entry{ssim_1}{manual}{}
+  \entry{ssim_1}{book}{}
     \name{author}{1}{}{%
       {{hash=KC}{%
          family={Keimel},
@@ -368,157 +603,286 @@
     \strng{fullhash}{KC1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{note}{sciagniete na dysk}
-    \field{title}{{Design of Video Quality Metrics with Multi-way Data Analysis
-  }}
-    \field{langid}{english}
+    \verb{doi}
+    \verb 10.1007/978-981-10-0269-4
+    \endverb
+    \field{pages}{41,235,236}
+    \field{title}{Design of Video Quality Metrics with Multi-Way Data Analysis}
+    \field{month}{01}
+    \field{year}{2016}
+  \endentry
+
+  \entry{ssim_2}{inproceedings}{}
+    \name{author}{2}{}{%
+      {{hash=HA}{%
+         family={Horé},
+         familyi={H\bibinitperiod},
+         given={Alain},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=ZD}{%
+         family={Ziou},
+         familyi={Z\bibinitperiod},
+         given={Djemel},
+         giveni={D\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HAZD1}
+    \strng{fullhash}{HAZD1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1109/ICPR.2010.579
+    \endverb
+    \field{pages}{2366\bibrangedash 2369}
+    \field{title}{Image quality metrics: PSNR vs. SSIM}
+    \field{month}{08}
     \field{year}{2010}
   \endentry
 
-  \entry{ssim_2}{manual}{}
-    \name{author}{1}{}{%
-      {{hash=x}{%
-         family={xxx},
-         familyi={x\bibinitperiod},
+  \entry{netflix}{online}{}
+    \name{author}{5}{}{%
+      {{hash=LZ}{%
+         family={Li},
+         familyi={L\bibinitperiod},
+         given={Zhi},
+         giveni={Z\bibinitperiod},
+      }}%
+      {{hash=AA}{%
+         family={Aaron},
+         familyi={A\bibinitperiod},
+         given={Anne},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=KI}{%
+         family={Katsavounidis},
+         familyi={K\bibinitperiod},
+         given={Ioannis},
+         giveni={I\bibinitperiod},
+      }}%
+      {{hash=MA}{%
+         family={Moorthy},
+         familyi={M\bibinitperiod},
+         given={Anush},
+         giveni={A\bibinitperiod},
+      }}%
+      {{hash=MM}{%
+         family={Manohara},
+         familyi={M\bibinitperiod},
+         given={Megha},
+         giveni={M\bibinitperiod},
       }}%
     }
-    \strng{namehash}{x1}
-    \strng{fullhash}{x1}
+    \strng{namehash}{LZ+1}
+    \strng{fullhash}{LZAAKIMAMM1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{note}{sciagniete na dysk}
-    \field{title}{{Image quality metrics: PSNR vs. SSIM }}
-    \field{langid}{english}
-    \field{year}{2010}
-  \endentry
-
-  \entry{netflix}{manual}{}
-    \name{author}{1}{}{%
-      {{hash=x}{%
-         family={xxx},
-         familyi={x\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{x1}
-    \strng{fullhash}{x1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-  \field{note}{\\\texttt{https://medium.com/netflix-techblog/toward-a-practical-perceptual-video-quality-metric-653f208b9652}}
-    \field{title}{{Toward A Practical Perceptual Video Quality Metric}}
-    \field{langid}{english}
-    \field{year}{9999}
+    \field{title}{Toward A Practical Perceptual Video Quality Metric}
+    \verb{url}
+    \verb https://medium.com/netflix-techblog/toward-a-practical-perceptual-vid
+    \verb eo-quality-metric-653f208b9652
+    \endverb
+    \field{urlday}{11}
+    \field{urlmonth}{06}
+    \field{urlyear}{2019}
   \endentry
 
   \entry{ml_supervised}{manual}{}
     \name{author}{1}{}{%
-      {{hash=x}{%
-         family={xxx},
-         familyi={x\bibinitperiod},
+      {{hash=GJ}{%
+         family={Gierasimczyk},
+         familyi={G\bibinitperiod},
+         given={Jakub},
+         giveni={J\bibinitperiod},
       }}%
     }
-    \strng{namehash}{x1}
-    \strng{fullhash}{x1}
+    \strng{namehash}{GJ1}
+    \strng{fullhash}{GJ1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{note}{text}
+    \field{pages}{9}
     \field{title}{{Algorytm spadku gradientu w uczeniu maszynowym}}
     \field{langid}{polski}
-    \field{year}{9999}
+    \field{year}{2016}
   \endentry
 
-  \entry{mlr}{manual}{}
-    \name{author}{1}{}{%
-      {{hash=x}{%
-         family={xxx},
-         familyi={x\bibinitperiod},
+  \entry{mlr}{online}{}
+    \name{author}{2}{}{%
+      {{hash=TM}{%
+         family={Tranmer},
+         familyi={T\bibinitperiod},
+         given={Mark},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=TM}{%
+         family={Tranmer},
+         familyi={T\bibinitperiod},
+         given={Mark},
+         giveni={M\bibinitperiod},
       }}%
     }
-    \strng{namehash}{x1}
-    \strng{fullhash}{x1}
+    \strng{namehash}{TMTM1}
+    \strng{fullhash}{TMTM1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-  \field{note}{\\\texttt{http://hummedia.manchester.ac.uk/institutes/cmist/archive-publications/working-papers/2008/2008-19-multiple-linear-regression.pdf}}
-    \field{title}{{Multiple Linear Regression}}
-    \field{langid}{english}
-    \field{year}{9999}
+    \field{title}{Multiple Linear Regression}
+    \verb{url}
+    \verb http://hummedia.manchester.ac.uk/institutes/cmist/archive-publication
+    \verb s/working-papers/2008/2008-19-multiple-linear-regression.pdf
+    \endverb
+    \field{urlday}{01}
+    \field{urlmonth}{06}
+    \field{urlyear}{2019}
   \endentry
 
-  \entry{svr}{manual}{}
-    \name{author}{1}{}{%
-      {{hash=MARK}{%
-         family={Mariette\bibnamedelima Awad},
-         familyi={M\bibinitperiod\bibinitdelim A\bibinitperiod},
-         given={Rahul\bibnamedelima Khanna},
-         giveni={R\bibinitperiod\bibinitdelim K\bibinitperiod},
+  \entry{svr}{inbook}{}
+    \name{author}{2}{}{%
+      {{hash=AM}{%
+         family={Awad},
+         familyi={A\bibinitperiod},
+         given={Mariette},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=KR}{%
+         family={Khanna},
+         familyi={K\bibinitperiod},
+         given={Rahul},
+         giveni={R\bibinitperiod},
       }}%
     }
-    \strng{namehash}{MARK1}
-    \strng{fullhash}{MARK1}
+    \list{publisher}{1}{%
+      {Apress}%
+    }
+    \strng{namehash}{AMKR1}
+    \strng{fullhash}{AMKR1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{note}{opis}
-    \field{title}{{Support Vector Regression}}
-    \field{langid}{english}
+    \field{abstract}{%
+    Rooted in statistical learning or Vapnik-Chervonenkis (VC) theory, support
+  vector machines (SVMs) are well positioned to generalize on yet-to-be-seen
+  data. The SVM concepts presented in Chapter 3can be generalized to become
+  applicable to regression problems. As in classification, support vector
+  regression (SVR) is characterized by the use of kernels, sparse solution, and
+  VC control of the margin and the number of support vectors. Although less
+  popular than SVM, SVR has been proven to be an effective tool in real-value
+  function estimation. As a supervised-learning approach, SVR trains using a
+  symmetrical loss function, which equally penalizes high and low misestimates.
+  Using Vapnik's -insensitive approach, a flexible tube of minimal radius is
+  formed symmetrically around the estimated function, such that the absolute
+  values of errors less than a certain threshold are ignored both above and
+  below the estimate. In this manner, points outside the tube are penalized,
+  but those within the tube, either above or below the function, receive no
+  penalty. One of the main advantages of SVR is that its computational
+  complexity does not depend on the dimensionality of the input space.
+  Additionally, it has excellent generalization capability, with high
+  prediction accuracy.%
+    }
+    \field{booktitle}{Efficient Learning Machines: Theories, Concepts, and
+  Applications for Engineers and System Designers}
+    \verb{doi}
+    \verb 10.1007/978-1-4302-5990-9_4
+    \endverb
+    \field{isbn}{978-1-4302-5990-9}
+    \field{pages}{67\bibrangedash 69}
+    \field{title}{Support Vector Regression}
+    \verb{url}
+    \verb https://doi.org/10.1007/978-1-4302-5990-9_4
+    \endverb
+    \list{location}{1}{%
+      {Berkeley, CA}%
+    }
     \field{year}{2015}
   \endentry
 
-  \entry{rf}{manual}{}
+  \entry{rf}{online}{}
     \name{author}{1}{}{%
-      {{hash=x}{%
-         family={xxx},
-         familyi={x\bibinitperiod},
+      {{hash=SC}{%
+         family={Shalizi},
+         familyi={S\bibinitperiod},
+         given={Cosma},
+         giveni={C\bibinitperiod},
       }}%
     }
-    \strng{namehash}{x1}
-    \strng{fullhash}{x1}
+    \strng{namehash}{SC1}
+    \strng{fullhash}{SC1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-  \field{note}{\\\texttt{https://www.stat.cmu.edu/~cshalizi/350/lectures/22/lecture-22.pdf}}
-    \field{title}{{Classification and Regression Trees}}
-    \field{langid}{english}
-    \field{year}{2015}
+    \field{title}{Classification and Regression Trees}
+    \verb{url}
+    \verb https://www.stat.cmu.edu/~cshalizi/350/lectures/22/lecture-22.pdf
+    \endverb
+    \field{urlday}{06}
+    \field{urlmonth}{05}
+    \field{urlyear}{2019}
   \endentry
 
-  \entry{rf2}{manual}{}
-    \name{author}{1}{}{%
-      {{hash=SSSSBD}{%
-         family={Shai Shalev-Shwartz},
-         familyi={S\bibinitperiod\bibinitdelim S\bibinithyphendelim
-  S\bibinitperiod},
-         given={Shai Ben-David},
-         giveni={S\bibinitperiod\bibinitdelim B\bibinithyphendelim
-  D\bibinitperiod},
+  \entry{rf2}{book}{}
+    \name{author}{2}{}{%
+      {{hash=SSS}{%
+         family={Shalev-Shwartz},
+         familyi={S\bibinithyphendelim S\bibinitperiod},
+         given={Shai},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=BDS}{%
+         family={Ben-David},
+         familyi={B\bibinithyphendelim D\bibinitperiod},
+         given={Shai},
+         giveni={S\bibinitperiod},
       }}%
     }
-    \strng{namehash}{SSSSBD1}
-    \strng{fullhash}{SSSSBD1}
+    \list{publisher}{1}{%
+      {Cambridge University Press}%
+    }
+    \strng{namehash}{SSSBDS1}
+    \strng{fullhash}{SSSBDS1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{note}{Cambridge University}
-    \field{title}{{Understanding Machine Learning:From Theory to Algorithms}}
-    \field{langid}{english}
+    \field{isbn}{1107057132, 9781107057135}
+    \field{pages}{250 \bibrangedash  256}
+    \field{title}{Understanding Machine Learning: From Theory to Algorithms}
+    \list{location}{1}{%
+      {New York, NY, USA}%
+    }
     \field{year}{2014}
   \endentry
 
-  \entry{bp}{manual}{}
-    \name{author}{1}{}{%
-      {{hash=x}{%
-         family={xxx},
-         familyi={x\bibinitperiod},
+  \entry{bp}{article}{}
+    \name{author}{3}{}{%
+      {{hash=AM}{%
+         family={Alsmadi},
+         familyi={A\bibinitperiod},
+         given={Mutasem},
+         giveni={M\bibinitperiod},
+      }}%
+      {{hash=OK}{%
+         family={Omar},
+         familyi={O\bibinitperiod},
+         given={Khairuddin},
+         giveni={K\bibinitperiod},
+      }}%
+      {{hash=MNSA}{%
+         family={Mohd\bibnamedelima Noah},
+         familyi={M\bibinitperiod\bibinitdelim N\bibinitperiod},
+         given={Shahrul\bibnamedelima Azman},
+         giveni={S\bibinitperiod\bibinitdelim A\bibinitperiod},
       }}%
     }
-    \strng{namehash}{x1}
-    \strng{fullhash}{x1}
+    \strng{namehash}{AMOKMNSA1}
+    \strng{fullhash}{AMOKMNSA1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{note}{strona 1}
-    \field{title}{{Back Propagation Algorithm: The Best Algorithm Among
-  theMulti-layer Perceptron Algorithm }}
-    \field{langid}{english}
+    \field{pages}{378}
+    \field{title}{Back Propagation Algorithm : The Best Algorithm Among the
+  Multi-layer Perceptron Algorithm}
+    \field{volume}{9}
+    \field{journaltitle}{International Journal of Computer Science and Network
+  Security}
+    \field{month}{01}
     \field{year}{2009}
   \endentry
 
-  \entry{nnpicture}{manual}{}
+  \entry{nnpicture}{online}{}
     \name{author}{1}{}{%
       {{hash=DA}{%
          family={Dertat},
@@ -531,13 +895,17 @@
     \strng{fullhash}{DA1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-  \field{note}{\\\texttt{https://towardsdatascience.com/applied-deep-learning-part-1-artificial-neural-networks-d7834f67a4f6}}
-    \field{title}{{Applied Deep Learning - Part 1: Artificial Neural Networks}}
-    \field{langid}{english}
-    \field{year}{2017}
+    \field{title}{Applied Deep Learning - Part 1: Artificial Neural Networks}
+    \verb{url}
+    \verb https://towardsdatascience.com/applied-deep-learning-part-1-artificia
+    \verb l-neural-networks-d7834f67a4f6
+    \endverb
+    \field{urlday}{19}
+    \field{urlmonth}{06}
+    \field{urlyear}{2019}
   \endentry
 
-  \entry{nndata}{manual}{}
+  \entry{nndata}{online}{}
     \name{author}{1}{}{%
       {{hash=NA}{%
          family={Ng},
@@ -550,13 +918,17 @@
     \strng{fullhash}{NA1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-  \field{note}{\\\texttt{https://www.coursera.org/lecture/neural-networks-deep-learning/why-is-deep-learning-taking-off-praGm}}
-    \field{title}{{Why is Deep Learning taking off}}
-    \field{langid}{english}
-    \field{year}{9999}
+    \field{title}{Why is Deep Learning taking off}
+    \verb{url}
+    \verb https://www.coursera.org/lecture/neural-networks-deep-learning/why-is
+    \verb -deep-learning-taking-off-praGm
+    \endverb
+    \field{urlday}{07}
+    \field{urlmonth}{05}
+    \field{urlyear}{2019}
   \endentry
 
-  \entry{nn_wykres}{manual}{}
+  \entry{nn_wykres}{online}{}
     \name{author}{1}{}{%
       {{hash=BAC}{%
          family={Bahnsen},
@@ -569,10 +941,13 @@
     \strng{fullhash}{BAC1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{note}{\\\texttt{https://blog.easysol.net/building-ai-applications/}}
-    \field{title}{{Building AI Applications Using Deep Learning}}
-    \field{langid}{english}
-    \field{year}{9999}
+    \field{title}{On Line Alvis Manual}
+    \verb{url}
+    \verb https://blog.easysol.net/building-ai-applications/
+    \endverb
+    \field{urlday}{17}
+    \field{urlmonth}{06}
+    \field{urlyear}{2019}
   \endentry
 
   \entry{pitrey:hal-00608310}{inproceedings}{}
@@ -628,12 +1003,18 @@
   \endentry
 
   \entry{india}{report}{}
-    \name{author}{7}{}{%
-      {{hash=NEMK}{%
-         family={N.\bibnamedelima Eswara},
-         familyi={N\bibinitperiod\bibinitdelim E\bibinitperiod},
-         given={M.\bibnamedelima K},
-         giveni={M\bibinitperiod\bibinitdelim K},
+    \name{author}{8}{}{%
+      {{hash=EN}{%
+         family={Eswara},
+         familyi={E\bibinitperiod},
+         given={N.},
+         giveni={N\bibinitperiod},
+      }}%
+      {{hash=KM}{%
+         family={K},
+         familyi={K},
+         given={M.},
+         giveni={M\bibinitperiod},
       }}%
       {{hash=KA}{%
          family={Kommineni},
@@ -672,8 +1053,8 @@
          giveni={S\bibinitperiod\bibinitdelim S\bibinitperiod},
       }}%
     }
-    \strng{namehash}{NEMK+1}
-    \strng{fullhash}{NEMKKACSSHPKKKACSS1}
+    \strng{namehash}{EN+1}
+    \strng{fullhash}{ENKMKACSSHPKKKACSS1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
     \field{title}{A Continuous QoE Evaluation Framework for Video Streaming

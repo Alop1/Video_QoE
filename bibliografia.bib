@@ -1,72 +1,3 @@
-@Book{Lam92,
-author = {Lamport, L.},
-title = {LaTeX system przygotowywania dokumentów},
-publisher = {Wydawnictwo Ariel},
-year = {1992},
-address = {Kraków},
-
-langid = {polish},
-}
-
-@Book{Dil00,
-author = {Diller, A.},
-title = {LaTeX wiersz po wierszu},
-publisher = {Wydawnictwo Helion},
-year = {2000},
-address = {Gliwice},
-
-langid = {polish},
-}
-
-
-@Manual{ARM06,
-title = {Ada Reference Manual {ISO}/{IEC} 8652:200y({E}) {E}d. 3},
-organization = {Ada Europe},
-year = {2006}
-}
-
-@Article{BuDo03,
-author = {Burns, A. and Dobbing, B.},
-title = {The {R}avenscar {P}rofile for Real--Time and High Integrity Systems},
-journal = {Cross{T}alk},
-year = {2003},
-volume = {16},
-number = {11},
-pages = {9--12}
-}
-
-
-
-@InProceedings{PeDa04,
-author = {Peleska, J. and Große, D. and Haxthausen, A. E. and Drechsler, R.},
-title = {Automated Verification for Train Control Systems},
-booktitle = {Proc. of the 5th Symposium on Formal Methods for Automation and Safety in Railway and Automotive Systems (FORMS/FORMAT 2004)},
-year = {2004},
-pages = {252--265},
-address = {Braunschweig, Germany},
-month = {December}
-}
-
-@TechReport{BuDoVa03,
-author = {Burns, A. and Dobbing, B. and Vardanega, T.},
-title = {Guide for the Use of the Ada Ravenscar Profile in High Integrity Systems},
-institution = {University of York},
-year = {2003},
-number = {YCS-2003-348}
-}
-
-
-
-@manual{Alvis2011,
-	organization = {AGH University of Science and Technology},
-	year = {2011},
-	title = {{On Line Alvis Manual}},
-	note = {\\\texttt{http://fm.ia.agh.edu.pl/alvis:manual}},
-	author = {Szpyrka, M.},
-
-	langid = {english}
-}
-
 
 @online{video_codecs,
 	author = {Anthony Romero},
@@ -82,19 +13,24 @@ number = {YCS-2003-348}
 	author = {Cisco},
 	langid = {english},
 }
-@manual{blockiness,
+
+@inproceedings{blockiness,
+	author = {Qadri, M.T. and Tan, Kt and Ghanbari, Mohammed},
 	year = {2010},
-	title = {{Frequency domain blockiness measurement for image quality assessment, Introduction}},
-	note = {\\\texttt{https://ieeexplore.ieee.org/document/5645871}},
-	author = {M.T. Qadri, K.T. Tan,  M. Ghanbari},
-	langid = {english}
+	month = {12},
+	pages = {282},
+	title = {Frequency domain blockiness measurement for image quality assessment},
+	journal = {ICCTD 2010 - 2010 2nd International Conference on Computer Technology and Development, Proceedings},
+	doi = {10.1109/ICCTD.2010.5645871}
 }
-@manual{agh_vqm,
-	year = {9999},
-	title = {{Video Quality Indicators}},
-	note = {\\\texttt{http://vq.kt.agh.edu.pl/index.html}},
-	author = {AGH, IEiT, Katedra Telekomunikacjii},
-	langid = {english}
+
+
+
+@online{agh_vqm,
+	author = {AGH, IEiT, Katedra Telekomunikacji},
+	title = {Video Quality Indicators},
+	url = {http://vq.kt.agh.edu.pl/index.html},
+	urldate = {2019-09-14}
 }
 
 @TechReport{vqm,
@@ -105,148 +41,202 @@ pages = {31--32},
 month = {December}
 }
 
-%Shreeya Sengupta,  Hui Wang, William Blackburn, Piyush Ojha
-@TechReport{spactial_act,
-author = {Shreeya Sengupta,  Hui Wang, William Blackburn and  Piyush Ojha },
-title = {Spatial information in classification of activity videos},
-institution = {School of Computing and Mathematics, University Of Ulster},
-year = {2015},
-}
+@INPROCEEDINGS{spactial_act, 
+	author={S. {Sengupta} and H. {Wang} and W. {Blackburn} and P. {Ojha}}, 
+	booktitle={2015 Federated Conference on Computer Science and Information Systems (FedCSIS)}, 
+	title={Spatial information in classification of activity videos}, 
+	year={2015}, 
+	volume={}, 
+	number={}, 
+	pages={145}, 
+	keywords={hidden Markov models;image classification;image motion analysis;image sequences;video signal processing;activity video classification;spatial information;video analysis tasks;video activity recognition;Weizmann videos;KTH videos;hidden Markov model;k-nearest neighbour classifiers;histogram of oriented optical flow feature;regional motion vector feature;Videos;Hidden Markov models;Accuracy;Histograms;Feature extraction;Computer vision;Image motion analysis}, 
+	doi={10.15439/2015F382}, 
+	ISSN={}, 
+	month={Sep.},}
+
+
+
 @manual{letterboxing,
 	year = {2000},
-	title = {16:9 aspect ratio conversion by letterbox method for an MPEG image}},
-	note = {\\\texttt{https://patents.google.com/patent/US6115072}},
 	author = {Bao Vuong, Candace Anderson },
+	pages = {1},
+	title = {16:9 aspect ratio conversion by letterbox method for an MPEG image},
+	note = {\\\texttt{https://patents.google.com/patent/US6115072}},
 	langid = {english}
 }
 
-@manual{blur,
+
+@inproceedings{blur,
+	author = {Marziliano, Pina and Dufaux, Frederic and Winkler, Stefan and Ebrahimi, Touradj},
 	year = {2002},
-	title = {{A no-reference perceptual blur metric}},
-	note = {\\\texttt{https://ieeexplore.ieee.org/document/5645871}},
-	author = {P. Marziliano and   F. Dufaux and  S. Winkler and  T. Ebrahimir},
-	langid = {english}
+	month = {02},
+	pages = {III-57 },
+	title = {A No-Reference Perceptual Blur Metric},
+	volume = {53},
+	isbn = {0-7803-7622-6},
+	journal = {International Conference on Image Processing, Rochester, NY},
+	doi = {10.1109/ICIP.2002.1038902}
 }
-@manual{blackout,
+
+
+
+@article{blackout,
+	author = {Rifai, Hala and Mohammed, Samer and Mellouk, Abdelhamid},
 	year = {2011},
-	title = {{A brief synthesis of QoS-QoE methodologies}},
-	note = {\\\texttt{https://ieeexplore.ieee.org/document/5898880}},
-	author = {Hala Rifaï, Samer Mohammed, Abdelhamid Mellouki},
-	langid = {english}
+	month = {04},
+	pages = {},
+	title = {A brief synthesis of QoS-QoE methodologies},
+	journal = {Proceedings of the 10th International Symposium on Programming and Systems, ISPS' 2011},
+	doi = {10.1109/ISPS.2011.5898880}
 }
 
-@manual{freezing,
+@Article{freezing,
+	author="Leszczuk, Miko{\l}aj
+	and Hanusiak, Mateusz
+	and Farias, Myl{\`e}ne C. Q.
+	and Wyckens, Emmanuel
+	and Heston, George",
+	title="Recent developments in visual quality monitoring by key performance indicators",
+	journal="Multimedia Tools and Applications",
+	year="2016",
+	month="Sep",
+	day="01",
+	volume="75",
+	number="17",
+	pages="10749--10751",
+	abstract="In addition to traditional Quality of Service (QoS), Quality of Experience (QoE) poses a real challenge for Internet service providers, audio-visual services, broadcasters and new Over-The-Top (OTT) services. Therefore, objective audio-visual metrics are frequently being dedicated in order to monitor, troubleshoot, investigate and set benchmarks of content applications working in real-time or off-line. The concept proposed here, Monitoring of Audio Visual Quality by Key Performance Indicators (MOAVI), is able to isolate and focus investigation, set-up algorithms, increase the monitoring period and guarantee better prediction of perceptual quality. MOAVI artefacts Key Performance Indicators (KPI) are classified into four categories, based on their origin: capturing, processing, transmission, and display. In the paper, we present experiments carried out over several steps with four experimental set-ups for concept verification. The methodology takes into the account annoyance visibility threshold. The experimental methodology is adapted from International Telecommunication Union -- Telecommunication Standardization Sector (ITU-T) Recommendations: P.800, P.910 and P.930. We also present the results of KPI verification tests. Finally, we also describe the first implementation of MOAVI KPI in a commercial product: the NET-MOZAIC probe. Net Research, LLC, currently offers the probe as a part of NET-xTVMS Internet Protocol Television (IPTV) and Cable Television (CATV) monitoring system.",
+	issn="1573-7721",
+	doi="10.1007/s11042-014-2229-2",
+	url="https://doi.org/10.1007/s11042-014-2229-2"
+}
+
+
+
+
+@inproceedings{fr_psnr,
+	author = {Taghavi, Afshin and Azizpour Shirsavar, Milad and Ebrahimi, Azarnush and Ghanbari, Mohammed},
 	year = {2014},
-	title = {{Recent developments in visual quality monitoring by key performance indicators}},
-	note = {Video artefacts and related key performance indicators for automated quality checking},
-	author = {Mikołaj Leszczuk and  Mateusz Hanusiak and  Mylène C. Q. Farias and Emmanuel Wyckens and George Heston},
-	langid = {english}
-}
-%A. T. Nasrabadi ; M. A. Shirsavar ; A. Ebrahimi ; M. Ghanbari
-@manual{fr_psnr,
-	year = {2014},
-	title = {{Investigating the PSNR calculation methods for video sequences with source and channel distortions}},
-	note = {https://ieeexplore.ieee.org/document/6873482},
-	author = {A. T. Nasrabadi,  M. A. Shirsavar, A. Ebrahimi},
-	langid = {english}
+	month = {06},
+	pages = {},
+	title = {Investigating the PSNR calculation methods for video sequences with source and channel distortions:Introduction},
+	journal = {IEEE International Symposium on Broadband Multimedia Systems and Broadcasting, BMSB},
+	doi = {10.1109/BMSB.2014.6873482}
 }
 
+@book{ssim_1,
+	author = {Keimel, Christian},
+	year = {2016},
+	month = {01},
+	pages = {41,235,236},
+	title = {Design of Video Quality Metrics with Multi-Way Data Analysis},
+	doi = {10.1007/978-981-10-0269-4}
+}
 
-@manual{ssim_1,
+@inproceedings{ssim_2,
+	author = {Horé, Alain and Ziou, Djemel},
 	year = {2010},
-	title = {{Design of Video Quality Metrics with Multi-way Data Analysis }},
-	note = {sciagniete na dysk},
-	author = {Christian Keimel },
-	langid = {english}
+	month = {08},
+	pages = {2366-2369},
+	title = {Image quality metrics: PSNR vs. SSIM},
+	doi = {10.1109/ICPR.2010.579}
 }
-@manual{ssim_2,
-	year = {2010},
-	title = {{Image quality metrics: PSNR vs. SSIM }},
-	note = {sciagniete na dysk},
-	author = {xxx},
-	langid = {english}
+
+@online{netflix,
+	author = { Zhi Li and Anne Aaron and Ioannis Katsavounidis and Anush Moorthy and Megha Manohara},
+	title = {Toward A Practical Perceptual Video Quality Metric},
+	url = {https://medium.com/netflix-techblog/toward-a-practical-perceptual-video-quality-metric-653f208b9652},
+	urldate = {2019-06-11}
 }
-@manual{netflix,
-	year = {9999},
-	title = {{Toward A Practical Perceptual Video Quality Metric}},
-	note = {\\\texttt{https://medium.com/netflix-techblog/toward-a-practical-perceptual-video-quality-metric-653f208b9652}},
-	author = {xxx},
-	langid = {english}
-}
+
 
 
 @manual{ml_supervised,
-	year = {9999},
+	year = {2016},
 	title = {{Algorytm spadku gradientu w uczeniu maszynowym}},
-	note = {text},
-	author = {xxx},
+	pages = {9},
+	author = {Jakub Gierasimczyk},
 	langid = {polski}
 }
 
-@manual{mlr,
-	year = {9999},
-	title = {{Multiple Linear Regression}},
-	note = {\\\texttt{http://hummedia.manchester.ac.uk/institutes/cmist/archive-publications/working-papers/2008/2008-19-multiple-linear-regression.pdf}},
-	author = {xxx},
-	langid = {english}
+
+@online{mlr,
+	author = { Mark Tranmer and Mark Tranmer},
+	title = {Multiple Linear Regression},
+	url = {http://hummedia.manchester.ac.uk/institutes/cmist/archive-publications/working-papers/2008/2008-19-multiple-linear-regression.pdf},
+	urldate = {2019-06-1}
 }
 
-%\\\texttt{https://link.springer.com/chapter/10.1007/978-1-4302-5990-9_4
-@manual{svr,
-	year = {2015},
-	title = {{Support Vector Regression}},
-	note = {opis},
-	author = {Mariette Awad, Rahul Khanna},
-	langid = {english}
+
+%\\\texttt{https://link.springer.com/chapter/10.1007/978-1-4302-5990-9_4}
+@Inbook{svr,
+	author="Awad, Mariette
+	and Khanna, Rahul",
+	title="Support Vector Regression",
+	bookTitle="Efficient Learning Machines: Theories, Concepts, and Applications for Engineers and System Designers",
+	year="2015",
+	publisher="Apress",
+	address="Berkeley, CA",
+	pages="67--69",
+	abstract="Rooted in statistical learning or Vapnik-Chervonenkis (VC) theory, support vector machines (SVMs) are well positioned to generalize on yet-to-be-seen data. The SVM concepts presented in Chapter 3can be generalized to become applicable to regression problems. As in classification, support vector regression (SVR) is characterized by the use of kernels, sparse solution, and VC control of the margin and the number of support vectors. Although less popular than SVM, SVR has been proven to be an effective tool in real-value function estimation. As a supervised-learning approach, SVR trains using a symmetrical loss function, which equally penalizes high and low misestimates. Using Vapnik's -insensitive approach, a flexible tube of minimal radius is formed symmetrically around the estimated function, such that the absolute values of errors less than a certain threshold are ignored both above and below the estimate. In this manner, points outside the tube are penalized, but those within the tube, either above or below the function, receive no penalty. One of the main advantages of SVR is that its computational complexity does not depend on the dimensionality of the input space. Additionally, it has excellent generalization capability, with high prediction accuracy.",
+	isbn="978-1-4302-5990-9",
+	doi="10.1007/978-1-4302-5990-9_4",
+	url="https://doi.org/10.1007/978-1-4302-5990-9_4"
 }
 
-@manual{rf,
-	year = {2015},
-	title = {{Classification and Regression Trees}},
-	note = {\\\texttt{https://www.stat.cmu.edu/~cshalizi/350/lectures/22/lecture-22.pdf}},
-	author = {xxx},
-	langid = {english}
+@online{rf,
+	author = {Cosma Shalizi},
+	title = {Classification and Regression Trees},
+	url = {https://www.stat.cmu.edu/~cshalizi/350/lectures/22/lecture-22.pdf},
+	urldate = {2019-05-06}
 }
 
-@manual{rf2,
+
+
+@book{rf2,
+	author = {Shalev-Shwartz, Shai and Ben-David, Shai},
+	title = {Understanding Machine Learning: From Theory to Algorithms},
 	year = {2014},
-	title = {{Understanding Machine Learning:From Theory to Algorithms}},
-	note = {Cambridge University},
-	author = {Shai Shalev-Shwartz,  Shai Ben-David},
-	langid = {english}
-}
+	pages = {250 - 256},
+	isbn = {1107057132, 9781107057135},
+	publisher = {Cambridge University Press},
+	address = {New York, NY, USA},
+} 
 
-@manual{bp,
+@article{bp,
+	author = {Alsmadi, Mutasem and Omar, Khairuddin and Mohd Noah, Shahrul Azman},
 	year = {2009},
-	title = {{Back Propagation Algorithm: The Best Algorithm Among theMulti-layer Perceptron Algorithm }},
-	note = {strona 1},
-	author = {xxx},
-	langid = {english}
+	month = {01},
+	pages = {378},
+	title = {Back Propagation Algorithm : The Best Algorithm Among the Multi-layer Perceptron Algorithm},
+	volume = {9},
+	journal = {International Journal of Computer Science and Network Security}
 }
 
-@manual{nndata,
-	year = {9999},
-	title = {{Why is Deep Learning taking off}},
-	note = {\\\texttt{https://www.coursera.org/lecture/neural-networks-deep-learning/why-is-deep-learning-taking-off-praGm}},
+@online{nndata,
 	author = {Andrew Ng},
-	langid = {english}
+	title = {Why is Deep Learning taking off},
+	url = {https://www.coursera.org/lecture/neural-networks-deep-learning/why-is-deep-learning-taking-off-praGm},
+	urldate = {2019-05-07}
 }
+
 
 %https://www.researchgate.net/figure/Graph-illustrating-the-impact-of-data-available-on-performance-of-traditional-machine_fig1_324457640
-@manual{nn_wykres,
-	year = {9999},
-	title = {{Building AI Applications Using Deep Learning}},
-	note = {\\\texttt{https://blog.easysol.net/building-ai-applications/}},
-	author = {Alejandro Correa Bahnsen},
-	langid = {english}
+@online{nn_wykres,
+author = {Alejandro Correa Bahnsen},
+title = {On Line Alvis Manual},
+url = {https://blog.easysol.net/building-ai-applications/},
+urldate = {2019-06-17}
 }
 
-@manual{chroma_sampling,
-	year = {2017},
-	title = {{Chroma Subsampling Influence on the Perceived Video Quality for Compressed Sequences in High Resolutions}},
-	note = {rozdział: Introduction  st.r 603},
-	author = {xxx},
-	langid = {english}
+@article{chroma_sampling,
+author = {Uhrina, Miroslav and Bienik, Juraj and Mizdos, Tomas},
+year = {2017},
+month = {11},
+pages = {603},
+title = {Chroma Subsampling Influence on the Perceived Video Quality for Compressed Sequences in High Resolutions},
+volume = {15},
+journal = {Advances in Electrical and Electronic Engineering},
+doi = {10.15598/aeee.v15i4.2414}
 }
 
 
@@ -254,7 +244,7 @@ year = {2015},
 	year = {2011},
 	title = {{Aligning subjective tests using a low cost common set}},
 	note = {Euro ITV, Jun 2011, Lisbonne, Portugal},
-	author = {Y. Pitrey, U. Engelke, M. Barkowsky, R. Pépion, P. Le Callet},
+	author = {Y. Pitrey and U. Engelke and M. Barkowsky and R. Pépion and P. Le Callet},
 	langid = {english}
 }
 
@@ -275,7 +265,7 @@ year = {2015},
 }
 
 @TechReport{india,
-AUTHOR = {N. Eswara, M. K and  A. Kommineni and  S. Chakraborty and  H. P. Sethuram and  K. Kuchi and  A. Kumar and  S. S. Channappayya},
+AUTHOR = {N. Eswara and M. K and  A. Kommineni and  S. Chakraborty and  H. P. Sethuram and  K. Kuchi and  A. Kumar and  S. S. Channappayya},
 title = {A Continuous QoE Evaluation Framework for Video Streaming over HTTP},
 institution = {Indian Institute of Technology Hyderabad},
 year = {2018},
@@ -323,22 +313,27 @@ year = {2018},
 	langid = {english},
 }
 
-@InProceedings{psnr_qoe,
-author = {Z. Wang and A. Bovik},
-title = {Mean squared error: Love it or leave it? a new look at signal fidelity measures},
-booktitle = {Signal Processing Magazine},
-year = {2009},
-pages = {98–117},
-}
-%https://scikit-learn.org/stable/auto_examples/tree/plot_tree_regression.html
-@manual{nnpicture,
-	year = {2017},
-	title = {{Applied Deep Learning - Part 1: Artificial Neural Networks}},
-	note = {\\\texttt{https://towardsdatascience.com/applied-deep-learning-part-1-artificial-neural-networks-d7834f67a4f6}},
-	author = { Arden Dertat},
-	langid = {english},
-}
+@ARTICLE{psnr_qoe, 
+author={Z. {Wang} and A. C. {Bovik}}, 
+journal={IEEE Signal Processing Magazine}, 
+title={Mean squared error: Love it or leave it? A new look at Signal Fidelity Measures}, 
+year={2009}, 
+volume={26}, 
+number={1}, 
+pages={99-100}, 
+keywords={mean square error methods;signal processing;mean squared error;signal fidelity measure;signal processing optimisation;MSE;Signal processing;Pollution measurement;PSNR;Signal processing algorithms;Image processing;Distortion measurement;Pixel;Dynamic range;Signal design;Algorithm design and analysis}, 
+doi={10.1109/MSP.2008.930649}, 
+ISSN={1053-5888}, 
+month={Jan},}
 
+
+%https://scikit-learn.org/stable/auto_examples/tree/plot_tree_regression.html
+@online{nnpicture,
+	author = { Arden Dertat},
+	title = {Applied Deep Learning - Part 1: Artificial Neural Networks},
+	url = {https://towardsdatascience.com/applied-deep-learning-part-1-artificial-neural-networks-d7834f67a4f6},
+	urldate = {2019-06-19}
+}
 
 
 @online{kodowanie,
@@ -346,4 +341,27 @@ author = {Junko Yoshida},
 title = {Inside DSP on Video: Squeeze Play--How Video Compression Works},
 date = {2004.03.29},
 url = {https://www.eetimes.com/document.asp?doc_id=1272615#},
+}
+
+
+@article{metryka1,
+	author = {Redi, Judith and Gastaldo, Paolo and Heynderickx, Ingrid and Zunino, Rodolfo},
+	year = {2011},
+	month = {01},
+	pages = {1757 - 1769},
+	title = {Color Distribution Information for the Reduced-Reference Assessment of Perceived Image Quality},
+	volume = {20},
+	journal = {Circuits and Systems for Video Technology, IEEE Transactions on},
+	doi = {10.1109/TCSVT.2010.2087456}
+}
+
+@article{metryka2,
+	author = {Le Callet, Patrick and Viard-Gaudin, Christian and Barba, Dominique},
+	year = {2006},
+	month = {10},
+	pages = {1316-27},
+	title = {A Convolutional Neural Network Approach for Objective Video Quality Assessment},
+	volume = {17},
+	journal = {IEEE transactions on neural networks / a publication of the IEEE Neural Networks Council},
+	doi = {10.1109/TNN.2006.879766}
 }
