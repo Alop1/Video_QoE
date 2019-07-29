@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.16)  24 JUL 2019 22:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.16)  29 JUL 2019 20:09
 entering extended mode
 **./praca.tex
 (praca.tex
@@ -1588,6 +1588,9 @@ LaTeX Warning: Label `cha:drugiDokument' multiply defined.
 LaTeX Warning: Label `fig:xccs' multiply defined.
 
 
+LaTeX Warning: Label `cha:drugiDokument' multiply defined.
+
+
 LaTeX Warning: Label `fig:xccs' multiply defined.
 
 
@@ -1884,7 +1887,7 @@ Rozdzia\l  1.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <17.28> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 1.
 
-Underfull \vbox (badness 6001) has occurred while \output is active []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [7]
 [8]
@@ -1957,7 +1960,7 @@ File: exp.jpeg Graphic file (type jpg)
 Package pdftex.def Info: exp.jpeg  used on input line 152.
 (pdftex.def)             Requested size: 199.14194pt x 113.80379pt.
 
-Underfull \vbox (badness 3049) has occurred while \output is active []
+Underfull \vbox (badness 1552) has occurred while \output is active []
 
  [13 <./blur.jpeg> <./temporalAC.jpeg>]
 <contrastC.jpeg, id=89, 642.4pt x 361.35pt>
@@ -1985,128 +1988,149 @@ Package pdftex.def Info: psnr_pict.png  used on input line 212.
 <svm_2.png, id=111, 643.40375pt x 482.80376pt>
 File: svm_2.png Graphic file (type png)
 <use svm_2.png>
-Package pdftex.def Info: svm_2.png  used on input line 260.
+Package pdftex.def Info: svm_2.png  used on input line 264.
 (pdftex.def)             Requested size: 369.89537pt x 284.53497pt.
- [18 <./svm_2.png>]
-<r_tree.png, id=118, 462.528pt x 346.896pt>
-File: r_tree.png Graphic file (type png)
-<use r_tree.png>
-Package pdftex.def Info: r_tree.png  used on input line 277.
-(pdftex.def)             Requested size: 256.08499pt x 170.71628pt.
-
-[19 <./r_tree.png>]
-<nn.png, id=124, 992.20688pt x 589.4522pt>
-File: nn.png Graphic file (type png)
-<use nn.png>
-Package pdftex.def Info: nn.png  used on input line 287.
-(pdftex.def)             Requested size: 341.43364pt x 170.7119pt.
-<nn_data_2.png, id=125, 463.7325pt x 209.28188pt>
-File: nn_data_2.png Graphic file (type png)
-<use nn_data_2.png>
-Package pdftex.def Info: nn_data_2.png  used on input line 301.
-(pdftex.def)             Requested size: 398.3493pt x 170.71489pt.
-) [20 <./nn.png> <./nn_data_2.png>]
-\openout2 = `content2.aux'.
-
- (content2.tex
-Rozdzia\l  3.
-[21
-
-
-
-]
-<data_preparation_work_flow.png, id=132, 764.8575pt x 634.37pt>
-File: data_preparation_work_flow.png Graphic file (type png)
-<use data_preparation_work_flow.png>
-Package pdftex.def Info: data_preparation_work_flow.png  used on input line 29.
-
-(pdftex.def)             Requested size: 426.7884pt x 312.98323pt.
- [22 <./data_preparation_work_flow.png>] [23]
-Underfull \vbox (badness 3872) has occurred while \output is active []
-
- [24]
-<podzial_danych.png, id=143, 682.04813pt x 280.04625pt>
-File: podzial_danych.png Graphic file (type png)
-<use podzial_danych.png>
-Package pdftex.def Info: podzial_danych.png  used on input line 70.
-(pdftex.def)             Requested size: 284.53293pt x 142.27045pt.
-
-Underfull \vbox (badness 5331) has occurred while \output is active []
-
- [25 <./podzial_danych.png>]
-
-Package caption Warning: \label without proper reference on input line 171.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `tab:tabela2' on page 26 undefined on input line 107.
-
-<execution.png, id=148, 462.528pt x 346.896pt>
-File: execution.png Graphic file (type png)
-<use execution.png>
-Package pdftex.def Info: execution.png  used on input line 110.
-(pdftex.def)             Requested size: 256.08499pt x 170.71628pt.
-
-Package caption Warning: \label without proper reference on input line 171.
-See the caption package documentation for explanation.
-
-
-LaTeX Warning: Reference `tab:tabela2' on page 26 undefined on input line 116.
-
-[26 <./execution.png>]
-
-LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 135.
-
-
-Overfull \hbox (78.30313pt too wide) in paragraph at lines 137--172
-[][] 
- []
-
-
-LaTeX Warning: Float too large for page by 64.35043pt on input line 172.
-
-[27] [28]
-Rozdzia\l  4.
-<podsumowanie.png, id=159, 1387.584pt x 710.4141pt>
-File: podsumowanie.png Graphic file (type png)
-<use podsumowanie.png>
-Package pdftex.def Info: podsumowanie.png  used on input line 186.
-(pdftex.def)             Requested size: 739.77762pt x 426.79375pt.
-
-Overfull \hbox (65.4473pt too wide) in paragraph at lines 186--187
-[][] 
- []
-
-<w_kolowy.png, id=160, 395.97937pt x 347.79938pt>
-File: w_kolowy.png Graphic file (type png)
-<use w_kolowy.png>
-Package pdftex.def Info: w_kolowy.png  used on input line 199.
-(pdftex.def)             Requested size: 284.53093pt x 227.62186pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [29
+ [18]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [19 <./svm_2.png>]
+<r_tree.png, id=122, 462.528pt x 346.896pt>
+File: r_tree.png Graphic file (type png)
+<use r_tree.png>
+Package pdftex.def Info: r_tree.png  used on input line 282.
+(pdftex.def)             Requested size: 256.08499pt x 170.71628pt.
+<nn.png, id=123, 992.20688pt x 589.4522pt>
+File: nn.png Graphic file (type png)
+<use nn.png>
+Package pdftex.def Info: nn.png  used on input line 295.
+(pdftex.def)             Requested size: 341.43364pt x 170.7119pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [20 <./r_tree.png>]
+<nn_data_2.png, id=129, 463.7325pt x 209.28188pt>
+File: nn_data_2.png Graphic file (type png)
+<use nn_data_2.png>
+Package pdftex.def Info: nn_data_2.png  used on input line 309.
+(pdftex.def)             Requested size: 398.3493pt x 170.71489pt.
+) [21 <./nn.png> <./nn_data_2.png>]
+\openout2 = `content2.aux'.
+
+ (content2.tex [22
+
+
 
 ]
-<korelacja.png, id=164, 729.927pt x 703.9098pt>
+Rozdzia\l  3.
+
+Underfull \vbox (badness 5331) has occurred while \output is active []
+
+ [23]
+<data_preparation_work_flow.png, id=139, 764.8575pt x 634.37pt>
+File: data_preparation_work_flow.png Graphic file (type png)
+<use data_preparation_work_flow.png>
+Package pdftex.def Info: data_preparation_work_flow.png  used on input line 33.
+
+(pdftex.def)             Requested size: 426.7884pt x 312.98323pt.
+
+Underfull \vbox (badness 1484) has occurred while \output is active []
+
+ [24 <./data_preparation_work_flow.png>] [25]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [26]
+<podzial_danych.png, id=151, 682.04813pt x 280.04625pt>
+File: podzial_danych.png Graphic file (type png)
+<use podzial_danych.png>
+Package pdftex.def Info: podzial_danych.png  used on input line 76.
+(pdftex.def)             Requested size: 284.53293pt x 142.27045pt.
+
+[27 <./podzial_danych.png>]
+
+Package caption Warning: \label without proper reference on input line 163.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `tab:tabela2' on page 28 undefined on input line 115.
+
+<execution.png, id=155, 462.528pt x 346.896pt>
+File: execution.png Graphic file (type png)
+<use execution.png>
+Package pdftex.def Info: execution.png  used on input line 118.
+(pdftex.def)             Requested size: 312.99748pt x 199.16722pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [28
+
+]
+
+Package caption Warning: \label without proper reference on input line 163.
+See the caption package documentation for explanation.
+
+
+LaTeX Warning: Reference `tab:tabela2' on page 29 undefined on input line 125.
+
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 127.
+
+
+Overfull \hbox (78.30313pt too wide) in paragraph at lines 129--164
+[][] 
+ []
+
+
+LaTeX Warning: Float too large for page by 64.35043pt on input line 164.
+
+[29 <./execution.png>] [30] [31
+
+] [32
+
+]
+Rozdzia\l  4.
+<podsumowanie.png, id=173, 1387.584pt x 710.4141pt>
+File: podsumowanie.png Graphic file (type png)
+<use podsumowanie.png>
+Package pdftex.def Info: podsumowanie.png  used on input line 197.
+(pdftex.def)             Requested size: 739.77762pt x 426.79375pt.
+
+Overfull \hbox (65.4473pt too wide) in paragraph at lines 197--198
+[][] 
+ []
+
+[33]
+<w_kolowy.png, id=177, 395.97937pt x 347.79938pt>
+File: w_kolowy.png Graphic file (type png)
+<use w_kolowy.png>
+Package pdftex.def Info: w_kolowy.png  used on input line 210.
+(pdftex.def)             Requested size: 284.53093pt x 227.62186pt.
+<korelacja.png, id=178, 729.927pt x 703.9098pt>
 File: korelacja.png Graphic file (type png)
 <use korelacja.png>
-Package pdftex.def Info: korelacja.png  used on input line 214.
+Package pdftex.def Info: korelacja.png  used on input line 225.
 (pdftex.def)             Requested size: 398.34251pt x 398.33275pt.
-
-[30 <./w_kolowy.png>]
-<kontrast_ujemne_rk.png, id=168, 462.528pt x 346.896pt>
+ [34 <./w_kolowy.png>]
+<kontrast_ujemne_rk.png, id=182, 462.528pt x 346.896pt>
 File: kontrast_ujemne_rk.png Graphic file (type png)
 <use kontrast_ujemne_rk.png>
-Package pdftex.def Info: kontrast_ujemne_rk.png  used on input line 228.
+Package pdftex.def Info: kontrast_ujemne_rk.png  used on input line 239.
 (pdftex.def)             Requested size: 369.90291pt x 284.54124pt.
- [31 <./korelacja.png>] [32 <./kontrast_ujemne_rk.png>]
-[33 <./podsumowanie.png>] [34
+ [35 <./korelacja.png>] [36 <./kontrast_ujemne_rk.png>] [37 <./podsumowanie.png
+>] [38
 
 ]
 Rozdzia\l  5.
-) [35] [36
+)
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [39]
+[40] [41
+
+] [42
 
 ]
 
@@ -2117,19 +2141,17 @@ Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
 Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
 (biblatex)                Please use '\mkdaterangeiso'.
 
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 202.
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 203.
 ("C:\Users\elacpol\AppData\Local\Programs\MiKTeX 2.9\tex/latex/psnfss\t1pcr.fd"
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-) [37
-
-]
+) [43]
 
 Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
 (biblatex)                Please use '\mkdaterangeiso'.
 
 
 Package biblatex Warning: No hyphenation patterns for 'polski' on input line 20
-2.
+3.
 
 
 Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
@@ -2143,7 +2165,7 @@ Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
 Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
 (biblatex)                Please use '\mkdaterangeiso'.
 
-[38]
+[44]
 
 Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
 (biblatex)                Please use '\mkdaterangeiso'.
@@ -2152,7 +2174,15 @@ Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
 Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
 (biblatex)                Please use '\mkdaterangeiso'.
 
-[39] [40
+
+Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
+(biblatex)                Please use '\mkdaterangeiso'.
+
+
+Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
+(biblatex)                Please use '\mkdaterangeiso'.
+
+[45] [46
 
 ] (praca.aux (content.aux) (content2.aux))
 
@@ -2166,10 +2196,10 @@ Package logreq Info: Writing requests to 'praca.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 39631 strings out of 492945
- 777609 string characters out of 3125364
- 1166068 words of memory out of 3000000
- 42871 multiletter control sequences out of 15000+200000
+ 39669 strings out of 492945
+ 778533 string characters out of 3125364
+ 1168068 words of memory out of 3000000
+ 42909 multiletter control sequences out of 15000+200000
  621973 words of font info for 117 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,15n,82p,1458b,2928s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2184,18 +2214,19 @@ sers/elacpol/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/c
 mr8.pfb><C:/Users/elacpol/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/
 amsfonts/cm/cmsy10.pfb><C:/Users/elacpol/AppData/Local/Programs/MiKTeX 2.9/font
 s/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/elacpol/AppData/Local/Programs/M
-iKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/elacpol/AppData/Local/Pr
-ograms/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/Users/elacpol/AppData
-/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.pfb><C:/Users/elacpo
-l/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvro8a.pfb><C:/Us
-ers/elacpol/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb>
-<C:/Users/elacpol/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times/utmr8
-a.pfb><C:/Users/elacpol/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/times
-/utmr8a.pfb><C:/Users/elacpol/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw
-/times/utmri8a.pfb>
-Output written on praca.pdf (40 pages, 4418086 bytes).
+iKTeX 2.9/fonts/type1/public/amsfonts/symbols/msbm10.pfb><C:/Users/elacpol/AppD
+ata/Local/Programs/MiKTeX 2.9/fonts/type1/urw/courier/ucrr8a.pfb><C:/Users/elac
+pol/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/U
+sers/elacpol/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvr8a.
+pfb><C:/Users/elacpol/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/urw/helveti
+c/uhvro8a.pfb><C:/Users/elacpol/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/u
+rw/times/utmb8a.pfb><C:/Users/elacpol/AppData/Local/Programs/MiKTeX 2.9/fonts/t
+ype1/urw/times/utmr8a.pfb><C:/Users/elacpol/AppData/Local/Programs/MiKTeX 2.9/f
+onts/type1/urw/times/utmr8a.pfb><C:/Users/elacpol/AppData/Local/Programs/MiKTeX
+ 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on praca.pdf (46 pages, 4434422 bytes).
 PDF statistics:
- 258 PDF objects out of 1000 (max. 8388607)
+ 281 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  239 words of extra memory for PDF output out of 10000 (max. 10000000)
 

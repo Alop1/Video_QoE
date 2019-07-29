@@ -706,6 +706,37 @@
     \field{year}{2016}
   \endentry
 
+  \entry{rf2}{book}{}
+    \name{author}{2}{}{%
+      {{hash=SSS}{%
+         family={Shalev-Shwartz},
+         familyi={S\bibinithyphendelim S\bibinitperiod},
+         given={Shai},
+         giveni={S\bibinitperiod},
+      }}%
+      {{hash=BDS}{%
+         family={Ben-David},
+         familyi={B\bibinithyphendelim D\bibinitperiod},
+         given={Shai},
+         giveni={S\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Cambridge University Press}%
+    }
+    \strng{namehash}{SSSBDS1}
+    \strng{fullhash}{SSSBDS1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{isbn}{1107057132, 9781107057135}
+    \field{pages}{47, 250 \bibrangedash  256}
+    \field{title}{Understanding Machine Learning: From Theory to Algorithms}
+    \list{location}{1}{%
+      {New York, NY, USA}%
+    }
+    \field{year}{2014}
+  \endentry
+
   \entry{mlr}{online}{}
     \name{author}{2}{}{%
       {{hash=TM}{%
@@ -816,37 +847,6 @@
     \field{urlyear}{2019}
   \endentry
 
-  \entry{rf2}{book}{}
-    \name{author}{2}{}{%
-      {{hash=SSS}{%
-         family={Shalev-Shwartz},
-         familyi={S\bibinithyphendelim S\bibinitperiod},
-         given={Shai},
-         giveni={S\bibinitperiod},
-      }}%
-      {{hash=BDS}{%
-         family={Ben-David},
-         familyi={B\bibinithyphendelim D\bibinitperiod},
-         given={Shai},
-         giveni={S\bibinitperiod},
-      }}%
-    }
-    \list{publisher}{1}{%
-      {Cambridge University Press}%
-    }
-    \strng{namehash}{SSSBDS1}
-    \strng{fullhash}{SSSBDS1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{isbn}{1107057132, 9781107057135}
-    \field{pages}{250 \bibrangedash  256}
-    \field{title}{Understanding Machine Learning: From Theory to Algorithms}
-    \list{location}{1}{%
-      {New York, NY, USA}%
-    }
-    \field{year}{2014}
-  \endentry
-
   \entry{bp}{article}{}
     \name{author}{3}{}{%
       {{hash=AM}{%
@@ -947,6 +947,47 @@
     \endverb
     \field{urlday}{17}
     \field{urlmonth}{06}
+    \field{urlyear}{2019}
+  \endentry
+
+  \entry{ds_report}{online}{}
+    \name{author}{1}{}{%
+      {{hash=C}{%
+         family={CrowdFlower},
+         familyi={C\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{C2}
+    \strng{fullhash}{C2}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{DATA SCIENTIST REPORT 2017}
+    \verb{url}
+    \verb https://visit.figure-eight.com/rs/416-ZBE-142/images/CrowdFlower_Data
+    \verb ScienceReport.pdf
+    \endverb
+    \field{urlday}{10}
+    \field{urlmonth}{05}
+    \field{urlyear}{2019}
+  \endentry
+
+  \entry{vdk}{online}{}
+    \name{author}{1}{}{%
+      {{hash=N}{%
+         family={Netflix},
+         familyi={N\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{N1}
+    \strng{fullhash}{N1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{VMAF - Video Multi-Method Assessment Fusion}
+    \verb{url}
+    \verb https://github.com/Netflix/vmaf
+    \endverb
+    \field{urlday}{07}
+    \field{urlmonth}{04}
     \field{urlyear}{2019}
   \endentry
 

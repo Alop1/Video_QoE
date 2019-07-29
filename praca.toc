@@ -7,21 +7,24 @@
 \contentsline {subsection}{\numberline {2.2.1}Metryki no-reference}{11}% 
 \contentsline {subsection}{\numberline {2.2.2}Metryki full-reference}{15}% 
 \contentsline {section}{\numberline {2.3}Algorytmy uczenia maszynowego }{17}% 
-\contentsline {subsection}{\numberline {2.3.1}Regresja Liniowa}{17}% 
-\contentsline {subsection}{\numberline {2.3.2}SVM}{18}% 
-\contentsline {subsection}{\numberline {2.3.3}Las Losowy}{19}% 
-\contentsline {subsection}{\numberline {2.3.4}Sieci Neuronowe}{19}% 
-\contentsline {chapter}{\numberline {3}Metodologia bada\IeC {\'n}}{21}% 
-\contentsline {section}{\numberline {3.1}Narz\IeC {\k e}dzia}{21}% 
-\contentsline {section}{\numberline {3.2}Dane}{22}% 
-\contentsline {subsection}{\numberline {3.2.1}Zbieranie danych}{22}% 
-\contentsline {subsection}{\numberline {3.2.2}Ekstrakcja cech}{23}% 
-\contentsline {subsection}{\numberline {3.2.3}Normalizacja i czyszczenie danych}{24}% 
-\contentsline {subsection}{\numberline {3.2.4}Podzia\IeC {\l } danych}{24}% 
-\contentsline {subsection}{\numberline {3.2.5}Podsumowanie danych}{25}% 
-\contentsline {section}{\numberline {3.3}Modele }{26}% 
-\contentsline {chapter}{\numberline {4}Wyniki i analiza }{29}% 
-\contentsline {chapter}{\numberline {5}Podsumowanie}{35}% 
+\contentsline {subsection}{\numberline {2.3.1}Ucznie nadzorowane i nienadzorowane}{17}% 
+\contentsline {subsection}{\numberline {2.3.2}Problem klasyfikacji i regresji}{17}% 
+\contentsline {subsection}{\numberline {2.3.3}Regresja Liniowa}{18}% 
+\contentsline {subsection}{\numberline {2.3.4}SVM}{18}% 
+\contentsline {subsection}{\numberline {2.3.5}Las Losowy}{19}% 
+\contentsline {subsection}{\numberline {2.3.6}Sieci Neuronowe}{20}% 
+\contentsline {chapter}{\numberline {3}Metodologia bada\IeC {\'n}}{23}% 
+\contentsline {section}{\numberline {3.1}Narz\IeC {\k e}dzia}{23}% 
+\contentsline {section}{\numberline {3.2}Dane}{24}% 
+\contentsline {subsection}{\numberline {3.2.1}Zbieranie danych}{25}% 
+\contentsline {subsection}{\numberline {3.2.2}Ekstrakcja cech}{25}% 
+\contentsline {subsection}{\numberline {3.2.3}Normalizacja i czyszczenie danych}{26}% 
+\contentsline {subsection}{\numberline {3.2.4}Podzia\IeC {\l } danych}{27}% 
+\contentsline {subsection}{\numberline {3.2.5}Podsumowanie danych}{28}% 
+\contentsline {section}{\numberline {3.3}Proces budowania i testowania}{28}% 
+\contentsline {section}{\numberline {3.4}Modele }{31}% 
+\contentsline {chapter}{\numberline {4}Wyniki i ich analiza }{33}% 
+\contentsline {chapter}{\numberline {5}Podsumowanie}{39}% 
 \babel@toc {english}{}
 \babel@toc {polish}{}
 \babel@toc {english}{}
@@ -36,3 +39,4 @@
 \babel@toc {polish}{}
 \babel@toc {english}{}
 \babel@toc {polish}{}
+\contentsline {chapter}{Bibliografia}{45}% 
