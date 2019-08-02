@@ -16,32 +16,30 @@ Przykładem koncepcji poprawy trafności dla automatycznej oceny jakości wideo 
 
 W niniejszej Pracy zostanie przedstawiony algorytm pozwalający na bardziej zautomatyzowaną ocenę jakości wideo w oparciu o metryki \emph{full-reference} (FR) i \emph{no-reference} (NR) z użyciem wybranych metod z zakresu uczenia maszynowego oraz zaprezentowana zostanie wykorzystana metodologia badań.
 
-\todo[inline]{Nic o ML nie piszemy we wstępie? To ważny aspekt pracy, że przepadano wiele różnych metod analizy danych}
-
 
 \chapter{Wprowadzenie teoretyczne}
 \label{cha:pierwszyDokument}
 
-W niniejszym rozdziale przedstawiono najważniejsze teoretyczne zagadnienia dla przeprowadzonych badań. Opisane one zostały w sposób pozwalający czytelnikowi na odpowiednie zrozumienie dalszej części pracy, pomijając niezwiązane szczegóły. Pierwsza część rozdziału dotyczy tematu wideo. Przedstawiono jego definicję, oraz wybrane cechy statystyczne biorące udział w trakcie badań. W kolejnej części zaprezentowano zagadnienia z obszaru uczenia maszynowego. Wyjaśniona została jej ogólna koncepcja, a następnie opisano użyte algorytmy.
+W niniejszym rozdziale przedstawiono najważniejsze teoretyczne zagadnienia dla przeprowadzonych badań. Opisane one zostały w sposób pozwalający czytelnikowi na odpowiednie zrozumienie dalszej części pracy, pomijając nieistotne szczegóły. Pierwsza część rozdziału dotyczy tematu wideo. Przedstawiono jego definicję, oraz wybrane cechy statystyczne biorące udział w trakcie badań. W kolejnej części zaprezentowano zagadnienia z obszaru uczenia maszynowego. Wyjaśniona została jej ogólna koncepcja, a następnie opisano użyte algorytmy.
 
 
 \section{Wideo}
 
-Wideo jest formą zapisu sygnału wizji (analogowego bądź cyfrowego). W swojej surowej postaci jest to sekwencja pojedynczych ramek. Ramki natomiast składają się z pikseli, a one są definiowane poprzez: luminancję ({\em ang. luminace}) i chrominancje ({\em ang. chrominance}). Luminancja odpowiada za intensywność obrazu, a chrominancja za kolory. 
+Wideo jest formą zapisu sygnału wizji (analogowego bądź cyfrowego). W swojej surowej postaci jest to sekwencja pojedynczych ramek. Ramki natomiast składają się z pikseli, a one są definiowane poprzez: luminancję ({\em ang. luminace}) i chrominancje ({\em ang. chrominance}). Luminancja odpowiada za jasność obrazu, a chrominancja za kolorystykę. 
 
-Surowe wideo zajmuje bardzo dużo przestrzeni dyskowej. Przykładowo obraz o rozdzielczości 1920x1080 z 24 ramkami na sekundę o długości 30 sekund zajmuje ponad \todo{sprawdzić ile dokładnie}30 GB w pamięci komputera. Tak duże rozmiary znacząco ograniczają możliwości przechowywania i transmisji dla zwykłych użytkowników. Dlatego praktycznie każdy plik wideo wykorzystuje kodeki, czyli pewne ustandaryzowane zasady kompresji/dekompresji. Do tej grupy należą między innymi: H.261, MPEG-1, H.262/MPEG-2, H.263, H.265 i powszechnie używany w Internecie do transmitowania multimediów --  H.264 \cite{video_codecs}. 
+Surowe wideo zajmuje bardzo dużo przestrzeni dyskowej. Przykładowo obraz o rozdzielczości 1920x1080 z 24 ramkami na sekundę o długości 30 sekund zajmuje ponad \todo{sprawdzić ile dokładnie ((1920x1080x3x24x30/1024)/1024)/1024 ~ 4GB }30 GB w pamięci komputera. Tak duże rozmiary znacząco ograniczają możliwości przechowywania i transmisji dla zwykłych użytkowników. Dlatego praktycznie każdy plik wideo wykorzystuje kodeki, czyli pewne ustandaryzowane zasady kompresji/dekompresji. Do tej grupy należą między innymi: H.261, MPEG-1, H.262/MPEG-2, H.263, H.265 i powszechnie używany w Internecie do transmitowania multimediów --  H.264 \cite{video_codecs}. 
 
-Można wyróżnić dwa rodzaje kompresji: stratna i bezstratna. W przetwarzaniu obrazów stosowana jest ta pierwsza. Kompresja stratna znacząco obniża rozmiar pliku. W przypadku wideo wskaźnik kompresji może wynosić nawet 200:1. Technika ta korzysta wtedy z ograniczeń ludzkiego oka i usuwa informacje o obrazie, które i tak nie zostałyby wychwycone. Poniżej zaprezentowano schemat przetwarzania obrazu stałego kodekiem JPEG.
+Można wyróżnić dwa rodzaje kompresji: stratna i bezstratna. W przetwarzaniu obrazów stosowana jest ta pierwsza. Kompresja stratna znacząco obniża rozmiar pliku. W przypadku wideo wskaźnik kompresji może wynosić nawet 200:1 \todo[inline]{Skąd ta liczba?}. Technika ta korzysta wtedy z ograniczeń ludzkiego oka i usuwa informacje o obrazie, które i tak nie zostałyby wychwycone \todo[inline]{To po co algorytmy testowania jakości skoro nikt tego nie wychwytuje?}. Poniżej zaprezentowano schemat przetwarzania obrazu stałego kodekiem JPEG.
 
 \begin{figure}[h]
 		\centerline{\includegraphics[ height=1.5cm, width=12cm]{kodowanie}}
 		\caption{Schemat kodowania dla JPEG.}
 		\label{fig:xccs}
 \end{figure}
+\todo[inline]{Do takiego schematu polecam tikz-a - będzie lepiej wyglądać i łatwiej będzie go edytować. Tu są przykład:} \url{https://www.reddit.com/r/LaTeX/comments/8eu450/having_problems_creating_a_flowchart_using_tikz}
+Większość kodeków bazuje swoje działania na transformacji DCT (\emph{ang. Discret Cosinus Transformation}). Polega ona na przeniesieniu, wcześniej wydzielonych z oryginalnego obrazu bloków pikseli, z dziedziny przestrzeni \todo[inline]{Co to jest dziedzina przestrzeni?} do dziedziny częstotliwości. Na tak przygotowanych blokach dokonywana jest kwantyzacja.Proces ten polega na zapisaniu  wartości pikseli na ograniczonej liczbie bitów, co już zmniejsza rozmiar danych. Kolejnym krokiem jest zastosowanie algorytmów kompresji \emph{run-lenght coding} i \emph{variable-lenght coding}. Pierwszy z nich grupuje ciągi zer i zapisuje ich liczbę zamiast całej takiej serii. Drugi zmienia postać słów kodowych na bardziej wydajna formę, poprze zapisanie tych często występujących krótszą sekwencją bitów \cite{kodowanie} (na przykład dzięki kodowaniu Huffman'a). \todo[inline]{Ten proces kompresja stratna obrazu i kompresja bezstratna bitów jakie na koniec otrzymamy, ten opis jest bardzo niedokładny}
 
-Większość kodeków bazuje swoje działania na transformacji DCT (\emph{ang. Discret Cosinus Transformation}). Polega ona na przeniesieniu, wcześniej wydzielonych z oryginalnego obrazu bloków pikseli, z dziedziny przestrzeni do dziedziny częstotliwości. Na tak przygotowanych blokach dokonywana jest kwantyzacja.Proces ten polega na zapisaniu  wartości pikseli na ograniczonej liczbie bitów, co już zmniejsza rozmiar danych. Kolejnym krokiem jest zastosowanie algorytmów kompresji \emph{run-lenght coding} i \emph{variable-lenght coding}. Pierwszy z nich grupuje ciągi zer i zapisuje ich liczbę zamiast całej takiej serii. Drugi zmienia postać słów kodowych na bardziej wydajna formę, poprze zapisanie tych często występujących krótszą sekwencją bitów \cite{kodowanie} (na przykład dzięki kodowaniu Huffman'a).
-
-Kodeki wideo dodatkowo dokonują kompresji na podstawie różnic w ramkach. Różnice te są określane jako wektor ruchu (\emph{ang. motion vector}) i liczone na zasadzie porównania makro-bloku z ramki referencyjnej i tego samego bloku z obecnej ramki \ref{fig:ramki}. Dzięki tej technice po kompresji zatrzymane są  pełne dane tylko o części ramek. Do odkodowania pozostałych wystarczą wektory ruchu \cite{kodowanie}. 
+Kodeki wideo dodatkowo dokonują kompresji na podstawie różnic w ramkach. Różnice te są określane jako wektor ruchu (\emph{ang. motion vector}) i liczone na zasadzie porównania makro-bloku z ramki referencyjnej i tego samego bloku z obecnej ramki \ref{fig:ramki}. Dzięki tej technice po kompresji zatrzymane są  pełne dane tylko o części ramek. Do odkodowania pozostałych wystarczą wektory ruchu \cite{kodowanie}. \todo[inline]{Nie jest to takie proste, kodujemy różnicę, więc same wektory ruchu nie wystarczą}
 
 Ze względu na sposób kodowania można wyróżnić trzy typy ramek.
 \begin{itemize}[label=$\bullet$]
@@ -58,17 +56,16 @@ Ze względu na sposób kodowania można wyróżnić trzy typy ramek.
 \end{figure}
  
 
-Sam proces kompresji jak i błędy transmisji czy nagrywania mogą powodować powstanie zaburzeń w odtwarzanym obrazie. W celu mierzenia poziomu uszkodzeń oraz monitorowania stanu wideo badacze zdefiniowali wiele metryk.\par
+Sam proces kompresji jak i błędy transmisji czy nagrywania mogą powodować powstanie zaburzeń w odtwarzanym obrazie. W celu mierzenia poziomu uszkodzeń oraz monitorowania stanu wideo badacze zdefiniowali wiele metryk.\par 
 
-
-\todo{Tu został pominięty super ważny aspekt zniekształceń wynikających z samej kompresji. Jste napisane, że błędy ... To nie tak, kompresja, nawet bez błędów, wprowadza zniekształcenia. To istotne jakie, bo tylko takie warto wykrywać, jeżeli strumieniujemy po TCP, dopiero strumienie UDP wymagają innych algorytmów szacowania jakości. }
+\todo[inline]{Ostatni akapit jest bardzo niezgrabny stylistycznie/gramatycznie. Teraz dowiadujemy się więcej o kompresji, ale nadal nie wiemy tego co najważniejsze, jak wyglądają typowe zniekształcenia, co mają wykrywać nasze metryki?}
 
 \section{Metryki}
 %https://books.google.se/books?id=JbtPCwAAQBAJ&pg=PA32&dq=video++quality+metrics+full+reference&hl=en&sa=X&ved=0ahUKEwi4wtGc2YfiAhWx-ioKHZJtAtcQ6AEIKjAA#v=onepage&q=video%20%20quality%20metrics%20full%20reference&f=false
 
-Jakość danego wideo jest najtrafniej oceniona dzięki tak zwanej ocenie subiektywnej. Polega ona na określeniu jakości odbioru przez człowieka na podstawie jego odczuć. Niestety, aby takie badanie było miarodajne należy je przeprowadzić w odpowiednich warunkach, przygotować zestaw testów, zrekrutować uczestników oraz cały czas nadzorować jego przebieg. Wszystko to generuje duże koszty i zabiera cenny czas, ale przede wszystkim nie pozwala na ocenę jakości w czasie rzeczywistym na przykład podczas stremowania wideo. Problem ten rozwiązują metryki jakości wideo. które w przeciwieństwie do oceny subiektywnej, bazują na obiektywnych pomiarach właściwości obrazu.\cite{vqm}.\par
+Referencyjną oceną jakości wideo jest tak zwana ocena subiektywna. Polega ona na określeniu jakości odbioru przez człowieka na podstawie jego odczuć. Niestety, aby takie badanie było miarodajne należy je przeprowadzić w odpowiednich warunkach, przygotować zestaw testów, zrekrutować uczestników oraz cały czas nadzorować jego przebieg. Wszystko to generuje duże koszty i zabiera czas, ale przede wszystkim nie pozwala na ocenę jakości w czasie rzeczywistym na przykład podczas przesyłania wideo w sieci. Problem ten rozwiązują metryki jakości wideo. które w przeciwieństwie do oceny subiektywnej, bazują na obiektywnych pomiarach właściwości obrazu.\cite{vqm}.\par
 
-Metryki jakości wideo mogą zostać sklasyfikowane na podstawie tego czy do ich wyznaczenia wymagana jest obecność oryginalnego pliku wideo. Metryki, które wymagają takiego pliku określane są mianem {\em  full-reference} (FR). Porównują one właściwości zniekształconego i bazowego wideo, \todo{To straszna kalka językowa, w polskim to oryginalny i zniekształcony. Zakłócenia to raczej radiowe są :)}aby na podstawie tak otrzymanych informacji dokonać estymaty jakości. Innym rodzajem metryk są metryki {\em no-reference} (NR). Dokonują one oceny jakości na podstawie tylko zniekształconego wideo i nie wymagają do tego żadnych dodatkowych informacji\cite{vqm}.\par
+Metryki jakości wideo mogą zostać sklasyfikowane na podstawie tego czy do ich wyznaczenia wymagana jest obecność oryginalnego pliku wideo. Metryki, które wymagają takiego pliku określane są mianem {\em  full-reference} (FR). Porównują one właściwości zniekształconego i bazowego wideo, aby na podstawie tak otrzymanych informacji dokonać estymaty jakości. Innym rodzajem metryk są metryki {\em no-reference} (NR). Dokonują one oceny jakości na podstawie tylko zniekształconego wideo i nie wymagają do tego żadnych dodatkowych informacji\cite{vqm}.\par
 
 
 
@@ -78,21 +75,21 @@ Podczas badań nad jakością  wideo używane są pewne sformułowania ułatwiaj
 	\item SRC (\emph{ang. Source}) -- oryginalna sekwencja wideo
 	\item PVS (\emph{ang. Processed Video Sequences}) -- pliki wideo powstałe w skutek zniekształcenia SRC
 \end{itemize}
-
+\todo[inline]{Typowym zabiegiem jest przeniesienie sekcji słownika jako osobny rozdział na początku pracy, w tym miejscu jest to dziwne, bo nawet nie korzysta Pani z tych pojęć w ``okolicy''.}
 
 W poniższych podrozdziałach w skrócie zostały opisane metryki typu NR i FR.
 
 \subsection{Metryki no-reference}
 %\let\labelitemi\labelitemii
 \begin{itemize}[label=$\bullet$]
-\item Blokowość ({\em ang. Blockiness}) -- powstaje podczas kodowania. Dotyczy związanych z tym procesem bloków pikseli i kompresji jaka jest na nich dokonywana. Objawia się poprzez zauważalną między tymi blokami\cite{blockiness}. Skala przyjęta w pracy: 0-3570. Im większa wartość, tym mniej widoczne zakłócenie. Dla obrazu bez zakłóceń około 0.9-1.01\cite{agh_vqm}.
+\item Blokowość ({\em ang. Blockiness}) -- powstaje podczas kodowania. Dotyczy związanych z tym procesem bloków pikseli i kompresji jaka jest na nich dokonywana. Objawia się poprzez zauważalną między tymi blokami\cite{blockiness}. \todo[inline]{Czegoś w tym zdaniu brakuje} Skala przyjęta w pracy: 0-3570. Im większa wartość, tym mniej widoczne zakłócenie. Dla obrazu bez zakłóceń około 0.9-1.01\cite{agh_vqm}. \todo[inline]{Nic z tego opisu nie rozumiem. Skala jest to 3570, ale już od 0.9 nic nie widać, to po co wartości > 1?}
 \begin{figure}[h]
 \centerline{\includegraphics[ height=4cm, width=7cm]{blockiness}}
 \caption{Przykładowy obraz z zakłóceniami spowodowanymi blokowością\cite{agh_vqm}.}
 \label{fig:xccs}
 \end{figure}
 
-\item Aktywność przestrzenna ({\em ang. Spatial Activity}) -- opisuje położenie obiektu na ramce oraz jego relacje z innymi obiektami. Pozwala rozróżnić czy aktywność na danym wideo jest czynnością statyczną (osoba wykonująca czynność pozostaje w jednym miejscu) czy mobilną (osoba wykonująca czynność porusza się wzdłuż pola widzenia)\cite{spactial_act}. Skala przyjęta w pracy: 0-270. Im większa wartość, tym większa aktywność przestrzenna\cite{agh_vqm}
+\item Aktywność przestrzenna ({\em ang. Spatial Activity}) -- opisuje położenie obiektu na ramce oraz jego relacje z innymi obiektami. Pozwala rozróżnić czy aktywność na danym wideo jest czynnością statyczną (osoba wykonująca czynność pozostaje w jednym miejscu) czy mobilną (osoba wykonująca czynność porusza się wzdłuż pola widzenia)\cite{spactial_act}. Skala przyjęta w pracy: 0-270. Im większa wartość, tym większa aktywność przestrzenna\cite{agh_vqm} \todo[inline]{po co tu jakieś osoby, jak się będzie ruszać kamera a nie osoby to nie będzie wartości? }
 \begin{center}
 \centerline{\includegraphics[ height=4cm, width=7cm]{spatialAC}}
 \captionof{figure}{Przykład detekcji krawędzi obiektów w ramce, niezbędne do otrzymania informacji o aktywnosci przestrzennej\cite{agh_vqm}.}
@@ -195,7 +192,7 @@ Oprócz wyżej wymienionych wskaźników, w obecnym opracowaniu w pracy zostały
 \begin{itemize}[label=$\bullet$]
 \item Rozdzielczość ({\em ang.  Resolution}) -- miara określająca rozmiar ramki. Jednostką są piksele. Podawana jest zazwyczaj w następujący sposób: szerokość x wysokość. Do badań zostały użyte wideo o rozdzielczościach: 3840x2160, 1920x1080, 704x576, 640x480, 352x288. 
 \item Klatki na sekundę ({\em ang. fps, frames per second}) -- liczba ramek wyświetlonych w czasie sekundy. W telewizji stosowane jest 25 ramek na sekundę. Do badań użyto następujące częstotliwości: 60, 30, 25, 24 fps.
-\item Próbkowanie chrominacji  ({\em ang.Chroma subsampling}) -- Jest to cecha  wideo wynikająca z sposobu kodowania  informacji w pikselu. Samo działanie ma na celu  ograniczenie zużycia zasobów.  W takim przypadku wykorzystuje się  niedoskonałość ludzkiego oka, które jest bardziej wrażliwe na jasność, niż na kolor. Jak wcześniej zostało wspominane piksel jest opisywany dwoma zmiennymi: luminacją i chrominacją. Piksel, w modelu kolorów YUV (innym modelem kolorów jest RGB),  jest  kodowany w następujący sposób: YCbYc, gdzie Y oznacza luminację, Cb intensywność koloru niebieskiego(chrominacja), a Cr intensywność koloru czerwonego (chrominacja). Chcąc zmniejszyć ilość danych, potrzebnych do zbudowania obrazu, ogranicza się informację dotyczące części odpowiedzialnej za kolor. Przykładowo 4:2:2 oznacza, że na daną czwórkę pikseli kolor będzie pod próbkowany na tylko co drugim z nich, a sąsiedzi przejmą od nich tą informację  \cite{chroma_sampling}. W danych zebranych do pracy użyto następujących wartości:.
+\item Próbkowanie chrominacji  ({\em ang.Chroma subsampling}) -- Jest to cecha  wideo wynikająca z sposobu kodowania  informacji w pikselu. \todo[inline]{To powinno być w opisie czym jest kompresja, jest to najczęściej pierwszy krok kompresji obrazu} Samo działanie ma na celu  ograniczenie zużycia zasobów.  W takim przypadku wykorzystuje się  niedoskonałość ludzkiego oka, które jest bardziej wrażliwe na jasność, niż na kolor. Jak wcześniej zostało wspominane piksel jest opisywany dwoma zmiennymi: luminacją i chrominacją. Piksel, w modelu kolorów YUV (innym modelem kolorów jest RGB),  jest  kodowany w następujący sposób: YCbYc, gdzie Y oznacza luminację, Cb intensywność koloru niebieskiego(chrominacja), a Cr intensywność koloru czerwonego (chrominacja). Chcąc zmniejszyć ilość danych, potrzebnych do zbudowania obrazu, ogranicza się informację dotyczące części odpowiedzialnej za kolor. Przykładowo 4:2:2 oznacza, że na daną czwórkę pikseli kolor będzie pod próbkowany na tylko co drugim z nich, a sąsiedzi przejmą od nich tą informację  \cite{chroma_sampling}. W danych zebranych do pracy użyto następujących wartości:.
 \end{itemize}
 
 
@@ -226,9 +223,11 @@ SSIM = I(S, S')c(S, S')s(S,S')
 
 \section{Algorytmy uczenia maszynowego }
 
-Obecne czasy charakteryzują się ogromną ilością danych, które zewsząd otaczają człowieka i jego środowisko. W każdej sekundzie różnego rodzaju dane są zbierane, przesyłane, prezentowane i analizowane. Aby móc, w optymalny sposób, czerpać z nich zyski zostały opracowane pewne algorytmy, bazujące na statystyce. Algorytmy te potrafią zamodelować zadane zdarzenie i na jego    podstawie dokonać predykcji . Mogą również w czasie rzeczywistym (czasem nawet korzystając ze swoich już dokonanych obliczeń), poprawiać i udoskonalać swoją strukturę zwiększając dokładność. Dziedzina nauki zajmująca się takimi algorytmami nazywana jest uczeniem maszynowym ({\em ang. Machine Learning}).\par
+Obecne czasy charakteryzują się ogromną ilością danych, które zewsząd otaczają człowieka i jego środowisko. \todo[inline]{To super dziwne zdanie, dane są jak powietrze?} W każdej sekundzie różnego rodzaju dane są zbierane, przesyłane, prezentowane i analizowane. Aby móc, w optymalny sposób, czerpać z nich zyski zostały opracowane pewne algorytmy, bazujące na statystyce. Algorytmy te potrafią zamodelować zadane zdarzenie i na jego podstawie dokonać predykcji . Mogą również w czasie rzeczywistym (czasem nawet korzystając ze swoich już dokonanych obliczeń), poprawiać i udoskonalać swoją strukturę zwiększając dokładność. Dziedzina nauki zajmująca się takimi algorytmami nazywana jest uczeniem maszynowym ({\em ang. Machine Learning}).\par \todo[inline]{To zupełnie nie tak. Pomieszanie systemów czasu rzeczywistego i ML i coś z danymi to straszne zagmatwanie i mijanie się z tym co jest istotne w pracy. W pracy chcemy powiedzieć, że 1. możliwości pozyskiwania i gromadzenia danych rosną, 2. narzędzia do ich przetwarzania są rozwijane bardzo intensywnie przez wiele różnych zespołów 3. ML pozwala tworzyć wiedzę w oparciu o dane (to istota ML!) 4. ML staje się coraz istotniejszym sposobem przetwarzania danych, gdzie wyciągamy wiedzę z danych bez naszego udziału}
 
-Głównym zadaniem algorytmów uczenia maszynowego jest odnalezienie jak najdokładniejszego przybliżenia funkcji: $f \colon X \to Y$. Jest to funkcja opisująca zależności pomiędzy danymi wejściowymi $X$, a danymi wyjściowymi $Y$\cite{ml_supervised}. Współczynnik determinacji R-kwadrat ($R^2$) pokazuje jak bardzo udało się zbliżyć do tej funkcji. Definiowany jest on wzorem \ref{eqn:r2}. 
+Głównym zadaniem algorytmów uczenia maszynowego jest odnalezienie jak najdokładniejszego przybliżenia funkcji: $f \colon X \to Y$.
+\todo[inline]{To eleiminuje algorytmy bez nauczyciela, reinforsment learning, oraz wiele algorytmów, gdzie Y nie jest tak jasno określone, jak tłumaczenie. W pracy trzeba być precyzyjnym i opisać dokładnie o co chodzi.}
+ Jest to funkcja opisująca zależności pomiędzy danymi wejściowymi $X$, a danymi wyjściowymi $Y$\cite{ml_supervised}. Współczynnik determinacji R-kwadrat ($R^2$) pokazuje jak bardzo udało się zbliżyć do tej funkcji. Definiowany jest on wzorem \ref{eqn:r2}. 
 \begin{equation}
 \label{eqn:r2}
 R^2=1- \frac{ \sum_{i=1}^{n}(y_i-y'_i)^2}{\sum_{i=1}^{n}(y_i-\bar{y}_i)^2 }
