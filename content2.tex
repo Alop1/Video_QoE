@@ -2,19 +2,19 @@
 \chapter{Metodologia badań}
 Niniejszy rozdział będzie opisywał przeprowadzone etapy badań. W pierwszej kolejności wymienione zostaną narzędzia. 
 
-Następnie, przedstawione będą elementy procesu eksploracji danych nie dotyczące pracy z algorytmami uczenia maszynowego, takie jak: wyszukiwanie, zbieranie, ekstrakcja cech, czyszczenie i normalizacja danych. Nawiązując do ankiety przeprowadzonej przez CrowdFlower \cite{ds_report}: podczas badań związanych z {\em Big Data}, znacząca większość czasu pochłaniana jest przez zbieranie i przygotowanie danych. Zasada ta miała swoje odzwierciedlenie również w tej pracy, szczególnie, że przedmiotem badań było wideo, które wymaga wykorzystania dużych zasobów podczas tych procesów (w odróżnieniu od na przykład danych tekstowych). 
+Następnie przedstawione będą elementy procesu eksploracji danych niedotyczące pracy z algorytmami uczenia maszynowego, takie jak: wyszukiwanie, zbieranie, ekstrakcja cech, czyszczenie i normalizacja danych. Nawiązując do ankiety przeprowadzonej przez CrowdFlower \cite{ds_report}: podczas badań związanych z {\em Big Data}, znacząca większość czasu pochłaniana jest przez zbieranie i przygotowanie danych. Zasada ta miała swoje odzwierciedlenie również w tej pracy, szczególnie, że przedmiotem badań było wideo, które wymaga wykorzystania dużych zasobów podczas tych procesów (w odróżnieniu od na przykład danych tekstowych). 
 
 Na końcu opisany zostanie proces trenowania, wyniki predykcji z modeli powstałych w oparciu o algorytmy wymienione z poprzedniej sekcji.
 %https://visit.figure-eight.com/rs/416-ZBE-142/images/CrowdFlower_DataScienceReport.pdf -> slajd 5
 \label{cha:pierwszyDokument}
 
 \section{Narzędzia}
-Specyfika badań wymagała narzędzi będących w stanie, sprawnie przetwarzać duże ilości informacji oraz zautomatyzować procesy związane z pobieraniem i przygotowaniem danych. Do tych zadań, jako optymalne rozwiązanie, został wybrany język programowania Python, według badań[link] \todo{dodac cite}jeden z najpopularniejszych języków programowania w {\em Data science}. Python pozwala użytkownikowi na korzystanie z zalet programowania strukturalnego, w przypadku prostych skryptów wykonujących krótkie zadanie (przykładowo: automatyczne kopiowanie i zmienianie nazw w paczkach plików), jak i obiektowego, gdzie konieczne jest ustalenie i ustrukturyzowanie pewnych zależności pomiędzy danymi. Dodatkową jego zaletą jest szereg bibliotek stworzonych z myślą o eksploracji danych. Do badań zostały wykorzystane następujące pakiety: sklearn, pandas, selenium (framework), numpy, matplotlib.\par\par
+Specyfika badań wymagała narzędzi będących w stanie sprawnie przetwarzać duże ilości informacji oraz zautomatyzować procesy związane z pobieraniem i przygotowaniem danych. Do tych zadań, jako optymalne rozwiązanie, został wybrany język Python. Według badań \cite{python} jest to jeden z najpopularniejszych języków programowania w {\em Data science}. Python pozwala użytkownikowi na korzystanie z zalet programowania strukturalnego, w przypadku prostych skryptów wykonujących krótkie zadania (przykładowo: automatyczne kopiowanie i zmienianie nazw w paczkach plików), jak i obiektowego, gdzie konieczne jest ustalenie i ustrukturyzowanie pewnych zależności pomiędzy danymi. Dodatkową jego zaletą jest szereg bibliotek stworzonych z myślą o eksploracji danych. Do badań zostały wykorzystane następujące pakiety: sklearn, pandas, selenium (framework), numpy, matplotlib.\par\par
 Poniżej zostały wymienione narzędzia, które posłużyły do ekstrakcji danych z plików wideo:
 \begin{itemize}[label=$\bullet$]
-\item ffmpg -- jest aplikacją na licencji {\em opensource}. Dzięki niej otrzymane zostały informacje takie jak: rozdzielczość, dane o próbkowaniu chrominancji, liczba klatek na sekundę. Dodatkowo dzięki ffmpeg skompresowane pliki wideo rozstały rozłożone na pojedyncze ramki.
+\item FFmpeg -- jest aplikacją na licencji {\em opensource}. Dzięki niej otrzymane zostały informacje takie jak: rozdzielczość, dane o próbkowaniu chrominancji, liczba klatek na sekundę. Dodatkowo dzięki FFmpeg skompresowane pliki wideo rozstały rozłożone na pojedyncze ramki.
 \item {\em AGH Video Quality Indicators} -- jest ogólnodostępnym oprogramowaniem rozwijanym przez Katedrę Telekomunikacji AGH, przy jego użyciu otrzymane zostały dane o metrykach typu {\em no-reference} \cite{agh_vqm}.
-\item VMAF Development Kit (VDK) -- podobnie jak powyższe, VDK jest ogólnodostępnym oprogramowaniem rozwijanym przez Netflix. Zaimplementowane tu zostały algorytmy liczące metryki {\em full-reference}\cite{vdk}.
+\item VMAF Development Kit (VDK) -- podobnie jak powyższe, VDK jest ogólnodostępnym oprogramowaniem rozwijanym przez Netflix. Zaimplementowane tu zostały algorytmy liczące metryki {\em full-reference} \cite{vdk}.
 \end{itemize}
 Zbieranie danych i wydobywanie cech wideo odbywało się w dwóch środowiskach: na lokalnie działającej maszynie wirtualnej z systemem operacyjnym Xubuntu oraz na super komputerze Prometeusz z systemem Centos. 
 
@@ -39,18 +39,18 @@ Na rysunku \ref{fig:data_preparation_work_flow} został przedstawiony schemat et
 \subsection{Zbieranie danych}
 Rozpoczęcie przetwarzania danych wymaga w pierwszej kolejności ich zebrania. Dla stworzenia algorytmu oceny jakości, podczas wyszukiwania danych, głównym kryterium było odnalezienie takich baz, gdzie oprócz plików wideo (SRC + PVS) istniała również jego subiektywna ocena. Ocena ludzka była konieczna, ponieważ to ona stanowiła dane nadzorcze podczas trenowania modeli. W pracy tej użyto następujące źródła danych:
 \begin{itemize}
-\item Subjective quality of H.264/SVC videos using ACR-HR method in VGA -- baza danych udostępniona dzięki The Institut de Recherche en Communications et Cybernétique de Nantes. W jej skład wchodzi około 300 plików wideo, ich czas trwania to: 10-12s, a rozdzielczość wszystkich wynosi: 640x480. \cite{pitrey:hal-00608310}.
-\item Lab for Video and Image Analysis – LFOVIA -- jest grupą badaczy z Indian Institute of Technology Hyderabad zajmujących się tematyką jakości wideo. Dzięki udostępnionym przez nich plikom,  baza danych wejściowych w niniejszej pracy powiększyła się o 40 nowych obrazów w wysokich rozdzielczościach: FHD (1920x1080), UHD (3840x2160) i czasie trwania po 120 sekund każdy\cite{india}.
+\item Subjective quality of H.264/SVC videos using ACR-HR method in VGA -- baza danych udostępniona dzięki The Institut de Recherche en Communications et Cybernétique de Nantes. W jej skład wchodzi około 300 plików wideo, ich czas trwania to: 10-12s, a rozdzielczość wszystkich wynosi: 640x480 \cite{pitrey:hal-00608310}.
+\item Lab for Video and Image Analysis – LFOVIA -- jest grupą badaczy z Indian Institute of Technology Hyderabad zajmujących się tematyką jakości wideo. Dzięki udostępnionym przez nich plikom,  baza danych wejściowych w niniejszej pracy powiększyła się o 40 nowych obrazów w wysokich rozdzielczościach: FHD (1920x1080), UHD (3840x2160) i czasie trwania po 120 sekund każdy \cite{india}.
 \item LIVE Netflix Video Quality of Experience Database -- baza danych stworzona przez naukowców z The University of Texas at Austin. W jej skład wchodzi 26 wideo o rozdzielczości 1920x1080, o długości 120 sekund każdy \cite{netflix_1}\cite{netflix_11}.
 \item LIVE-NFLX-II Subjective Video QoE Database -- również stworzona przez The University of Texas at Austin w celu badań nad optymalnym przesyłem wideo w sieci. W bazie danych znajduje się 420 plików wideo o rozdzielczości FHD i czasie trwania około 40 sekund.
-\item EPFL-PoliMI video quality assessment database -- Baza plików wideo utworzona przez dwie współpracujące uczelnie: Politecnico di Milano - Włochy i Ecole Polytechnique Fédérale de Lausanne - Szwajcaria. Dane składają się z 12 obrazów referencyjnych (SRC) oraz z aplikacji pozwalającej wygenerować dla nich PVSs. W ten sposób zostały uzyskane około 150 nowych filmów do badań w dwóch rozdzielczościach: 704x576, 352x288 i o czasie trwania około 10s\cite{italy}\cite{italy_2}\cite{italy_3}.
+\item EPFL-PoliMI video quality assessment database -- Baza plików wideo utworzona przez dwie współpracujące uczelnie: Politecnico di Milano - Włochy i Ecole Polytechnique Fédérale de Lausanne - Szwajcaria. Dane składają się z 12 obrazów referencyjnych (SRC) oraz z aplikacji pozwalającej wygenerować dla nich PVSs. W ten sposób zostały uzyskane około 150 nowych filmów do badań w dwóch rozdzielczościach: 704x576, 352x288 i o czasie trwania około 10s \cite{italy}\cite{italy_2}\cite{italy_3}.
 \end{itemize}
 Początkowo w badaniach brała udział jeszcze jedna baza wideo z 220-oma plikami. Niestety, jak się okazało plik referencyjny oraz jego zniekształcone wersje posiadały różne wartości fps, przez co metryki typu VMAF nie były w stanie podać miarodajnych wyników. Cała więc baza musiała zostać pominięta.\par
 
 \subsection{Ekstrakcja cech}
 Kolejnym krokiem po zebraniu danych była ekstrakcja cech wideo, które później miały być użyte podczas przygotowywania modeli. W celu otrzymania cech należało każde wideo przekształcić do serii pojedynczych ramek w formacie YUV. 
 
-Dalszy proces ekstrakcji był o tyle problematyczny, że różne, do tego wykorzystywane narzędzia, wymagały w różny sposób dostosowanych danych. Co więcej wideo bez kompresji zajmuje bardzo dużo przestrzeni dyskowej, a sam proces przetwarzania wideo wymaga również znacznego nakładu pracy dla procesora. Cechy biorące udział w badaniach to: blokowość, aktywność przestrzenna, aktywność czasowa, letterbox, pillarbox, straty bloków, rozmycie, wyciemnienie, zamrożenie, ekspozycja, kontrast, jasność, szum, PSNR, SSIM, MS-SSIM, VMAF, czas trwania, próbkowanie chrominancji, liczba klatek na sekundę.\par
+Dalszy proces ekstrakcji był o tyle problematyczny, że różne, do tego wykorzystywane narzędzia, wymagały w różny sposób dostosowanych danych. Co więcej, nieskompresowane wideo zajmuje bardzo dużo przestrzeni dyskowej, a sam proces przetwarzania wideo wymaga również znacznego nakładu pracy dla procesora. Cechy biorące udział w badaniach to: blokowość, aktywność przestrzenna, aktywność czasowa, letterbox, pillarbox, straty bloków, rozmycie, wyciemnienie, zamrożenie, ekspozycja, kontrast, jasność, szum, PSNR, SSIM, MS-SSIM, VMAF, czas trwania, próbkowanie chrominancji, liczba klatek na sekundę.\par
 
 Dane dotyczące metryk $full$-$renerence$ oraz $no$-$reference$ zostały uzyskane na każdą z ramek. W następnym kroku wartości te zostały uśrednione na całe wideo. Cechy pochodzące z obu źródeł: VDK i AGH Video Quality Indicators zostały ujednolicone i zapisywanym razem w postaci pliku CSV.\par
 
@@ -104,7 +104,7 @@ Poniższa tabela \ref{tab:tabela} przedstawia uzyskane dane
 
 
 
-\section{Proces budowania i testowania}
+\section{Proces budowania i testowania modeli}
 \label{cha:drugiDokument}
 
 
@@ -112,7 +112,7 @@ Z uwagi na specyfikę przygotowania danych treningowych i testowych każdy z mod
 
 Podział danych 80:20 dotyczy paczek SRC + PSV, natomiast budowa modeli odbywa się już na podstawie danych z pojedynczych plików wideo. Dlatego może zaistnieć sytuacja kiedy większość małych paczek (na przykład po tylko 3 pliki wideo) znajdą się w danych treningowych, a większość dużych (na przykład po 15 wideo) w danych testujących. Tym samym faktyczny podział może wynosić w skrajnym przypadku 50:50, zamiast 80:20 (taki sam odstęp może wystąpić w drugą stronę). Dlatego  przy  każdym uruchomieniu aplikacji, podział zgromadzonych danych dobywał się na zasadzie losowo wybranych paczek do każdej grup -- danych trenujących i testujących, przy zachowaniu podziału 80:20.\par
 
-Wykres \ref{fig:execution} odnosi się do przeprowadzonego eksperymentu, który pomógł wybrać optymalną liczbę iteracji dla wyżej omówionej techniki. Linie przedstawia uśrednione R-kwadrat na liczbę modeli(w tym przypadku powstałych na bazie zestawu danych wejściowych numer 18\ref{tab:tabela2}) biorących udział podczas jej obliczania. Czytając ten wykres można stwierdzić, że dla każdego z algorytmów wyniki  stabilizują się przy około 80 modelach. W celu uniknięcia niemiarodajnych wyników w dalszych badaniach  wybrano liczbę (z pewnym zapasem) stu modeli na podstawie których  obliczany był uśredniony R-kwadrat.
+Wykres \ref{fig:execution} odnosi się do przeprowadzonego eksperymentu, który pomógł wybrać optymalną liczbę iteracji dla wyżej omówionej techniki. Linie przedstawia uśrednione R-kwadrat na liczbę modeli(w tym przypadku powstałych na bazie zestawu danych wejściowych numer 18 -- tabela 3.2) biorących udział podczas jej obliczania. Czytając ten wykres można stwierdzić, że dla każdego z algorytmów wyniki  stabilizują się przy około 80 modelach. W celu uniknięcia niemiarodajnych wyników w dalszych badaniach  wybrano liczbę (z pewnym zapasem) stu modeli na podstawie których  obliczany był uśredniony R-kwadrat.
 
 \begin{center}
 	\includegraphics[ height=7cm, width=11cm]{execution}
@@ -122,7 +122,7 @@ Wykres \ref{fig:execution} odnosi się do przeprowadzonego eksperymentu, który 
 \end{center}
 \todo{zmienic opis}
 
-W badaniach postanowiono sprawdzić  modele trenowane w oparciu o: każdą z osobna metrykę FR, wybrane metryki NR i ich niektóre kombinacje. Uruchomienia sekwencji budowania i testowania odbywały się na następujących zestawach cech wideo \ref{tab:tabela2}.  Dalsze rozdziały będą odnosić się do poniższej numeracji w kontekście zestawów cech.
+W badaniach postanowiono sprawdzić  modele trenowane w oparciu o: każdą z osobna metrykę FR, wybrane metryki NR i ich niektóre kombinacje. Uruchomienia sekwencji budowania i testowania odbywały się na zestawach cech prezentowanych w tabeli 3.2.  Dalsze rozdziały będą odnosić się do poniższej numeracji w kontekście zestawów cech.
 
 \begin{table}[]
 	\raggedright
@@ -160,6 +160,7 @@ W badaniach postanowiono sprawdzić  modele trenowane w oparciu o: każdą z oso
 		29                                                                & kontrast                                                                                                                                                                                                                                                                       \\ \hline
 		30                                                                & ekspozycja                                                                                                                                                                                                                                                                     \\ \hline
 	\end{tabular}
+	\caption{Numeracja zestawów danych biorących udział w badaniu.}
 	\label{tab:tabela2}
 \end{table}
 \AddThispageHook{\thispagestyle{empty}}%
@@ -173,10 +174,10 @@ W niniejszej pracy zostały przetestowane cztery algorytmy uczenia maszynowego p
 
 Regresja liniowa została sprawdzona w pierwszej kolejności. Jako referencyjny i jeden prostszych z algorytmów, nie wymaga ona podania dodatkowych parametrów, aby zadziałał w prawidłowy sposób. W tym przypadku wektor danych wejściowych podczas trenowania przedstawia się  następująco \ref{eqn:regresja}, gdzie $y_i$ jest subiektywną oceną dla filmu $i$, a $x_{1i}, x_{2i}...$ są jego cechami. \par
 
-Kolejnym testowanym algorytmem był SVR. Użyta funkcja kernela do wyznaczenia hiperpłaszczyzny to $Radial$ $Basis$ $Function$ (RBF). Współczynnikowi $\epsilon$ została przypisana wartość $0,1$. Przy współczynniku $\gamma$, która mówi jak odległe punkty będą miały wpływ na budowaną hiperpłaszczyznę, skorzystano z metody już zaimplementowanej w pakiecie sklearn, pozwalającej na wyznaczenie w bardziej dopasowanej wartości, bazując na dostępnym zbiorze danych. Parametr $C$, który odpowiada za wygładzenie funkcji SVR wynosi 0.7.\par
+Kolejnym testowanym algorytmem był SVR. Użyta funkcja kernela do wyznaczenia hiperpłaszczyzny to $Radial$ $Basis$ $Function$ (RBF). Współczynnikowi $\epsilon$ została przypisana wartość $0,1$. Przy współczynniku $\gamma$, który mówi jak odległe punkty będą miały wpływ na budowaną hiperpłaszczyznę, skorzystano z metody już zaimplementowanej w pakiecie sklearn, pozwalającej na wyznaczenie bardziej dopasowanej wartości, bazując na dostępnym zbiorze danych. Parametr $C$, który odpowiada za wygładzenie funkcji SVR wynosi 0.7.\par
 %https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2839056/
 
-Las losowy działa w oparciu o parametry podane przez badacza, takie jakie jak ilość drzew i ich głębokość. W tym przypadku użyto 100 drzew o głębokości 8. Jako metodę podejmowania decyzji o podziale danych (tworzenia węzłów decyzyjnych), został wybrany \emph{Gini Index} \par
+Las losowy działa w oparciu o parametry podane przez badacza, takie jakie jak ilość drzew i ich głębokość. W tym przypadku użyto 100 drzew o głębokości 8. Jako metodę podejmowania decyzji o podziale danych (tworzenia węzłów decyzyjnych), został wybrany \emph{Gini Index}. \par
 
 Ostatnim sprawdzonym algorytmem uczenia maszynowego była sieć neuronowa z następującymi parametrami -- 3 warstw ukrytych po 13 neuronów w każdej. Maksymalna ilość iteracji algorytmu $Backward$ $Propagation$ po której model będzie gotowy to 1000. Parametr $learning$ $rate$, określający szybkość uczenia, został ustawiony na wartość 0,001. Natomiast funkcję aktywacji stanowiła funkcja ReLU.\par
 
@@ -204,7 +205,7 @@ W pierwszej kolejności wyjaśniane zostaną różnice w obrębie zestawów dany
 
 Obserwując  poszczególne wyniki dla zestawów $no$-$reference$ (22 -- 30)  oraz $full$-$reference$ (1 -- 6, 20, 21) można zaobserwować, że te drugie znacznie trafniej dokonują predykcji. Prawdopodobną przyczyną występowania tej sytuacji jest nierównomierność w występowaniu cechy typu NR w dostępnych danych, co może dalej skutkować niewłaściwym dopasowaniem  modelu. Wysoki wyniki metryk FR dodatkowo potwierdzał by powszechną opinię o lepszej skuteczności tych wskaźników jakości.
 
-Obserwacja wyników wykazała również, że wprowadzona dodatkowa cecha (liczba dostępnych rozdzielczości)  ma  wpływ na ocenę jakość, choć w niewielkim stopniu.  W większości przypadków zestaw z tą cecha otrzymywał wyższe R-kwadrat, niż ten sam zestaw ale bez liczby dostępnych zależności. Wykres kołowy przedstawia w jakiej części przypadków dana obserwacja się powtarza  \ref{tab:tabela rozdzielczosc}. Podobne, sprawdzone tu, oddziaływanie to czas trwania. Dla dłuższych wideo  model daje lepsze wyniki, różnice również są nieznaczne. \par
+Obserwacja wyników wykazała również, że wprowadzona dodatkowa cecha (liczba dostępnych rozdzielczości)  ma  wpływ na ocenę jakość, choć w niewielkim stopniu.  W większości przypadków zestaw z tą cecha otrzymywał wyższe R-kwadrat, niż ten sam zestaw ale bez liczby dostępnych zależności. Wykres kołowy \ref{tab:tabela rozdzielczosc} przedstawia w jakiej części przypadków dana obserwacja się powtarza. Podobne sprawdzone tu oddziaływanie to czas trwania. Dla dłuższych wideo  model daje lepsze wyniki, różnice również są nieznaczne. \par
 
 \begin{center}
 \includegraphics[ height=8cm, width=10cm]{w_kolowy}
@@ -216,7 +217,7 @@ Obserwacja wyników wykazała również, że wprowadzona dodatkowa cecha (liczba
 %zestawy: 14 i 15, 17 i 18, 7 i 8, 11 i 16, 9 i 10, 24 i 25 są dla siebie bliźniacze z różnicą dodatkowej cechy. Zestawy oznaczone * zawierają dodatkową ceche. Zielony kolor wskazuję na pole z większym R-kwadrat na pare, czerwony na mniejszy(test powtórzony dwa razy). 
 \topskip0pt
 \vspace*{\fill}  
-Na wykresie \ref{fig:podsumowanie} można dostrzec, że różnice pomiędzy modelami zbudowanymi na podstawie zestawów: 18, 19, 17, 8, 7, 10, 13, 15, 9, 16, 12, 14, 11, 6,  wyróżniają się pod kątem wysokich wartości R-kwadrat. Dla tych zestawów wspólnym mianownikiem są cechy: PSNR, VMAF, SSIM, MS-SSIM. Każda cecha z osobna również osiąga wysokie wyniki (Przykładowo, R-kwadrat kolejno dla modelu Lasu Losowego:0.490, 0.502,  0.475,  0.507). Niższe jednak niż te osiągnięte w zestawie. 
+Na wykresie \ref{fig:podsumowanie} można dostrzec, że różnice pomiędzy modelami zbudowanymi na podstawie zestawów: 18, 19, 17, 8, 7, 10, 13, 15, 9, 16, 12, 14, 11, 6  wyróżniają się pod kątem wysokich wartości R-kwadrat. Dla tych zestawów wspólnym mianownikiem są cechy: PSNR, VMAF, SSIM, MS-SSIM. Każda cecha z osobna również osiąga wysokie wyniki (Przykładowo, R-kwadrat kolejno dla modelu Lasu Losowego: 0.490, 0.502,  0.475,  0.507). Niższe jednak niż te osiągnięte w zestawie. 
 Wymienione wyżej cechy posiadają wysoki współczynnik korelacji \ref{fig:korelacja}, przez co łączenie ich tylko w pewnym stopniu poprawia trafność modelu. Końcowa wartość nie jest ich sumą. Przykładowo dla zestawu 2 (VMAF + SSIM) R-kwadrat wynosi 0.636 \par
 \vspace*{\fill}
 
@@ -232,7 +233,7 @@ Wymienione wyżej cechy posiadają wysoki współczynnik korelacji \ref{fig:kore
 
 \topskip0pt
 \vspace*{\fill} 
-Kolejny aspekt, który można odnotować czytając wykres\ref{fig:podsumowanie}, to ujemna wartość R-kwadrat dla niektórych zestawów. Biorąc pod uwagę wzór \ref{eqn:r2}, zauważyć należy to, że model podczas testów dokonywał gorszej predykcji, niż średnia dla zbioru danych testowych. Tą sytuację przedstawia wykres \ref{fig:kontrast_ujemne_rk}. Zaprezentowane są tu próbki danych dla cechy kontrast. Funkcja regresji liniowej (linia niebieska)  pokrywa się ze średnią dla danych testowych (linia pomarańczowa), ale podczas liczenia R-kwadrat brana pod uwagę jest średnia ze zbioru danych testowych (linia czerwona). Gdyby ta ostania pokrywała się z linią regresji R-kwadrat wynosił by 0. Ujemny, R-kwadrat oznacza również, że dla danej cechy lub ich zestawu, algorytm nie odnalazł zależności między zmiennymi opisującymi, a zmienną opisywaną.\par
+Kolejny aspekt, który można odnotować czytając wykres \ref{fig:podsumowanie}, to ujemna wartość R-kwadrat dla niektórych zestawów. Biorąc pod uwagę wzór \ref{eqn:r2}, zauważyć należy to, że model podczas testów dokonywał gorszej predykcji, niż średnia dla zbioru danych testowych. Tą sytuację przedstawia wykres \ref{fig:kontrast_ujemne_rk}. Zaprezentowane są tu próbki danych dla cechy kontrast. Funkcja regresji liniowej (linia niebieska)  pokrywa się ze średnią dla danych testowych (linia pomarańczowa), ale podczas liczenia R-kwadrat brana pod uwagę jest średnia ze zbioru danych testowych (linia czerwona). Gdyby ta ostania pokrywała się z linią regresji R-kwadrat wynosił by 0. Ujemny, R-kwadrat oznacza również, że dla danej cechy lub ich zestawu, algorytm nie odnalazł zależności między zmiennymi opisującymi, a zmienną opisywaną.\par
 \vspace*{\fill}
 
 \begin{center}
@@ -252,20 +253,20 @@ Najwyższy uśredniony wynik R-kwadrat został osiągnięty przez modele zbudowa
 
 Prezentowana praca stawiała sobie za cel stworzenie algorytmu oceniającego jakość wideo.
 
-Po uprzednim przygotowaniu danych, do dyspozycji badającego były informacje opisujące wideo –- zarówno metryki FR jak i NR. Metryki zostały wykorzystane do zbudowania i przystosowania czterech pul modeli w oparciu o algorytmy uczenia maszynowego. Wykreowane modele mogą posłużyć jako algorytmy oceniające jakość wideo.
+Po uprzednim przygotowaniu danych, do dyspozycji badającego były informacje opisujące wideo –- zarówno metryki FR jak i NR. Metryki zostały wykorzystane do zbudowania i przystosowania czterech pul modeli w oparciu o  cztery algorytmy uczenia maszynowego. Wykreowane modele mogą posłużyć jako algorytmy oceniające jakość wideo.
 
-Zmierzając do zniwelowania różnic wynikających ze specyficznego podziału danych stworzono ponad 100 modeli dla każdego z algorytmów. Gdzie, na podstawie uśrednionego wyniku R-kwadrat, został wybrany optymalny algorytm (wraz z parametrami) i zestaw cech - jako dane wejściowe. Odnosząc się do tematu pracy, algorytmem oceniający jakość jest jeden z modeli przygotowany w oparciu o wyżej wymienione czynniki -- Las Losowy składający się z 100 drzew o głębokości 8 wraz cechami z zestawu 18 [link do zserializowanego modelu].\todo{text}
+Zmierzając do zniwelowania różnic wynikających ze specyficznego podziału danych stworzono ponad 100 modeli dla każdego z algorytmów, gdzie, na podstawie uśrednionego wyniku R-kwadrat, został wybrany optymalny algorytm (wraz z parametrami) i zestaw cech - jako dane wejściowe. Odnosząc się do tematu pracy, algorytmem oceniającym jakość jest jeden z modeli przygotowany w oparciu o wyżej wymienione czynniki -- Las Losowy składający się z 100 drzew o głębokości 8 wraz cechami z zestawu 18 [link do zserializowanego modelu].\todo{text}
 
 Co więcej, można postawić tezę, że chociaż wszystkie metryki FR, w tym badaniu, mają wysokie wartości R-kwadrat, to jednak możliwa jest sytuacja, kiedy ich ocena znacząco będzie odbiegać od SQV. Wideo referencyjne może już na samym początku może być zniekształcone poprzez nieprawidłowe nagranie. Policzony wtedy PSNR dla SRC i PVS wykaże wysoką jakość obrazu ale ocena odbiorcy będzie negatywna.
 
-Przedstawione w obecnym studium rozwiązanie nie jest uniwersalnym wyznacznikiem jakości wideo. Z pewnością mogą istnieć czynniki, które nie zostały w pracy uwzględnione. Z faktu, że badanie korzysta z oceny ludzkiej jako cechy nadzorującej, mogą wynikać, nie brane pod uwagę efekty zmieniające tę ocenę.
+Przedstawione w obecnym studium rozwiązanie nie jest uniwersalnym wyznacznikiem jakości wideo. Z pewnością mogą istnieć czynniki, które nie zostały w pracy uwzględnione. Z faktu, że badanie korzysta z oceny ludzkiej jako cechy nadzorującej mogą wynikać nie brane pod uwagę efekty zmieniające tę ocenę.
 
 Należy stwierdzić, że z biegiem lat oczekiwania co do jakości wideo znacznie rosną. Chociaż w latach 90 ubiegłego wieku tamtejsze wideo uznawane było jako produkt wysokiej klasy, to współcześni widzowie nie byliby w żaden sposób usatysfakcjonowani odbiorem takiego obrazu. 
 
-Dodatkowo, biorąc dynamicznie rozwijający się rynek multimediów, warto zwrócić uwagę na nowe technologie jeszcze nie tak mocno spopularyzowane. Dla nich może się okazać, że żadna do tej pory dostępnych metryk, również ta  zaproponowana w niniejszej pracy,  nie spełnia oczekiwań. Przykładowo nie brany do tej pory, pod uwagę w czasie badań, rodzaj wideo wykorzystywana w VR (\textit{ang. Virtual Reality}) -- wideo 360.  
+Dodatkowo, biorąc dynamicznie rozwijający się rynek multimediów, warto zwrócić uwagę na nowe technologie jeszcze nie tak mocno spopularyzowane. Dla nich może się okazać, że żadna do tej pory dostępnych metryk, również ta  zaproponowana w niniejszej pracy,  nie spełnia oczekiwań. Przykładowo niebrany do tej pory pod uwagę w czasie badań rodzaj wideo wykorzystywana w VR (\textit{ang. Virtual Reality}) -- wideo 360.  
 
 Przeprowadzone badania i zebrane dane mogą posłużyć do dalszych bardziej
-zaawansowanych studiów nad jakością wideo. Między innymi mogących uwzględniać aktualny rodzaj zniekształceń i warunków odbioru dla widza i na tej podstawie dostosowywać się do tak zadanej sytuacji.
+zaawansowanych studiów nad jakością wideo. Przykładowo mogły by one uwzględniać aktualny rodzaj zniekształceń i warunków odbioru dla widza i na tej podstawie stworzyć metrykę, która dostosowuje się do tak zadanej sytuacji.
 
 
 \label{cha:pierwszyDokument}

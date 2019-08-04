@@ -142,6 +142,37 @@
     \field{urlyear}{2019}
   \endentry
 
+  \entry{compression_rate}{book}{}
+    \name{author}{2}{}{%
+      {{hash=KW}{%
+         family={Kou},
+         familyi={K\bibinitperiod},
+         given={Weidong},
+         giveni={W\bibinitperiod},
+      }}%
+      {{hash=YY}{%
+         family={Yesha},
+         familyi={Y\bibinitperiod},
+         given={Yelena},
+         giveni={Y\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Springer-Verlag}%
+    }
+    \strng{namehash}{KWYY1}
+    \strng{fullhash}{KWYY1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{isbn}{3540304495}
+    \field{title}{Enabling Technologies for Wireless E-Business: Video
+  Transcoding}
+    \list{location}{1}{%
+      {Berlin, Heidelberg}%
+    }
+    \field{year}{2006}
+  \endentry
+
   \entry{kodowanie}{online}{}
     \name{author}{1}{}{%
       {{hash=YJ}{%
@@ -968,6 +999,30 @@
     \endverb
     \field{urlday}{10}
     \field{urlmonth}{05}
+    \field{urlyear}{2019}
+  \endentry
+
+  \entry{python}{online}{}
+    \name{author}{1}{}{%
+      {{hash=HB}{%
+         family={Hayes},
+         familyi={H\bibinitperiod},
+         given={Bob},
+         giveni={B\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{HB1}
+    \strng{fullhash}{HB1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Programming Languages Most Used and Recommended by Data
+  Scientists}
+    \verb{url}
+    \verb http://customerthink.com/programming-languages-most-used-and-recommen
+    \verb ded-by-data-scientists/
+    \endverb
+    \field{urlday}{04}
+    \field{urlmonth}{08}
     \field{urlyear}{2019}
   \endentry
 
