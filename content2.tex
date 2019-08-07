@@ -116,11 +116,10 @@ Wykres \ref{fig:execution} odnosi się do przeprowadzonego eksperymentu, który 
 
 \begin{center}
 	\includegraphics[ height=7cm, width=11cm]{execution}
-	\captionof{figure}{opis.}
+	\captionof{figure}{Uśredniony R-kwadrat na liczbę modeli biorących udział w jego liczeniu. Badanie dla zestawu 18 z tabeli 3.2.}
 	\label{fig:execution}
 	\label{fig:xccs}
 \end{center}
-\todo{zmienic opis}
 
 W badaniach postanowiono sprawdzić  modele trenowane w oparciu o: każdą z osobna metrykę FR, wybrane metryki NR i ich niektóre kombinacje. Uruchomienia sekwencji budowania i testowania odbywały się na zestawach cech prezentowanych w tabeli 3.2.  Dalsze rozdziały będą odnosić się do poniższej numeracji w kontekście zestawów cech.
 
@@ -205,7 +204,7 @@ W pierwszej kolejności wyjaśniane zostaną różnice w obrębie zestawów dany
 
 Obserwując  poszczególne wyniki dla zestawów $no$-$reference$ (22 -- 30)  oraz $full$-$reference$ (1 -- 6, 20, 21) można zaobserwować, że te drugie znacznie trafniej dokonują predykcji. Prawdopodobną przyczyną występowania tej sytuacji jest nierównomierność w występowaniu cechy typu NR w dostępnych danych, co może dalej skutkować niewłaściwym dopasowaniem  modelu. Wysoki wyniki metryk FR dodatkowo potwierdzał by powszechną opinię o lepszej skuteczności tych wskaźników jakości.
 
-Obserwacja wyników wykazała również, że wprowadzona dodatkowa cecha (liczba dostępnych rozdzielczości)  ma  wpływ na ocenę jakość, choć w niewielkim stopniu.  W większości przypadków zestaw z tą cecha otrzymywał wyższe R-kwadrat, niż ten sam zestaw ale bez liczby dostępnych zależności. Wykres kołowy \ref{tab:tabela rozdzielczosc} przedstawia w jakiej części przypadków dana obserwacja się powtarza. Podobne sprawdzone tu oddziaływanie to czas trwania. Dla dłuższych wideo  model daje lepsze wyniki, różnice również są nieznaczne. \par
+Obserwacja wyników wykazała również, że wprowadzona dodatkowa cecha (liczba dostępnych rozdzielczości)  ma  wpływ na ocenę jakość, choć w niewielkim stopniu.  W większości przypadków zestaw z tą cecha otrzymywał wyższe R-kwadrat, niż ten sam zestaw ale bez liczby dostępnych zależności. Wykres kołowy \ref{tab:tabela rozdzielczosc} przedstawia w jakiej części przypadków dana obserwacja się powtarza.\todo{ Podobne sprawdzone tu oddziaływanie to czas trwania. Dla dłuższych wideo  modele daje lepsze wyniki, różnice również są nieznaczne.} \par
 
 \begin{center}
 \includegraphics[ height=8cm, width=10cm]{w_kolowy}
@@ -249,6 +248,8 @@ Najwyższy uśredniony wynik R-kwadrat został osiągnięty przez modele zbudowa
 
 
 \chapter{Podsumowanie}
+
+\todo{ewentualnie -  dodac sprawdzenei mojej metryki z wskaznikiem koralacji Pearson'a, jezeli > 0.9 to dobra metryka }
 
 
 Prezentowana praca stawiała sobie za cel stworzenie algorytmu oceniającego jakość wideo.

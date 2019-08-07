@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.16)  5 AUG 2019 21:03
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.16)  7 AUG 2019 09:08
 entering extended mode
 **./praca.tex
 (praca.tex
@@ -2085,15 +2085,15 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 127.
+               Default added (so using `tbp') on input line 126.
 
 
-Overfull \hbox (78.30313pt too wide) in paragraph at lines 129--163
+Overfull \hbox (78.30313pt too wide) in paragraph at lines 128--162
 [][]  
  []
 
 
-LaTeX Warning: Float too large for page by 88.95045pt on input line 165.
+LaTeX Warning: Float too large for page by 88.95045pt on input line 164.
 
 [29 <./execution.png>] [30] [31
 
@@ -2104,32 +2104,36 @@ Rozdzia\l  4.
 <podsumowanie.png, id=172, 1387.584pt x 710.4141pt>
 File: podsumowanie.png Graphic file (type png)
 <use podsumowanie.png>
-Package pdftex.def Info: podsumowanie.png  used on input line 198.
+Package pdftex.def Info: podsumowanie.png  used on input line 197.
 (pdftex.def)             Requested size: 739.77762pt x 426.79375pt.
 
-Overfull \hbox (65.4473pt too wide) in paragraph at lines 198--199
+Overfull \hbox (65.4473pt too wide) in paragraph at lines 197--198
 [][] 
  []
 
-[33]
+
+Underfull \vbox (badness 3471) has occurred while \output is active []
+
+ [33]
 <w_kolowy.png, id=176, 395.97937pt x 347.79938pt>
 File: w_kolowy.png Graphic file (type png)
 <use w_kolowy.png>
-Package pdftex.def Info: w_kolowy.png  used on input line 211.
+Package pdftex.def Info: w_kolowy.png  used on input line 210.
 (pdftex.def)             Requested size: 284.53093pt x 227.62186pt.
 <korelacja.png, id=177, 729.927pt x 703.9098pt>
 File: korelacja.png Graphic file (type png)
 <use korelacja.png>
-Package pdftex.def Info: korelacja.png  used on input line 226.
+Package pdftex.def Info: korelacja.png  used on input line 225.
 (pdftex.def)             Requested size: 398.34251pt x 398.33275pt.
- [34 <./w_kolowy.png>]
+
+[34 <./w_kolowy.png>]
 <kontrast_ujemne_rk.png, id=181, 462.528pt x 346.896pt>
 File: kontrast_ujemne_rk.png Graphic file (type png)
 <use kontrast_ujemne_rk.png>
-Package pdftex.def Info: kontrast_ujemne_rk.png  used on input line 240.
+Package pdftex.def Info: kontrast_ujemne_rk.png  used on input line 239.
 (pdftex.def)             Requested size: 369.90291pt x 284.54124pt.
- [35 <./korelacja.png>] [36 <./kontrast_ujemne_rk.png>] [37 <./podsumowanie.png
->] [38
+ [35 <./korelacja.png>] [36 <./kontrast_ujemne_rk.png>]
+[37 <./podsumowanie.png>] [38
 
 ]
 Rozdzia\l  5.
@@ -2206,10 +2210,10 @@ Package logreq Info: Writing requests to 'praca.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 40548 strings out of 492945
- 802392 string characters out of 3125364
+ 40556 strings out of 492945
+ 802577 string characters out of 3125364
  1184522 words of memory out of 3000000
- 43780 multiletter control sequences out of 15000+200000
+ 43788 multiletter control sequences out of 15000+200000
  619125 words of font info for 115 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,14n,82p,1614b,2928s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2234,7 +2238,7 @@ rw/times/utmb8a.pfb><C:/Users/elacpol/AppData/Local/Programs/MiKTeX 2.9/fonts/t
 ype1/urw/times/utmr8a.pfb><C:/Users/elacpol/AppData/Local/Programs/MiKTeX 2.9/f
 onts/type1/urw/times/utmr8a.pfb><C:/Users/elacpol/AppData/Local/Programs/MiKTeX
  2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on praca.pdf (46 pages, 4424052 bytes).
+Output written on praca.pdf (46 pages, 4424429 bytes).
 PDF statistics:
  280 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
