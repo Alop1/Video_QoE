@@ -138,7 +138,7 @@
     \verb g-codecs-compression-techniques/
     \endverb
     \field{urlday}{14}
-    \field{urlmonth}{09}
+    \field{urlmonth}{07}
     \field{urlyear}{2019}
   \endentry
 
@@ -878,6 +878,29 @@
     \field{urlyear}{2019}
   \endentry
 
+  \entry{nnpicture}{online}{}
+    \name{author}{1}{}{%
+      {{hash=DA}{%
+         family={Dertat},
+         familyi={D\bibinitperiod},
+         given={Arden},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{DA1}
+    \strng{fullhash}{DA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{title}{Applied Deep Learning - Part 1: Artificial Neural Networks}
+    \verb{url}
+    \verb https://towardsdatascience.com/applied-deep-learning-part-1-artificia
+    \verb l-neural-networks-d7834f67a4f6
+    \endverb
+    \field{urlday}{19}
+    \field{urlmonth}{06}
+    \field{urlyear}{2019}
+  \endentry
+
   \entry{bp}{article}{}
     \name{author}{3}{}{%
       {{hash=AM}{%
@@ -911,29 +934,6 @@
   Security}
     \field{month}{01}
     \field{year}{2009}
-  \endentry
-
-  \entry{nnpicture}{online}{}
-    \name{author}{1}{}{%
-      {{hash=DA}{%
-         family={Dertat},
-         familyi={D\bibinitperiod},
-         given={Arden},
-         giveni={A\bibinitperiod},
-      }}%
-    }
-    \strng{namehash}{DA1}
-    \strng{fullhash}{DA1}
-    \field{labelnamesource}{author}
-    \field{labeltitlesource}{title}
-    \field{title}{Applied Deep Learning - Part 1: Artificial Neural Networks}
-    \verb{url}
-    \verb https://towardsdatascience.com/applied-deep-learning-part-1-artificia
-    \verb l-neural-networks-d7834f67a4f6
-    \endverb
-    \field{urlday}{19}
-    \field{urlmonth}{06}
-    \field{urlyear}{2019}
   \endentry
 
   \entry{nndata}{online}{}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.16)  10 AUG 2019 12:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.16)  11 AUG 2019 10:56
 entering extended mode
 **./praca.tex
 (praca.tex
@@ -2028,24 +2028,23 @@ Package pdftex.def Info: r_tree.png  used on input line 323.
 <nn.png, id=125, 992.20688pt x 589.4522pt>
 File: nn.png Graphic file (type png)
 <use nn.png>
-Package pdftex.def Info: nn.png  used on input line 336.
+Package pdftex.def Info: nn.png  used on input line 333.
 (pdftex.def)             Requested size: 341.43364pt x 170.7119pt.
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [21 <./r_tree.png>]
-<nn_data_2.png, id=131, 463.7325pt x 209.28188pt>
+ [21 <./r_tree.png> <./nn.png>]
+<nn_data_2.png, id=130, 463.7325pt x 209.28188pt>
 File: nn_data_2.png Graphic file (type png)
 <use nn_data_2.png>
-Package pdftex.def Info: nn_data_2.png  used on input line 350.
+Package pdftex.def Info: nn_data_2.png  used on input line 354.
 (pdftex.def)             Requested size: 398.3493pt x 170.71489pt.
-) [22 <./nn.png> <./nn_data_2.png>]
+) [22
+
+ <./nn_data_2.png>]
 \openout2 = `content2.aux'.
 
  (content2.tex
 Rozdzia\l  3.
 
-Underfull \vbox (badness 5331) has occurred while \output is active []
+Underfull \vbox (badness 4108) has occurred while \output is active []
 
  [23
 
@@ -2055,7 +2054,7 @@ Underfull \vbox (badness 5331) has occurred while \output is active []
 <data_preparation_work_flow.png, id=138, 764.8575pt x 634.37pt>
 File: data_preparation_work_flow.png Graphic file (type png)
 <use data_preparation_work_flow.png>
-Package pdftex.def Info: data_preparation_work_flow.png  used on input line 33.
+Package pdftex.def Info: data_preparation_work_flow.png  used on input line 35.
 
 (pdftex.def)             Requested size: 426.7884pt x 312.98323pt.
 
@@ -2068,14 +2067,14 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 <podzial_danych.png, id=150, 682.04813pt x 280.04625pt>
 File: podzial_danych.png Graphic file (type png)
 <use podzial_danych.png>
-Package pdftex.def Info: podzial_danych.png  used on input line 76.
+Package pdftex.def Info: podzial_danych.png  used on input line 78.
 (pdftex.def)             Requested size: 284.53293pt x 142.27045pt.
 
 [27 <./podzial_danych.png>]
 <execution.png, id=154, 462.528pt x 346.896pt>
 File: execution.png Graphic file (type png)
 <use execution.png>
-Package pdftex.def Info: execution.png  used on input line 118.
+Package pdftex.def Info: execution.png  used on input line 120.
 (pdftex.def)             Requested size: 312.99748pt x 199.16722pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -2085,15 +2084,15 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `tbp') on input line 126.
+               Default added (so using `tbp') on input line 128.
 
 
-Overfull \hbox (78.30313pt too wide) in paragraph at lines 128--162
+Overfull \hbox (78.30313pt too wide) in paragraph at lines 130--164
 [][]  
  []
 
 
-LaTeX Warning: Float too large for page by 88.95045pt on input line 164.
+LaTeX Warning: Float too large for page by 88.95045pt on input line 166.
 
 [29 <./execution.png>] [30] [31
 
@@ -2104,10 +2103,10 @@ Rozdzia\l  4.
 <podsumowanie.png, id=172, 1387.584pt x 710.4141pt>
 File: podsumowanie.png Graphic file (type png)
 <use podsumowanie.png>
-Package pdftex.def Info: podsumowanie.png  used on input line 197.
+Package pdftex.def Info: podsumowanie.png  used on input line 199.
 (pdftex.def)             Requested size: 739.77762pt x 426.79375pt.
 
-Overfull \hbox (65.4473pt too wide) in paragraph at lines 197--198
+Overfull \hbox (65.4473pt too wide) in paragraph at lines 199--200
 [][] 
  []
 
@@ -2118,19 +2117,19 @@ Underfull \vbox (badness 3471) has occurred while \output is active []
 <w_kolowy.png, id=176, 395.97937pt x 347.79938pt>
 File: w_kolowy.png Graphic file (type png)
 <use w_kolowy.png>
-Package pdftex.def Info: w_kolowy.png  used on input line 210.
+Package pdftex.def Info: w_kolowy.png  used on input line 212.
 (pdftex.def)             Requested size: 284.53093pt x 227.62186pt.
 <korelacja.png, id=177, 729.927pt x 703.9098pt>
 File: korelacja.png Graphic file (type png)
 <use korelacja.png>
-Package pdftex.def Info: korelacja.png  used on input line 225.
+Package pdftex.def Info: korelacja.png  used on input line 227.
 (pdftex.def)             Requested size: 398.34251pt x 398.33275pt.
 
 [34 <./w_kolowy.png>]
 <kontrast_ujemne_rk.png, id=181, 462.528pt x 346.896pt>
 File: kontrast_ujemne_rk.png Graphic file (type png)
 <use kontrast_ujemne_rk.png>
-Package pdftex.def Info: kontrast_ujemne_rk.png  used on input line 239.
+Package pdftex.def Info: kontrast_ujemne_rk.png  used on input line 241.
 (pdftex.def)             Requested size: 369.90291pt x 284.54124pt.
  [35 <./korelacja.png>] [36 <./kontrast_ujemne_rk.png>]
 [37 <./podsumowanie.png>] [38
@@ -2210,10 +2209,10 @@ Package logreq Info: Writing requests to 'praca.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 40558 strings out of 492945
- 802620 string characters out of 3125364
+ 40566 strings out of 492945
+ 802805 string characters out of 3125364
  1184522 words of memory out of 3000000
- 43790 multiletter control sequences out of 15000+200000
+ 43798 multiletter control sequences out of 15000+200000
  619125 words of font info for 115 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,14n,82p,1627b,2928s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -2238,7 +2237,7 @@ rw/times/utmb8a.pfb><C:/Users/elacpol/AppData/Local/Programs/MiKTeX 2.9/fonts/t
 ype1/urw/times/utmr8a.pfb><C:/Users/elacpol/AppData/Local/Programs/MiKTeX 2.9/f
 onts/type1/urw/times/utmr8a.pfb><C:/Users/elacpol/AppData/Local/Programs/MiKTeX
  2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on praca.pdf (46 pages, 4424613 bytes).
+Output written on praca.pdf (46 pages, 4425024 bytes).
 PDF statistics:
  280 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

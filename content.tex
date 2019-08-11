@@ -275,13 +275,13 @@ R^2=1- \frac{ \sum_{i=1}^{n}(y_i-y'_i)^2}{\sum_{i=1}^{n}(y_i-\bar{y}_i)^2 }
 \end{equation}
 Gdzie, $y_i$ oznacza rzeczywistą wartość szukanej przez model zmiennej, $y'_i$ predykcję modelu, $\bar{y_i}$ średnią wartość dla wszystkich $y_i$. Przykładowo 1 oznacza idealne dopasowanie modelu, 0 oznacza, że model jest tak samo dokładny jak wartość średnia.\par
 
-Dalsze  podrozdziały wytłumaczenie wybranych zagadnień z zakresu uczenia maszynowego oraz krótki opis algorytmów użytych do badań w niniejszej pracy.
+Dalsze  podrozdziały będą zawierać wytłumaczenie wybranych zagadnień z zakresu uczenia maszynowego oraz poglądowy opis algorytmów użytych do badań w niniejszej pracy.
 
 \subsection{Ucznie nadzorowane i nienadzorowane}
 Wyróżniane są dwa typy algorytmów uczenia maszynowego: nadzorowane ({\em ang. supervised learning}) i nienadzorowane ({\em ang. unsupervised learning}). Różnica występuje podczas procesu tworzenia modelu -- trenowania. W pierwszej grupie, w celu poprawnego zbudowania modelu, wymagane jest, aby dane treningowe składały się z par: dane wejściowe i odpowiadające im  dane wyjściowe (nazywane nauczycielem). Druga grupa nie wykorzystuje danych wyjściowych podczas trenowania. W badaniach zostały użyte algorytmy z uczeniem nadzorowanym. Kolejne rozdziały będą odnosić się do tej właśnie grupy. \par 
 
 \subsection{Problem klasyfikacji i regresji}
-W ramach algorytmów uczenia maszynowego z uczeniem nadzorowanym wyróżnia się dwa typy rozważanych  problemów: regresji i klasyfikacji (\textit{ang. classification and regression task}). Dla tych pierwszych model ma za zadanie mapować dane wejściowe na skończony zbiór danych wyjściowych. Przykładem wykorzystania klasyfikacji binarnej jest rozpoznawanie spamu w poczcie elektronicznej. Algorytmy dla problemu regresji dokonują estymaty funkcji opisującej zależności danych wejściowych i ciągłego zbioru danych wyjściowych. Przykładem może być predykcja temperatury \cite{rf2}.
+W ramach algorytmów uczenia maszynowego z uczeniem nadzorowanym wyróżnia się dwa typy rozważanych  problemów: regresji i klasyfikacji (\textit{ang. classification and regression tasks}). Dla tych pierwszych model ma za zadanie mapować dane wejściowe na skończony zbiór danych wyjściowych. Przykładem wykorzystania klasyfikacji binarnej jest rozpoznawanie spamu w poczcie elektronicznej. Algorytmy dla problemu regresji dokonują estymaty funkcji opisującej zależności danych wejściowych i ciągłego zbioru danych wyjściowych. Przykładem może być predykcja temperatury \cite{rf2}.
 W niniejszej  pracy rozpatrywany  jest problem regresji. \par
 
 
@@ -311,7 +311,7 @@ Regresja liniowa jest jednym z prostszych algorytmów. Jej cechą jest przejrzys
 W niniejszej pracy zostało użyte pewne rozwinięcie SVM, dla problemów dotyczących regresji, czyli SVR ({\em ang. Support Vector Regression}). W takim rozwiązaniu hiperpłaszczyznę wyznacza się tak, aby jak najwięcej danych treningowych znalazło się w wybranej odległości $\epsilon$ od niej, w celu dopasowania funkcji $f \colon X \to Y$ \cite{svr}. Zaletą SVM i SVR jest to, że są w stanie odnajdywać zależności nieliniowe, jednak by tego dokonać należy wybrać odpowiednią funkcję kernala, co często nie jest trywialne.
 
 %SVR -> https://link.springer.com/chapter/10.1007/978-1-4302-5990-9_4
-\subsection{Las Losowy}
+\subsection{Las Losowy}\todo{opcjonalnie obrazek jednego dzrewa z badań}
 Las Losowy (\emph{ang. Random Forest -- RF}) działa w oparciu o "głosowanie"' wielu pojedynczy drzew. Każde z drzew powstaje dzięki implementacji algorytmu CART ({\em ang. Classification and Regression Trees}). W tym przypadku dla problemów regresji. Drzewa składają się z węzła głównego ({\em ang. Root Node}), liści ({\em ang. Leaves}), węzłów decyzyjnych ({\em ang. Decision Nodes}). Trenowanie drzewa bazuje na minimalizacji funkcji $S$ wyrażającej się wzorem \ref{eqn:rf}, gdzie $m_c=\frac{1}{n}\sum_{i \in c}y_i'$ i jest predykcja z danego liścia \cite{rf}. Rysunek \ref{fig:r_tree} wizualizuje dopasowanie funkcji przy użyciu algorytmu  drzewa regresyjnego.\par
 \begin{equation}
 \label{eqn:rf}
@@ -329,15 +329,19 @@ W RF każde z drzew budowane jest w oparciu o inny podzestaw danych treningowych
 \subsection{Sieci Neuronowe}
 Struktura Sieci Neuronowych ({\em ang. Neural Networks}) jest inspirowana budową mózgu. Jej podstawowym elementem są neurony, które formują warstwy, te z kolei dzielą się na warstwę wejściową, warstwę wyjściową i warstwy ukryte. Rysunek \ref{fig:nn} przedstawia schemat przykładowej sieci neuronowej jednokierunkowej (\textit{ang. feedforward}). Ten typ został również wybrany do eksploracji danych w obecnym opracowaniu. 
 
-Każdy pojedynczy neuron działa jak funkcja $ \sigma :\mathbb{R} \to \mathbb{R}$, nazywana jest ona  funkcją aktywacji. Przykłady tak stosowanych funkcji to funkcja: sigmoidalna, progowa czy ReLU. Tak zamodelowane neurony jako dane wejściowe otrzymują dane wyjściowe, z odpowiednią wagą, z poprzednich neuronów. Neurony z warstwy wejściowej otrzymują przygotowane dane treningowe \cite{rf2}. Proces uczenia, który ustawia wagi, a tym samym mówi jak powinny wyglądać połączenia pomiędzy neuronami w różnych warstwach, nosi nazwę {\em Back Propagation} \cite{bp}.\par
-
-
 \begin{center}
-\includegraphics[ height=6cm, width=12cm]{nn}
-\captionof{figure}{Przykładowy schemat budowy sieci neuronowej. Żółte koła symbolizują neurony z warstwy wejciowej, niebieskie i zielone neurony z warstw ukrytych, a czerwony neuron z warstwy wyjściowej \cite{nnpicture}. }
-\label{fig:nn}
-\label{fig:xccs}
+	\includegraphics[ height=6cm, width=12cm]{nn}
+	\captionof{figure}{Przykładowy schemat budowy sieci neuronowej. Żółte koła symbolizują neurony z warstwy wejciowej, niebieskie i zielone neurony z warstw ukrytych, a czerwony neuron z warstwy wyjściowej \cite{nnpicture}. }
+	\label{fig:nn}
+	\label{fig:xccs}
 \end{center}
+
+\clearpage
+
+Każdy pojedynczy neuron działa jak funkcja $ \sigma :\mathbb{R} \to \mathbb{R}$, nazywana jest ona  funkcją aktywacji. Przykłady tak stosowanych funkcji to funkcja: sigmoidalna, progowa czy ReLU. Tak zamodelowane neurony jako dane wejściowe otrzymują dane wyjściowe, z odpowiednią wagą, z poprzednich neuronów. Neurony z warstwy wejściowej otrzymują przygotowane dane treningowe \cite{rf2}. Proces uczenia użyty dla tej pracy, który ustawia wagi, a tym samym mówi jak powinny wyglądać połączenia pomiędzy neuronami w różnych warstwach, nosi nazwę {\em Back-propagation} \cite{bp}.\par
+
+
+
 
 Jedną z największych zalet sieci neuronowych jest to, że w porównaniu z innymi algorytmami uczenia maszynowego, w lepszym stopniu wykorzystują duże ilości danych wejściowych \cite{nndata}. Zależność ta została zobrazowana na wykresie \ref{fig:nn_data}. Co więcej algorytm ten dobrze radzi sobie z zależnościami nieliniowymi. Minusem natomiast jest utrudniona możliwość obserwacji jak algorytm doszedł do danego wyniku. Działa on jak pewnego rodzaju czarna skrzynka. Możliwa jest  sytuacja, kiedy predykcja modelu w żadnym stopniu nie wskazuje na rzeczywisty wynik. W takim przypadku bardzo trudny jest proces śledzenia kolejnych kroków jakie zostały wykonane po drodze i zrozumienia co jest jego przyczyną błędnej oceny. 
 %00097934
