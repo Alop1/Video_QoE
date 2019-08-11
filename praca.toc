@@ -22,7 +22,7 @@
 \contentsline {subsection}{\numberline {3.2.4}Podzia\IeC {\l } danych}{27}% 
 \contentsline {subsection}{\numberline {3.2.5}Podsumowanie danych}{28}% 
 \contentsline {section}{\numberline {3.3}Proces budowania i testowania modeli}{28}% 
-\contentsline {section}{\numberline {3.4}Modele }{31}% 
+\contentsline {section}{\numberline {3.4}Parametry modeli}{31}% 
 \contentsline {chapter}{\numberline {4}Wyniki i ich analiza }{33}% 
 \contentsline {chapter}{\numberline {5}Podsumowanie}{39}% 
 \babel@toc {english}{}

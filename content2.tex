@@ -110,7 +110,7 @@ Poniższa tabela \ref{tab:tabela} przedstawia uzyskane dane
 \label{cha:drugiDokument}
 
 
-Z uwagi na specyfikę przygotowania danych treningowych i testowych każdy z modeli został zbudowany i przetestowany wiele razy. Każdorazowe wykonanie tej operacji generuje zbiór modeli dla każdego sprawdzanego algorytmu na każdy testowany zestaw danych. Poniższy akapit tłumaczy potrzebę tego zabiegu.
+Z uwagi na specyfikę przygotowania danych treningowych i testowych przygotowano wiele modeli. Każdorazowe wykonanie programu przygotowania modeli generuje ich zbiór, po jednym modelu dla każdego sprawdzanego algorytmu na każdy testowany zestaw danych. Wykonania dla tego skryptu zostały powtórzone wiele razy. Poniższy akapit wyjaśnia potrzebę tego zabiegu.
 
 Podział danych 80:20 dotyczy paczek SRC + PSV, natomiast budowa modeli odbywa się już na podstawie danych z pojedynczych plików wideo. Dlatego może zaistnieć sytuacja kiedy większość małych paczek (na przykład po tylko 3 pliki wideo) znajdą się w danych treningowych, a większość dużych (na przykład po 15 wideo) w danych testujących. Tym samym faktyczny podział może wynosić w skrajnym przypadku 50:50, zamiast 80:20 (taki sam odstęp może wystąpić w drugą stronę). Dlatego  przy  każdym uruchomieniu aplikacji, podział zgromadzonych danych dobywał się na zasadzie losowo wybranych paczek do każdej grup -- danych trenujących i testujących, przy zachowaniu podziału 80:20.\par
 
@@ -123,7 +123,7 @@ Wykres \ref{fig:execution} odnosi się do przeprowadzonego eksperymentu, który 
 	\label{fig:xccs}
 \end{center}
 
-W badaniach postanowiono sprawdzić  modele trenowane w oparciu o: każdą z osobna metrykę FR, wybrane metryki NR i ich niektóre kombinacje. Uruchomienia sekwencji budowania i testowania odbywały się na zestawach cech prezentowanych w tabeli 3.2.  Dalsze rozdziały będą odnosić się do poniższej numeracji w kontekście zestawów cech.
+W badaniach postanowiono sprawdzić  modele trenowane w oparciu o: każdą z osobna metrykę FR, wybrane metryki NR i ich niektóre kombinacje. Uruchomienia sekwencji budowania i testowania odbywały się na zestawach cech prezentowanych w tabeli 3.2. Dalsze rozdziały będą odnosić się do poniższej numeracji w kontekście zestawów cech.
 
 \begin{table}[]
 	\raggedright
@@ -167,7 +167,7 @@ W badaniach postanowiono sprawdzić  modele trenowane w oparciu o: każdą z oso
 \AddThispageHook{\thispagestyle{empty}}%
 
 \clearpage
-\section{Modele }
+\section{Parametry modeli}
 \label{cha:drugiDokument}
 
 
