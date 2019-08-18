@@ -297,24 +297,52 @@ Regresja liniowa jest jednym z prostszych algorytmów. Jej cechą jest przejrzys
 %NOWY OBRAZEK https://en.proft.me/2014/04/22/how-simulate-support-vector-machine-svm-r/
 \begin{center}
 \includegraphics[ height=10cm, width=13cm]{svm_2}
-\captionof{figure}{Hiperpłaszczyzna rozdzielająca dane, o dwóch właściwościach $x_1$ i $x_2$, na dwie klasy: czerwoną i żółtą}
+\captionof{figure}{Hiperpłaszczyzna rozdzielająca dane, o dwóch właściwościach X\_1(oś odcietych) i X\_2 (oś rzędnych), na dwie klasy: czerwoną i żółtą}
 \label{fig:svm}
 \label{fig:xccs}
 \end{center}
 
-W niniejszej pracy zostało użyte pewne rozwinięcie SVM, dla problemów dotyczących regresji, czyli SVR ({\em ang. Support Vector Regression}). W takim rozwiązaniu hiperpłaszczyznę wyznacza się tak, aby jak najwięcej danych treningowych znalazło się w wybranej odległości $\epsilon$ od niej, w celu dopasowania funkcji $f \colon X \to Y$ \cite{svr}. Zaletą SVM i SVR jest to, że są w stanie odnajdywać zależności nieliniowe, jednak by tego dokonać należy wybrać odpowiednią funkcję kernala, co często nie jest trywialne.
+
+W niniejszej pracy zostało użyte pewne rozwinięcie SVM, dla problemów dotyczących regresji, czyli SVR ({\em ang. Support Vector Regression}).  W takim rozwiązaniu hiperpłaszczyznę wyznacza się tak, aby jak najwięcej danych treningowych znalazło się w wybranej odległości $\epsilon$ od niej, w celu dopasowania funkcji $f \colon X \to Y$ \cite{svr}. Nie jest jednak wymagane, aby wszystkie próbki danych znalazły się  w tym zakresie. Dla uwzględnienia tych danych została wprowadzona zmienna $C$, ustalająca kompromis pomiędzy dopasowaniem do danych treningowych, a ich generalizacją. Przykładowo mniejsze wartości parametru $C$ będą oznaczać większą tolerancję na błędy, co może  być pożyteczne w przypadku zaszumionych danych. 
+
+Trenowanie modelu SVR można sprowadzić się to do problemu optymalizacji. Matematyczny jego zapis dla liniowego \emph{Support Vector Regression} w dwuwymiarowej przestrzeni (zwizualizowanego na rysunku \ref{fig:svr_wykres}) jest przedstawiony poniżej. 
+
+\begin{equation*}
+\begin{aligned}
+\mathit{minimalizacja:} \\&\parallel w \parallel^{2} +C\sum_{i=1}^{l} (\xi_{i} + \xi_{i}^{*}) \\
+\mathit{ograniczenia:} \\ 
+&y_{i} -  wx_{i} -b < \epsilon +\xi_{i} 
+\\&  wx_{i} + b -y_{i} < \epsilon +\xi_{i}
+\\&\xi_{i},\xi_{i}^{*}\geq 0
+\end{aligned}
+\label{eqn:svr}
+\end{equation*}
+
+Zaletą SVM i SVR jest to, że są w stanie odnajdywać zależności nieliniowe, jednak by tego dokonać należy wybrać odpowiednią funkcję kernala, co często nie jest trywialne.
+
+\begin{center}
+	\includegraphics[ height=10cm, width=13cm]{svr_wykres}
+	\captionof{figure}{Hiperpłaszczyzna dla liniowego SVR w dwuwymiarowej przestrzeni.}
+	\label{fig:svr_wykres}
+	\label{fig:xccs}
+\end{center}
 
 %SVR -> https://link.springer.com/chapter/10.1007/978-1-4302-5990-9_4
-\subsection{Las Losowy}\todo{opcjonalnie obrazek jednego dzrewa z badań}
-Las Losowy (\emph{ang. Random Forest -- RF}) działa w oparciu o "głosowanie"' wielu pojedynczy drzew. Każde z drzew powstaje dzięki implementacji algorytmu CART ({\em ang. Classification and Regression Trees}). W tym przypadku dla problemów regresji. Drzewa składają się z węzła głównego ({\em ang. Root Node}), liści ({\em ang. Leaves}), węzłów decyzyjnych ({\em ang. Decision Nodes}). Trenowanie drzewa bazuje na minimalizacji funkcji $S$ wyrażającej się wzorem \ref{eqn:rf}, gdzie $m_c=\frac{1}{n}\sum_{i \in c}y_i'$ i jest predykcja z danego liścia \cite{rf}\todo{nie widze potrzeby opisywania jak dokladnie powstaja drzewa}. Rysunek \ref{fig:r_tree} wizualizuje dopasowanie funkcji przy użyciu algorytmu  drzewa regresyjnego.\par
+\subsection{Las Losowy}
+Las Losowy (\emph{ang. Random Forest -- RF}) działa w oparciu o "głosowanie"' wielu pojedynczy drzew. Każde z drzew powstaje dzięki implementacji algorytmu CART ({\em ang. Classification and Regression Trees}). W tym przypadku dla problemów regresji. Drzewa składają się z węzła głównego ({\em ang. Root Node}), liści ({\em ang. Leaves}), węzłów decyzyjnych ({\em ang. Decision Nodes}). Trenowanie drzewa bazuje na minimalizacji funkcji $S$ wyrażającej się wzorem \ref{eqn:rf}, gdzie $m_c=\frac{1}{n}\sum_{i \in c}y_i'$ i jest predykcja z danego liścia \cite{rf}. 
+
 \begin{equation}
 \label{eqn:rf}
 S=\frac{1}{n}\sum_{c \in leaves(T)}\sum_{i \in c}(y_i - m_c)^2
 \end{equation}
 
+Podczas budowania podstawowego drzewa regresyjnego rekurencyjnie dokonywane są podziały zbioru danych na dwa mniejsze podzbiory, począwszy od pełnego zbioru wszystkich danych. Dzieje się to do momentu, aż wartość wyliczona na podstawie funkcji $S$ (obliczeniowa te są dokonywane przy każdym podziale) nie osiągnie wyznaczonego wyniku bądź liczba próbek danych w liściu nie wyniesie wcześniej określonego progu bądź drzewo nie będzie mieć zadanej głębokość. Rysunek \ref{fig:r_tree} wizualizuje dopasowanie funkcji przy użyciu algorytmu  drzewa regresyjnego.\par
+
+
+
 W RF każde z drzew budowane jest w oparciu o inny podzestaw danych treningowych, co w swoim zamyśle ma na celu podwyższenie dokładności modelu oraz zmniejszenie zagrożenia nadmiernego dopasowania ({\em ang. overfitting}) \cite{rf2}. Istotną kwestią jest dobór optymalnych parametrów dla modelu, takich jak liczba drzew oraz ich głębokość. 
 \begin{center}
-\includegraphics[ height=6cm, width=9cm]{r_tree}
+\includegraphics[ height=9cm, width=12cm]{r_tree}
 \captionof{figure}{Wizualizacja dopasowania modelu z użyciem algorytmu drzewa regresyjnego.}
 \label{fig:r_tree}
 \label{fig:xccs}
@@ -330,18 +358,15 @@ Struktura Sieci Neuronowych ({\em ang. Neural Networks}) jest inspirowana budow�
 	\label{fig:xccs}
 \end{center}
 
-\clearpage
+
 
 Każdy pojedynczy neuron działa jak funkcja $ \sigma :\mathbb{R} \to \mathbb{R}$, nazywana jest ona  funkcją aktywacji. Przykłady tak stosowanych funkcji to funkcja: sigmoidalna, progowa czy ReLU. Tak zamodelowane neurony jako dane wejściowe otrzymują dane wyjściowe, z odpowiednią wagą, z poprzednich neuronów. Neurony z warstwy wejściowej otrzymują przygotowane dane treningowe \cite{rf2}. Proces uczenia użyty dla tej pracy, który ustawia wagi, a tym samym mówi jak powinny wyglądać połączenia pomiędzy neuronami w różnych warstwach, nosi nazwę {\em Back-propagation} \cite{bp}.\par
-
-
 
 
 Jedną z największych zalet sieci neuronowych jest to, że w porównaniu z innymi algorytmami uczenia maszynowego, w lepszym stopniu wykorzystują duże ilości danych wejściowych \cite{nndata}. Zależność ta została zobrazowana na wykresie \ref{fig:nn_data}. Co więcej algorytm ten dobrze radzi sobie z zależnościami nieliniowymi. Minusem natomiast jest utrudniona możliwość obserwacji jak algorytm doszedł do danego wyniku. Działa on jak pewnego rodzaju czarna skrzynka. Możliwa jest  sytuacja, kiedy predykcja modelu w żadnym stopniu nie wskazuje na rzeczywisty wynik. W takim przypadku bardzo trudny jest proces śledzenia kolejnych kroków jakie zostały wykonane po drodze i zrozumienia co jest jego przyczyną błędnej oceny. 
 %00097934
 %haykin.neural-networks.3ed.2009
 %https://www.researchgate.net/publication/324728060_Lung_Cancer_Detection_using_Deep_Learning#pf18
-
 
 
 \begin{center}

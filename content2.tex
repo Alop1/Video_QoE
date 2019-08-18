@@ -2,9 +2,7 @@
 \chapter{Metodologia badań}
 Niniejszy rozdział będzie opisywał przeprowadzone etapy badań. 
 
-W pierwszej kolejności wymienione zostaną narzędzia. 
-
-Następnie przedstawione będą elementy procesu eksploracji danych niedotyczące pracy z algorytmami uczenia maszynowego, takie jak: wyszukiwanie, zbieranie, ekstrakcja cech, czyszczenie i normalizacja danych. Nawiązując do ankiety przeprowadzonej przez CrowdFlower \cite{ds_report}: podczas badań związanych z {\em Big Data}, znacząca większość czasu pochłaniana jest przez zbieranie i przygotowanie danych. Zasada ta miała swoje odzwierciedlenie również w tej pracy, szczególnie, że przedmiotem badań było wideo, które wymaga wykorzystania dużych zasobów podczas tych procesów (w odróżnieniu od na przykład danych tekstowych). 
+W pierwszej kolejności wymienione zostaną narzędzia. Następnie przedstawione będą elementy procesu eksploracji danych niedotyczące pracy z algorytmami uczenia maszynowego, takie jak: wyszukiwanie, zbieranie, ekstrakcja cech, czyszczenie i normalizacja danych. Nawiązując do ankiety przeprowadzonej przez CrowdFlower \cite{ds_report}: podczas badań związanych z {\em Big Data}, znacząca większość czasu pochłaniana jest przez zbieranie i przygotowanie danych. Zasada ta miała swoje odzwierciedlenie również w tej pracy, szczególnie, że przedmiotem badań było wideo, które wymaga wykorzystania dużych zasobów podczas tych procesów (w odróżnieniu od na przykład danych tekstowych). 
 
 Na końcu opisany zostanie proces trenowania, wyniki predykcji z modeli powstałych w oparciu o algorytmy wymienione z poprzedniej sekcji.
 %https://visit.figure-eight.com/rs/416-ZBE-142/images/CrowdFlower_DataScienceReport.pdf -> slajd 5
@@ -39,7 +37,7 @@ Na rysunku \ref{fig:data_preparation_work_flow} został przedstawiony schemat et
 \end{center}
 
 \subsection{Zbieranie danych}
-Rozpoczęcie przetwarzania danych wymaga w pierwszej kolejności ich zebrania. Dla stworzenia algorytmu oceny jakości, podczas wyszukiwania danych, głównym kryterium było odnalezienie takich baz, gdzie oprócz plików wideo (SRC + PVS) istniała również jego subiektywna ocena. Ocena ludzka była konieczna, ponieważ to ona stanowiła dane nadzorcze podczas trenowania modeli. W pracy tej użyto następujące źródła danych:
+Rozpoczęcie przetwarzania danych wymaga w pierwszej kolejności ich zebrania. Dla stworzenia algorytmu oceny jakości, podczas wyszukiwania danych, głównym kryterium było odnalezienie takich baz, gdzie oprócz plików wideo (SRC + PVS) istniała również ich subiektywna ocena (SVQ). Ocena ludzka była konieczna, ponieważ to ona stanowiła dane nadzorcze podczas trenowania modeli. W pracy tej użyto następujące źródła danych:
 \begin{itemize}
 \item Subjective quality of H.264/SVC videos using ACR-HR method in VGA -- baza danych udostępniona dzięki The Institut de Recherche en Communications et Cybernétique de Nantes. W jej skład wchodzi około 300 plików wideo, ich czas trwania to: 10-12s, a rozdzielczość wszystkich wynosi: 640x480 \cite{pitrey:hal-00608310}.
 \item Lab for Video and Image Analysis – LFOVIA -- jest grupą badaczy z Indian Institute of Technology Hyderabad zajmujących się tematyką jakości wideo. Dzięki udostępnionym przez nich plikom,  baza danych wejściowych w niniejszej pracy powiększyła się o 40 nowych obrazów w wysokich rozdzielczościach: FHD (1920x1080), UHD (3840x2160) i czasie trwania po 120 sekund każdy \cite{india}.
@@ -114,10 +112,10 @@ Z uwagi na specyfikę przygotowania danych treningowych i testowych przygotowano
 
 Podział danych 80:20 dotyczy paczek SRC + PSV, natomiast budowa modeli odbywa się już na podstawie danych z pojedynczych plików wideo. Dlatego może zaistnieć sytuacja kiedy większość małych paczek (na przykład po tylko 3 pliki wideo) znajdą się w danych treningowych, a większość dużych (na przykład po 15 wideo) w danych testujących. Tym samym faktyczny podział może wynosić w skrajnym przypadku 50:50, zamiast 80:20 (taki sam odstęp może wystąpić w drugą stronę). Dlatego  przy  każdym uruchomieniu aplikacji, podział zgromadzonych danych dobywał się na zasadzie losowo wybranych paczek do każdej grup -- danych trenujących i testujących, przy zachowaniu podziału 80:20.\par
 
-Wykres \ref{fig:execution} odnosi się do przeprowadzonego eksperymentu, który pomógł wybrać optymalną liczbę iteracji dla wyżej omówionej techniki. Linie przedstawia uśrednione R-kwadrat na liczbę modeli(w tym przypadku powstałych na bazie zestawu danych wejściowych numer 18 -- tabela 3.2) biorących udział podczas jej obliczania. Czytając ten wykres można stwierdzić, że dla każdego z algorytmów wyniki  stabilizują się przy około 80 modelach. W celu uniknięcia niemiarodajnych wyników w dalszych badaniach  wybrano liczbę (z pewnym zapasem) stu modeli na podstawie których  obliczany był uśredniony R-kwadrat.
+Wykres \ref{fig:execution} odnosi się do przeprowadzonego eksperymentu, który pomógł wybrać optymalną liczbę iteracji dla wyżej omówionej techniki. Linie przedstawiają uśrednioną wartość R-kwadrat na liczbę modeli(w tym przypadku powstałych na bazie zestawów danych wejściowych numer: 18, 7, 25 -- tabela 3.2) biorących udział podczas jej obliczania. Czytając ten wykres można stwierdzić, że dla każdego z algorytmów wyniki stabilizują się satysfakcjonującym poziomie przy około 60 modelach. W celu uniknięcia niemiarodajnych wyników w dalszych badaniach  wybrano liczbę (z pewnym zapasem) 70 modeli na podstawie których  obliczany był uśredniony R-kwadrat.
 
 \begin{center}
-	\includegraphics[ height=7cm, width=11cm]{execution}
+	\includegraphics[ height=8cm, width=12cm]{execution}
 	\captionof{figure}{Uśredniony R-kwadrat na liczbę modeli biorących udział w jego liczeniu. Badanie dla zestawu 18 z tabeli 3.2.}
 	\label{fig:execution}
 	\label{fig:xccs}
@@ -125,6 +123,7 @@ Wykres \ref{fig:execution} odnosi się do przeprowadzonego eksperymentu, który 
 
 W badaniach postanowiono sprawdzić  modele trenowane w oparciu o: każdą z osobna metrykę FR, wybrane metryki NR i ich niektóre kombinacje. Uruchomienia sekwencji budowania i testowania odbywały się na zestawach cech prezentowanych w tabeli 3.2. Dalsze rozdziały będą odnosić się do poniższej numeracji w kontekście zestawów cech.
 
+\newgeometry{top=3mm, bottom=20mm, right=9mm} 
 \begin{table}[]
 	\raggedright
 	\begin{tabular}{|l|l|}
@@ -165,46 +164,143 @@ W badaniach postanowiono sprawdzić  modele trenowane w oparciu o: każdą z oso
 	\label{tab:tabela2}
 \end{table}
 \AddThispageHook{\thispagestyle{empty}}%
+\restoregeometry
 
 \clearpage
 \section{Parametry modeli}
 \label{cha:drugiDokument}
+W niniejszej pracy zostały przetestowane cztery algorytmy uczenia maszynowego przedstawione w części teoretycznej. Parametry definiujące ich działanie zostały dobrane na zasadzie obserwacji kolejnych prób i wiedzy na temat ich działania. Proces ten został opisany w podrozdziale 3.4.1. Następnie wyselekcjonowane parametry zostały przedstawione w podrozdziale 3.4.2. Dla modeli zbudowanych z ich udziałem osiągnięto najwyższy wskaźnika R-kwadrat dla tu przeprowadzonych badań.
+
+\subsection{Testy parametrów}
+\todo{podobnie to techniki Hyperparameter optimization}
+W pracy tej skupiono się na wybranych parametrach podawanych  przez badacza w czasie definiowania modelu. W celu otrzymania odpowiednio dopasowanych parametrów została przeprowadzona seria testów. W każdym z nich badano wpływ zadanego zakresu wartości dla wybranych parametrów na wyniki modeli. Procedura ta została wykonana dla trzech wybranych zestawów  po jednym zestawie z trzech typów dostępnych w puli. Zestaw 24 jako cechy wyłącznie NR, zestaw 6 jako cechy wyłącznie FR, Zestaw 7 jako kombinacja cech NR i FR. 
+
+\vspace{5mm}
+
+Poniżej znajdują się poglądowo przedstawione badane parametry: 
+\begin{itemize}[label=$\bullet$]
+	\item SVR 
+		\begin{itemize}[noitemsep,nolistsep]
+			\item \textbf{parametr $C$} -- odnosi się do oceny straty związanej z próbkami danych poza marginesem podczas procesu trenowania.	\todo{zmienic opis, do podobnego jak w czesci teoretycznej} Zbyt duża jego wartość może sprawić, że model stanie się bardziej wrażliwy zanieczyszczone dane. Mała wartość może skutkować generalizacją. Sprawdzany zakres: 0.7, 10, 20, 30, 40.
+			\item \textbf{parametr $\epsilon$} -- określa rozmiar akceptowalnego błędu podczas trenowania modelu. Sprawdzany zakres: 0.1, 0.3, 0.4, 0.5.
+		\end{itemize}  
+	
+	\item Las losowy
+	\begin{itemize}[noitemsep,nolistsep]
+		\item \textbf{liczba drzew} -- czyli liczba drzew biorących udział w "głosowaniu". Generalnie większa ich liczba powinna  zwiększyć dopasowanie modelu, jednak przy ich pewnej liczbie dokładność już nie rośnie, natomiast zwiększają się cały czas koszty obliczeniowe modelu. Sprawdzany zakres: 10, 20, 40, 60, 70, 100.
+		\item \textbf{głębokość drzew} -- odnosi się do liczby podziałów dokonywanych w obrębie drzewa. Głębsze drzewa są w stanie uzyskać z danych więcej informacji. Negatywnym zjawiskiem jest natomiast zbyt duża jego wartość, prowadzi to do nad dopasowania. Sprawdzany zakres: 2, 6, 8, 10.
+	\end{itemize}  
+	
+	\item Sieć neuronowa
+	\begin{itemize}[noitemsep,nolistsep]
+		\item \textbf{liczba ukrytych warstw} oraz \textbf{liczna neuronów w pojedynczej warstwie} -- w ogólności im ich liczba jest większa tym model powinien być w stanie rozpoznać bardziej zaawansowane zależności w danych. Jednak zbyt duże wartości dla tego parametru mogą doprowadzić do nad dopasowania oraz  wydłużonego czasu trenowania. Sprawdzany zakres dla liczby warstw: 1, 2, 3, 4 oraz dla liczby neuronów: 2, 3, 5, 9, 13, 15.
+	\end{itemize}   
+\end{itemize}
+
+Wyniki eksperymentu sa zwizualizowane na poniższych wykresach:
+
+\begin{figure}[H]
+	\includegraphics[ height=10cm, width=16cm]{params_svr}
+	\captionof{figure}{Wpływ parametrów: C oraz $\epsilon$ na wyniki R-kwadrat dla modeli na bazie algorytmu SVR.}
+	\label{fig:params_svr}
+	\label{fig:xccs}
+\end{figure}
 
 
-W niniejszej pracy zostały przetestowane cztery algorytmy uczenia maszynowego przedstawione w części teoretycznej. Parametry definiujące ich działanie zostały dobrane na zasadzie obserwacji kolejnych prób i wiedzy na temat ich działania. W ten sposób zostały wyselekcjonowane poniższe parametry, które pozwoliły na osiągnięcie najwyższego wskaźnika R-kwadrat dla jednego z zestawów cech.  \par
 
-Regresja liniowa została sprawdzona w pierwszej kolejności. Jako referencyjny i jeden prostszych z algorytmów, nie wymaga ona podania dodatkowych parametrów, aby zadziałał w prawidłowy sposób. W tym przypadku wektor danych wejściowych podczas trenowania przedstawia się  następująco \ref{eqn:regresja}, gdzie $y_i$ jest subiektywną oceną dla filmu $i$, a $x_{1i}, x_{2i}...$ są jego cechami. \par
+\begin{center}
+	\includegraphics[ height=10cm, width=18cm]{params_rf}
+	\captionof{figure}{Wpływ parametrów: liczba drzew oraz głębokość drezw na wyniki R-kwadrat dla modeli na bazie algorytmu lasu losowego.}
+	\label{fig:params_rf}
+	\label{fig:xccs}
+\end{center}
 
-Kolejnym testowanym algorytmem był SVR. Użyta funkcja kernela do wyznaczenia hiperpłaszczyzny to $Radial$ $Basis$ $Function$ (RBF). Współczynnikowi $\epsilon$ została przypisana wartość $0,1$. Przy współczynniku $\gamma$, który mówi jak odległe punkty będą miały wpływ na budowaną hiperpłaszczyznę, skorzystano z metody już zaimplementowanej w pakiecie sklearn, pozwalającej na wyznaczenie bardziej dopasowanej wartości, bazując na dostępnym zbiorze danych. Parametr $C$, który odpowiada za wygładzenie funkcji SVR wynosi 0.7.\par
+\begin{center}
+	\includegraphics[ height=10cm, width=18cm]{params_nn}
+	\captionof{figure}{Wpływ parametrów: liczna neuronów w pojedynczej warstwie ukrytej oraz liczba warst ukrytych na wyniki R-kwadrat dla modeli na bazie algorytmu sieci neuronowej.}
+	\label{fig:params_nn}
+	\label{fig:xccs}
+\end{center}
+ 
+
+%Skupiono się na kilku parametrach reszta jako const.
+%dla metryk z typu FR- postanowiono przetestowac konfiguracje xxx
+%itp.
+%NR - różne wystepnowanie, nierownomierny rozklad, tylko kilka wydaje sie byc zwiazane z jakoscia. uwzglenic mozliwe typy zaleznosci.
+%FR - rownomierny rozklad, bardziej rzetelne, czesciej uwazane za trafne. uwzglednic mozliwe typy zaleznosci
+
+
+Dla pozostałych parametrów zostały przypisane wartości polecane w artykułach dotyczących tematyki uczenia maszynowego oraz w dokumentacji pakietu sklearn. 
+
+Dla SVR użyta funkcja kernela do wyznaczenia hiperpłaszczyzny to $Radial$ $Basis$ $Function$ (RBF). Przy współczynniku $\gamma$, który mówi jak odległe punkty będą miały wpływ na budowaną hiperpłaszczyznę, skorzystano z metody już zaimplementowanej w pakiecie sklearn, pozwalającej na wyznaczenie bardziej dopasowanej wartości, bazując na dostępnym zbiorze danych. \par
+
+W przypadku lasu losowego jako metodę podejmowania decyzji o podziale danych (tworzenia węzłów decyzyjnych), został wybrany \emph{Gini Index}.
+
+Dla sieci neuronowych ustawiono maksymalną liczbę iteracji algorytmu $Backward$ $Propagation$, po której model będzie gotowy na 1000. Parametr $learning$ $rate$, określający szybkość uczenia, został ustawiony na wartość 0,001. Natomiast funkcję aktywacji stanowiła funkcja ReLU.\par
+
+\vspace{5mm}
+
+Podczas przedstawionego tu eksperymentu zostało stworzonych 20 160 modeli. Na tą liczbę składa się: 24 (20-dla SVR) -- kombinacje parametrów na jeden algorytm, 4 -- algorytmy uczenia maszynowego, 3 -- zestawy cech, 70 -- modeli na otrzymanie uśrednionego R-kwadrat.    
+
+\vspace{5mm}
+
+Algorytm regresji liniowej nie został poddany testom omówionym w obecnym rozdziale. Jako referencyjny i jeden prostszych z algorytmów, nie wymaga ona podania dodatkowych parametrów, aby zadziałał w prawidłowy sposób. W tym przypadku wektor danych wejściowych podczas trenowania przedstawia się  następująco \ref{eqn:regresja}, gdzie $y_i$ jest subiektywną oceną dla filmu $i$, a $x_{1i}, x_{2i}...$ są jego cechami. 
+
+\vspace{7mm}
+
+\subsection{Parametry}
+
+
+Na podstawie rozdziału 3.4.1 zostały wybrane optymalne parametry. Podczas selekcji brano pod uwagę zarówno wynik dopasowania oraz wydajność badanych modeli. Parametry zostały zbiorczo przedstawione w poniższym zestawieniu. Na ich podstawie przygotowano modele dla każdego z zestawów wymienionych w tabeli 3.2.
+
+
+\begin{itemize}[label=$\bullet$]
+	\item SVR --  parametr $C$: 10, parametr $\epsilon$: 0.1, funkcja kernela:  $Radial$ $Basis$ $Function$ (RBF), $\gamma$: auto, 
+	
+	\item Las losowy -- liczba drzew w modelu: 60, głębokość drzewa 8. 
+
+	\item Sieć neuronowa -- liczba neuronów w pojedynczej warstwie ukrytej: 13, liczba ukrytych warstw: 3, liczba iteracji algorytmu $Backward$ $Propagation$: 1000, $learning$ $rate$: 0,001, funkcja aktywacji: ReLU.\par 
+	
+\end{itemize}
+
+%Kolejnym testowanym algorytmem był SVR. Użyta funkcja kernela do wyznaczenia hiperpłaszczyzny to $Radial$ $Basis$ $Function$ (RBF). Współczynnikowi $\epsilon$ została przypisana wartość $0,1$. Przy współczynniku $\gamma$, który mówi jak odległe punkty będą miały wpływ na budowaną hiperpłaszczyznę, skorzystano z metody już zaimplementowanej w pakiecie sklearn, pozwalającej na wyznaczenie bardziej dopasowanej wartości, bazując na dostępnym zbiorze danych. Parametr $C$, który odpowiada za wygładzenie funkcji SVR wynosi 0.7.\par
 %https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2839056/
 
-Las losowy działa w oparciu o parametry podane przez badacza, takie jakie jak ilość drzew i ich głębokość. W tym przypadku użyto 100 drzew o głębokości 8. Jako metodę podejmowania decyzji o podziale danych (tworzenia węzłów decyzyjnych), został wybrany \emph{Gini Index}. \par
+%Las losowy działa w oparciu o parametry podane przez badacza, takie jakie jak ilość drzew i ich głębokość. W tym przypadku użyto 100 drzew o głębokości 8.  \par
 
-Ostatnim sprawdzonym algorytmem uczenia maszynowego była sieć neuronowa z następującymi parametrami -- 3 warstw ukrytych po 13 neuronów w każdej. Maksymalna ilość iteracji algorytmu $Backward$ $Propagation$ po której model będzie gotowy to 1000. Parametr $learning$ $rate$, określający szybkość uczenia, został ustawiony na wartość 0,001. Natomiast funkcję aktywacji stanowiła funkcja ReLU.\par
+%Ostatnim sprawdzonym algorytmem uczenia maszynowego była sieć neuronowa z następującymi parametrami -- 3 warstw ukrytych po 13 neuronów w każdej.
 
 
 
 
 
 \chapter{Wyniki i ich analiza }
-Poniższy rozdział prezentuje wyniki testów z poszczególnych modeli. Zostały one zebrane na wykresie słupkowym \ref{fig:podsumowanie}, gdzie oś x odnosi się do numerów zestawów, a oś y do średnich wartości R-kwadrat. Wyniki tu przedstawione dotyczą algorytmów z ostatecznie wybranymi parametrami. 
 
-Selekcja tych parametrów dla  każdego z algorytmów została dokonana na podstawie najlepszego osiągniętego dopasowania. Przykładowo dla  sieci neuronowych testowane były konfiguracje: 2 warstwy ukryte i 8 neuronów, 4 warstwy ukryte i 13 neuronów, 3 warstwy i ukryte 13 neuronów (z różnymi współczynnikami uczenia i funkcjami aktywacji)\todo{było jeszcze kilka innych, ale nie chce zbytnio o tym pisać, bo niektóre testy to na zasadzie kolejnego uruchamiania i obserwacji } W oparciu o każdą z nich budowano modele, na zasadzie opisanej w poprzednim rozdziale,  dla każdego z wcześniej zdefiniowanych zestawów.  Najwyższy średni R-kwadrat został osiągnięty dla ostatniej z wymienionych konfiguracji i dla zestawu 19. Tak więc prezentowane wyniki na wykresie  \ref{fig:podsumowanie} będą odnosić się do tych właśnie parametrów. Taki wykres pozwala czytelnikowi odczytać najistotniejszą dla tej pracy informację o najtrafniejszym z modeli, oraz dodatkowo prezentuje inne zjawiska związane z eksploracją danych. Co więcej wyniki z innych testowanych konfiguracji algorytmów uczenia maszynowego nie odbiegały znacząco od tych zaprezentowanych na obecnym wykresie. W dalszej części rozdziału  odbędzie się jego analiza.
- 
+
+Poniższy rozdział prezentuje wyniki z przeprowadzonych badań. Przedstawione zostaną zaobserwowane zależności pomiędzy zestawami danych biorących udział w trenowaniu modeli, a wykorzystanymi algorytmami uczenia maszynowego. W dalszej części tego rozdziału zwrócona zostanie uwaga na pewne dodatkowe spostrzeżenia dotyczące eksploracji danych i wynikające z tego opracowania. Na końcu omówiony zostanie model uznany dla niniejszej pracy jako optymalny w ocenie jakości wideo.    
+  
     
 
+\begin{figure}[H]
+	\includegraphics[ height=10.5cm, width=16cm]{wplyw_alg}
+	\captionof{figure}{opis}
+	\label{fig:wplyw_alg}
+	\label{fig:xccs}
+\end{figure}
 
 
-\begin{sidewaysfigure}[ht]
-\includegraphics[ height=15cm, width=26cm]{podsumowanie}
-\captionof{figure}{Wyniki z poszczególnych modeli}
-\label{fig:podsumowanie}
-\label{fig:xccs}
-\end{sidewaysfigure}
 
-W pierwszej kolejności wyjaśniane zostaną różnice w obrębie zestawów danych, a pomiędzy poszczególnymi modelami. Czyli przykładowo: "Dlaczego dla zestawu 17 różne algorytmy dają róże wyniki?".  Różnice te wynikać mogą z charakterystyki testowanych algorytmów uczenia maszynowego. Niektóre z nich potrafią odnaleźć fałszywe zależności w danych treningowych, które nie wystąpiły w czasie testów, czyli występuje  nad-dopasowanie dla pewnych cech. Inną przyczyną może być generalizacja, przez którą może nastąpić pominięcie pewnych informacji ukrytych w danych. Każdy z algorytmów przejawia różne właściwości dopasowania do dostępnych danych, Co przekłada się na różne poziomy trafności modelów.    \par
+W pierwszej kolejności wyjaśniane zostaną różnice w obrębie zestawów danych, a pomiędzy poszczególnymi modelami. Sytuacje taką przedstawia wykres \ref{fig:wplyw_alg}.  Różnice te wynikać mogą z charakterystyki testowanych algorytmów uczenia maszynowego. Niektóre z nich potrafią odnaleźć fałszywe zależności w danych treningowych, które nie wystąpiły w czasie testów, czyli występuje  nad-dopasowanie dla pewnych cech. Inną przyczyną może być generalizacja, przez którą może nastąpić pominięcie pewnych informacji ukrytych w danych. Każdy z algorytmów przejawia różne właściwości dopasowania do dostępnych danych, co przekłada się na różne poziomy trafności modelów. Z powyższego rysunku możemy odczytać, że dla zestawu 25 (wszystkie zebrane cechy, bez metryk FR) sieć neuronowa dała najgorsze wyniki mimo tego, że jest powszechnie uważana za jeden z najbardziej zaawansowanych algorytmów uczenia maszynowego. Wpływ na to mają zapewne dane. Możliwa jest sytuacja, gdy relacja  większej liczby cech oraz danych nadzorczych nie istnieje, wtedy cechy które maja faktyczny wpływ na, w tym przypadku, ocenę jakości wideo mogą zostać nimi zakłócone. Dla lasu losowego to zagorzenie jest mniejsze, ponieważ najistotniejsze pierwsze podziały w drzewie będą opierać się na tych cechach, które mają wpływa na dane nadzorcze. Natomiast węzły decyzyjne oparte na cechach, które mają niewielki wpływ bądź nie mają go w ogóle znajdą się na dole drzewa, lub zostaną całkiem pominięte. \par
 
-Obserwując  poszczególne wyniki dla zestawów $no$-$reference$ (22 -- 30)  oraz $full$-$reference$ (1 -- 6, 20, 21) można zaobserwować, że te drugie znacznie trafniej dokonują predykcji. Prawdopodobną przyczyną występowania tej sytuacji jest nierównomierność w występowaniu cechy typu NR w dostępnych danych, co może dalej skutkować niewłaściwym dopasowaniem  modelu. Wysoki wyniki metryk FR dodatkowo potwierdzał by powszechną opinię o lepszej skuteczności tych wskaźników jakości.
+
+Analizując wykres \ref{fig:metryki_fr_nr} można zaobserwować że metryki $full$-$reference$ (zestawy: 1 -- 6, 20, 21) znacznie trafniej dokonują predykcji niż metryki  $no$-$reference$ (zestawy: 22 -- 30). Prawdopodobną przyczyną występowania tej sytuacji jest nierównomierność dla intensywności zniekształceń tego typu w dostępnych danych oraz sprzeczne informacje, które dochodzą do algorytmu podczas  trenowania modelu. Przykładowo rozważając blokowość, algorytm może otrzymać wektory danych na temat plików wideo gdzie  ta cecha nie występuje, a jednak badane obrazy otrzymują niską ocenę SVQ, która wynika z innych rodzajów zniekształceń.  Wysoki wyniki metryk FR dodatkowo potwierdza powszechną opinię o lepszej skuteczności tych wskaźników jakości.
+
+\begin{figure}[H]
+	\includegraphics[ height=11cm, width=16cm]{metryki_fr_nr}
+	\captionof{figure}{opis}
+	\label{fig:metryki_fr_nr}
+	\label{fig:xccs}
+\end{figure}
 
 Obserwacja wyników wykazała również, że wprowadzona dodatkowa cecha (liczba dostępnych rozdzielczości)  ma  wpływ na ocenę jakość, choć w niewielkim stopniu.  W większości przypadków zestaw z tą cecha otrzymywał wyższe R-kwadrat, niż ten sam zestaw ale bez liczby dostępnych zależności. Wykres kołowy \ref{tab:tabela rozdzielczosc} przedstawia w jakiej części przypadków dana obserwacja się powtarza.\todo{ Podobne sprawdzone tu oddziaływanie to czas trwania. Dla dłuższych wideo  modele daje lepsze wyniki, różnice również są nieznaczne.} \par
 
@@ -216,12 +312,18 @@ Obserwacja wyników wykazała również, że wprowadzona dodatkowa cecha (liczba
 \end{center}
  
 %zestawy: 14 i 15, 17 i 18, 7 i 8, 11 i 16, 9 i 10, 24 i 25 są dla siebie bliźniacze z różnicą dodatkowej cechy. Zestawy oznaczone * zawierają dodatkową ceche. Zielony kolor wskazuję na pole z większym R-kwadrat na pare, czerwony na mniejszy(test powtórzony dwa razy). 
-\topskip0pt
-\vspace*{\fill}  
-Na wykresie \ref{fig:podsumowanie} można dostrzec, że różnice pomiędzy modelami zbudowanymi na podstawie zestawów: 18, 19, 17, 8, 7, 10, 13, 15, 9, 16, 12, 14, 11, 6  wyróżniają się pod kątem wysokich wartości R-kwadrat. Dla tych zestawów wspólnym mianownikiem są cechy: PSNR, VMAF, SSIM, MS-SSIM. Każda cecha z osobna również osiąga wysokie wyniki (Przykładowo, R-kwadrat kolejno dla modelu Lasu Losowego: 0.490, 0.502,  0.475,  0.507). Niższe jednak niż te osiągnięte w zestawie. 
+%\topskip0pt
+%\vspace*{\fill}  
+Na wykresie \ref{fig:metryki_fr} można dostrzec, że różnice pomiędzy modelami zbudowanymi na podstawie zestawów: 18, 19, 17, 8, 7, 10, 13, 15, 9, 16, 12, 14, 11, 6  wyróżniają się pod kątem wysokich wartości R-kwadrat. Dla tych zestawów wspólnym mianownikiem są cechy: PSNR, VMAF, SSIM, MS-SSIM. Każda cecha z osobna również osiąga wysokie wyniki (Przykładowo, R-kwadrat kolejno dla modelu Lasu Losowego: 0.490, 0.502,  0.475,  0.507). Niższe jednak niż te osiągnięte w zestawie. 
 Wymienione wyżej cechy posiadają wysoki współczynnik korelacji \ref{fig:korelacja}, przez co łączenie ich tylko w pewnym stopniu poprawia trafność modelu. Końcowa wartość nie jest ich sumą. Przykładowo dla zestawu 2 (VMAF + SSIM) R-kwadrat wynosi 0.636 \par
 \vspace*{\fill}
 
+\begin{figure}
+	\includegraphics[ height=10cm, width=16cm]{metryki_fr}
+	\captionof{figure}{opis}
+	\label{fig:metryki_fr}
+	\label{fig:xccs}
+\end{figure}
 
 \begin{center}
 \includegraphics[ height=14cm, width=14cm]{korelacja}
@@ -234,8 +336,15 @@ Wymienione wyżej cechy posiadają wysoki współczynnik korelacji \ref{fig:kore
 
 \topskip0pt
 \vspace*{\fill} 
-Kolejny aspekt, który można odnotować czytając wykres \ref{fig:podsumowanie}, to ujemna wartość R-kwadrat dla niektórych zestawów. Biorąc pod uwagę wzór \ref{eqn:r2}, zauważyć należy to, że model podczas testów dokonywał gorszej predykcji, niż średnia dla zbioru danych testowych. Tą sytuację przedstawia wykres \ref{fig:kontrast_ujemne_rk}. Zaprezentowane są tu próbki danych dla cechy kontrast. Funkcja regresji liniowej (linia niebieska)  pokrywa się ze średnią dla danych testowych (linia pomarańczowa), ale podczas liczenia R-kwadrat brana pod uwagę jest średnia ze zbioru danych testowych (linia czerwona). Gdyby ta ostania pokrywała się z linią regresji R-kwadrat wynosił by 0. Ujemny, R-kwadrat oznacza również, że dla danej cechy lub ich zestawu, algorytm nie odnalazł zależności między zmiennymi opisującymi, a zmienną opisywaną.\par
+Inne jeszcze zjawisko, można odnotować czytając wykres \ref{fig:negatywny_r}, to ujemna wartość R-kwadrat dla niektórych zestawów. Biorąc pod uwagę wzór \ref{eqn:r2}, zauważyć należy to, że model podczas testów dokonywał gorszej predykcji, niż średnia dla zbioru danych testowych. Tą sytuację przedstawia wykres \ref{fig:kontrast_ujemne_rk}. Zaprezentowane są tu próbki danych dla cechy kontrast. Funkcja regresji liniowej (linia niebieska)  pokrywa się ze średnią dla danych testowych (linia pomarańczowa), ale podczas liczenia R-kwadrat brana pod uwagę jest średnia ze zbioru danych testowych (linia czerwona). Gdyby ta ostania pokrywała się z linią regresji R-kwadrat wynosił by 0. Ujemny, R-kwadrat oznacza również, że dla danej cechy lub ich zestawu, algorytm nie odnalazł zależności między zmiennymi opisującymi, a zmienną opisywaną.\par
 \vspace*{\fill}
+
+\begin{center}
+	\includegraphics[ height=10cm, width=13cm]{negatywny_r}
+	\captionof{figure}{ops.}
+	\label{fig:negatywny_r}
+	\label{fig:xccs}
+\end{center}
 
 \begin{center}
 \includegraphics[ height=10cm, width=13cm]{kontrast_ujemne_rk}
@@ -244,9 +353,14 @@ Kolejny aspekt, który można odnotować czytając wykres \ref{fig:podsumowanie}
 \label{fig:xccs}
 \end{center}
 
-Najwyższy uśredniony wynik R-kwadrat został osiągnięty przez modele zbudowane na podstawie algorytmu \textbf{lasu losowego} (z zadanymi wcześniej parametrami) z użyciem \textbf{zestawu 18}, czyli \textbf{0.824}. Zestaw ten składa się z  zebranych metryk full-reference z uwzględnieniem czasu trwania wideo i dodatkowej cechy dotyczącej ilości dostępnych rozdzielczości. Każdy z modeli z tej grupy daje nieco inne  wyniki (odchylenie standardowe wynosi 0.053, jest stosunkowo nieduże w porównaniu z innymi modelami i zestawami) ponieważ budowany jest na różnych próbkach danych.  Odnosząc się do tematu pracy, ma on największe szanse na trafne wyznaczenie jakość wideo. Podobnie jak [link do badan robionych w podobny sposób]\todo{text}i w tym przypadku jako szukany model należy uznać jeden ze stu modeli dla tych/tu wyróżnionych parametrów. 
+Najwyższy uśredniony wynik R-kwadrat został osiągnięty przez modele zbudowane na podstawie algorytmu \textbf{lasu losowego} (z zadanymi wcześniej parametrami) z użyciem \textbf{zestawu 18}, czyli \textbf{0.824}. Należy stwierdzić, że dla większości tu przeprowadzonych badań, algorytm lasu losowego osiągał najlepsze wyniki. Może to być związane z  \todo{dlaczego RF nalepiej wypada} Zestaw 18 składa się z  zebranych metryk full-reference z uwzględnieniem czasu trwania wideo i dodatkowej cechy dotyczącej ilości dostępnych rozdzielczości. Każdy z modeli z tej grupy daje nieco inne  wyniki (odchylenie standardowe wynosi 0.053, jest stosunkowo nieduże w porównaniu z innymi modelami i zestawami) ponieważ budowany jest na różnych próbkach danych.  Odnosząc się do tematu pracy, ma on największe szanse na trafne wyznaczenie jakość wideo. Podobnie jak [link do badan robionych w podobny sposób]\todo{text}i w tym przypadku jako szukany model należy uznać jeden ze stu modeli dla tych/tu wyróżnionych parametrów. 
 
-
+%\begin{sidewaysfigure}[ht]
+%	\includegraphics[ height=15cm, width=26cm]{podsumowanie}
+%	\captionof{figure}{Wyniki z poszczególnych modeli}
+%	\label{fig:podsumowanie}
+%	\label{fig:xccs}
+%\end{sidewaysfigure}
 
 
 \chapter{Podsumowanie}
@@ -258,7 +372,7 @@ Prezentowana praca stawiała sobie za cel stworzenie algorytmu oceniającego jak
 
 Po uprzednim przygotowaniu danych, do dyspozycji badającego były informacje opisujące wideo –- zarówno metryki FR jak i NR. Metryki zostały wykorzystane do zbudowania i przystosowania czterech pul modeli w oparciu o  cztery algorytmy uczenia maszynowego. Wykreowane modele mogą posłużyć jako algorytmy oceniające jakość wideo.
 
-Zmierzając do zniwelowania różnic wynikających ze specyficznego podziału danych stworzono ponad 100 modeli dla każdego z algorytmów, gdzie, na podstawie uśrednionego wyniku R-kwadrat, został wybrany optymalny algorytm (wraz z parametrami) i zestaw cech - jako dane wejściowe. Odnosząc się do tematu pracy, algorytmem oceniającym jakość jest jeden z modeli przygotowany w oparciu o wyżej wymienione czynniki -- Las Losowy składający się z 100 drzew o głębokości 8 wraz cechami z zestawu 18 [link do zserializowanego modelu].\todo{text}
+Zmierzając do zniwelowania różnic wynikających ze specyficznego podziału danych stworzono ponad 70 modeli dla każdego z algorytmów, gdzie, na podstawie uśrednionego wyniku R-kwadrat, został wybrany optymalny algorytm (wraz z parametrami) i zestaw cech - jako dane wejściowe. Odnosząc się do tematu pracy, algorytmem oceniającym jakość jest jeden z modeli przygotowany w oparciu o wyżej wymienione czynniki -- Las Losowy składający się z 100 drzew o głębokości 8 wraz cechami z zestawu 18 [link do zserializowanego modelu].\todo{text}
 
 Co więcej, można postawić tezę, że chociaż wszystkie metryki FR, w tym badaniu, mają wysokie wartości R-kwadrat, to jednak możliwa jest sytuacja, kiedy ich ocena znacząco będzie odbiegać od SQV. Wideo referencyjne może już na samym początku może być zniekształcone poprzez nieprawidłowe nagranie. Policzony wtedy PSNR dla SRC i PVS wykaże wysoką jakość obrazu ale ocena odbiorcy będzie negatywna.
 
@@ -266,7 +380,7 @@ Przedstawione w obecnym studium rozwiązanie nie jest uniwersalnym wyznacznikiem
 
 Należy stwierdzić, że z biegiem lat oczekiwania co do jakości wideo znacznie rosną. Chociaż w latach 90 ubiegłego wieku tamtejsze wideo uznawane było jako produkt wysokiej klasy, to współcześni widzowie nie byliby w żaden sposób usatysfakcjonowani odbiorem takiego obrazu. 
 
-Dodatkowo, biorąc dynamicznie rozwijający się rynek multimediów, warto zwrócić uwagę na nowe technologie jeszcze nie tak mocno spopularyzowane. Dla nich może się okazać, że żadna do tej pory dostępnych metryk, również ta  zaproponowana w niniejszej pracy,  nie spełnia oczekiwań. Przykładowo niebrany do tej pory pod uwagę w czasie badań rodzaj wideo wykorzystywana w VR (\textit{ang. Virtual Reality}) -- wideo 360.  
+Dodatkowo, biorąc dynamicznie rozwijający się rynek multimediów, warto zwrócić uwagę na nowe technologie jeszcze nie tak mocno spopularyzowane. Dla nich może się okazać, że żadna z do tej pory dostępnych metryk, również ta  zaproponowana w niniejszej pracy,  nie spełnia oczekiwań. Przykładowo niebrany do tej pory pod uwagę w czasie badań rodzaj wideo wykorzystywana w VR (\textit{ang. Virtual Reality}) -- wideo 360.  
 
 Przeprowadzone badania i zebrane dane mogą posłużyć do dalszych bardziej
 zaawansowanych studiów nad jakością wideo. Przykładowo mogły by one uwzględniać aktualny rodzaj zniekształceń i warunków odbioru dla widza i na tej podstawie stworzyć metrykę, która dostosowuje się do tak zadanej sytuacji.
