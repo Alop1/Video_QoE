@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.16)  18 AUG 2019 21:43
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (MiKTeX 2.9.7000 64-bit) (preloaded format=pdflatex 2019.4.16)  20 AUG 2019 23:31
 entering extended mode
 **./praca.tex
 (praca.tex
@@ -1585,6 +1585,9 @@ LaTeX Warning: Label `fig:xccs' multiply defined.
 
 LaTeX Warning: Label `fig:xccs' multiply defined.
 
+
+LaTeX Warning: Label `fig:xccs' multiply defined.
+
 ) (content2.aux
 
 LaTeX Warning: Label `cha:pierwszyDokument' multiply defined.
@@ -1904,13 +1907,13 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10.95> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 190.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 190.
- (praca.toc)
+ (praca.toc [5
+
+])
 \tf@toc=\write5
 \openout5 = `praca.toc'.
 
- [5
-
-] [6]
+ [6]
 \openout2 = `content.aux'.
 
  (content.tex
@@ -2029,70 +2032,71 @@ File: psnr_pict.png Graphic file (type png)
 Package pdftex.def Info: psnr_pict.png  used on input line 241.
 (pdftex.def)             Requested size: 256.07343pt x 170.71626pt.
  [16 <./psnr_pict.png>] [17]
-Underfull \vbox (badness 4686) has occurred while \output is active []
-
- [18]
-<svm_2.png, id=113, 482.55281pt x 362.10281pt>
-File: svm_2.png Graphic file (type png)
-<use svm_2.png>
-Package pdftex.def Info: svm_2.png  used on input line 299.
-(pdftex.def)             Requested size: 369.89537pt x 284.53311pt.
-
-Underfull \vbox (badness 3942) has occurred while \output is active []
-
- [19 <./svm_2.png>]
-<svr_wykres.png, id=118, 595.22375pt x 450.68375pt>
-File: svr_wykres.png Graphic file (type png)
-<use svr_wykres.png>
-Package pdftex.def Info: svr_wykres.png  used on input line 324.
-(pdftex.def)             Requested size: 369.87958pt x 284.53741pt.
- [20 <./svr_wykres.png>]
-<r_tree.png, id=125, 462.528pt x 346.896pt>
-File: r_tree.png Graphic file (type png)
-<use r_tree.png>
-Package pdftex.def Info: r_tree.png  used on input line 345.
-(pdftex.def)             Requested size: 341.44667pt x 256.08499pt.
-
-Underfull \vbox (badness 1087) has occurred while \output is active []
-
- [21 <./r_tree.png>]
-<nn.png, id=130, 992.20688pt x 589.4522pt>
-File: nn.png Graphic file (type png)
-<use nn.png>
-Package pdftex.def Info: nn.png  used on input line 355.
-(pdftex.def)             Requested size: 341.43364pt x 170.7119pt.
-<nn_data_2.png, id=131, 463.7325pt x 209.28188pt>
-File: nn_data_2.png Graphic file (type png)
-<use nn_data_2.png>
-Package pdftex.def Info: nn_data_2.png  used on input line 373.
-(pdftex.def)             Requested size: 398.3493pt x 170.71489pt.
+<bias_wariancja_2.png, id=110, 375.65344pt x 195.73125pt>
+File: bias_wariancja_2.png Graphic file (type png)
+<use bias_wariancja_2.png>
+Package pdftex.def Info: bias_wariancja_2.png  used on input line 285.
+(pdftex.def)             Requested size: 369.90904pt x 227.63376pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
- [22 <./nn.png>]) [23 <./nn_data_2.png>]
+ [18]
+[19 <./bias_wariancja_2.png>]
+<svm_2.png, id=118, 482.55281pt x 362.10281pt>
+File: svm_2.png Graphic file (type png)
+<use svm_2.png>
+Package pdftex.def Info: svm_2.png  used on input line 308.
+(pdftex.def)             Requested size: 369.89537pt x 284.53311pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [20 <./svm_2.png>]
+<svr_wykres.png, id=122, 595.22375pt x 450.68375pt>
+File: svr_wykres.png Graphic file (type png)
+<use svr_wykres.png>
+Package pdftex.def Info: svr_wykres.png  used on input line 333.
+(pdftex.def)             Requested size: 369.87958pt x 284.53741pt.
+ [21 <./svr_wykres.png>]
+<r_tree.png, id=129, 462.528pt x 346.896pt>
+File: r_tree.png Graphic file (type png)
+<use r_tree.png>
+Package pdftex.def Info: r_tree.png  used on input line 354.
+(pdftex.def)             Requested size: 341.44667pt x 256.08499pt.
+<nn.png, id=130, 992.20688pt x 589.4522pt>
+File: nn.png Graphic file (type png)
+<use nn.png>
+Package pdftex.def Info: nn.png  used on input line 364.
+(pdftex.def)             Requested size: 341.43364pt x 170.7119pt.
+ [22 <./r_tree.png>]
+<nn_data_2.png, id=135, 463.7325pt x 209.28188pt>
+File: nn_data_2.png Graphic file (type png)
+<use nn_data_2.png>
+Package pdftex.def Info: nn_data_2.png  used on input line 382.
+(pdftex.def)             Requested size: 398.3493pt x 170.71489pt.
+ [23 <./nn.png> <./nn_data_2.png>]) [24]
 \openout2 = `content2.aux'.
 
- (content2.tex [24
+ (content2.tex
+Rozdzia\l  3.
+[25
 
 
 
 ]
-Rozdzia\l  3.
-[25]
-<data_preparation_work_flow.png, id=146, 764.8575pt x 634.37pt>
+<data_preparation_work_flow.png, id=147, 764.8575pt x 634.37pt>
 File: data_preparation_work_flow.png Graphic file (type png)
 <use data_preparation_work_flow.png>
 Package pdftex.def Info: data_preparation_work_flow.png  used on input line 33.
 
 (pdftex.def)             Requested size: 426.7884pt x 312.98323pt.
  [26 <./data_preparation_work_flow.png>] [27] [28]
-<podzial_danych.png, id=157, 682.04813pt x 280.04625pt>
+<podzial_danych.png, id=158, 682.04813pt x 280.04625pt>
 File: podzial_danych.png Graphic file (type png)
 <use podzial_danych.png>
 Package pdftex.def Info: podzial_danych.png  used on input line 76.
 (pdftex.def)             Requested size: 284.53293pt x 142.27045pt.
  [29 <./podzial_danych.png>]
-<execution.png, id=161, 462.528pt x 346.896pt>
+<execution.png, id=162, 462.528pt x 346.896pt>
 File: execution.png Graphic file (type png)
 <use execution.png>
 Package pdftex.def Info: execution.png  used on input line 118.
@@ -2151,12 +2155,12 @@ Overfull \hbox (33.3485pt too wide) in paragraph at lines 129--163
 
 
 ]
-<params_svr.png, id=176, 834.7185pt x 394.5942pt>
+<params_svr.png, id=177, 834.7185pt x 394.5942pt>
 File: params_svr.png Graphic file (type png)
 <use params_svr.png>
 Package pdftex.def Info: params_svr.png  used on input line 203.
 (pdftex.def)             Requested size: 455.25009pt x 284.54712pt.
-<params_rf.png, id=177, 808.7013pt x 380.8629pt>
+<params_rf.png, id=178, 808.7013pt x 380.8629pt>
 File: params_rf.png Graphic file (type png)
 <use params_rf.png>
 Package pdftex.def Info: params_rf.png  used on input line 212.
@@ -2170,7 +2174,7 @@ Overfull \hbox (56.90579pt too wide) in paragraph at lines 212--213
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [34 <./params_svr.png>]
-<params_nn.png, id=182, 883.8621pt x 390.9807pt>
+<params_nn.png, id=183, 883.8621pt x 390.9807pt>
 File: params_nn.png Graphic file (type png)
 <use params_nn.png>
 Package pdftex.def Info: params_nn.png  used on input line 219.
@@ -2185,56 +2189,58 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [35 <./params_rf.png> <./params_nn.png>] [36]
 Rozdzia\l  4.
-<wplyw_alg.png, id=191, 481.8pt x 361.35pt>
+<wplyw_alg.png, id=192, 462.528pt x 346.896pt>
 File: wplyw_alg.png Graphic file (type png)
 <use wplyw_alg.png>
-Package pdftex.def Info: wplyw_alg.png  used on input line 285.
-(pdftex.def)             Requested size: 455.2593pt x 298.75702pt.
-
-Underfull \vbox (badness 2875) has occurred while \output is active []
-
- [37
+Package pdftex.def Info: wplyw_alg.png  used on input line 284.
+(pdftex.def)             Requested size: 455.26457pt x 298.76936pt.
+[37
 
  <./wplyw_alg.png>]
-<metryki_fr_nr.png, id=196, 550.6974pt x 346.896pt>
+<metryki_fr_nr.png, id=198, 633.8079pt x 346.896pt>
 File: metryki_fr_nr.png Graphic file (type png)
 <use metryki_fr_nr.png>
-Package pdftex.def Info: metryki_fr_nr.png  used on input line 299.
-(pdftex.def)             Requested size: 455.24689pt x 312.99748pt.
+Package pdftex.def Info: metryki_fr_nr.png  used on input line 303.
+(pdftex.def)             Requested size: 455.25818pt x 341.44843pt.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [38]
-<w_kolowy.png, id=200, 395.97937pt x 347.79938pt>
+<w_kolowy.png, id=202, 395.97937pt x 347.79938pt>
 File: w_kolowy.png Graphic file (type png)
 <use w_kolowy.png>
-Package pdftex.def Info: w_kolowy.png  used on input line 308.
+Package pdftex.def Info: w_kolowy.png  used on input line 312.
 (pdftex.def)             Requested size: 284.53093pt x 227.62186pt.
 
-[39 <./metryki_fr_nr.png> <./w_kolowy.png>]
-<metryki_fr.png, id=205, 579.6054pt x 346.896pt>
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [39 <./metryki_fr_nr.png>]
+<metryki_fr.png, id=207, 579.6054pt x 346.896pt>
 File: metryki_fr.png Graphic file (type png)
 <use metryki_fr.png>
-Package pdftex.def Info: metryki_fr.png  used on input line 322.
+Package pdftex.def Info: metryki_fr.png  used on input line 326.
 (pdftex.def)             Requested size: 455.24771pt x 284.54124pt.
-<korelacja.png, id=206, 729.927pt x 703.9098pt>
+<korelacja.png, id=208, 729.927pt x 703.9098pt>
 File: korelacja.png Graphic file (type png)
 <use korelacja.png>
-Package pdftex.def Info: korelacja.png  used on input line 329.
+Package pdftex.def Info: korelacja.png  used on input line 333.
 (pdftex.def)             Requested size: 398.34251pt x 398.33275pt.
- [40 <./metryki_fr.png>]
-<negatywny_r.png, id=211, 550.6974pt x 346.896pt>
+ [40 <./w_kolowy.png>]
+Overfull \vbox (50.14369pt too high) has occurred while \output is active []
+
+
+[41 <./metryki_fr.png> <./korelacja.png>]
+<negatywny_r.png, id=217, 550.6974pt x 346.896pt>
 File: negatywny_r.png Graphic file (type png)
 <use negatywny_r.png>
-Package pdftex.def Info: negatywny_r.png  used on input line 343.
+Package pdftex.def Info: negatywny_r.png  used on input line 347.
 (pdftex.def)             Requested size: 369.88966pt x 284.54124pt.
- [41 <./korelacja.png>]
-<kontrast_ujemne_rk.png, id=216, 462.528pt x 346.896pt>
+<kontrast_ujemne_rk.png, id=218, 462.528pt x 346.896pt>
 File: kontrast_ujemne_rk.png Graphic file (type png)
 <use kontrast_ujemne_rk.png>
-Package pdftex.def Info: kontrast_ujemne_rk.png  used on input line 350.
+Package pdftex.def Info: kontrast_ujemne_rk.png  used on input line 354.
 (pdftex.def)             Requested size: 369.90291pt x 284.54124pt.
- [42 <./negatywny_r.png> <./kontrast_ujemne_rk.png>] [43] [44
+ [42 <./negatywny_r.png>] [43 <./kontrast_ujemne_rk.png>] [44
 
 ]
 Rozdzia\l  5.
@@ -2266,6 +2272,13 @@ Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
 
 Package biblatex Warning: No hyphenation patterns for 'polski' on input line 20
 8.
+
+
+Underfull \hbox (badness 1831) in paragraph at lines 209--209
+[]\T1/ptm/m/n/10.95 Ian J. Go-od-fel-low, Yoshua Ben-gio i Aaron Co-urville. \T
+1/ptm/m/it/10.95 Deep Le-ar-ning\T1/ptm/m/n/10.95 . $\T1/ptm/m/it/10.95 http : 
+/ / www .
+ []
 
 
 Package biblatex Warning: '\mkdaterangeiso8601' is deprecated.
@@ -2312,12 +2325,12 @@ Package logreq Info: Writing requests to 'praca.run.xml'.
  ) 
 Here is how much of TeX's memory you used:
  40611 strings out of 492945
- 803557 string characters out of 3125364
- 1188522 words of memory out of 3000000
- 43833 multiletter control sequences out of 15000+200000
+ 803611 string characters out of 3125364
+ 1187522 words of memory out of 3000000
+ 43832 multiletter control sequences out of 15000+200000
  621216 words of font info for 121 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 62i,14n,82p,1621b,2930s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 62i,14n,82p,1599b,2932s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/elacpol/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/base/8r.e
 nc}<C:/Users/elacpol/AppData/Local/Programs/MiKTeX 2.9/fonts/type1/public/amsfo
 nts/cm/cmex10.pfb><C:/Users/elacpol/AppData/Local/Programs/MiKTeX 2.9/fonts/typ
@@ -2339,9 +2352,9 @@ tic/uhvro8a.pfb><C:/Users/elacpol/AppData/Local/Programs/MiKTeX 2.9/fonts/type1
 /type1/urw/times/utmr8a.pfb><C:/Users/elacpol/AppData/Local/Programs/MiKTeX 2.9
 /fonts/type1/urw/times/utmr8a.pfb><C:/Users/elacpol/AppData/Local/Programs/MiKT
 eX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on praca.pdf (52 pages, 4788304 bytes).
+Output written on praca.pdf (52 pages, 4807331 bytes).
 PDF statistics:
- 311 PDF objects out of 1000 (max. 8388607)
+ 313 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
- 269 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 274 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -768,6 +768,43 @@
     \field{year}{2014}
   \endentry
 
+  \entry{mit_deep_learning}{book}{}
+    \name{author}{3}{}{%
+      {{hash=GIJ}{%
+         family={Goodfellow},
+         familyi={G\bibinitperiod},
+         given={Ian\bibnamedelima J.},
+         giveni={I\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+      {{hash=BY}{%
+         family={Bengio},
+         familyi={B\bibinitperiod},
+         given={Yoshua},
+         giveni={Y\bibinitperiod},
+      }}%
+      {{hash=CA}{%
+         family={Courville},
+         familyi={C\bibinitperiod},
+         given={Aaron},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {MIT Press}%
+    }
+    \strng{namehash}{GIJBYCA1}
+    \strng{fullhash}{GIJBYCA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{chapter}{5}
+    \field{note}{\url{http://www.deeplearningbook.org}}
+    \field{title}{Deep Learning}
+    \list{location}{1}{%
+      {Cambridge, MA, USA}%
+    }
+    \field{year}{2016}
+  \endentry
+
   \entry{mlr}{online}{}
     \name{author}{2}{}{%
       {{hash=TM}{%

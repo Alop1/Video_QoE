@@ -278,6 +278,15 @@ Wyróżniane są dwa typy algorytmów uczenia maszynowego: nadzorowane ({\em ang
 W ramach algorytmów uczenia maszynowego z uczeniem nadzorowanym wyróżnia się dwa typy rozważanych  problemów: regresji i klasyfikacji (\textit{ang. classification and regression tasks}). Dla tych pierwszych model ma za zadanie mapować dane wejściowe na skończony zbiór danych wyjściowych. Przykładem wykorzystania klasyfikacji binarnej jest rozpoznawanie spamu w poczcie elektronicznej. Algorytmy dla problemu regresji dokonują estymaty funkcji opisującej zależności danych wejściowych i ciągłego zbioru danych wyjściowych. Przykładem może być predykcja temperatury \cite{rf2}.
 W niniejszej  pracy rozpatrywany  jest problem regresji. \par
 
+\subsection{Bias i wariancja}
+Bias określa jak bardzo algorytm ma tendencję do ignorowania pewnych informacji z danych, co w konsekwencji może tworzy model o niższej skuteczności. Koncept ten często łączony jest z pojęciem niedouczenia (\textit{ang. underfitting}). Natomiast wariacja odnosi się do czułości algorytmów na każdą dostępną próbkę danych. Duża jej wartość może powodować zjawisko przeuczenia (\textit{ang. overfitting})  Niedouczenie i przeuczenie jest związane między innymi z pojemnością (\textit{ang. capacity}) algorytmu. Określa ona jaką elastyczność posiada badany algorytm. Przykładowo podstawowa regresja liniowa ma niską pojemność. Nie ma ona możliwości dopasowania się do danych o innej zależności niż liniowa. Innym jeszcze powiązanym terminem jest błąd generalizacji przedstawia on błąd modelu, zbudowanego na podstawie algorytmu z zadaną pojemnością, dla danych testowych . Poniższy wykres przestawia zależności wymienionych w tym podrozdziale pojęć \cite{mit_deep_learning}.
+
+\begin{center}
+	\includegraphics[ height=8cm, width=13cm]{bias_wariancja_2}
+	\captionof{figure}{Zależności dla bias-u, wariancji i błędu greneralizacji w funkcji pojemności algorytmów. \cite{mit_deep_learning}.}
+	\label{fig:bias_wariancja}
+	\label{fig:xccs}
+\end{center}  
 
 
 %(?czy wpisywac cos o metodzie uczenia zaimplementowanej w skLearn, czyli :Ordinary Least Squares ?)
@@ -340,7 +349,7 @@ Podczas budowania podstawowego drzewa regresyjnego rekurencyjnie dokonywane są 
 
 
 
-W RF każde z drzew budowane jest w oparciu o inny podzestaw danych treningowych, co w swoim zamyśle ma na celu podwyższenie dokładności modelu oraz zmniejszenie zagrożenia nadmiernego dopasowania ({\em ang. overfitting}) \cite{rf2}. Istotną kwestią jest dobór optymalnych parametrów dla modelu, takich jak liczba drzew oraz ich głębokość. 
+W RF każde z drzew budowane jest w oparciu o inny podzestaw danych treningowych, co w swoim zamyśle ma na celu podwyższenie dokładności modelu oraz zmniejszenie zagrożenia przeuczenia  \cite{rf2}. Istotną kwestią jest dobór optymalnych parametrów dla modelu, takich jak liczba drzew oraz ich głębokość. 
 \begin{center}
 \includegraphics[ height=9cm, width=12cm]{r_tree}
 \captionof{figure}{Wizualizacja dopasowania modelu z użyciem algorytmu drzewa regresyjnego.}

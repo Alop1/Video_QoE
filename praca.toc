@@ -9,10 +9,11 @@
 \contentsline {section}{\numberline {2.3}Algorytmy uczenia maszynowego }{17}% 
 \contentsline {subsection}{\numberline {2.3.1}Ucznie nadzorowane i nienadzorowane}{18}% 
 \contentsline {subsection}{\numberline {2.3.2}Problem klasyfikacji i regresji}{18}% 
-\contentsline {subsection}{\numberline {2.3.3}Regresja Liniowa}{18}% 
-\contentsline {subsection}{\numberline {2.3.4}SVM}{19}% 
-\contentsline {subsection}{\numberline {2.3.5}Las Losowy}{20}% 
-\contentsline {subsection}{\numberline {2.3.6}Sieci Neuronowe}{21}% 
+\contentsline {subsection}{\numberline {2.3.3}Bias i wariancja}{18}% 
+\contentsline {subsection}{\numberline {2.3.4}Regresja Liniowa}{19}% 
+\contentsline {subsection}{\numberline {2.3.5}SVM}{19}% 
+\contentsline {subsection}{\numberline {2.3.6}Las Losowy}{21}% 
+\contentsline {subsection}{\numberline {2.3.7}Sieci Neuronowe}{22}% 
 \contentsline {chapter}{\numberline {3}Metodologia bada\IeC {\'n}}{25}% 
 \contentsline {section}{\numberline {3.1}Narz\IeC {\k e}dzia}{25}% 
 \contentsline {section}{\numberline {3.2}Dane}{26}% 
