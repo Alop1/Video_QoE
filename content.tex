@@ -11,7 +11,7 @@ Dzięki coraz większym przepustowościom i szerokiemu dostępowi do Internetu w
 
 Na obecnym etapie rozwoju technologii, oczekiwania odbiorcy co do jakości otrzymywanego wideo znacznie wzrosły. Na drugiej szali pozostają ograniczenia dotyczące medium i optymalnego wykorzystania zasobów po stronie klienta i dostawcy. Odnosząc się do powyższego istotną kwestią staje się monitorowanie jakości transmitowanego wideo i dostosowywanie go do potrzeb użytkownika. Jednak problem w ocenie jakości wideo jest o tyle trudny, że dotychczas najbardziej wiarygodnym wskaźnikiem jest tu opinia ludzka,  trudna do powiązania z mierzalnymi technicznymi, parametrami wideo.\par
 
-Przykładem koncepcji poprawy trafności dla automatycznej oceny jakości wideo jest wykorzystanie jednej z gałęzi statystyki -- Uczenia maszynowego. Pomaga ona odnajdywać zależności, nawet te na pozór nie intuicyjne, dla zbioru cech wideo. Tą metodę zastosowano do tej pory podczas tworzenia między innymi metryki VMAF oraz metryk zaproponowanych przez Judith Redi \cite{metryka1} i Patrick'a Le Callet \cite{metryka2}.
+Przykładem koncepcji poprawy trafności dla automatycznej oceny jakości wideo jest wykorzystanie jednej z gałęzi statystyki -- uczenia maszynowego. Pomaga ona odnajdywać zależności, nawet te na pozór nie intuicyjne, dla zbioru cech wideo. Tą metodę zastosowano do tej pory podczas tworzenia między innymi metryki VMAF oraz metryk zaproponowanych przez Judith Redi \cite{metryka1} i Patrick'a Le Callet \cite{metryka2}.
 
 
 W niniejszej Pracy zostanie przedstawiony algorytm pozwalający na bardziej zautomatyzowaną ocenę jakości wideo w oparciu o metryki \emph{full-reference} (FR) i \emph{no-reference} (NR) z użyciem wybranych metod z zakresu uczenia maszynowego oraz zaprezentowana zostanie wykorzystana metodologia badań.
@@ -27,9 +27,9 @@ W niniejszym rozdziale przedstawiono najważniejsze teoretyczne zagadnienia dla 
 
 Wideo jest formą zapisu sygnału wizji (analogowego bądź cyfrowego). W swojej surowej postaci jest to sekwencja pojedynczych ramek. Ramki natomiast składają się z pikseli, a one są definiowane poprzez: luminancję ({\em ang. luminace}) i chrominancje ({\em ang. chrominance}). Luminancja odpowiada za jasność obrazu, a chrominancja za kolorystykę. 
 
-Surowe wideo zajmuje bardzo dużo przestrzeni dyskowej. Przykładowo obraz o rozdzielczości 1920x1080 z 24 ramkami na sekundę o długości 30 sekund zajmuje ponad \todo{sprawdzić ile dokładnie ((1920x1080x3x24x30/1024)/1024)/1024 ~ 4GB }30 GB w pamięci komputera. Tak duże rozmiary znacząco ograniczają możliwości przechowywania i transmisji dla zwykłych użytkowników. Dlatego praktycznie każdy plik wideo wykorzystuje kodeki, czyli pewne ustandaryzowane zasady kompresji/dekompresji. Do tej grupy należą między innymi: H.261, MPEG-1, H.262/MPEG-2, H.263, H.265 i powszechnie używany w Internecie do transmitowania multimediów --  H.264 \cite{video_codecs}. 
+Surowe wideo zajmuje bardzo dużo przestrzeni dyskowej. Przykładowo obraz o rozdzielczości 1920x1080 z 24 ramkami na sekundę o długości 5 minut zajmuje ponad 40 GB w pamięci komputera. Tak duże rozmiary znacząco ograniczają możliwości przechowywania i transmisji dla zwykłych użytkowników. Dlatego praktycznie każdy plik wideo wykorzystuje kodeki, czyli pewne ustandaryzowane zasady kompresji/dekompresji. Do tej grupy należą między innymi: H.261, MPEG-1, H.262/MPEG-2, H.263, H.265 i powszechnie używany w Internecie do transmitowania multimediów --  H.264 \cite{video_codecs}. 
 
-Można wyróżnić dwa rodzaje kompresji: stratna i bezstratna. W przetwarzaniu obrazów stosowana jest ta pierwsza. Kompresja stratna może znacząco obniżyć rozmiar pliku. W przypadku wideo wskaźnik kompresji może wynosić nawet 200:1 \cite{compression_rate} \todo{Mnie się wydaje, ze ta liczba jest bardzo mała, 1.5h film o rozmiearze 1GB ma super jakość, choc komresja tam to 1:4*60*90, co jest duzo więcej niż 200. Więc jak to źródło podaje taką liczbę to chyba warto z niego nie korzystać.}. Technika ta korzysta wtedy z ograniczeń ludzkiego oka i usuwa informacje o obrazie, które mają większą szanse na bycie niewychwyconym. Poniżej zaprezentowano schemat przetwarzania obrazu stałego kodekiem JPEG.
+Można wyróżnić dwa rodzaje kompresji: stratna i bezstratna. W przetwarzaniu obrazów stosowana jest ta pierwsza. Kompresja stratna może znacząco obniżyć rozmiar pliku. W przypadku wideo wskaźnik kompresji dla kodeków H.261--H.264 zazwyczaj zawiera się pomiędzy 20:1, a 200:1 w zależności od rodzaju kodeka i kompresowanego wideo.  \cite{compression_rate} \todo{Mnie się wydaje, ze ta liczba jest bardzo mała, 1.5h film o rozmiearze 1GB ma super jakość, choc komresja tam to 1:4*60*90, co jest duzo więcej niż 200. Więc jak to źródło podaje taką liczbę to chyba warto z niego nie korzystać.}. Technika ta korzysta wtedy z ograniczeń ludzkiego oka i usuwa informacje o obrazie, które mają większą szanse na bycie niewychwyconym. Poniżej zaprezentowano schemat przetwarzania obrazu stałego kodekiem JPEG.
 
 \tikzstyle{block} = [rectangle, draw, fill=white, text width=6em, text centered, minimum height=5em]
 
@@ -79,7 +79,7 @@ Ze względu na sposób kodowania można wyróżnić trzy typy ramek.
 	\item B -- kodowana na podstawie wcześniejszych i późniejszych ramek.
 \end{itemize}
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centerline{\includegraphics[ height=3cm, width=13cm]{ramki}}
 	\caption{Trzy typy kodowania ramek.}
 	\label{fig:ramki}
@@ -106,7 +106,6 @@ Podczas badań nad jakością  wideo używane są pewne sformułowania ułatwiaj
 	\item SRC (\emph{ang. Source}) -- oryginalna sekwencja wideo
 	\item PVS (\emph{ang. Processed Video Sequences}) -- pliki wideo powstałe w skutek zniekształcenia SRC
 \end{itemize}
-\todo[inline]{Typowym zabiegiem jest przeniesienie sekcji słownika jako osobny rozdział na początku pracy, w tym miejscu jest to dziwne, bo nawet nie korzysta Pani z tych pojęć w ``okolicy''.}
 
 W poniższych podrozdziałach w skrócie zostały opisane metryki typu NR i FR.
 
@@ -167,14 +166,14 @@ W poniższych podrozdziałach w skrócie zostały opisane metryki typu NR i FR.
 \label{fig:xccs}
 \end{center}
 
-\item Wyciemnienia ({\em ang. Blackout}) -- opisuje zjawisko, kiedy obraz całkowicie zanika \cite{blackout}. Skala przyjęta w pracy : 0-1. \todo{sprzwdzic strony w i3e}
+\item Wyciemnienia ({\em ang. Blackout}) -- opisuje zjawisko, kiedy obraz całkowicie zanika \cite{blackout}. Skala przyjęta w pracy : 0-1. 
 %\begin{center}
 %\includegraphics[ height=4cm, width=7cm]{blackout}
 %\captionof{figure}{Wyciemniona ramka \cite{agh_vqm}.}
 %\label{fig:xccs}
 %\end{center}
 
-\item Zamrożenie ({\em ang. Freezing}) -- Informuje o efekcie czasowego zatrzymania  obrazu,  które powoduje odczucie "przycięcia"  wideo \cite{freezing}. Transmitowana jest wtedy poprzednia poprawnie zdekodowana ramka. Skala przyjęta w pracy:0-1.
+\item Zamrożenie ({\em ang. Freezing}) -- Informuje o efekcie czasowego zatrzymania  obrazu,  które powoduje odczucie "przycięcia"  wideo \cite{freezing}. Transmitowana jest wtedy poprzednia poprawnie zdekodowana ramka. Skala przyjęta w pracy: 0-1.
 
 \item Ekspozycja ({\em ang. Exposure}) -- ten typ zakłóceń jest spowodowany niezbilansowaną jasnością ramek. Widz ma odczucie, że wideo jest zbyt ciemne lub zbyt jasne \cite{freezing}. Skala przyjęta w badaniach 0-255.
 \begin{center}
@@ -224,7 +223,7 @@ Oprócz wyżej wymienionych wskaźników, w obecnym opracowaniu w pracy zostały
 \begin{itemize}[label=$\bullet$]
 \item Rozdzielczość ({\em ang.  Resolution}) -- miara określająca rozmiar ramki. Jednostką są piksele. Podawana jest zazwyczaj w następujący sposób: szerokość x wysokość. Do badań zostały użyte wideo o rozdzielczościach: 3840x2160, 1920x1080, 704x576, 640x480, 352x288. 
 \item Klatki na sekundę ({\em ang. fps, frames per second}) -- liczba ramek wyświetlonych w czasie sekundy. W telewizji stosowane jest 25 ramek na sekundę. Do badań użyto następujące częstotliwości: 60, 30, 25, 24 fps.
-\item Próbkowanie chrominacji  ({\em ang.Chroma subsampling}) -- Jest to cecha  wideo wynikająca z sposobu kodowania  informacji w pikselu. \todo[inline]{To powinno być w opisie czym jest kompresja, jest to najczęściej pierwszy krok kompresji obrazu} Samo działanie ma na celu  ograniczenie zużycia zasobów.  W takim przypadku wykorzystuje się  niedoskonałość ludzkiego oka, które jest bardziej wrażliwe na jasność, niż na kolor. Jak wcześniej zostało wspominane piksel jest opisywany dwoma zmiennymi: luminacją i chrominacją. Piksel, w modelu kolorów YUV (innym modelem kolorów jest RGB),  jest  kodowany w następujący sposób: YCbCr, gdzie Y oznacza luminację, Cb intensywność koloru niebieskiego (chrominacja), a Cr intensywność koloru czerwonego (chrominacja). Chcąc zmniejszyć ilość danych, potrzebnych do zbudowania obrazu, ogranicza się informację dotyczące części odpowiedzialnej za kolor. Przykładowo 4:2:2 oznacza, że na daną czwórkę pikseli kolor będzie pod próbkowany na tylko co drugim z nich, a sąsiedzi przejmą od nich tą informację  \cite{chroma_sampling}. W danych zebranych do pracy użyto następujących wartości: 4:2:2, 4:2:0.
+\item Próbkowanie chrominacji  ({\em ang.Chroma subsampling}) -- Jest to cecha  wideo wynikająca z sposobu kodowania  informacji w pikselu. Samo działanie ma na celu  ograniczenie zużycia zasobów.  W takim przypadku wykorzystuje się  niedoskonałość ludzkiego oka, które jest bardziej wrażliwe na jasność, niż na kolor. Jak wcześniej zostało wspominane piksel jest opisywany dwoma zmiennymi: luminacją i chrominacją. Piksel, w modelu kolorów YUV (innym modelem kolorów jest RGB),  jest  kodowany w następujący sposób: YCbCr, gdzie Y oznacza luminację, Cb intensywność koloru niebieskiego (chrominacja), a Cr intensywność koloru czerwonego (chrominacja). Chcąc zmniejszyć ilość danych, potrzebnych do zbudowania obrazu, ogranicza się informację dotyczące części odpowiedzialnej za kolor. Przykładowo 4:2:2 oznacza, że na daną czwórkę pikseli kolor będzie pod próbkowany na tylko co drugim z nich, a sąsiedzi przejmą od nich tą informację  \cite{chroma_sampling}. W danych zebranych do pracy użyto następujących wartości: 4:2:2, 4:2:0.
 \end{itemize}
 
 
@@ -244,12 +243,12 @@ Mimo zalet PSNR nie zawsze spełnia swoje zadanie. Ilustracja \ref{fig:psnr_pict
 \label{fig:xccs}
 \end{center}
 % ms-ssim Multiscale_structural_similarity_for_image_quality_assessment
-\item SSIM ({\em ang. Structural Similarity Index}) -- jest jedną z najczęściej stosowanych metryk oceny jakości wideo. Również, jak w poprzedniej metryce, zaletą jest prostota obliczeń. Uwzględnia w swojej funkcji \ref{eqn:ssim}: luminacje, kontrast i strukturę obu , gdzie S jest blokiem pikseli z ramki z oryginalnej sekwencji wideo, a S' jej zniekształconą wersją. $SSIM \in <0,1>$. 1 oznacza brak zniekształceń, a 0 idealne niedopasowanie \cite{ssim_1}\cite{ssim_2}.
+\item SSIM ({\em ang. Structural Similarity Index}) -- jest jedną z najczęściej stosowanych metryk oceny jakości wideo. Również, jak w poprzedniej metryce, zaletą jest prostota obliczeń. Uwzględnia w swojej funkcji \ref{eqn:ssim}: luminacje, kontrast i strukturę obu , gdzie S jest blokiem pikseli z ramki z oryginalnej sekwencji wideo, a S' jej zniekształconą wersją. $SSIM \in \langle0,1\rangle$. 1 oznacza brak zniekształceń, a 0 idealne niedopasowanie \cite{ssim_1}\cite{ssim_2}.
 \begin{equation}
 \label{eqn:ssim}
 SSIM = I(S, S')c(S, S')s(S,S')
 \end{equation}
-\item MS-SSIM ({\em ang. multi-scale SSIM}) -- jest modyfikacją poprzedniej metryki. Polega na próbkowaniu obrazu, w każdej skali, przed zastosowaniem SSIM'. Po przeprowadzeniu obliczeń, każda z skali jest łączona, z odpowiednimi wagami, w jedną całość. Zabieg ma na celu poprawę trafności oceny jakości \cite{ssim_2}. 
+\item MS-SSIM ({\em ang. multi-scale SSIM}) -- jest modyfikacją poprzedniej metryki. Polega na próbkowaniu obrazu, w kilku skalach, przed zastosowaniem SSIM'. Po przeprowadzeniu obliczeń, każda z skali jest łączona, z odpowiednimi wagami, w jedną całość. Zabieg ma na celu poprawę trafności oceny jakości \cite{ssim_2}. 
 \item VMAF ({\em ang. Video Multimethod Assessment Fusion}) -- metryka rozwijana przez Netflix we współpracy z University of Southern California. Jej działanie opiera się na połączeniu wyników kilku metryk podstawowych. VMAF nadaje każdej z nich odpowiednie wagi, a dzieje się to dzięki zastosowaniu algorytmu uczenia maszynowego, w tym przypadku SVM regressor ({\em ang. Support Vector Machine regressor}). Takie rozwiązanie ma zapewnić wykorzystanie mocnych stron poszczególnych metryk z pominięciem ich słabości \cite{netflix}. 
 \end{itemize}
 
@@ -259,7 +258,7 @@ SSIM = I(S, S')c(S, S')s(S,S')
 
 %Obecne czasy charakteryzują się ogromną ilością danych. Coraz więcej dziedzin życia  które zewsząd otaczają człowieka i jego środowisko. \todo[inline]{To super dziwne zdanie, dane są jak powietrze?} W każdej sekundzie różnego rodzaju dane są zbierane, przesyłane, prezentowane i analizowane. Aby móc, w optymalny sposób, czerpać z nich zyski zostały opracowane pewne algorytmy, bazujące na statystyce. Algorytmy te potrafią zamodelować zadane zdarzenie i na jego podstawie dokonać predykcji . Mogą również w czasie rzeczywistym (czasem nawet korzystając ze swoich już dokonanych obliczeń), poprawiać i udoskonalać swoją strukturę zwiększając dokładność. Dziedzina nauki zajmująca się takimi algorytmami nazywana jest uczeniem maszynowym ({\em ang. Machine Learning}).\par \todo[inline]{To zupełnie nie tak. Pomieszanie systemów czasu rzeczywistego i ML i coś z danymi to straszne zagmatwanie i mijanie się z tym co jest istotne w pracy. W pracy chcemy powiedzieć, że 1. możliwości pozyskiwania i gromadzenia danych rosną, 2. narzędzia do ich przetwarzania są rozwijane bardzo intensywnie przez wiele różnych zespołów 3. ML pozwala tworzyć wiedzę w oparciu o dane (to istota ML!) 4. ML staje się coraz istotniejszym sposobem przetwarzania danych, gdzie wyciągamy wiedzę z danych bez naszego udziału}
 
-Obecne czasy charakteryzują się ogromną ilością danych. Jedną z nowszych koncepcji wprowadzanych w świat teleinformatyki, która się bez wątpienia do tego przyczynia, jest Internet Rzeczy (\textit{ang. Internet of Things --  IoT}). Zakłada on, że urządzenia wyposażone w sensory komunikują się oraz wymieniają dane z innymi urządzeniami poprzez różnego rodzaju sieci. Innym jeszcze czynnikiem jest zmieniający się styl życia obecnego społeczeństwa. Część codziennych czynności, jak na przykład przeglądanie  wiadomości czy w pewnym stopniu rozrywka, przeniosła się do sfery cyfrowej, dzięki technologiom i szerokiemu dostępowi do Internetu. Oprócz danych związanych z treścią dla tych usług to dodatkowo mogą być prowadzone rejestry ruchu sieciowego i zachowań użytkowników. W ten sposób oraz dzięki wielu innym źródłom, różnego rodzaju dane są zbierane i gromadzone. Ten ciągle rosnący trend skłonił naukowców do badań nad mechanizmami pozwalającymi czerpać w lepszym stopniu z nich zyski. Rozwiązaniem dla tych rozważań stały się algorytmy oparte na statystyce, które są w stanie zamodelować zadane zdarzenie i na jego podstawie dokonywać na przykład predykcji. Dziedzina nauki zajmująca się nimi nazywana jest uczeniem maszynowym ({\em ang. Machine Learning}). Mimo, że początki badań nad tymi algorytmami  przypadają na lata pięćdziesiąte ubiegłego wieku, to dopiero obecnie zyskały one dużą popularność i zaczęły być stosowane przez komercyjne firmy. \par  
+Obecne czasy charakteryzują się ogromną ilością danych. Jedną z nowszych koncepcji wprowadzanych w świat teleinformatyki, która się bez wątpienia do tego przyczynia, jest Internet Rzeczy (\textit{ang. Internet of Things --  IoT}). Zakłada on, że urządzenia wyposażone w sensory komunikują się oraz wymieniają dane z innymi urządzeniami poprzez różnego rodzaju sieci. Innym jeszcze czynnikiem jest zmieniający się styl życia obecnego społeczeństwa. Część codziennych czynności, jak na przykład przeglądanie  wiadomości czy w pewnym stopniu rozrywka, przeniosła się do sfery cyfrowej, dzięki technologiom i szerokiemu dostępowi do Internetu. Oprócz danych związanych z treścią dla tych usług dodatkowo prowadzone są rejestry ruchu sieciowego i zachowań użytkowników. W ten sposób oraz dzięki wielu innym źródłom, różnego rodzaju dane są zbierane i gromadzone. Ten ciągle rosnący trend skłonił naukowców do badań nad mechanizmami pozwalającymi czerpać w lepszym stopniu  zyski z danych. Rozwiązaniem dla tych rozważań stały się algorytmy oparte na statystyce, które są w stanie zamodelować zadane zdarzenie i na jego podstawie dokonywać na przykład predykcji. Dziedzina nauki zajmująca się nimi nazywana jest uczeniem maszynowym ({\em ang. Machine Learning}). Mimo, że początki badań nad tymi algorytmami  przypadają na lata pięćdziesiąte ubiegłego wieku, to dopiero obecnie zyskały one dużą popularność i zaczęły być stosowane przez komercyjne firmy. \par  
 
 
 Jednym z zadań algorytmów uczenia maszynowego, jest odnalezienie jak najdokładniejszego przybliżenia funkcji: $f \colon X \to Y$. Jest to funkcja opisująca zależności pomiędzy danymi wejściowymi $X$, a danymi wyjściowymi $Y$ \cite{ml_supervised}. Ten przypadek będzie również rozważany w obecnej pracy. Do oceny poprawności tak przygotowanych modeli korzysta się między innymi z współczynnika determinacji R-kwadrat ($R^2$) pokazuje on jak bardzo udało się zbliżyć do tej funkcji. Definiowany jest on wzorem \ref{eqn:r2}. 
@@ -301,7 +300,7 @@ y_i = \beta_0 + \beta_1 x_{1i} + \beta_2 x_{2i} + ... + \beta_p x+x_{pi} + \epsi
 Regresja liniowa jest jednym z prostszych algorytmów. Jej cechą jest przejrzystość w interpretacji  dzięki możliwości obserwacji współczynników $\beta$. Regresja liniowa jest w stanie odnajdować zależności liniowe, natomiast dla zależności nieliniowych może dawać fałszywe wyniki.
 
 \subsection{SVM}
-{\em Software Vector Machine} (SVM) -- algorytm używany jako klasyfikator, który dokonuje podziału danych dzięki wcześniej wyznaczonej hiperpłaszczyźnie ({\em ang. hyperplane}). Upraszczając dla dwóch cech, w celu zdefiniowania optymalnej hiperpłaszczyzny należy wyznaczyć maksymalną szerokość marginesów ({\em ang. margin} ) $\omega$, taką aby dane z różnych klas były od siebie oddzielone oraz, aby pojedyncze dane z różnych klas, znajdujące się najbliżej siebie, leżały na granicy marginesów (jak na rysunku \ref{fig:svm} ).  Takie dane definiowane są jako {\em ang. Support vectors}. Wielu przypadkach, aby podział danych był możliwy, używa się  jednej z funkcji kernela, przenoszącej problem do przestrzeni złożonej z większej liczby wymiarów. Rysunek \ref{fig:svm} przedstawia przykładową hiperpłaszczyznę.\par
+{\em Software Vector Machine} (SVM) -- algorytm używany jako klasyfikator, który dokonuje podziału danych dzięki wcześniej wyznaczonej hiperpłaszczyźnie ({\em ang. hyperplane}). Upraszczając dla dwóch cech, w celu zdefiniowania optymalnej hiperpłaszczyzny należy wyznaczyć maksymalną szerokość marginesów ({\em ang. margin} ) $\omega$, taką aby dane z różnych klas były od siebie oddzielone oraz, aby pojedyncze dane z różnych klas, znajdujące się najbliżej siebie, leżały na granicy marginesów (jak na rysunku \ref{fig:svm} ).  Te ostanie definiowane są jako {\em ang. Support vectors}. W wielu przypadkach, aby podział danych był możliwy, używa się  jednej z funkcji kernela, przenoszącej problem do przestrzeni złożonej z większej liczby wymiarów. Rysunek \ref{fig:svm} przedstawia przykładową hiperpłaszczyznę.\par
 
 %NOWY OBRAZEK https://en.proft.me/2014/04/22/how-simulate-support-vector-machine-svm-r/
 \begin{center}
@@ -312,16 +311,16 @@ Regresja liniowa jest jednym z prostszych algorytmów. Jej cechą jest przejrzys
 \end{center}
 
 
-W niniejszej pracy zostało użyte pewne rozwinięcie SVM, dla problemów dotyczących regresji, czyli SVR ({\em ang. Support Vector Regression}).  W takim rozwiązaniu hiperpłaszczyznę wyznacza się tak, aby jak najwięcej danych treningowych znalazło się w wybranej odległości $\epsilon$ od niej, w celu dopasowania funkcji $f \colon X \to Y$ \cite{svr}. Nie jest jednak wymagane, aby wszystkie próbki danych znalazły się  w tym zakresie. Dla uwzględnienia tych danych została wprowadzona zmienna $C$, ustalająca kompromis pomiędzy dopasowaniem do danych treningowych, a ich generalizacją. Przykładowo mniejsze wartości parametru $C$ będą oznaczać większą tolerancję na błędy, co może  być pożyteczne w przypadku zaszumionych danych. 
+W niniejszej pracy zostało użyte pewne rozwinięcie SVM, dla problemów dotyczących regresji, czyli SVR ({\em ang. Support Vector Regression}).  W takim rozwiązaniu hiperpłaszczyznę wyznacza się tak, aby jak najwięcej danych treningowych znalazło się w wybranej odległości $\epsilon$ od niej, w celu dopasowania funkcji $f \colon X \to Y$ \cite{svr}. Nie jest jednak wymagane, aby wszystkie próbki danych znalazły się  w tym zakresie. Dla uwzględnienia tych danych została wprowadzona zmienna $C$, ustalająca kompromis pomiędzy biasem, a wariacją. Przykładowo mniejsze wartości parametru $C$ będą oznaczać większą tolerancję na błędy, co może  być pożyteczne w przypadku zaszumionych danych. 
 
-Trenowanie modelu SVR można sprowadzić się to do problemu optymalizacji. Matematyczny jego zapis dla liniowego \emph{Support Vector Regression} w dwuwymiarowej przestrzeni (zwizualizowanego na rysunku \ref{fig:svr_wykres}) jest przedstawiony poniżej. 
+Trenowanie modelu SVR można sprowadzić się to do problemu optymalizacji. Matematyczny jego zapis dla liniowego \emph{Support Vector Regression} w dwuwymiarowej przestrzeni (przypadek ten zwizualizowany jest na rysunku \ref{fig:svr_wykres}) jest przedstawiony poniżej. 
 
 \begin{equation*}
 \begin{aligned}
 \mathit{minimalizacja:} \\&\parallel w \parallel^{2} +C\sum_{i=1}^{l} (\xi_{i} + \xi_{i}^{*}) \\
 \mathit{ograniczenia:} \\ 
 &y_{i} -  wx_{i} -b < \epsilon +\xi_{i} 
-\\&  wx_{i} + b -y_{i} < \epsilon +\xi_{i}
+\\&  wx_{i} + b -y_{i} < \epsilon +\xi_{i}^{*}
 \\&\xi_{i},\xi_{i}^{*}\geq 0
 \end{aligned}
 \label{eqn:svr}

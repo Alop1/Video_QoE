@@ -419,7 +419,8 @@
     \verb{doi}
     \verb 10.1109/ISPS.2011.5898880
     \endverb
-    \field{title}{A brief synthesis of QoS-QoE methodologies}
+    \field{title}{A brief synthesis of QoS-QoE methodologies: QUALITY OF
+  EXPERIENCE}
     \field{journaltitle}{Proceedings of the 10th International Symposium on
   Programming and Systems, ISPS' 2011}
     \field{month}{04}
@@ -1420,6 +1421,84 @@
     \field{title}{{EPFL-PoliMI video quality assessment database}}
     \field{langid}{english}
     \field{year}{2009}
+  \endentry
+
+  \entry{mccv_fig}{book}{}
+    \name{author}{2}{}{%
+      {{hash=RR}{%
+         family={Remesan},
+         familyi={R\bibinitperiod},
+         given={Renji},
+         giveni={R\bibinitperiod},
+      }}%
+      {{hash=MJ}{%
+         family={Mathew},
+         familyi={M\bibinitperiod},
+         given={Jimson},
+         giveni={J\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{RRMJ1}
+    \strng{fullhash}{RRMJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.1007/978-3-319-09235-5
+    \endverb
+    \field{pages}{64}
+    \field{title}{Hydrological data driven modelling: A case study approach}
+    \field{journaltitle}{Hydrological Data Driven Modelling: A Case Study
+  Approach}
+    \field{month}{01}
+    \field{year}{2015}
+  \endentry
+
+  \entry{mccv}{article}{}
+    \name{author}{3}{}{%
+      {{hash=RC}{%
+         family={Ramezan},
+         familyi={R\bibinitperiod},
+         given={Christopher},
+         giveni={C\bibinitperiod},
+      }}%
+      {{hash=WT}{%
+         family={Warner},
+         familyi={W\bibinitperiod},
+         given={Timothy},
+         giveni={T\bibinitperiod},
+      }}%
+      {{hash=MA}{%
+         family={Maxwell},
+         familyi={M\bibinitperiod},
+         given={Aaron},
+         giveni={A\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{RCWTMA1}
+    \strng{fullhash}{RCWTMA1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \verb{doi}
+    \verb 10.3390/rs11020185
+    \endverb
+    \field{pages}{185}
+    \field{title}{Evaluation of Sampling and Cross-Validation Tuning Strategies
+  for Regional-Scale Machine Learning Classification}
+    \field{volume}{11}
+    \field{journaltitle}{Remote Sensing}
+    \field{month}{01}
+    \field{year}{2019}
+  \endentry
+
+  \entry{model_rf}{online}{}
+    \field{labeltitlesource}{title}
+    \field{title}{VMAF - Video Multi-Method Assessment Fusion}
+    \verb{url}
+    \verb https://github.com/Alop1/Video_QoE/blob/master/las_losowy_model.pkl
+    \endverb
+    \field{urlday}{19}
+    \field{urlmonth}{08}
+    \field{urlyear}{2019}
   \endentry
 \enddatalist
 \endinput

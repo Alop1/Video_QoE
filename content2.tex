@@ -4,7 +4,7 @@ Niniejszy rozdział będzie opisywał przeprowadzone etapy badań.
 
 W pierwszej kolejności wymienione zostaną narzędzia. Następnie przedstawione będą elementy procesu eksploracji danych niedotyczące pracy z algorytmami uczenia maszynowego, takie jak: wyszukiwanie, zbieranie, ekstrakcja cech, czyszczenie i normalizacja danych. Nawiązując do ankiety przeprowadzonej przez CrowdFlower \cite{ds_report}: podczas badań związanych z {\em Big Data}, znacząca większość czasu pochłaniana jest przez zbieranie i przygotowanie danych. Zasada ta miała swoje odzwierciedlenie również w tej pracy, szczególnie, że przedmiotem badań było wideo, które wymaga wykorzystania dużych zasobów podczas tych procesów (w odróżnieniu od na przykład danych tekstowych). 
 
-Na końcu opisany zostanie proces trenowania, wyniki predykcji z modeli powstałych w oparciu o algorytmy wymienione z poprzedniej sekcji.
+Na końcu opisany zostanie proces trenowania oraz analiza i wyniki predykcji z modeli powstałych w oparciu o algorytmy wymienione z poprzedniej sekcji.
 %https://visit.figure-eight.com/rs/416-ZBE-142/images/CrowdFlower_DataScienceReport.pdf -> slajd 5
 \label{cha:pierwszyDokument}
 
@@ -13,8 +13,8 @@ Specyfika badań wymagała narzędzi będących w stanie sprawnie przetwarzać d
 Poniżej zostały wymienione narzędzia, które posłużyły do ekstrakcji danych z plików wideo:
 \begin{itemize}[label=$\bullet$]
 \item FFmpeg -- jest aplikacją na licencji {\em opensource}. Dzięki niej otrzymane zostały informacje takie jak: rozdzielczość, dane o próbkowaniu chrominancji, liczba klatek na sekundę. Dodatkowo dzięki FFmpeg skompresowane pliki wideo rozstały rozłożone na pojedyncze ramki.
-\item {\em AGH Video Quality Indicators} -- jest ogólnodostępnym oprogramowaniem rozwijanym przez Katedrę Telekomunikacji AGH, przy jego użyciu otrzymane zostały dane o metrykach typu {\em no-reference} \cite{agh_vqm}.
-\item VMAF Development Kit (VDK) -- podobnie jak powyższe, VDK jest ogólnodostępnym oprogramowaniem rozwijanym przez Netflix. Zaimplementowane tu zostały algorytmy liczące metryki {\em full-reference} \cite{vdk}.
+\item {\em AGH Video Quality Indicators} -- jest ogólnodostępnym oprogramowaniem rozwijanym przez Katedrę Telekomunikacji AGH. Przy jego użyciu otrzymane zostały dane o metrykach typu {\em no-reference} \cite{agh_vqm}.
+\item VMAF Development Kit (VDK) -- podobnie jak powyższe, VDK jest ogólnodostępnym oprogramowaniem. Rozwijane jest ono przez Netflix. Zaimplementowane tu zostały algorytmy liczące metryki {\em full-reference} \cite{vdk}.
 \end{itemize}
 Zbieranie danych i wydobywanie cech wideo odbywało się w dwóch środowiskach: na lokalnie działającej maszynie wirtualnej z systemem operacyjnym Xubuntu oraz na super komputerze Prometeusz z systemem Centos. 
 
@@ -50,11 +50,11 @@ Początkowo w badaniach brała udział jeszcze jedna baza wideo z 220-oma plikam
 \subsection{Ekstrakcja cech}
 Kolejnym krokiem po zebraniu danych była ekstrakcja cech wideo, które później miały być użyte podczas przygotowywania modeli. W celu otrzymania cech należało każde wideo przekształcić do serii pojedynczych ramek w formacie YUV. 
 
-Dalszy proces ekstrakcji był o tyle problematyczny, że różne, do tego wykorzystywane narzędzia, wymagały w różny sposób dostosowanych danych. Co więcej, nieskompresowane wideo zajmuje bardzo dużo przestrzeni dyskowej, a sam proces przetwarzania wideo wymaga również znacznego nakładu pracy dla procesora. Cechy biorące udział w badaniach to: blokowość, aktywność przestrzenna, aktywność czasowa, letterbox, pillarbox, straty bloków, rozmycie, wyciemnienie, zamrożenie, ekspozycja, kontrast, jasność, szum, PSNR, SSIM, MS-SSIM, VMAF, czas trwania, próbkowanie chrominancji, liczba klatek na sekundę.\par
+Dalszy proces ekstrakcji był o tyle problematyczny, że różne, do tego wykorzystywane narzędzia, wymagały w różny sposób dostosowanych danych. Co więcej, nieskompresowane wideo zajmuje bardzo dużo przestrzeni dyskowej, a sam proces jego przetwarzania  wymaga również znacznego nakładu pracy dla procesora. Cechy biorące udział w badaniach to: blokowość, aktywność przestrzenna, aktywność czasowa, letterbox, pillarbox, straty bloków, rozmycie, wyciemnienie, zamrożenie, ekspozycja, kontrast, jasność, szum, PSNR, SSIM, MS-SSIM, VMAF, czas trwania, próbkowanie chrominancji, liczba klatek na sekundę.\par
 
 Dane dotyczące metryk $full$-$renerence$ oraz $no$-$reference$ zostały uzyskane na każdą z ramek. W następnym kroku wartości te zostały uśrednione na całe wideo. Wyjątkiem były SSIM i MS\--SSIM tu informacje zostały uzyskane na całe wideo. Cechy pochodzące z obu źródeł: VDK i AGH Video Quality Indicators zostały ujednolicone i zapisane wspólnie w postaci pliku CSV.\par
 
-Dodatkowo w badaniu postanowiono dodać jeszcze jedną cechę, która mogła by mieć wpływ na wynik subiektywny, to znaczy ilość różnych rozdzielczości w bazie. Przykładowo w zestawieniu, w którym pliki posiadają różne rozdzielczości, te z ich wyższą wartością (np. FHD) mogą mocniej kontrastować z tymi o niższej, przez to ocena subiektywna może okazać wyższa. W pracy tej rozpoznano dwa przypadki, kiedy baza danych zawiera pliki o jednej rozdzielczości i baza danych zawiera pliki o dwóch rozdzielczościach. Cecha ta została wprowadzona jako binarna cecha nominalna dla każdego z wideo i odpowiada na pytanie czy plik pochodzi z bazy o jednej rozdzielczości. Jeżeli tak to wartość jej przyjmuje 1, w innym wypadku 0.  \par
+Dodatkowo w badaniu postanowiono dodać jeszcze jedną cechę, która mogła by mieć wpływ na wynik subiektywny, to znaczy ilość różnych rozdzielczości w bazie. Przykładowo w zestawieniu, w którym pliki posiadają różne rozdzielczości, te z ich wyższą wartością (np. FHD) mogą mocniej kontrastować z tymi o niższej, przez to ocena subiektywna może okazać wyższa. W pracy tej rozpoznano dwa przypadki: kiedy baza danych zawiera pliki o jednej rozdzielczości, baza danych zawiera pliki o dwóch rozdzielczościach. Cecha ta została wprowadzona jako binarna cecha nominalna dla każdego z wideo i odpowiada na pytanie czy plik pochodzi z bazy o jednej rozdzielczości. Jeżeli tak to wartość jej przyjmuje 1, w innym wypadku 0.  \par
 
 Powyższy czynnik jest sztucznie stworzoną cechą, w komercyjnym wykorzystaniu trudną do otrzymania, ponieważ wymagało by to dostępu do obrazów obejrzanych przez widza bezpośrednio wcześniej. Cechę tę można również rozwinąć o inne atrybuty wideo, tak aby móc w lepszy sposób przedstawić różnice pomiędzy ocenianym plikiem, a pozostałą resztą, co leży poza zakresem tego opracowania.\par
 
@@ -66,9 +66,9 @@ Podczas procesu przygotowywania danych jak i późniejszej ekstrakcji cech mogł
 
 \subsection{Podział danych}
 
-Przy tworzeniu modeli została wykorzystana implementacja algorytmów zawarta w module języka Python -- sklearn. Instancje klas, przedstawiające modele, przyjmują jako dane wejściowe dane w formacie macierzy. Dlatego pliki CSV zostały, podczas działania skryptu, przekształcone do typu DataFarme. Wspierany jest on przez moduł, ułatwiający prace z dużymi danymi -- pandas.\par
+Przy tworzeniu modeli została wykorzystana implementacja algorytmów zawarta w module języka Python -- sklearn. Instancje klas przedstawiające algorytmy, przyjmują jako dane wejściowe dane w formacie macierzy. Dlatego pliki CSV zostały, podczas działania skryptu, przekształcone do typu DataFarme. Wspierany jest on przez moduł ułatwiający prace z dużymi danymi -- pandas.\par
 
-Przy eksploatowaniu danych często stosowaną techniką jest $cross$ $validation$. Polega ona na podziale dostępnych danych na dane treningowe i testowe. Można tu wykorzystać zasadę podziału 80:20, co oznacza ze 80 części danych jest przeznaczonych na dane treningowe, a 20 na dane testujące. Dobrą praktyką jest, aby w obu z tych grup znalazły się dane z całego przekroju bazy danych. Zabieg ten ma na celu pozwolenie na identyfikacje  problemu generalizacji czy nad dopasowania. 
+Przy eksploatowaniu danych często stosowaną techniką jest $cross$ $validation$. Pierwszy jej krok polega ona na podziale dostępnych danych na dane treningowe i testowe. Można tu wykorzystać zasadę podziału 80:20, co oznacza ze 80 części danych jest przeznaczonych na dane treningowe, a 20 na dane testujące. Dobrą praktyką jest, aby w obu z tych grup znalazły się dane z całego przekroju bazy danych. Zabieg ten ma na celu pozwolenie na identyfikacje problemu prze. 
 
 W przedstawionej pracy proces podziału danych należało przeprowadzić, tak aby uwzględnić  całe grupy --  SRC i jego PSV. Dane z jednej takiej grupy powinny w całości znaleźć się w podzbiorze danych testowych bądź treningowych. Nie zastosowanie tego zabiegu mogło by poskutkować niemiarodajnym wysokim wynikiem R-kwadrat. Wysoki R-kwadrat powinien wskazywać na dużą trafność modelu. Jednak w tym przypadku oznaczało by to, że odnajduje on zależności związane z grupami wideo, które wzięły udział w tym badaniu. Zaproponowany tu podział pozwala na uniknięcie tego niepożądanego efektu. Schemat podziału jest przedstawiony na rysunku \ref{fig:podzial_danych}.
 
@@ -104,19 +104,33 @@ Poniższa tabela \ref{tab:tabela} przedstawia uzyskane dane
 
 
 
-\section{Proces budowania i testowania modeli}
+\section{Budowanie i weryfikacja modeli}
 \label{cha:drugiDokument}
 
 
-Z uwagi na specyfikę przygotowania danych treningowych i testowych przygotowano wiele modeli. Każdorazowe wykonanie programu przygotowania modeli generuje ich zbiór, po jednym modelu dla każdego sprawdzanego algorytmu na każdy testowany zestaw danych. Wykonania dla tego skryptu zostały powtórzone wiele razy. Poniższy akapit wyjaśnia potrzebę tego zabiegu.
+Z uwagi na specyfikę przygotowania danych treningowych i testowych, poprawność modeli została zwerifikowana według jednego z rodzajów walidacji krzyżowej --  \textit{Monte Carlo Cross Validation} (MCCV).
+W tym podejściu pełne dane są losowo dzielone na dwa zbiory: treningowy i testowy. Na tak przygotowanych zbiorach dokonywane jest ucznie i testowanie modelu. Cykl ten jest powtarzany określoną przez badacza liczbę razy. Następnie wyniki każdego z eksperymentów są uśredniane. Podział danych przy kolejnych iteracjach procesu walidacji obrazuje rysunek \ref{fig:mccv}. Metoda ta została zastosowana dla każdego z badanych zestawów cech wideo z tabeli 3.2 oraz każdego z testowanych algorytmów.
 
-Podział danych 80:20 dotyczy paczek SRC + PSV, natomiast budowa modeli odbywa się już na podstawie danych z pojedynczych plików wideo. Dlatego może zaistnieć sytuacja kiedy większość małych paczek (na przykład po tylko 3 pliki wideo) znajdą się w danych treningowych, a większość dużych (na przykład po 15 wideo) w danych testujących. Tym samym faktyczny podział może wynosić w skrajnym przypadku 50:50, zamiast 80:20 (taki sam odstęp może wystąpić w drugą stronę). Dlatego  przy  każdym uruchomieniu aplikacji, podział zgromadzonych danych dobywał się na zasadzie losowo wybranych paczek do każdej grup -- danych trenujących i testujących, przy zachowaniu podziału 80:20.\par
 
-Wykres \ref{fig:execution} odnosi się do przeprowadzonego eksperymentu, który pomógł wybrać optymalną liczbę iteracji dla wyżej omówionej techniki. Linie przedstawiają uśrednioną wartość R-kwadrat na liczbę modeli(w tym przypadku powstałych na bazie zestawów danych wejściowych numer: 18, 7, 25 -- tabela 3.2) biorących udział podczas jej obliczania. Czytając ten wykres można stwierdzić, że dla każdego z algorytmów wyniki stabilizują się satysfakcjonującym poziomie przy około 60 modelach. W celu uniknięcia niemiarodajnych wyników w dalszych badaniach  wybrano liczbę (z pewnym zapasem) 70 modeli na podstawie których  obliczany był uśredniony R-kwadrat.
+\begin{center}
+	\includegraphics[ height=8cm, width=12cm]{mccv}
+	\captionof{figure}{opis \cite{mccv_fig}.}
+	\label{fig:mccv}
+	\label{fig:xccs}
+\end{center}
+
+
+Wybór tej metody był motywowany próbą uniezależnienia modelu od sposobu podziału danych na dane testowe i treningowe. Porównując do  metody \textit{k -Fold Cross Validation} zapobiega on sytuacji kiedy podgrupy są wydzielone w taki sposób, że na dana podgrupę przypadają próbki tylko z jeden z baz. Co więcej MCCV również pozwala na wykorzystanie wszystkich bądź znacznej większości danych do trenowania \cite{mccv}.  
+
+%Podział danych 80:20 dotyczy paczek SRC + PSV, natomiast budowa modeli odbywa się już na podstawie danych z pojedynczych plików wideo. Dlatego może zaistnieć sytuacja kiedy większość małych paczek (na przykład po tylko 3 pliki wideo) znajdą się w danych treningowych, a większość dużych (na przykład po 15 wideo) w danych testujących. Tym samym faktyczny podział może wynosić w skrajnym przypadku 50:50, zamiast 80:20 (taki sam odstęp może wystąpić w drugą stronę). Dlatego  przy  każdym uruchomieniu aplikacji, podział zgromadzonych danych dobywał się na zasadzie losowo wybranych paczek do każdej grup -- danych trenujących i testujących, przy zachowaniu podziału 80:20.\par
+
+%Każdorazowe wykonanie programu przygotowania modeli generuje ich zbiór, po jednym modelu dla każdego sprawdzanego algorytmu na każdy testowany zestaw danych. Wykonania dla tego skryptu zostały powtórzone wiele razy. Poniższy akapit wyjaśnia potrzebę tego zabiegu.
+
+Wykres \ref{fig:execution} odnosi się do przeprowadzonego eksperymentu, który pomógł wybrać optymalną liczbę iteracji dla wyżej omówionej techniki. Linie przedstawiają uśrednioną wartość R-kwadrat na liczbę modeli(w tym przypadku powstałych na bazie zestawów danych wejściowych numer: 18, 7, 25 -- tabela 3.2) biorących udział podczas jej obliczania. Czytając ten wykres można stwierdzić, że dla każdego z algorytmów wyniki stabilizują się satysfakcjonującym poziomie przy około 60 cyklach. W celu uniknięcia niemiarodajnych wyników w dalszych badaniach  wybrano liczbę (z pewnym zapasem) 70 modeli na podstawie których obliczany był uśredniony R-kwadrat.
 
 \begin{center}
 	\includegraphics[ height=8cm, width=12cm]{execution}
-	\captionof{figure}{Uśredniony R-kwadrat na liczbę modeli biorących udział w jego liczeniu. Badanie dla zestawu 18 z tabeli 3.2.}
+	\captionof{figure}{Uśredniony R-kwadrat na liczbę modeli biorących udział w jego liczeniu. Badanie dla zestawu 18, 7, 25 z tabeli 3.2.}
 	\label{fig:execution}
 	\label{fig:xccs}
 \end{center}
@@ -181,23 +195,23 @@ Poniżej znajdują się poglądowo przedstawione badane parametry:
 \begin{itemize}[label=$\bullet$]
 	\item SVR 
 		\begin{itemize}[noitemsep,nolistsep]
-			\item \textbf{parametr $C$} -- odnosi się do oceny straty związanej z próbkami danych poza marginesem podczas procesu trenowania.	\todo{zmienic opis, do podobnego jak w czesci teoretycznej- zmienic pojecia deneralizacji i biasu} Zbyt duża jego wartość może sprawić, że model stanie się bardziej wrażliwy zanieczyszczone dane. Mała wartość może skutkować generalizacją. Sprawdzany zakres: 0.7, 10, 20, 30, 40.
+			\item \textbf{parametr $C$} -- odnosi się do oceny straty związanej z próbkami danych poza marginesem podczas procesu trenowania.	Zbyt duża jego wartość może sprawić, że model stanie się bardziej wrażliwy na zanieczyszczone dane. Mała wartość może skutkować generalizacją. Sprawdzany zakres: 0.7, 10, 20, 30, 40.
 			\item \textbf{parametr $\epsilon$} -- określa rozmiar akceptowalnego błędu podczas trenowania modelu. Sprawdzany zakres: 0.1, 0.3, 0.4, 0.5.
 		\end{itemize}  
 	
 	\item Las losowy
 	\begin{itemize}[noitemsep,nolistsep]
 		\item \textbf{liczba drzew} -- czyli liczba drzew biorących udział w "głosowaniu". Generalnie większa ich liczba powinna  zwiększyć dopasowanie modelu, jednak przy ich pewnej liczbie dokładność już nie rośnie, natomiast zwiększają się cały czas koszty obliczeniowe modelu. Sprawdzany zakres: 10, 20, 40, 60, 70, 100.
-		\item \textbf{głębokość drzew} -- odnosi się do liczby podziałów dokonywanych w obrębie drzewa. Głębsze drzewa są w stanie uzyskać z danych więcej informacji. Negatywnym zjawiskiem jest natomiast zbyt duża jego wartość, prowadzi to do nad dopasowania. Sprawdzany zakres: 2, 6, 8, 10.
+		\item \textbf{głębokość drzew} -- odnosi się do liczby podziałów dokonywanych w obrębie drzewa. Głębsze drzewa są w stanie uzyskać z danych więcej informacji. Negatywnym zjawiskiem jest natomiast zbyt duża jego wartość, prowadzi to do przeuczenia. Sprawdzany zakres: 2, 6, 8, 10.
 	\end{itemize}  
 	
 	\item Sieć neuronowa
 	\begin{itemize}[noitemsep,nolistsep]
-		\item \textbf{liczba ukrytych warstw} oraz \textbf{liczna neuronów w pojedynczej warstwie} -- w ogólności im ich liczba jest większa tym model powinien być w stanie rozpoznać bardziej zaawansowane zależności w danych. Jednak zbyt duże wartości dla tego parametru mogą doprowadzić do nad dopasowania oraz  wydłużonego czasu trenowania. Sprawdzany zakres dla liczby warstw: 1, 2, 3, 4 oraz dla liczby neuronów: 2, 3, 5, 9, 13, 15.
+		\item \textbf{liczba ukrytych warstw} oraz \textbf{liczna neuronów w pojedynczej warstwie} -- w ogólności im ich liczba jest większa, tym model powinien być w stanie rozpoznać bardziej zaawansowane zależności w danych. Jednak zbyt duże wartości dla tego parametru mogą doprowadzić do przeuczenia oraz  wydłużonego czasu trenowania. Sprawdzany zakres dla liczby warstw: 1, 2, 3, 4 oraz dla liczby neuronów: 2, 3, 5, 9, 13, 15.
 	\end{itemize}   
 \end{itemize}
 
-Wyniki eksperymentu sa zwizualizowane na poniższych wykresach:
+Wyniki eksperymentu zwizualizowane są na poniższych wykresach:
 
 \begin{figure}[H]
 	\includegraphics[ height=10cm, width=16cm]{params_svr}
@@ -223,23 +237,17 @@ Wyniki eksperymentu sa zwizualizowane na poniższych wykresach:
 \end{center}
  
 
-%Skupiono się na kilku parametrach reszta jako const.
-%dla metryk z typu FR- postanowiono przetestowac konfiguracje xxx
-%itp.
-%NR - różne wystepnowanie, nierownomierny rozklad, tylko kilka wydaje sie byc zwiazane z jakoscia. uwzglenic mozliwe typy zaleznosci.
-%FR - rownomierny rozklad, bardziej rzetelne, czesciej uwazane za trafne. uwzglednic mozliwe typy zaleznosci
-
 
 Dla pozostałych parametrów zostały przypisane wartości polecane w artykułach dotyczących tematyki uczenia maszynowego oraz w dokumentacji pakietu sklearn. 
 
 Dla SVR użyta funkcja kernela do wyznaczenia hiperpłaszczyzny to $Radial$ $Basis$ $Function$ (RBF). Przy współczynniku $\gamma$, który mówi jak odległe punkty będą miały wpływ na budowaną hiperpłaszczyznę, skorzystano z metody już zaimplementowanej w pakiecie sklearn, pozwalającej na wyznaczenie bardziej dopasowanej wartości, bazując na dostępnym zbiorze danych. \par
 
 
-Dla sieci neuronowych ustawiono maksymalną liczbę iteracji algorytmu $Backward$ $Propagation$, po której model będzie gotowy na 1000. Parametr $learning$ $rate$, określający szybkość uczenia, został ustawiony na wartość 0,001. Natomiast funkcję aktywacji stanowiła funkcja ReLU.\par
+Dla sieci neuronowych ustawiono maksymalną liczbę iteracji algorytmu $Backward$ $Propagation$, po której model będzie gotowy na 5000. Parametr $learning$ $rate$, określający szybkość uczenia, został ustawiony na wartość 0,001. Natomiast funkcję aktywacji stanowiła funkcja ReLU.\par
 
 \vspace{5mm}
 
-Podczas przedstawionego tu eksperymentu zostało stworzonych 20 160 modeli. Na tą liczbę składa się: 24 (20-dla SVR) -- kombinacje parametrów na jeden algorytm, 4 -- algorytmy uczenia maszynowego, 3 -- zestawy cech, 70 -- modeli na otrzymanie uśrednionego R-kwadrat.    
+Podczas przedstawionego tu eksperymentu zostało stworzonych 20 160 modeli. Na tą liczbę składa się: 24 (20-dla SVR) -- kombinacje parametrów na jeden algorytm, 4 -- algorytmy uczenia maszynowego, 3 -- zestawy cech, 70 -- modeli biorących udział w walidacji krzyżowej.    
 
 \vspace{5mm}
 
@@ -258,7 +266,7 @@ Na podstawie rozdziału 3.4.1 zostały wybrane optymalne parametry. Podczas sele
 	
 	\item Las losowy -- liczba drzew w modelu: 60, głębokość drzewa 8. 
 
-	\item Sieć neuronowa -- liczba neuronów w pojedynczej warstwie ukrytej: 13, liczba ukrytych warstw: 3, liczba iteracji algorytmu $Backward$ $Propagation$: 1000, $learning$ $rate$: 0,001, funkcja aktywacji: ReLU.\par 
+	\item Sieć neuronowa -- liczba neuronów w pojedynczej warstwie ukrytej: 13, liczba ukrytych warstw: 3, liczba iteracji algorytmu $Backward$ $Propagation$: 5000, $learning$ $rate$: 0,001, funkcja aktywacji: ReLU.\par 
 	
 \end{itemize}
 
@@ -376,7 +384,7 @@ Prezentowana praca stawiała sobie za cel stworzenie algorytmu oceniającego jak
 
 Po uprzednim przygotowaniu danych, do dyspozycji badającego były informacje opisujące wideo –- zarówno metryki FR jak i NR. Metryki zostały wykorzystane do zbudowania i przystosowania czterech pul modeli w oparciu o  cztery algorytmy uczenia maszynowego. Wykreowane modele mogą posłużyć jako algorytmy oceniające jakość wideo.
 
-Zmierzając do zniwelowania różnic wynikających ze specyficznego podziału danych stworzono ponad 70 modeli dla każdego z algorytmów, gdzie, na podstawie uśrednionego wyniku R-kwadrat, został wybrany optymalny algorytm (wraz z parametrami) i zestaw cech - jako dane wejściowe. Odnosząc się do tematu pracy, algorytmem oceniającym jakość jest jeden z modeli przygotowany w oparciu o wyżej wymienione czynniki -- Las Losowy składający się z 60 drzew o głębokości 8 wraz cechami z zestawu 18 [link do zserializowanego modelu].\todo{text}
+Zmierzając do zniwelowania różnic wynikających ze specyficznego podziału danych stworzono ponad 70 modeli dla każdego z algorytmów, gdzie, na podstawie uśrednionego wyniku R-kwadrat, został wybrany optymalny algorytm (wraz z parametrami) i zestaw cech - jako dane wejściowe. Odnosząc się do tematu pracy, algorytmem oceniającym jakość jest jeden z modeli przygotowany w oparciu o wyżej wymienione czynniki -- Las Losowy składający się z  drzew o głębokości 8 wraz cechami z zestawu 18 (zserializowany model dostępny jest pod \cite{model_rf}).
 
 Co więcej, można postawić tezę, że chociaż wszystkie metryki FR, w tym badaniu, mają wysokie wartości R-kwadrat, to jednak możliwa jest sytuacja, kiedy ich ocena znacząco będzie odbiegać od SQV. Wideo referencyjne może już na samym początku może być zniekształcone poprzez nieprawidłowe nagranie. Policzony wtedy PSNR dla SRC i PVS wykaże wysoką jakość obrazu ale ocena odbiorcy będzie negatywna.
 

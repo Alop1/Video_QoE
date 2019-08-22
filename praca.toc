@@ -5,9 +5,9 @@
 \contentsline {section}{\numberline {2.1}Wideo}{9}% 
 \contentsline {section}{\numberline {2.2}Metryki}{11}% 
 \contentsline {subsection}{\numberline {2.2.1}Metryki no-reference}{11}% 
-\contentsline {subsection}{\numberline {2.2.2}Metryki full-reference}{16}% 
+\contentsline {subsection}{\numberline {2.2.2}Metryki full-reference}{15}% 
 \contentsline {section}{\numberline {2.3}Algorytmy uczenia maszynowego }{17}% 
-\contentsline {subsection}{\numberline {2.3.1}Ucznie nadzorowane i nienadzorowane}{18}% 
+\contentsline {subsection}{\numberline {2.3.1}Ucznie nadzorowane i nienadzorowane}{17}% 
 \contentsline {subsection}{\numberline {2.3.2}Problem klasyfikacji i regresji}{18}% 
 \contentsline {subsection}{\numberline {2.3.3}Bias i wariancja}{18}% 
 \contentsline {subsection}{\numberline {2.3.4}Regresja Liniowa}{19}% 
@@ -22,7 +22,7 @@
 \contentsline {subsection}{\numberline {3.2.3}Normalizacja i czyszczenie danych}{28}% 
 \contentsline {subsection}{\numberline {3.2.4}Podzia\IeC {\l } danych}{28}% 
 \contentsline {subsection}{\numberline {3.2.5}Podsumowanie danych}{30}% 
-\contentsline {section}{\numberline {3.3}Proces budowania i testowania modeli}{30}% 
+\contentsline {section}{\numberline {3.3}Budowanie i weryfikacja modeli}{30}% 
 \contentsline {section}{\numberline {3.4}Parametry modeli}{33}% 
 \contentsline {subsection}{\numberline {3.4.1}Testy parametr\IeC {\'o}w}{33}% 
 \contentsline {subsection}{\numberline {3.4.2}Parametry}{36}% 
@@ -42,4 +42,4 @@
 \babel@toc {polish}{}
 \babel@toc {english}{}
 \babel@toc {polish}{}
-\contentsline {chapter}{Bibliografia}{51}% 
+\contentsline {chapter}{Bibliografia}{52}% 
